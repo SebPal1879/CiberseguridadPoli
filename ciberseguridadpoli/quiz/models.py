@@ -8,6 +8,8 @@ class Quiz(models.Model):
   name = models.CharField(max_length=40)
   description = models.CharField(max_length=150)
   id_lecture =models.ForeignKey(Lecture,on_delete=models.CASCADE)
+  class Meta:
+    verbose_name_plural = "quizzes"
 
 class Question(models.Model):
   statement = models.CharField(max_length=1000,blank=False)
@@ -23,6 +25,8 @@ class AvailableQuiz(models.Model):
   id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
   id_quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE)
   is_available = models.BooleanField(blank=False,default=False)
+  class Meta:
+    verbose_name_plural = "available quizzes"
 
 class QuizCompletion(models.Model):
   id_usuario = models.ForeignKey(User,on_delete=models.CASCADE)

@@ -10,4 +10,6 @@ class Profile(models.Model):
 class History(models.Model):
   id_history = models.UUIDField(default=uuid.uuid4,editable=False,primary_key=True)
   User_id_user = models.OneToOneField(User, on_delete=models.CASCADE,blank=True)
+  class Meta:
+    verbose_name_plural = "histories"
   
