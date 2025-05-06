@@ -11,12 +11,12 @@ class Lecture(models.Model):
   name = models.CharField(max_length=30,blank=False)
   section_id = models.ForeignKey(Section,on_delete=models.CASCADE)
 
-class LectureContent():
+class LectureContent(models.Model):
   content_path = models.CharField(max_length=100)
   image_path = models.ImageField(blank=True,null=True)
   lecture_id = models.ForeignKey(Lecture,on_delete=models.CASCADE)
 
-class LectureAvailabilityAndCompletion():
+class LectureAvailabilityAndCompletion(models.Model):
   is_available = models.BooleanField(blank=False, default=False)
   is_completed = models.BooleanField(blank=False, default=False)
   id_user = models.ForeignKey(User,on_delete=models.CASCADE)
