@@ -58,9 +58,25 @@ button.btn-primary {
   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
+button.btn-primary:focus,
+button.btn-primary:active {
+  background-color: #fff;
+  color: #444;
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #ccc;
+}
+
 button.btn-primary:hover {
   background-color: #58c45c;
   border: 1px solid #439946;
+  color: #fff;
+}
+
+button.btn-primary:active {
+  background-color: #439946 !important;
+  border: 1px solid #347737 !important;
+  color: #b8b8b8 !important;
 }
 
 a.text-center {
@@ -83,4 +99,9 @@ a.text-center:hover {
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
+}
+
+body.swal2-shown {
+  height: 100vh !important;
+  overflow: hidden !important;
 }

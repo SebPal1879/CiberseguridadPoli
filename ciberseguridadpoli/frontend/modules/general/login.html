@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="../../css/all.min.css">
     <link rel="stylesheet" href="../../css/adminlte.min.css">
+    <script src="../../js/jquerys/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="../../css/styles.css">
   </head>
 
@@ -24,7 +25,7 @@
           <form>
             <!-- El email puede cambiarse por user si es necesario -->
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="Email">
+              <input type="email" id="email" class="form-control" placeholder="Email">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-envelope"></span> <!-- Si se va a usar nombre de usuario en lugar de Email, se cambia 'fa-envelope' por 'fa-user' -->
@@ -32,17 +33,16 @@
               </div>
             </div>
             <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="Contraseña">
+              <input type="password" id="password" class="form-control" placeholder="Contraseña">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
                 </div>
               </div>
             </div>
-              <div class="button-container">
-                <div class="col-4">
-                  <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
-                </div>
+            <div class="button-container">
+              <div class="col-4">
+                <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
               </div>
             </div>
           </form>
@@ -60,5 +60,6 @@
     <script src="../../js/jquerys/jquery.min.js"></script>
     <script src="../../js/jquerys/bootstrap.bundle.min.js"></script>
     <script src="../../js/jquerys/adminlte.min.js"></script>
+    <script src="../../js/jquerys/login.js"></script>
   </body>
 </html>
