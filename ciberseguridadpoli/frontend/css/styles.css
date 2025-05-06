@@ -1,0 +1,86 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #d4d4d4;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background-color: white;
+  border-radius: 8px;
+  width: 320px;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.card-outline {
+  border: none;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card{
+  box-shadow: none;
+}
+
+.login-div{
+  margin-bottom: 3rem;
+}
+
+.login-div h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.login-div p {
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+button.btn-primary {
+  background-color: #fff;
+  color: #444;
+  border: 1px solid #ccc;
+  font-weight: 500;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+button.btn-primary:hover {
+  background-color: #58c45c;
+  border: 1px solid #439946;
+}
+
+a.text-center {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.text-center:hover {
+  text-decoration: underline;
+}
+
+.logo{
+  width: 7rem;
+  height: 7rem;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
