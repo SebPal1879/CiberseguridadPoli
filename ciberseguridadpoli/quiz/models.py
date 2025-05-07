@@ -8,6 +8,10 @@ class Quiz(models.Model):
   name = models.CharField(max_length=40)
   description = models.CharField(max_length=150)
   id_lecture =models.ForeignKey(Lecture,on_delete=models.CASCADE)
+
+  def __str__(self):
+    return self.name
+
   class Meta:
     verbose_name_plural = "quizzes"
 
@@ -15,11 +19,15 @@ class Question(models.Model):
   statement = models.CharField(max_length=1000,blank=False)
   points = models.IntegerField(blank=False)
   id_quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE)
+  def __str__(self):
+    return self.statement
 
 class Answer(models.Model):
   answer = models.CharField(max_length=1000,blank=False)
   is_correct = models.BooleanField(blank=False)
   id_question = models.ForeignKey(Question, on_delete=models.CASCADE)
+  def __str__(self):
+    return self.answer
   
 class AvailableQuiz(models.Model):
   id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)

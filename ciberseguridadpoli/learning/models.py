@@ -4,12 +4,17 @@ from signup.models import User
 # Create your models here.
 class Section(models.Model):
   section_number = models.IntegerField(blank=False)
+  name = models.CharField(blank=True)
   description = models.CharField(max_length=500)
   #completed = models.BooleanField(default=False)
+  def __str__(self):
+    return self.description
 
 class Lecture(models.Model):
   name = models.CharField(max_length=30,blank=False)
   section_id = models.ForeignKey(Section,on_delete=models.CASCADE)
+  def __str__(self):
+    return self.name
 
 class LectureContent(models.Model):
   content_path = models.CharField(max_length=100)
