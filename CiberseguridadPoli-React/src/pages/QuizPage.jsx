@@ -1,13 +1,24 @@
-import { useReducer, useState } from "react";
-import Header from "./header";
-import Container from "./Container";
-import Start from "./Start";
-import Progress from "./Progress";
-import Question from "./Question";
-import Bottom from "./Bottom";
+import { useEffect, useReducer } from "react";
+import Header from "../components/header";
+import Container from "../components/Container";
+import Start from "../components/Start";
+import Progress from "../components/Progress";
+import Question from "../components/Question";
+import Bottom from "../components/Bottom";
+import { getAll } from "../api/quiz.api";
 
 function reducer(state, action) {
   switch (action.type) {
+    case "awaiting":
+      return {
+        ...state,
+        status: "loading",
+      };
+    case "received":
+      return {
+        ...state,
+        status: "ready",
+      };
     case "start":
       return {
         ...state,
@@ -42,7 +53,7 @@ function reducer(state, action) {
   }
 }
 
-function App() {
+function QuizPage() {
   const initialState = {
     questions: [
       {
@@ -197,6 +208,16 @@ function App() {
     initialState
   );
 
+  useEffect(function () {
+    async function loadQuiz() {
+      dispatch({ type: "awaiting" });
+      const res = await getAll();
+      console.log(res);
+      dispatch({ type: "received" });
+    }
+    loadQuiz();
+  }, []);
+
   const maxQuestions = questions.length;
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0);
   return (
@@ -230,4 +251,4 @@ function App() {
   );
 }
 
-export default App;
+export default QuizPage;

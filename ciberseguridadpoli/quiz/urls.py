@@ -9,5 +9,6 @@ router.register(r'quiz',views.QuizView,'quiz')
 
 urlpatterns = [
   path("api/v1/",include(router.urls)),
+  path("prueba",views.Lunerview,name="prueba")
   #path("docs/", include_docs_urls(title="Quiz API"))
 ]

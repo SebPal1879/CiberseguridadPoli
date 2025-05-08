@@ -1,8 +1,14 @@
-from django.shortcuts import render
 from rest_framework import viewsets
-from .serializer import QuizSerializaer
+from .serializer import QuizSerializer
 from .models import Quiz
+from django.http import HttpResponse
+
 # Create your views here.
 class QuizView(viewsets.ModelViewSet):
-  serializer_class = QuizSerializaer
-  queryset = Quiz.objects.all()
+  serializer_class = QuizSerializer
+  queryset = Quiz.objects.get(pk=2)
+  print(queryset)
+
+def Lunerview(request):
+  a = Quiz.objects.get(pk=2)
+  return HttpResponse(a)
