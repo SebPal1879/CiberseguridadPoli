@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Curso especializado en ciberseguridad para estudiantes de ingeniería informática"/>
+  <title>Detalle del Curso | CiberseguridadPoli</title>
+  <link rel="stylesheet" href="stylescursos.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo-container">
+        <img src="../img/logo.png" alt="Logo Politécnico Colombiano" class="logo"/>
+        <div class="titles">
+          <h1>CiberseguridadPoli</h1>
+          <p>Formando ingenieros informáticos seguros</p>
+        </div>
+      </div>
+      <nav class="navbar">
+        <a href="/frontend/cursos/index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="/frontend/cursos/index.html"><i class="fas fa-book"></i> Catálogo</a>
+        <a href="#beneficios"><i class="fas fa-star"></i> Beneficios</a>
+        <a href="#metodologia"><i class="fas fa-chalkboard-teacher"></i> Metodología</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="content-wrapper">
+    <main class="curso-detail-container">
+      <section class="detalle-curso">
+        <div class="curso-header">
+          <div class="curso-badge" id="curso-nivel-badge"></div>
+          <h2 id="curso-titulo"></h2>
+          <p class="curso-subtitulo" id="curso-subtitulo"></p>
+          
+          <div class="curso-meta">
+            <span class="meta-item"><i class="far fa-clock"></i> <strong>Duración:</strong> <span id="curso-duracion"></span></span>
+            <span class="meta-item"><i class="fas fa-signal"></i> <strong>Nivel:</strong> <span id="curso-nivel"></span></span>
+            <span class="meta-item"><i class="fas fa-certificate"></i> <strong>Certificación:</strong> Avalado por CiberseguridadPoli</span>
+            <span class="meta-item"><i class="fas fa-users"></i> <strong>Cupos:</strong> Limitados</span>
+          </div>
+        </div>
+        
+        <div class="curso-content">
+          <div class="descripcion-section">
+            <h3><i class="fas fa-info-circle"></i> Descripción del curso</h3>
+            <p id="curso-descripcion"></p>
+          </div>
+
+          <div class="objetivos-section">
+            <h3><i class="fas fa-bullseye"></i> Objetivos de aprendizaje</h3>
+            <ul id="curso-objetivos">
+              <li>Comprender los fundamentos teóricos de la ciberseguridad aplicada</li>
+              <li>Identificar vulnerabilidades comunes en sistemas informáticos</li>
+              <li>Implementar medidas de protección efectivas</li>
+              <li>Desarrollar habilidades prácticas mediante laboratorios virtuales</li>
+              <li>Aplicar conocimientos en proyectos realistas</li>
+            </ul>
+          </div>
+
+          <div class="contenido-section">
+            <h3><i class="fas fa-list-ul"></i> Plan de estudios</h3>
+            <div class="modulos-container">
+              <div class="modulo">
+                <h4>Módulo 1: Fundamentos</h4>
+                <ul id="curso-contenido-fundamentos"></ul>
+              </div>
+              <div class="modulo">
+                <h4>Módulo 2: Profundización</h4>
+                <ul id="curso-contenido-profundizacion"></ul>
+              </div>
+              <div class="modulo">
+                <h4>Módulo 3: Aplicación práctica</h4>
+                <ul id="curso-contenido-practica"></ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="metodologia" class="metodologia-section">
+            <h3><i class="fas fa-atom"></i> Metodología</h3>
+            <div class="metodologia-cards">
+              <div class="metodologia-card">
+                <i class="fas fa-laptop-code"></i>
+                <h4>Clases interactivas</h4>
+                <p>Sesiones en vivo con expertos en ciberseguridad</p>
+              </div>
+              <div class="metodologia-card">
+                <i class="fas fa-flask"></i>
+                <h4>Laboratorios prácticos</h4>
+                <p>Entornos virtuales para practicar sin riesgos</p>
+              </div>
+              <div class="metodologia-card">
+                <i class="fas fa-project-diagram"></i>
+                <h4>Proyecto final</h4>
+                <p>Aplicación de conocimientos en un caso real</p>
+              </div>
+              <div class="metodologia-card">
+                <i class="fas fa-comments"></i>
+                <h4>Foros de discusión</h4>
+                <p>Interacción con compañeros y profesores</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="instructor-section">
+            <h3><i class="fas fa-chalkboard-teacher"></i> Equipo docente</h3>
+            <div class="instructors-grid">
+              <div class="instructor-card">
+                <div class="instructor-info">
+                  <h4>Dr. Carlos Andrés Ramírez</h4>
+                  <p class="instructor-title">PhD en Seguridad Informática</p>
+                  <p class="instructor-bio">Más de 15 años de experiencia en seguridad ofensiva y defensiva. Ex consultor de INTERPOL en cibercrimen. Certificaciones: CISSP, OSCP, CEH.</p>
+                  <div class="instructor-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fas fa-globe"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="instructor-card">
+                <div class="instructor-info">
+                  <h4>Ing. Laura Gómez</h4>
+                  <p class="instructor-title">Especialista en Forense Digital</p>
+                  <p class="instructor-bio">Experta en análisis forense e inteligencia de amenazas. Líder del equipo de respuesta a incidentes en una entidad financiera. Certificaciones: GCFA, GNFA.</p>
+                  <div class="instructor-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="evaluacion-section">
+            <h3><i class="fas fa-clipboard-check"></i> Sistema de evaluación</h3>
+            <div class="evaluacion-grid">
+              <div class="evaluacion-item">
+                <div class="evaluacion-icon"><i class="fas fa-tasks"></i></div>
+                <div class="evaluacion-content">
+                  <h4>Quizzes y tests</h4>
+                  <p>Evaluaciones periódicas para medir comprensión de conceptos (30%)</p>
+                </div>
+              </div>
+              <div class="evaluacion-item">
+                <div class="evaluacion-icon"><i class="fas fa-laptop-code"></i></div>
+                <div class="evaluacion-content">
+                  <h4>Laboratorios prácticos</h4>
+                  <p>Ejercicios en entornos controlados (40%)</p>
+                </div>
+              </div>
+              <div class="evaluacion-item">
+                <div class="evaluacion-icon"><i class="fas fa-project-diagram"></i></div>
+                <div class="evaluacion-content">
+                  <h4>Proyecto final</h4>
+                  <p>Aplicación integral de conocimientos (30%)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="curso-actions">
+          <button class="btn-primary btn-inscribirse"><i class="fas fa-user-plus"></i> Inscribirse ahora</button>
+          <button class="btn-secondary"><i class="fas fa-file-download"></i> Descargar programa completo</button>
+          <button class="btn-tertiary"><i class="far fa-question-circle"></i> ¿Tienes preguntas?</button>
+        </div>
+      </section>
+
+      <aside class="curso-sidebar">
+        <div class="sidebar-card">
+          <h4><i class="fas fa-calendar-alt"></i> Próximas fechas</h4>
+          <div class="fechas-container">
+            <div class="fecha-item">
+              <div class="fecha-icon"><i class="far fa-calendar"></i></div>
+              <div class="fecha-content">
+                <h5>Inicio:</h5>
+                <p>15 de junio, 2025</p>
+              </div>
+            </div>
+            <div class="fecha-item">
+              <div class="fecha-icon"><i class="far fa-calendar-check"></i></div>
+              <div class="fecha-content">
+                <h5>Fin:</h5>
+                <p>20 de julio, 2025</p>
+              </div>
+            </div>
+            <div class="fecha-item">
+              <div class="fecha-icon"><i class="fas fa-clock"></i></div>
+              <div class="fecha-content">
+                <h5>Horario:</h5>
+                <p>Martes y jueves, 6:00pm - 9:00pm</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h4><i class="fas fa-graduation-cap"></i> Requisitos</h4>
+          <ul class="requirements-list">
+            <li>Conocimientos básicos de informática</li>
+            <li>Acceso a computador con 4GB RAM mínimo</li>
+            <li>Conexión estable a internet</li>
+            <li>Cuenta institucional @elpoli.edu.co</li>
+            <li>Dedicación de 5 horas semanales</li>
+          </ul>
+        </div>
+
+        <div id="beneficios" class="sidebar-card benefits-card">
+          <h4><i class="fas fa-award"></i> Beneficios</h4>
+          <ul class="benefits-list">
+            <li>Acceso ilimitado a laboratorios virtuales</li>
+            <li>Sesiones de mentoría personalizada</li>
+            <li>Material didáctico exclusivo</li>
+            <li>Certificado digital con tecnología blockchain</li>
+            <li>Acceso a comunidad de egresados</li>
+            <li>Bolsa de empleo especializada</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h4><i class="fas fa-chart-line"></i> Resultados esperados</h4>
+          <div class="resultados-chart">
+            <div class="chart-item">
+              <div class="chart-bar" style="height: 90%; background-color: var(--verde-claro);"></div>
+              <p>Habilidad para identificar vulnerabilidades</p>
+            </div>
+            <div class="chart-item">
+              <div class="chart-bar" style="height: 85%; background-color: var(--verde-oscuro);"></div>
+              <p>Capacidad para implementar contramedidas</p>
+            </div>
+            <div class="chart-item">
+              <div class="chart-bar" style="height: 80%; background-color: var(--amarillo);"></div>
+              <p>Comprensión de normativas legales</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <section class="related-courses">
+      <h3><i class="fas fa-book-open"></i> Cursos relacionados</h3>
+      <div class="related-grid">
+        <div class="related-card">
+          <h4>Seguridad en Desarrollo Web</h4>
+          <p>Aprende a construir aplicaciones web seguras desde su concepción.</p>
+          <a href="#" class="btn-related">Ver detalles <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="related-card">
+          <h4>Introducción a la Criptografía</h4>
+          <p>Fundamentos matemáticos y aplicaciones prácticas de la criptografía.</p>
+          <a href="#" class="btn-related">Ver detalles <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="related-card">
+          <h4>Forense Digital</h4>
+          <p>Técnicas para investigación de incidentes de seguridad.</p>
+          <a href="#" class="btn-related">Ver detalles <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials-section">
+      <h3><i class="fas fa-quote-left"></i> Testimonios de estudiantes</h3>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div>
+              <h5>María Fernanda López</h5>
+              <p>Ing. Informática - 8vo semestre</p>
+            </div>
+          </div>
+          <div class="testimonial-content">
+            <p>"Los conocimientos adquiridos en este curso me permitieron conseguir mi primera práctica profesional en el área de seguridad. Los laboratorios son excepcionales!"</p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div>
+              <h5>Juan David Martínez</h5>
+              <p>Ing. Informática - Egresado</p>
+            </div>
+          </div>
+          <div class="testimonial-content">
+            <p>"La metodología práctica y los instructores con experiencia real en el campo hacen que este curso sea invaluable para cualquier estudiante de ingeniería."</p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <img src="../img/logo.png" alt="Logo CiberseguridadPoli" class="footer-logo">
+        <h3>CiberseguridadPoli</h3>
+        <p>Iniciativa de la Facultad de Ingeniería Informática del Politécnico Colombiano Jaime Isaza Cadavid para formar profesionales en seguridad digital.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Contacto</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Cl. 48 #7-151, Medellín, Antioquia</p>
+        <p><i class="fas fa-phone"></i> +57 4 123 4567</p>
+        <p><i class="fas fa-envelope"></i> ciberseguridad@elpoli.edu.co</p>
+        <p><i class="fas fa-clock"></i> Lunes a viernes: 8:00am - 6:00pm</p>
+      </div>
+      <div class="footer-section">
+        <h3>Enlaces útiles</h3>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Preguntas frecuentes</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Políticas de privacidad</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Blog de seguridad</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Eventos y webinars</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Convenios institucionales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CiberseguridadPoli - Politécnico Colombiano Jaime Isaza Cadavid. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="cursos.js"></script>
+</body>
+</html>
