@@ -18,27 +18,27 @@ class Quiz(models.Model):
 class Question(models.Model):
   statement = models.CharField(max_length=1000,blank=False)
   points = models.IntegerField(blank=False)
-  id_quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE)
+  quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE)
   def __str__(self):
     return self.statement
 
 class Answer(models.Model):
   answer = models.CharField(max_length=1000,blank=False)
   is_correct = models.BooleanField(blank=False)
-  id_question = models.ForeignKey(Question, on_delete=models.CASCADE)
+  question= models.ForeignKey(Question, on_delete=models.CASCADE)
   def __str__(self):
     return self.answer
   
 class AvailableQuiz(models.Model):
-  id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-  id_quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE)
   is_available = models.BooleanField(blank=False,default=False)
   class Meta:
     verbose_name_plural = "available quizzes"
 
 class QuizCompletion(models.Model):
-  id_usuario = models.ForeignKey(User,on_delete=models.CASCADE)
-  id_quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE)
+  user = models.ForeignKey(User,on_delete=models.CASCADE)
+  quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE)
   score = models.FloatField(blank=True,null=True)
   attempt_date = models.DateTimeField(auto_now=True)
   

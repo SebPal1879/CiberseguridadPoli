@@ -8,9 +8,9 @@ class QuizSerializer(serializers.ModelSerializer):
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
       model = Question
-      fields = ('statement','points')
+      fields = ('id','quiz','statement','points')
 
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
       model = Answer
-      fields = ('is_correct')
+      fields = ('id','question','answer','is_correct')
