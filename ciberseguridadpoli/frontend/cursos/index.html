@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo de Cursos - Ciberseguridad | Politécnico Colombiano</title>
+  <link rel="stylesheet" href="stylescursos.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo-container">
+        <img src="../img/logo.png" alt="Logo Politécnico Colombiano" class="logo" />
+        <div class="titles">
+          <h1>Seguridad Digital</h1>
+          <p>Facultad de Ingeniería Informática</p>
+        </div>
+      </div>
+      <nav class="navbar">
+        <a href="/frontend/cursos/index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="/frontend/cursos/curso.html"><i class="fas fa-book"></i> Curso</a>
+        <a href="#importancia"><i class="fas fa-book-open"></i>Importancia</a>
+        <a href="#estadisticas"><i class="fas fa-info-circle"></i>Estadisticas</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="content-wrapper">
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h2>Formación en Ciberseguridad para Ingenieros del Futuro</h2>
+          <p>Protege lo que más importa en la era digital. Aprende las mejores prácticas de seguridad con nuestros cursos especializados.</p>
+          <a href="/frontend/cursos/curso.html" class="btn-primary">Explorar el curso disponible</a>
+        </div>
+      </section>
+
+      <section class="intro">
+        <h2>Bienvenido a nuestra plataforma de concienciación en ciberseguridad</h2>
+        <p>En el Politécnico Colombiano Jaime Isaza Cadavid, hemos desarrollado esta plataforma para fortalecer las competencias digitales de nuestros estudiantes de Ingeniería Informática. Nuestros cursos combinan teoría fundamentada, ejercicios prácticos y simulaciones de escenarios reales para prepararte ante las amenazas del mundo digital.</p>
+      </section>
+
+      <section id="cursos-lista" class="cursos-grid">
+        <!-- Los cursos se insertan dinámicamente con JS -->
+      </section>
+
+      <section id="importancia" class="info-section">
+        <h2>¿Por qué es crucial la ciberseguridad?</h2>
+        <div class="importance-cards">
+          <div class="importance-card">
+            <div class="icon">📈</div>
+            <h3>Crecimiento exponencial</h3>
+            <p>El mercado de ciberseguridad crecerá un 10% anual hasta 2027, con más de 3.5 millones de empleos sin cubrir.</p>
+          </div>
+          <div class="importance-card">
+            <div class="icon">💼</div>
+            <h3>Oportunidades laborales</h3>
+            <p>Los profesionales en seguridad informática tienen una tasa de empleabilidad del 95% en Latinoamérica.</p>
+          </div>
+          <div class="importance-card">
+            <div class="icon">🔐</div>
+            <h3>Protección esencial</h3>
+            <p>El 43% de los ataques cibernéticos están dirigidos a pequeñas y medianas empresas, muchas sin protección adecuada.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="estadisticas" class="stats-section">
+        <h2>El panorama actual de la ciberseguridad</h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-number">73%</span>
+            <p>de las organizaciones han sufrido al menos un incidente de seguridad significativo en el último año</p>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">+300%</span>
+            <p>aumento en ataques de ransomware desde 2020</p>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">95%</span>
+            <p>de las brechas de seguridad son causadas por error humano</p>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">$4.35M</span>
+            <p>es el costo promedio de una violación de datos en 2024</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Político Colombiano</h3>
+        <p>Institución de Educación Superior comprometida con la excelencia académica y la formación de profesionales íntegros.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contacto</h3>
+        <p>Facultad de Ingeniería Informática</p>
+        <p>Tel: +57 4 123 4567</p>
+        <p>email: ciberseguridad@elpoli.edu.co</p>
+      </div>
+      <div class="footer-section">
+        <h3>Enlaces rápidos</h3>
+        <ul>
+          <li><a href="/frontend/cursos/index.html">Inicio</a></li>
+          <li><a href="/frontend/cursos/index.html">Catálogo</a></li>
+          <li><a href="#">Políticas de seguridad</a></li>
+          <li><a href="#">Recursos adicionales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Politécnico Colombiano Jaime Isaza Cadavid - Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <script src="cursos.js"></script>
+</body>
+</html>

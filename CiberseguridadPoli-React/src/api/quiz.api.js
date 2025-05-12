@@ -1,5 +1,7 @@
 import axios from "axios";
 
-export function getAll() {
-  return axios.get("http://localhost:8000/quiz/api/v1/quiz/");
+export function getAll(id) {
+  return axios.post("http://localhost:8000/quiz/find-quiz/", {
+    id,
+  });
 }

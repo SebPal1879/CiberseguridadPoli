@@ -1,4 +1,4 @@
-function Progress({ actual, maxQuestions, maxPoints }) {
+function Progress({ actual, maxQuestions, currentPoints, maxPoints }) {
   return (
     <div className="progress">
       <progress max={maxQuestions} value={actual}></progress>
@@ -7,7 +7,7 @@ function Progress({ actual, maxQuestions, maxPoints }) {
       </p>
       <p>
         <em>
-          <strong>X</strong> points out of {maxPoints}
+          <strong>{currentPoints}</strong> points out of {maxPoints}
         </em>
       </p>
     </div>
