@@ -50,7 +50,6 @@ button.btn-primary {
   border: 1px solid #ccc;
   font-weight: 500;
   padding: 10px;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,8 +72,11 @@ button.btn-primary:hover {
   color: #fff;
 }
 
+/*
+  Estilos para que el boton se ponga verde en lugar del azul por defecto de Bootstrap, por eso el !important
+*/
 button.btn-primary:active {
-  background-color: #439946 !important;
+  background-color: #439946 !important; 
   border: 1px solid #347737 !important;
   color: #b8b8b8 !important;
 }
@@ -105,3 +107,50 @@ body.swal2-shown {
   height: 100vh !important;
   overflow: hidden !important;
 }
+
+.custom-drop-area {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.custom-drop-area.dragover {
+  border-color: #28a745;
+  background-color: #e8f5e9;
+}
+
+.custom-file-name {
+  display: inline-block;
+  color: #6c757d;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.register-card-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.register-btn{
+  margin-bottom: 1rem;
+}
+
+#fileName {
+  border-right: 1px solid #ced4da;
+}
+
+#passwordRepeat{
+  cursor: not-allowed;
+}
+
+#lockIconContainer {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+
+
