@@ -1,11 +1,19 @@
 import Timer from "./Timer";
 
 function Bottom({ dispatch, answer, index, maxQuestions }) {
-  if (index < maxQuestions - 1) {
-    return (
-      <div className="bottom-row">
-        <Timer dispatch={dispatch} />
-
+  return (
+    <div className="bottom-row">
+      <Timer dispatch={dispatch} />
+      {index === maxQuestions - 1 ? (
+        <div className="next">
+          <button
+            className="main-button"
+            onClick={() => dispatch({ type: "results" })}
+          >
+            Finish
+          </button>
+        </div>
+      ) : (
         <div className="next">
           <button
             className={`main-button ${answer === null ? "disabled" : ""}`}
@@ -15,21 +23,9 @@ function Bottom({ dispatch, answer, index, maxQuestions }) {
             Next
           </button>
         </div>
-      </div>
-    );
-  }
-  if (index === maxQuestions - 1) {
-    return (
-      <div className="next">
-        <button
-          className="main-button"
-          onClick={() => dispatch({ type: "next" })}
-        >
-          Finish
-        </button>
-      </div>
-    );
-  }
+      )}
+    </div>
+  );
 }
 
 export default Bottom;

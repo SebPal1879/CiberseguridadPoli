@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
-const MAX_SECONDS = 2;
+const MAX_SECONDS = 15;
 
 function Timer({ dispatch }) {
   const [time, setTime] = useState(MAX_SECONDS);
