@@ -1,0 +1,166 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #d4d4d4;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background-color: white;
+  border-radius: 8px;
+  width: 320px;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.card-outline {
+  border: none;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card{
+  box-shadow: none;
+}
+
+.login-div{
+  margin-bottom: 3rem;
+}
+
+.login-div h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.login-div p {
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+button.btn-primary {
+  background-color: #fff;
+  color: #444;
+  border: 1px solid #ccc;
+  font-weight: 500;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+button.btn-primary:focus,
+button.btn-primary:active {
+  background-color: #fff;
+  color: #444;
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #ccc;
+}
+
+button.btn-primary:hover {
+  background-color: #58c45c;
+  border: 1px solid #439946;
+  color: #fff;
+}
+
+/*
+  Estilos para que el boton se ponga verde en lugar del azul por defecto de Bootstrap, por eso el !important
+*/
+button.btn-primary:active {
+  background-color: #439946 !important; 
+  border: 1px solid #347737 !important;
+  color: #b8b8b8 !important;
+}
+
+a.text-center {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.text-center:hover {
+  text-decoration: underline;
+}
+
+.logo{
+  width: 7rem;
+  height: 7rem;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+body.swal2-shown {
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+
+.custom-drop-area {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.custom-drop-area.dragover {
+  border-color: #28a745;
+  background-color: #e8f5e9;
+}
+
+.custom-file-name {
+  display: inline-block;
+  color: #6c757d;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.register-card-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.register-btn{
+  margin-bottom: 1rem;
+}
+
+#fileName {
+  border-right: 1px solid #ced4da;
+}
+
+#passwordRepeat{
+  cursor: not-allowed;
+}
+
+#lockIconContainer {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+a.forgot-password{
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.forgot-password:hover{
+  text-decoration: underline;
+}
+
+
+

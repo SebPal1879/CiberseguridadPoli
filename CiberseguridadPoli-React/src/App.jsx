@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import QuizPage from "./pages/QuizPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/quiz" />} />
         <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/registro" element={<RegisterPage />} />
       </Routes>
     </BrowserRouter>
   );
