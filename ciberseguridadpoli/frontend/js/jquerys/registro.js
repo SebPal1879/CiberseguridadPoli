@@ -79,13 +79,17 @@ document.querySelector("form").addEventListener("submit", function (e) {
     "password",
     "passwordRepeat"
   ];
+
   /*
     VARIABLES DE PRUEBA, PUEDEN BORRARSE Y TODAS LAS CONDICIONES RELACIONADAS A ELLAS 
   */
-  const registeredUsernames = ["admin", "usuario1"]; //ARRAY DE PRUEBA PARA NOMBRE DE USUARIO REPETIDO
-  const registeredEmails = ["user1@example.com", "user2@example.com"]; //ARRAY DE PRUEBA PARA CORREO REPETIDO
-  const usernameCheck = document.getElementById("username").value.trim();//VARIABLE DE NOMBRE DE USUARIO DE PRUEBA
-  const emailCheck = document.getElementById("email"); //VARIABLE DE EMAIL DE PRUEBA
+    const registeredUsernames = ["admin", "usuario1"]; //ARRAY DE PRUEBA PARA NOMBRE DE USUARIO REPETIDO
+    const registeredEmails = ["user1@example.com", "user2@example.com"]; //ARRAY DE PRUEBA PARA CORREO REPETIDO
+    const usernameCheck = document.getElementById("username").value.trim();//VARIABLE DE NOMBRE DE USUARIO DE PRUEBA
+    const emailCheck = document.getElementById("email").value.trim(); //VARIABLE DE EMAIL DE PRUEBA
+  /*
+    VARIABLES DE PRUEBA, PUEDEN BORRARSE Y TODAS LAS CONDICIONES RELACIONADAS A ELLAS 
+  */
 
   let hasEmpty = false;
 
@@ -126,6 +130,15 @@ document.querySelector("form").addEventListener("submit", function (e) {
 
   else if (registeredUsernames.includes(usernameCheck)) {
 
+    const usernameInput = document.getElementById("username");
+    usernameInput.classList.add("is-invalid");
+    const tooltip = usernameInput.parentElement.querySelector(".invalid-tooltip");
+    
+    if (tooltip) {
+      tooltip.textContent = "Este nombre de usuario ya está en uso";
+      tooltip.style.display = "block";
+    }
+
     Swal.fire({
       icon: 'warning',
       title: 'Nombre de usuario en uso',
@@ -138,6 +151,15 @@ document.querySelector("form").addEventListener("submit", function (e) {
   }
 
   else if (registeredEmails.includes(emailCheck)) {
+
+    const emailInput = document.getElementById("email");
+    emailInput.classList.add("is-invalid");
+    const tooltip = emailInput.parentElement.querySelector(".invalid-tooltip");
+    
+    if (tooltip) {
+      tooltip.textContent = "Este correo electrónico ya está en uso";
+      tooltip.style.display = "block";
+    }
 
     Swal.fire({
       icon: 'warning',
@@ -265,9 +287,7 @@ $('#password').on('input', function () {
 
   const passwordRepeat = $('#passwordRepeat');
   const passwordRepeatLock = $('#lockIconContainer');
-  const passwordRepeatToolTip = {
-    tooltip: $('#passwordRepeatTooltip') // Objeto jQuery para acceder al tooltip
-  };
+  const passwordRepeatToolTip = { tooltip: $('#passwordRepeatTooltip')}; // Objeto jQuery para acceder al tooltip
 
   // Logica para manejar el input de repetir contraseña y el icono a la derecha
   if ($(this).val().trim()) {
@@ -286,9 +306,3 @@ $('#password').on('input', function () {
     passwordRepeatLock.css('background-color', '#e9ecef');
   }
 });
-
-
-
-
-
-
