@@ -152,5 +152,15 @@ body.swal2-shown {
   cursor: not-allowed;
 }
 
+a.forgot-password{
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.forgot-password:hover{
+  text-decoration: underline;
+}
+
 
 
