@@ -12,13 +12,10 @@ document.querySelector("form").addEventListener("submit", function (e) {
   */
 
   const email = document.getElementById("email");
-  let hasEmpty = false;
 
   if(!email.value.trim()){
-    hasEmpty = true;
-  }
 
-  if (hasEmpty) {
+    email.classList.add("is-invalid");
 
     Swal.fire({
       icon: 'warning',
@@ -28,12 +25,12 @@ document.querySelector("form").addEventListener("submit", function (e) {
       backdrop: true
     });
 
-    email.classList.add("is-invalid");
-
     return;
   }
 
-  else if (!registeredEmails.includes(emailCheck)) {
+  else if (!registeredEmails.includes(emailCheck.value.trim())) {
+
+    email.classList.add("is-invalid");
 
     Swal.fire({
       icon: 'warning',
@@ -43,8 +40,31 @@ document.querySelector("form").addEventListener("submit", function (e) {
       backdrop: true
     });
 
-    email.classList.add("is-invalid");
-
     return;
+  }
+
+  const invalidInputs = document.querySelectorAll(".is-invalid");
+
+  if (invalidInputs.length === 0) {
+    Swal.fire({
+      icon: 'success',
+      title: 'Correo enviado',
+      text: 'Se ha enviado un correo para reestablecer tu contraseña.',
+      confirmButtonColor: '#58c45c',
+      backdrop: true
+    }).then(() => {
+      // Proceder con la recuperacion de contraseña
+    });
+  }
+});
+
+const email = document.getElementById("email");
+
+email.addEventListener("input", () => {
+
+  const value = email.value.trim();
+
+  if (email.classList.contains("is-invalid") && value){
+    email.classList.remove("is-invalid");
   }
 });

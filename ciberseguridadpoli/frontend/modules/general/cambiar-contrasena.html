@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cambiar contraseña | CiberseguridadPoli</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="../../css/all.min.css">
+    <link rel="stylesheet" href="../../css/adminlte.min.css">
+    <script src="../../js/jquerys/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="../../css/styles.css">
+  </head>
+
+  <body class="hold-transition login-page">
+
+    <div class="login-box">
+      <div class="card-body">
+        
+        <img src="../../img/logo.png" class="logo">
+        <h2>Cambiar contraseña</h2>
+
+        <p class="login-box-msg">Ingresa la nueva contraseña.</p>
+
+        <form action="" method="">
+
+          <div class="form-group position-relative">
+            <div class="input-group">
+              <input type="password" id="password" class="form-control" placeholder="Nueva contraseña*">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-lock"></span>
+                </div>
+              </div>
+              <div class="invalid-tooltip">La contraseña debe tener 15 caracteres</div>
+            </div>
+          </div>
+
+          <div class="form-group position-relative">
+            <div class="input-group">
+              <input type="password" id="passwordRepeat" class="form-control" placeholder="Repita la contraseña*" disabled data-bs-toggle="tooltip" title="">
+              <div class="input-group-append">
+                <div class="input-group-text" id="lockIconContainer">
+                  <span class="fas fa-lock"></span>
+                </div>
+              </div>
+              <div class="invalid-tooltip" id="passwordRepeatTooltip">Las contraseñas no coinciden</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary btn-block">Cambiar contraseña</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="../../js/jquerys/jquery.min.js"></script>
+    <script src="../../js/jquerys/bootstrap.bundle.min.js"></script>
+    <script src="../../js/jquerys/adminlte.min.js"></script>
+    <script src="../../js/jquerys/change_password.js"></script>
+  </body>
+</html>
