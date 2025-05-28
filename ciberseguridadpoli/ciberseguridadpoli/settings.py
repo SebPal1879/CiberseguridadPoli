@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     #'coreapi',
+    'signin.apps.SigninConfig',
     'history.apps.HistoryConfig',
     'learning.apps.LearningConfig',
     'quiz.apps.QuizConfig',
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
     
 ]

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile, History
+
 
 
 class SignupSerializer(serializers.ModelSerializer):
@@ -15,8 +16,6 @@ class SignupSerializer(serializers.ModelSerializer):
           }
       }
     }
-
-
 
   def validate_email(self,value):
     if User.objects.filter(email=value).exists():
@@ -33,5 +32,6 @@ class SignupSerializer(serializers.ModelSerializer):
     user = User.objects.create(**validated_data)
 
     Profile.objects.create(user=user, profile_picture=profile_picture)
+    History.objects.create(User_id_user=user)
     
     return user

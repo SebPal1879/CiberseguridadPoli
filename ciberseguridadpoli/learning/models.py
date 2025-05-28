@@ -11,12 +11,14 @@ class Section(models.Model):
     return self.description
 
 class Lecture(models.Model):
+  lecture_in_section_number = models.IntegerField(blank=False)
   name = models.CharField(max_length=30,blank=False)
   section_id = models.ForeignKey(Section,on_delete=models.CASCADE)
   def __str__(self):
     return self.name
 
 class LectureContent(models.Model):
+  content_in_lecture_number = models.IntegerField(blank=False)
   content_path = models.CharField(max_length=100)
   image_path = models.ImageField(blank=True,null=True)
   lecture_id = models.ForeignKey(Lecture,on_delete=models.CASCADE)
