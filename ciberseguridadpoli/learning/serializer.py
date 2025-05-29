@@ -1,13 +1,24 @@
 from rest_framework import serializers
 
-from .models import LectureAvailabilityAndCompletion,Section
+from .models import LectureAvailabilityAndCompletion,Section, Lecture, LectureContent
 
 class AvailabilityCompletionSerializer(serializers.ModelSerializer):
   class Meta:
     model = LectureAvailabilityAndCompletion
-    fields =('is_available','is_completed','id_user','id_lecture')
+    fields =('id','is_available','is_completed','user_id','lecture_id')
 
-class AvailableSectionSerializer(serializers.ModelSerializer):
+class SectionSerializer(serializers.ModelSerializer):
   class Meta:
     model = Section
-    fields = ('section_number','name','description')
+    fields = ('id','section_number','name','description')
+
+
+class LectureSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Lecture
+    fields = ('id','lecture_in_section_number','name','section_id')
+
+class LectureContentSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = LectureContent
+    fields =('content_in_lecture_number','content','image_path','lecture_id')

@@ -19,12 +19,16 @@ class Lecture(models.Model):
 
 class LectureContent(models.Model):
   content_in_lecture_number = models.IntegerField(blank=False,default=0,null=False)
-  content_path = models.CharField(max_length=100)
+  content = models.CharField(max_length=1000)
   image_path = models.ImageField(blank=True,null=True)
   lecture_id = models.ForeignKey(Lecture,on_delete=models.CASCADE)
+  def __str__(self):
+    return f"{self.id}"
 
 class LectureAvailabilityAndCompletion(models.Model):
   is_available = models.BooleanField(blank=False, default=False)
   is_completed = models.BooleanField(blank=False, default=False)
-  id_user = models.ForeignKey(User,on_delete=models.CASCADE)
-  id_lecture = models.ForeignKey(Lecture,on_delete=models.CASCADE)
+  user_id = models.ForeignKey(User,on_delete=models.CASCADE)
+  lecture_id = models.ForeignKey(Lecture,on_delete=models.CASCADE)
+  def __str__(self):
+    return f"{self.id}"
