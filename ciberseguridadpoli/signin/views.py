@@ -14,6 +14,8 @@ from .serializer import SignInSerializer
 class SignInView(APIView):
   def post(self,request):
     print("SignInView")
+    print(request.data["username"])
+    print(request.data["password"])
     user = authenticate(username=request.data["username"], password=request.data["password"])
     if user is not None:
       print("Autenticado con exito")
@@ -27,6 +29,6 @@ class SignInView(APIView):
 @permission_classes([IsAuthenticated])
 def profile(request):
   
-  print(request.user)
+  print(request.user.id)
 
   return Response({"usuario": request.user.username}, status=status.HTTP_200_OK)
