@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.db.models import Subquery
 
+
 from rest_framework import viewsets, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -12,19 +13,8 @@ from rest_framework.permissions import IsAuthenticated
 
 from .serializer import QuizSerializer,QuestionSerializer,AnswerSerializer, AvailableQuizSerializer
 from .models import Quiz,Question,Answer,AvailableQuiz
+from learning.models import LectureAvailabilityAndCompletion
 
-def array_constructor(questions,answers):
-  questions_array = []
-  answers_by_question = defaultdict(list)
-  for answer in answers:
-    answers_by_question[answer["question"]].append(answer)
-
-  for question in questions:
-    question_element = dict(question)
-    question_element["answers"] = answers_by_question.get(question["id"],[])
-    questions_array.append(question_element)
-
-  return questions_array
       
 # Create your views here.
 class QuizView(viewsets.ModelViewSet):
@@ -62,6 +52,21 @@ class AvailableQuizView(APIView):
     return Response(quiz_availability_serializer.data,status=status.HTTP_200_OK)
 
 
+
+
 def Lunerview(request):
   a = Quiz.objects.get(pk=2)
   return HttpResponse(a)
+
+def array_constructor(questions,answers):
+  questions_array = []
+  answers_by_question = defaultdict(list)
+  for answer in answers:
+    answers_by_question[answer["question"]].append(answer)
+
+  for question in questions:
+    question_element = dict(question)
+    question_element["answers"] = answers_by_question.get(question["id"],[])
+    questions_array.append(question_element)
+
+  return questions_array

@@ -33,6 +33,10 @@ class AvailableQuiz(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE)
   is_available = models.BooleanField(blank=False,default=False)
+
+  def __str__(self):
+    return "{}, {}".format(self.user,self.quiz)
+
   class Meta:
     verbose_name_plural = "available quizzes"
 

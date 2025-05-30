@@ -31,4 +31,4 @@ class LectureAvailabilityAndCompletion(models.Model):
   user = models.ForeignKey(User,on_delete=models.CASCADE)
   lecture = models.ForeignKey(Lecture,on_delete=models.CASCADE)
   def __str__(self):
-    return f"{self.id}"
+    return "{}, {}, {}, {}".format(self.user,self.lecture,self.is_available,self.is_completed)
