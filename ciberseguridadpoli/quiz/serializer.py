@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Quiz, Question, Answer, AvailableQuiz
+from .models import Quiz, Question, Answer, AvailableQuiz, QuizCompletion
 class QuizSerializer(serializers.ModelSerializer):
   class Meta:
     model = Quiz
@@ -19,3 +19,8 @@ class AvailableQuizSerializer(serializers.ModelSerializer):
    class Meta:
       model = AvailableQuiz
       fields = ('user','quiz','is_available')
+
+class QuizCompletionSerializer(serializers.ModelSerializer):
+   class Meta:
+      model = QuizCompletion
+      fields = ('user','quiz','score','attempt_date')

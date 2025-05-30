@@ -3,7 +3,7 @@ from collections import defaultdict
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.db.models import Subquery
-
+from django.core.exceptions import ObjectDoesNotExist
 
 from rest_framework import viewsets, status
 from rest_framework.views import APIView
@@ -11,9 +11,9 @@ from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
-from .serializer import QuizSerializer,QuestionSerializer,AnswerSerializer, AvailableQuizSerializer
-from .models import Quiz,Question,Answer,AvailableQuiz
-from learning.models import LectureAvailabilityAndCompletion
+from .serializer import QuizSerializer,QuestionSerializer,AnswerSerializer, AvailableQuizSerializer, QuizCompletionSerializer
+from .models import Quiz,Question, Answer, AvailableQuiz, QuizCompletion
+#from learning.models import LectureAvailabilityAndCompletion
 
       
 # Create your views here.
@@ -51,8 +51,27 @@ class AvailableQuizView(APIView):
 
     return Response(quiz_availability_serializer.data,status=status.HTTP_200_OK)
 
+class QuizCompletionView(APIView):
+  authentication_classes = [TokenAuthentication]
+  permission_classes = [IsAuthenticated]
+  def post(self,request):
+    user = User.objects.get(pk=request.user.id)
+    quiz = Quiz.objects.get(pk=request.data.get('quiz_id'))
+    score = request.data.get('score')
 
-
+    try: 
+      # Valida si el quiz está disponible para el usuario
+      quiz_availability = AvailableQuiz.objects.get(user=user,quiz=quiz)
+      if not quiz_availability.is_available:
+        return Response({"Error": "Este quiz no está disponible para el usuario"}, status=status.HTTP_400_BAD_REQUEST)
+      
+      quiz_completion = QuizCompletion.objects.create(user=user,quiz=quiz,score=score)
+      quiz_completion_serializer = QuizCompletionSerializer(quiz_completion)
+      return Response(quiz_completion_serializer.data, status=status.HTTP_201_CREATED)    
+      
+    # Retorna error si no hay disponibilidad registrada para el usuario.
+    except ObjectDoesNotExist:
+      return Response({"Error": "No se ha encontrado registro de disponibilidad del quiz para el usuario."}, status=status.HTTP_404_NOT_FOUND)
 
 def Lunerview(request):
   a = Quiz.objects.get(pk=2)

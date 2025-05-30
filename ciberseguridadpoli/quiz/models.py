@@ -45,4 +45,7 @@ class QuizCompletion(models.Model):
   quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE)
   score = models.FloatField(blank=True,null=True)
   attempt_date = models.DateTimeField(auto_now=True)
+
+  def __str__(self):
+    return "{}, {} , {}".format(self.user,self.quiz,self.score)
   

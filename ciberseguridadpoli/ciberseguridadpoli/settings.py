@@ -33,7 +33,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #'coreapi',
     'signin.apps.SigninConfig',
-    'history.apps.HistoryConfig',
     'learning.apps.LearningConfig',
     'quiz.apps.QuizConfig',
     'signup.apps.SignupConfig',

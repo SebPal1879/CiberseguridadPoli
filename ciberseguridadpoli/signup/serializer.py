@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Profile, History
+from .models import Profile
 from learning.models import Section,Lecture,LectureAvailabilityAndCompletion
 from quiz.models import Quiz, AvailableQuiz
 
@@ -36,7 +36,6 @@ class SignupSerializer(serializers.ModelSerializer):
     user.set_password(validated_data['password'])
 
     Profile.objects.create(user=user, profile_picture=profile_picture)
-    History.objects.create(User_id_user=user)
 
     for section in Section.objects.all():
       for lecture in Lecture.objects.filter(section=section):
