@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from .models import Quiz, Question, Answer
+from .models import Quiz, Question, Answer, AvailableQuiz
 class QuizSerializer(serializers.ModelSerializer):
   class Meta:
     model = Quiz
-    fields = ('id','name','description')
+    fields = ('id','name','description','lecture')
 
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,3 +14,8 @@ class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
       model = Answer
       fields = ('id','question','answer','is_correct')
+
+class AvailableQuizSerializer(serializers.ModelSerializer):
+   class Meta:
+      model = AvailableQuiz
+      fields = ('user','quiz','is_available')

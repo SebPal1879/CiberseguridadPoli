@@ -39,17 +39,17 @@ class SignupSerializer(serializers.ModelSerializer):
     History.objects.create(User_id_user=user)
 
     for section in Section.objects.all():
-      for lecture in Lecture.objects.filter(section_id=section):
-        LectureAvailabilityAndCompletion.objects.create(id_user=user,id_lecture=lecture)
+      for lecture in Lecture.objects.filter(section=section):
+        LectureAvailabilityAndCompletion.objects.create(user=user,lecture=lecture)
 
     # Se toma la primera sección de aprendizaje según el número de sección
     first_section = Section.objects.order_by('section_number').first()
 
     # Se toman las lecciones asociadas a esa primera sección, se ordenan por número de lección y se toma la primera
-    first_lecture = Lecture.objects.filter(section_id=first_section).order_by('lecture_in_section_number').first()
+    first_lecture = Lecture.objects.filter(section=first_section).order_by('lecture_in_section_number').first()
 
     # Se desbloquea la primera lección disponible del usuario recién creado
-    first_availability = LectureAvailabilityAndCompletion.objects.get(id_user=user,id_lecture=first_lecture)
+    first_availability = LectureAvailabilityAndCompletion.objects.get(user=user,lecture=first_lecture)
     first_availability.is_available = True
     first_availability.save()
 

@@ -5,7 +5,7 @@ from .models import LectureAvailabilityAndCompletion,Section, Lecture, LectureCo
 class AvailabilityCompletionSerializer(serializers.ModelSerializer):
   class Meta:
     model = LectureAvailabilityAndCompletion
-    fields =('id','is_available','is_completed','user_id','lecture_id')
+    fields =('id','is_available','is_completed','user','lecture')
 
 class SectionSerializer(serializers.ModelSerializer):
   class Meta:
@@ -16,9 +16,9 @@ class SectionSerializer(serializers.ModelSerializer):
 class LectureSerializer(serializers.ModelSerializer):
   class Meta:
     model = Lecture
-    fields = ('id','lecture_in_section_number','name','section_id')
+    fields = ('id','lecture_in_section_number','name','section')
 
 class LectureContentSerializer(serializers.ModelSerializer):
   class Meta:
     model = LectureContent
-    fields =('content_in_lecture_number','content','image_path','lecture_id')
+    fields =('content_in_lecture_number','content','image_path','lecture')

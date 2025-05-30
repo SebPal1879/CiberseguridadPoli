@@ -7,7 +7,7 @@ from signup.models import User
 class Quiz(models.Model):
   name = models.CharField(max_length=40)
   description = models.CharField(max_length=150)
-  id_lecture =models.ForeignKey(Lecture,on_delete=models.CASCADE)
+  lecture = models.ForeignKey(Lecture,on_delete=models.CASCADE)
 
   def __str__(self):
     return self.name
