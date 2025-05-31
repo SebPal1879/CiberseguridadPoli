@@ -1,5 +1,5 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #d4d4d4;
   margin: 0;
   height: 100vh;
@@ -24,11 +24,11 @@ body {
   padding: 0;
 }
 
-.card{
+.card {
   box-shadow: none;
 }
 
-.login-div{
+.login-div {
   margin-bottom: 3rem;
 }
 
@@ -54,7 +54,7 @@ button.btn-primary {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 button.btn-primary:focus,
@@ -76,7 +76,7 @@ button.btn-primary:hover {
   Estilos para que el boton se ponga verde en lugar del azul por defecto de Bootstrap, por eso el !important
 */
 button.btn-primary:active {
-  background-color: #439946 !important; 
+  background-color: #439946 !important;
   border: 1px solid #347737 !important;
   color: #b8b8b8 !important;
 }
@@ -91,7 +91,7 @@ a.text-center:hover {
   text-decoration: underline;
 }
 
-.logo{
+.logo {
   width: 7rem;
   height: 7rem;
 }
@@ -128,14 +128,14 @@ body.swal2-shown {
   max-width: 100%;
 }
 
-.register-card-body{
+.register-card-body {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.register-btn{
+.register-btn {
   margin-bottom: 1rem;
 }
 
@@ -143,7 +143,7 @@ body.swal2-shown {
   border-right: 1px solid #ced4da;
 }
 
-#passwordRepeat{
+#passwordRepeat {
   cursor: not-allowed;
 }
 
@@ -152,15 +152,12 @@ body.swal2-shown {
   cursor: not-allowed;
 }
 
-a.forgot-password{
+a.forgot-password {
   color: #007bff;
   text-decoration: none;
   cursor: pointer;
 }
 
-a.forgot-password:hover{
+a.forgot-password:hover {
   text-decoration: underline;
 }
-
-
-

@@ -1,22 +1,97 @@
+import { useEffect, useReducer } from "react";
+import Form from "./Form";
+import Input from "./Input";
+import { data, useLocation } from "react-router-dom";
+import { submitForm } from "../api/quiz.api";
+import axios from "axios";
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "first_name":
+      return { ...state, first_name: action.payload };
+    case "last_name":
+      return { ...state, last_name: action.payload };
+    case "username":
+      return { ...state, username: action.payload };
+    case "email":
+      return { ...state, email: action.payload };
+    case "password":
+      return { ...state, password: action.payload };
+    case "passwordConfirm":
+      return { ...state, passwordConfirm: action.payload };
+    case "formSubmit":
+      {
+        action.e.preventDefault();
+        console.log(state);
+        async function formSubmission() {
+          await submitForm(state);
+        }
+        formSubmission();
+      }
+      return state;
+    default:
+      throw new Error("Acción desconocida");
+  }
+}
+
+const initialState = {
+  first_name: "",
+  last_name: "",
+  username: "",
+  email: "",
+  password: "",
+  passwordConfirm: "",
+};
+
 function RegisterPage() {
+  const [
+    { first_name, last_name, username, email, password, passwordConfirm },
+    dispatch,
+  ] = useReducer(reducer, initialState);
+  console.log(
+    first_name,
+    last_name,
+    username,
+    email,
+    password,
+    passwordConfirm
+  );
+  const location = useLocation();
+  useEffect(
+    function () {
+      if (location.pathname.startsWith("/registro")) {
+        import("../pages_css/css/all.min.css");
+        import("../pages_css/css/adminlte.min.css");
+        import("../pages_css/css/styles.css");
+      }
+    },
+    [location]
+  );
   return (
     <>
-      <body className="hold-transition register-page">
+      <div className="hold-transition">
         <div className="register-box">
           <div className="card">
             <div className="card-body register-card-body ">
-              <img src="../../img/logo.png" className="logo" />
+              <img src="/logo.png" className="logo" />
               <p className="login-box-msg">Registrate en CiberseguridadPoli</p>
-
-              <form>
+              <Form dispatch={dispatch}>
                 <div className="form-group position-relative">
                   <div className="input-group">
-                    <input
+                    <Input
                       type="text"
                       id="firstNames"
                       className="form-control"
                       placeholder="Nombre(s)*"
+                      value={first_name}
+                      changeEvent={(e) =>
+                        dispatch({
+                          type: "first_name",
+                          payload: e.target.value,
+                        })
+                      }
                     />
+
                     <div className="input-group-append">
                       <div className="input-group-text">
                         <span className="fas fa-user"></span>
@@ -30,11 +105,18 @@ function RegisterPage() {
 
                 <div className="form-group position-relative">
                   <div className="input-group">
-                    <input
+                    <Input
                       type="text"
                       id="lastNames"
                       className="form-control"
                       placeholder="Apellido(s)*"
+                      value={last_name}
+                      changeEvent={(e) =>
+                        dispatch({
+                          type: "last_name",
+                          payload: e.target.value,
+                        })
+                      }
                     />
                     <div className="input-group-append">
                       <div className="input-group-text">
@@ -49,11 +131,18 @@ function RegisterPage() {
 
                 <div className="form-group position-relative">
                   <div className="input-group">
-                    <input
+                    <Input
                       type="text"
                       id="username"
                       className="form-control"
                       placeholder="Nombre de usuario*"
+                      value={username}
+                      changeEvent={(e) =>
+                        dispatch({
+                          type: "username",
+                          payload: e.target.value,
+                        })
+                      }
                     />
                     <div className="input-group-append">
                       <div className="input-group-text">
@@ -68,11 +157,18 @@ function RegisterPage() {
 
                 <div className="form-group position-relative">
                   <div className="input-group">
-                    <input
+                    <Input
                       type="email"
                       id="email"
                       className="form-control"
                       placeholder="Email*"
+                      value={email}
+                      changeEvent={(e) =>
+                        dispatch({
+                          type: "email",
+                          payload: e.target.value,
+                        })
+                      }
                     />
                     <div className="input-group-append">
                       <div className="input-group-text">
@@ -87,11 +183,18 @@ function RegisterPage() {
 
                 <div className="form-group position-relative">
                   <div className="input-group">
-                    <input
+                    <Input
                       type="password"
                       id="password"
                       className="form-control"
                       placeholder="Contraseña*"
+                      value={password}
+                      changeEvent={(e) =>
+                        dispatch({
+                          type: "password",
+                          payload: e.target.value,
+                        })
+                      }
                     />
                     <div className="input-group-append">
                       <div className="input-group-text">
@@ -106,14 +209,38 @@ function RegisterPage() {
 
                 <div className="form-group position-relative">
                   <div className="input-group">
-                    <input
+                    {/* <input
                       type="password"
                       id="passwordRepeat"
                       className="form-control"
                       placeholder="Repita la contraseña*"
-                      disabled
+                      disabled={!password.length && true}
                       data-bs-toggle="tooltip"
                       title=""
+                      value={passwordConfirm}
+                      onChange={(e) => {
+                        e.preventDefault(),
+                          dispatch({
+                            type: "passwordConfirm",
+                            payload: e.target.value,
+                          });
+                      }}
+                    /> */}
+                    <Input
+                      type="password"
+                      id="passwordRepeat"
+                      className="form-control"
+                      placeholder="Repita la contraseña*"
+                      disabled={!password.length && true}
+                      value={passwordConfirm}
+                      toggle="tooltip"
+                      changeEvent={(e) => {
+                        e.preventDefault(),
+                          dispatch({
+                            type: "passwordConfirm",
+                            payload: e.target.value,
+                          });
+                      }}
                     />
                     <div className="input-group-append">
                       <div className="input-group-text" id="lockIconContainer">
@@ -169,7 +296,7 @@ function RegisterPage() {
                   </div>
                   <img
                     id="imagePreview"
-                    src=""
+                    src={null}
                     alt="Vista previa"
                     style={{
                       width: "100px",
@@ -198,7 +325,7 @@ function RegisterPage() {
                     </button>
                   </div>
                 </div>
-              </form>
+              </Form>
 
               <p className="font-italic text-muted">
                 Los campos obligatorios están indicados con *
@@ -210,13 +337,7 @@ function RegisterPage() {
             </div>
           </div>
         </div>
-
-        <script src="../../js/jquerys/jquery.min.js"></script>
-        <script src="../../js/jquerys/bootstrap.bundle.min.js"></script>
-        <script src="../../js/jquerys/bs-custom-file-input.min.js"></script>
-        <script src="../../js/jquerys/adminlte.min.js"></script>
-        <script src="../../js/jquerys/registro.js"></script>
-      </body>
+      </div>
     </>
   );
 }
