@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import QuizPage from "./pages/QuizPage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
+import Curso from "./pages/Curso";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/registro" element={<RegisterPage />} />
         <Route path="/inicio" element={<LoginPage />} />
+        <Route path="/curso" element={<Curso />} />
       </Routes>
     </BrowserRouter>
   );

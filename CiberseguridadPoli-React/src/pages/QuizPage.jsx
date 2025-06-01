@@ -5,7 +5,7 @@ import Start from "../components/Start";
 import Progress from "../components/Progress";
 import Question from "../components/Question";
 import Bottom from "../components/Bottom";
-import { getAll } from "../api/quiz.api";
+import { getAll } from "../api/access.api";
 
 function reducer(state, action) {
   switch (action.type) {

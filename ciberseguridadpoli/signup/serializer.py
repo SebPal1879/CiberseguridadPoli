@@ -34,6 +34,7 @@ class SignupSerializer(serializers.ModelSerializer):
     print(validated_data['password'])
 
     user.set_password(validated_data['password'])
+    user.save()
 
     Profile.objects.create(user=user, profile_picture=profile_picture)
 

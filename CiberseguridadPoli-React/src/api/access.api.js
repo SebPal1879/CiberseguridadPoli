@@ -6,6 +6,10 @@ export function getAll(id) {
   });
 }
 
-export function submitForm(formData) {
+export function submitRegisterForm(formData) {
   return axios.post("http://localhost:8000/signup/", formData);
+}
+
+export function submitLoginForm(formData) {
+  return axios.post("http://localhost:8000/signin/", formData);
 }
