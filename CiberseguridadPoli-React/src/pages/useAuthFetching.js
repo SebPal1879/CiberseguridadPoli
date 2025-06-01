@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import axios from "axios";
-function useLogin(key, url, setter) {
+
+function useAuthFetching(key, url, setter) {
   useEffect(
     function () {
       const item = localStorage.getItem(key);
@@ -22,4 +23,4 @@ function useLogin(key, url, setter) {
   );
 }
 
-export default useLogin;
+export default useAuthFetching;
