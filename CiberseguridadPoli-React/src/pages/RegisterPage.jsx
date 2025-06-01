@@ -1,32 +1,84 @@
 import { useEffect, useReducer } from "react";
 import Form from "./Form";
-import Input from "./Input";
-import { data, useLocation } from "react-router-dom";
+import Input from "../components/Input";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { submitForm } from "../api/quiz.api";
-import axios from "axios";
+import InputGroup from "./InputGroup";
+
+const emailRegex = /^[a-zA-Z0-9._%+-]+@elpoli\.edu\.co$/;
+const djangoPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
+function validEmail(email) {
+  return emailRegex.test(email);
+}
+
+function validPassword(password) {
+  return djangoPasswordRegex.test(password);
+}
+
+function notEmptyValidation(field) {
+  if (!field.length) return false;
+  return true;
+}
 
 function reducer(state, action) {
   switch (action.type) {
     case "first_name":
-      return { ...state, first_name: action.payload };
+      return {
+        ...state,
+        first_name: action.payload,
+        validFirstName: notEmptyValidation(action.payload),
+      };
     case "last_name":
-      return { ...state, last_name: action.payload };
+      return {
+        ...state,
+        last_name: action.payload,
+        validLastName: notEmptyValidation(action.payload),
+      };
     case "username":
-      return { ...state, username: action.payload };
+      return {
+        ...state,
+        username: action.payload,
+        validUserName: notEmptyValidation(action.payload),
+      };
     case "email":
-      return { ...state, email: action.payload };
+      return {
+        ...state,
+        email: action.payload,
+        validEmail: validEmail(action.payload),
+      };
     case "password":
-      return { ...state, password: action.payload };
+      return {
+        ...state,
+        password: action.payload,
+        validPassword: validPassword(action.payload),
+      };
     case "passwordConfirm":
       return { ...state, passwordConfirm: action.payload };
     case "formSubmit":
       {
         action.e.preventDefault();
-        console.log(state);
-        async function formSubmission() {
-          await submitForm(state);
+        if (
+          state.validFirstName &&
+          state.validLastName &&
+          state.validEmail &&
+          state.validUserName &&
+          state.validPassword
+        ) {
+          async function formSubmission() {
+            const formResponse = await submitForm(state);
+            console.log(formResponse.data);
+            console.log(formResponse.status);
+            if (formResponse.status == 201) {
+              localStorage.setItem("cp_token", formResponse.data.token);
+            }
+            alert("Cuenta creada con éxito");
+            action.navigate("/inicio");
+          }
+          formSubmission();
+        } else {
+          alert("No todos los campos son válidos");
         }
-        formSubmission();
       }
       return state;
     default:
@@ -36,16 +88,38 @@ function reducer(state, action) {
 
 const initialState = {
   first_name: "",
+  validFirstName: null,
   last_name: "",
+  validLastName: null,
   username: "",
+  validUserName: null,
   email: "",
+  validEmail: "",
   password: "",
+  validPassword: "",
   passwordConfirm: "",
 };
 
 function RegisterPage() {
+  const navigate = useNavigate();
+
+  const toolTipDisplay = {
+    display: "block",
+  };
   const [
-    { first_name, last_name, username, email, password, passwordConfirm },
+    {
+      first_name,
+      validFirstName,
+      last_name,
+      validLastName,
+      username,
+      validUserName,
+      email,
+      validEmail,
+      password,
+      validPassword,
+      passwordConfirm,
+    },
     dispatch,
   ] = useReducer(reducer, initialState);
   console.log(
@@ -75,7 +149,7 @@ function RegisterPage() {
             <div className="card-body register-card-body ">
               <img src="/logo.png" className="logo" />
               <p className="login-box-msg">Registrate en CiberseguridadPoli</p>
-              <Form dispatch={dispatch}>
+              <Form dispatch={dispatch} navigate={navigate}>
                 <div className="form-group position-relative">
                   <div className="input-group">
                     <Input
@@ -97,8 +171,15 @@ function RegisterPage() {
                         <span className="fas fa-user"></span>
                       </div>
                     </div>
-                    <div className="invalid-tooltip">
-                      Este campo debe tener menos de 30 caracteres
+                    <div
+                      className="invalid-tooltip"
+                      style={
+                        !(validFirstName == null) && !validFirstName
+                          ? toolTipDisplay
+                          : {}
+                      }
+                    >
+                      El nombre no debe ir vacío.
                     </div>
                   </div>
                 </div>
@@ -123,8 +204,15 @@ function RegisterPage() {
                         <span className="fas fa-user"></span>
                       </div>
                     </div>
-                    <div className="invalid-tooltip">
-                      Este campo debe tener menos de 30 caracteres
+                    <div
+                      className="invalid-tooltip"
+                      style={
+                        !(validLastName == null) && !validLastName
+                          ? toolTipDisplay
+                          : {}
+                      }
+                    >
+                      El nombre no debe ir vacío.
                     </div>
                   </div>
                 </div>
@@ -149,14 +237,21 @@ function RegisterPage() {
                         <span className="fas fa-user-circle"></span>
                       </div>
                     </div>
-                    <div className="invalid-tooltip">
-                      El nombre de usuario debe tener menos de 10 caracteres
+                    <div
+                      className="invalid-tooltip"
+                      style={
+                        !(validUserName == null) && !validUserName
+                          ? toolTipDisplay
+                          : {}
+                      }
+                    >
+                      El nombre de usuario no debe ir vacío.
                     </div>
                   </div>
                 </div>
 
                 <div className="form-group position-relative">
-                  <div className="input-group">
+                  <InputGroup>
                     <Input
                       type="email"
                       id="email"
@@ -170,15 +265,19 @@ function RegisterPage() {
                         })
                       }
                     />
+
                     <div className="input-group-append">
                       <div className="input-group-text">
                         <span className="fas fa-envelope"></span>
                       </div>
                     </div>
-                    <div className="invalid-tooltip">
-                      El email debe tener menos de 30 caracteres
+                    <div
+                      className="invalid-tooltip"
+                      style={email.length && !validEmail ? toolTipDisplay : {}}
+                    >
+                      Debe ser una dirección de correo válida del Poli.
                     </div>
-                  </div>
+                  </InputGroup>
                 </div>
 
                 <div className="form-group position-relative">
@@ -201,8 +300,13 @@ function RegisterPage() {
                         <span className="fas fa-lock"></span>
                       </div>
                     </div>
-                    <div className="invalid-tooltip">
-                      La contraseña debe tener 15 caracteres
+                    <div
+                      className="invalid-tooltip"
+                      style={
+                        password.length && !validPassword ? toolTipDisplay : {}
+                      }
+                    >
+                      La contraseña debe ser válida.
                     </div>
                   </div>
                 </div>
@@ -247,8 +351,16 @@ function RegisterPage() {
                         <span className="fas fa-lock"></span>
                       </div>
                     </div>
-                    <div className="invalid-tooltip" id="passwordRepeatTooltip">
-                      Las contraseñas no coinciden
+                    <div
+                      className="invalid-tooltip"
+                      style={
+                        password != passwordConfirm &&
+                        passwordConfirm.length > 0
+                          ? toolTipDisplay
+                          : {}
+                      }
+                    >
+                      Las contraseñas deben coincidir
                     </div>
                   </div>
                 </div>
