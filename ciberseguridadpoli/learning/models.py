@@ -13,6 +13,7 @@ class Section(models.Model):
 class Lecture(models.Model):
   lecture_in_section_number = models.IntegerField(blank=False,default=0,null=False)
   name = models.CharField(max_length=30,blank=False)
+  description = models.CharField(max_length=500,null=True,default="Description")
   section = models.ForeignKey(Section,on_delete=models.CASCADE)
   def __str__(self):
     return self.name
