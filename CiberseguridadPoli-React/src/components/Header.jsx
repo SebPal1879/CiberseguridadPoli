@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 function Header() {
   return (
     <header className="main-header">
@@ -10,23 +12,23 @@ function Header() {
           </div>
         </div>
         <nav className="navbar">
-          <a href="index.html">
+          <NavLink to={"/"}>
             <i className="fas fa-home"></i> Inicio
-          </a>
-          <a href="curso.html">
-            <i className="fas fa-book"></i> Cursos
-          </a>
-          <a href="ayuda.html">
-            <i className="fas fa-question-circle"></i> Ayuda
-          </a>
+          </NavLink>
+          <NavLink to={"/learning"}>
+            <i className="fas fa-home"></i> Curso
+          </NavLink>
+          <NavLink to={"/help"}>
+            <i className="fas fa-home"></i> Ayuda
+          </NavLink>
         </nav>
         <div className="profile-section">
-          <a href="perfil.html" className="profile-btn">
+          <NavLink to={"/account"} className="profile-btn">
             <div className="profile-icon">
               <i className="fas fa-user"></i>
             </div>
             <span>Mi Cuenta</span>
-          </a>
+          </NavLink>
         </div>
       </div>
     </header>

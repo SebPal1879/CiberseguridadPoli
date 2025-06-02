@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function CourseSectionAside() {
   return (
     <div>
@@ -50,13 +52,13 @@ function CourseSectionAside() {
             Si tienes dudas sobre alguna unidad o lección, no dudes en contactar
             a nuestros instructores.
           </p>
-          <a
-            href="ayuda.html"
+          <Link
+            to={"/help"}
             className="btn-secondary"
             style={{ marginTop: "15px", display: "inline-block" }}
           >
             <i className="fas fa-envelope"></i> Contactar soporte
-          </a>
+          </Link>
         </div>
       </aside>
     </div>

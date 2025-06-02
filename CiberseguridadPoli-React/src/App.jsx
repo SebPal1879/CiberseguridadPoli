@@ -6,19 +6,25 @@ import Course from "./pages/Course";
 import Section from "./pages/Section";
 import PruebaNesting from "./components/PruebaNesting";
 import Lecture from "./pages/Lecture";
-
+import InfoCurso from "./pages/InfoCurso";
+import Home from "./pages/Home";
+import Help from "./pages/Help";
+import Account from "./pages/Account";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/registro" />} />
+        <Route path="" element={<Home />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/course" element={<InfoCurso />} />
         <Route path="/quiz" element={<QuizPage />} />
-        <Route path="/registro" element={<RegisterPage />} />
-        <Route path="/inicio" element={<LoginPage />} />
+        <Route path="/signup" element={<RegisterPage />} />
+        <Route path="/signing" element={<LoginPage />} />
         <Route path="/learning" element={<Course />}>
           <Route path="test" element={<PruebaNesting />} />
         </Route>
         <Route path="/learning/section/:id" element={<Section />} />
+        <Route path="/help" element={<Help />} />
         <Route
           path="/learning/section/:ids/lecture/:idl"
           element={<Lecture />}

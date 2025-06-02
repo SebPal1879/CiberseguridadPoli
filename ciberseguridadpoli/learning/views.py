@@ -84,7 +84,8 @@ class LectureContentView(APIView):
       return Response({"Error":"No se encontró ningún contenido en esta sección."},status=status.HTTP_404_NOT_FOUND)
     
     lecture_contents_serializer = LectureContentSerializer(lecture_contents,many=True)
-    return Response(lecture_contents_serializer.data,status=status.HTTP_200_OK)
+    lecture_serializer = LectureSerializer(lecture)
+    return Response([lecture_contents_serializer.data, lecture_serializer.data],status=status.HTTP_200_OK)
   
   def post(self,request,section_id,lecture_id):
     user = User.objects.get(pk=request.user.id)

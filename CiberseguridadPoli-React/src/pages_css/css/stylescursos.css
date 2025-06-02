@@ -11,10 +11,9 @@
   --negro: #222;
   --sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
   --borde-radius: 8px;
-  --fuente-texto: 'Open Sans', sans-serif;
-  --fuente-titulos: 'Roboto', sans-serif;
+  --fuente-texto: "Open Sans", sans-serif;
+  --fuente-titulos: "Roboto", sans-serif;
 }
-
 
 * {
   margin: 0;
@@ -37,7 +36,11 @@ body {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: linear-gradient(135deg, var(--verde-oscuro) 0%, var(--verde-muy-oscuro) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--verde-oscuro) 0%,
+    var(--verde-muy-oscuro) 100%
+  );
   color: var(--blanco);
   padding: 0;
   box-shadow: var(--sombra);
@@ -66,7 +69,7 @@ body {
 }
 
 .footer-logo {
-  max-height: 60px; 
+  max-height: 60px;
   width: auto;
   margin-bottom: 15px;
 }
@@ -101,7 +104,8 @@ body {
   gap: 8px;
 }
 
-.navbar a:hover, .navbar a.active {
+.navbar a:hover,
+.navbar a.active {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
@@ -119,10 +123,13 @@ body {
   padding: 8px 15px;
   border-radius: var(--borde-radius);
   transition: all 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .profile-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.active {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -151,7 +158,9 @@ body {
 
 /* Hero section */
 .hero {
-  background: linear-gradient(rgba(25, 104, 68, 0.8), rgba(25, 104, 68, 0.9)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+  background: linear-gradient(rgba(25, 104, 68, 0.8), rgba(25, 104, 68, 0.9)),
+    url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+      no-repeat center center;
   background-size: cover;
   color: var(--blanco);
   padding: 80px 40px;
@@ -241,7 +250,9 @@ body {
 }
 
 /* Formularios */
-.formulario-contacto, .profile-form, .contact-form {
+.formulario-contacto,
+.profile-form,
+.contact-form {
   background-color: var(--blanco);
   padding: 30px;
   border-radius: var(--borde-radius);
@@ -271,8 +282,8 @@ body {
   gap: 8px;
 }
 
-.form-group input, 
-.form-group select, 
+.form-group input,
+.form-group select,
 .form-group textarea {
   width: 100%;
   padding: 12px 15px;
@@ -282,8 +293,8 @@ body {
   transition: border 0.3s ease;
 }
 
-.form-group input:focus, 
-.form-group select:focus, 
+.form-group input:focus,
+.form-group select:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--verde-claro);
@@ -368,7 +379,8 @@ body {
   margin-bottom: 15px;
 }
 
-.profile-role, .profile-id {
+.profile-role,
+.profile-id {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -484,7 +496,8 @@ footer {
   font-family: var(--fuente-titulos);
 }
 
-.footer-section p, .footer-section li {
+.footer-section p,
+.footer-section li {
   margin-bottom: 10px;
   opacity: 0.9;
 }
@@ -514,16 +527,18 @@ footer {
 
 /* Responsive */
 @media (max-width: 992px) {
-  .profile-container, .help-container {
+  .profile-container,
+  .help-container {
     grid-template-columns: 1fr;
   }
-  
+
   .profile-header {
     flex-direction: column;
     text-align: center;
   }
-  
-  .profile-meta, .profile-status {
+
+  .profile-meta,
+  .profile-status {
     justify-content: center;
   }
 }
@@ -534,22 +549,22 @@ footer {
     height: auto;
     padding: 15px;
   }
-  
+
   .navbar {
     margin: 15px 0;
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .profile-section {
     margin: 15px 0;
   }
-  
+
   .form-row {
     flex-direction: column;
     gap: 0;
   }
-  
+
   body {
     padding-top: 160px;
   }
@@ -559,11 +574,11 @@ footer {
   .hero {
     padding: 50px 20px;
   }
-  
+
   .hero h2 {
     font-size: 1.8rem;
   }
-  
+
   .form-actions {
     flex-direction: column;
   }
@@ -1118,7 +1133,7 @@ footer {
   .curso-detail-container {
     grid-template-columns: 1fr;
   }
-  
+
   .curso-sidebar {
     grid-row: 1;
   }
@@ -1128,21 +1143,21 @@ footer {
   .detalle-curso {
     padding: 25px;
   }
-  
+
   .instructor-card {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-  
+
   .instructor-social {
     justify-content: center;
   }
-  
+
   .curso-actions {
     flex-direction: column;
   }
-  
+
   .btn-primary,
   .btn-secondary,
   .btn-tertiary {
@@ -1155,11 +1170,11 @@ footer {
   .curso-header h2 {
     font-size: 1.8rem;
   }
-  
+
   .metodologia-cards {
     grid-template-columns: 1fr;
   }
-  
+
   .modulo h4 {
     font-size: 1.1rem;
   }
@@ -1345,26 +1360,26 @@ footer {
     flex-direction: column;
     min-height: auto;
   }
-  
+
   .unidad-number-container {
     min-height: 60px;
     width: 100%;
     padding: 10px;
   }
-  
+
   .unidad-number-container::after {
     display: none;
   }
-  
+
   .unidad-title-container {
     padding: 15px;
   }
-  
+
   .unidad-footer {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .btn-ver-lecciones {
     width: 100%;
     justify-content: center;
@@ -1375,11 +1390,11 @@ footer {
   .unidad-number {
     font-size: 1.8rem;
   }
-  
+
   .unidad-title-container h3 {
     font-size: 1.2rem;
   }
-  
+
   .unidad-content {
     padding: 20px;
   }

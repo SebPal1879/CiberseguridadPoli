@@ -21,4 +21,4 @@ class LectureSerializer(serializers.ModelSerializer):
 class LectureContentSerializer(serializers.ModelSerializer):
   class Meta:
     model = LectureContent
-    fields =('content_in_lecture_number','content','image_path','lecture')
+    fields =('content_in_lecture_number','content','image_path','lecture','id')

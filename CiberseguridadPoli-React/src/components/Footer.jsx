@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Footer() {
   return (
     <footer>
@@ -31,24 +33,24 @@ function Footer() {
           <h3>Enlaces rápidos</h3>
           <ul>
             <li>
-              <a href="index.html">
+              <Link to={"/"}>
                 <i className="fas fa-chevron-right"></i> Inicio
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="curso.html">
-                <i className="fas fa-chevron-right"></i> Cursos
-              </a>
+              <Link to={"/learning"}>
+                <i className="fas fa-chevron-right"></i> Curso
+              </Link>
             </li>
             <li>
-              <a href="ayuda.html">
+              <Link to={"/help"}>
                 <i className="fas fa-chevron-right"></i> Ayuda
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="perfil.html">
+              <Link to={"/account"}>
                 <i className="fas fa-chevron-right"></i> Mi Perfil
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

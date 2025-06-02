@@ -68,7 +68,7 @@ function reducer(state, action) {
           async function formSubmission() {
             const formResponse = await submitRegisterForm(state);
             if (formResponse.status == 201) {
-              localStorage.setItem("cp_token", formResponse.data.token);
+              localStorage.setItem("ciberpoli_token", formResponse.data.token);
             }
             alert("Cuenta creada con éxito");
             action.navigate("/inicio");
@@ -439,7 +439,7 @@ function RegisterPage() {
               Los campos obligatorios están indicados con *
             </p>
 
-            <Link to="/inicio" className={"text-center"}>
+            <Link to="/signing" className={"text-center"}>
               Ya estoy registrado
             </Link>
           </div>
