@@ -1,0 +1,36 @@
+import Header from "./Header";
+import Footer from "./Footer";
+import SectionCard from "./SectionCard";
+import CourseSectionAside from "./CourseSectionAside";
+import { Outlet } from "react-router-dom";
+function CourseSectionContents({ sections }) {
+  return (
+    <div>
+      <Header />
+
+      <div className="content-wrapper">
+        <div className="curso-breadcrumb">
+          <a href="curso.html">
+            <i className="fas fa-arrow-left"></i> Volver al curso
+          </a>
+          <h2>Unidades del Programa: Protección de Datos Personales</h2>
+        </div>
+
+        <main className="unidades-container">
+          <section className="unidades-list">
+            {sections.map((element) => (
+              <SectionCard data={element} />
+            ))}
+          </section>
+          <Outlet />
+          <p>Referencia</p>
+          <CourseSectionAside />
+        </main>
+      </div>
+
+      <Footer />
+    </div>
+  );
+}
+
+export default CourseSectionContents;

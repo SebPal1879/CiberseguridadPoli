@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { submitLoginForm } from "../api/access.api";
 import Form from "../components/Form";
 import Input from "../components/Input";
@@ -52,7 +52,7 @@ function LoginPage() {
     <div className="login-box">
       <div className="card card-outline">
         <div className="card-body">
-          <img src="./logo.png" className="logo" />
+          <img src="/logo.png" className="logo" />
           <div className="login-div">
             <h2>¡Bienvenido a Ciberseguridad Poli!</h2>
             <p>Inicia sesión con tu cuenta Institucional</p>
@@ -113,9 +113,9 @@ function LoginPage() {
           <div className="login-div">
             <p className="mb-0">
               ¿No tienes cuenta?&nbsp;
-              <a className="text-center" href="../general/registro.html">
-                Registrate aquí
-              </a>
+              <Link className="text-center" to="/registro">
+                Regístrate aquí
+              </Link>
             </p>
           </div>
         </div>

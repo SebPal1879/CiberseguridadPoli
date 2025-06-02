@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from "react";
-import Header from "../components/header";
+import Header from "../components/QuizHeader";
 import Container from "../components/Container";
 import Start from "../components/Start";
 import Progress from "../components/Progress";

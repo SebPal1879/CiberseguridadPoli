@@ -13,3 +13,9 @@ export function submitRegisterForm(formData) {
 export function submitLoginForm(formData) {
   return axios.post("http://localhost:8000/signin/", formData);
 }
+
+export function getInformation(url, userToken) {
+  return axios.get(url, {
+    headers: { Authorization: userToken },
+  });
+}

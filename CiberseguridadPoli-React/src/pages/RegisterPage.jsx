@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from "react";
 import Form from "../components/Form";
 import Input from "../components/Input";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { submitRegisterForm } from "../api/access.api";
 import InputGroup from "./InputGroup";
 
@@ -439,9 +439,9 @@ function RegisterPage() {
               Los campos obligatorios están indicados con *
             </p>
 
-            <a href="login.html" className="text-center">
+            <Link to="/inicio" className={"text-center"}>
               Ya estoy registrado
-            </a>
+            </Link>
           </div>
         </div>
       </div>

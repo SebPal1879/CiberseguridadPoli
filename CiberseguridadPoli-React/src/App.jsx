@@ -2,7 +2,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import QuizPage from "./pages/QuizPage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
-import Curso from "./pages/Curso";
+import Course from "./pages/Course";
+import Section from "./pages/Section";
+import PruebaNesting from "./components/PruebaNesting";
 
 function App() {
   return (
@@ -12,7 +14,10 @@ function App() {
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/registro" element={<RegisterPage />} />
         <Route path="/inicio" element={<LoginPage />} />
-        <Route path="/curso" element={<Curso />} />
+        <Route path="/learning" element={<Course />}>
+          <Route path="test" element={<PruebaNesting />} />
+        </Route>
+        <Route path="/learning/section/:id" element={<Section />} />
       </Routes>
     </BrowserRouter>
   );

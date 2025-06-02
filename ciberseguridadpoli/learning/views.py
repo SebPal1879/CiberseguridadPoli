@@ -15,7 +15,7 @@ from learning.serializer import AvailabilityCompletionSerializer, SectionSeriali
 from quiz.models import AvailableQuiz, Quiz
 # Create your views here.
 
-#Para trabajar después: al crear un nuevo contenido, no se crea su registro de disponibilidad todavía
+# Para trabajar después: al crear un nuevo contenido, no se crea su registro de disponibilidad todavía
 def SyncLectureUserAvailability():
   pass
 
@@ -35,7 +35,7 @@ class SectionsView(APIView):
       if user_lecture.is_available:
         available_sections.append(section)
     
-    section_serializer = SectionSerializer(available_sections,many=True)#Los serializers pueden tomar tanto querysets como arreglos
+    section_serializer = SectionSerializer(available_sections,many=True)# Los serializers pueden tomar tanto querysets como arreglos
 
     return Response(section_serializer.data, status=status.HTTP_200_OK)
 
@@ -54,7 +54,7 @@ class LecturesView(APIView):
       lecture_information.append(lecture)
     if all(not lecture["available"] for lecture in lecture_information):
       return Response({"Error":"Parece que esta sección no está disponible"},status=status.HTTP_404_NOT_FOUND)
-    return Response({"Encontrado": lecture_information},status=status.HTTP_200_OK)
+    return Response(lecture_information,status=status.HTTP_200_OK)
   
 class LectureContentView(APIView):
   authentication_classes = [TokenAuthentication]
