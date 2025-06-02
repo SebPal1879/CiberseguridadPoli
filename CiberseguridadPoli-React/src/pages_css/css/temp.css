@@ -1,0 +1,14 @@
+.temp {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.temp-btn {
+  height: 30px;
+  width: 100px;
+}
+
+.auto-left {
+  margin-left: auto;
+}

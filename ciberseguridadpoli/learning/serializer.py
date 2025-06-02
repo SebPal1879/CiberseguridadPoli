@@ -16,7 +16,7 @@ class SectionSerializer(serializers.ModelSerializer):
 class LectureSerializer(serializers.ModelSerializer):
   class Meta:
     model = Lecture
-    fields = ('id','lecture_in_section_number','name','section')
+    fields = ('id','lecture_in_section_number','name','section','description')
 
 class LectureContentSerializer(serializers.ModelSerializer):
   class Meta:

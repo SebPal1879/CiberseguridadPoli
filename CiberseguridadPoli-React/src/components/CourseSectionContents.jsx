@@ -19,15 +19,13 @@ function CourseSectionContents({ sections }) {
         <main className="unidades-container">
           <section className="unidades-list">
             {sections.map((element) => (
-              <SectionCard data={element} />
+              <SectionCard data={element} key={element.id} />
             ))}
           </section>
           <Outlet />
-          <p>Referencia</p>
           <CourseSectionAside />
         </main>
       </div>
-
       <Footer />
     </div>
   );

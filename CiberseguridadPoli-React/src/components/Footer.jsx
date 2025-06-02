@@ -4,7 +4,7 @@ function Footer() {
       <div className="footer-content">
         <div className="footer-section about">
           <img
-            src="./logo-poli.png"
+            src="/logo-poli.png"
             alt="Logo Politécnico"
             className="footer-logo"
           />

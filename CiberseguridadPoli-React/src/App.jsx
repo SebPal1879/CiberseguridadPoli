@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import Course from "./pages/Course";
 import Section from "./pages/Section";
 import PruebaNesting from "./components/PruebaNesting";
+import Lecture from "./pages/Lecture";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
           <Route path="test" element={<PruebaNesting />} />
         </Route>
         <Route path="/learning/section/:id" element={<Section />} />
+        <Route
+          path="/learning/section/:ids/lecture/:idl"
+          element={<Lecture />}
+        />
       </Routes>
     </BrowserRouter>
   );
