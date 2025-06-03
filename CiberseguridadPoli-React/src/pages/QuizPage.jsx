@@ -6,6 +6,7 @@ import Progress from "../components/Progress";
 import Question from "../components/Question";
 import Bottom from "../components/Bottom";
 import { getAll } from "../api/access.api";
+import { useParams } from "react-router-dom";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -67,17 +68,22 @@ function QuizPage() {
     initialState
   );
 
-  useEffect(function () {
-    async function loadQuiz() {
-      dispatch({ type: "awaiting" });
-      await getAll(1)
-        .then((res) => dispatch({ type: "received", payload: res.data }))
-        .catch((error) => {
-          throw new Error(error);
-        });
-    }
-    loadQuiz();
-  }, []);
+  const { id } = useParams();
+
+  useEffect(
+    function () {
+      async function loadQuiz() {
+        dispatch({ type: "awaiting" });
+        await getAll(id)
+          .then((res) => dispatch({ type: "received", payload: res.data }))
+          .catch((error) => {
+            throw new Error(error);
+          });
+      }
+      loadQuiz();
+    },
+    [id]
+  );
 
   const maxQuestions = questions.length;
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0);

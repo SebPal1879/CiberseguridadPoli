@@ -8,7 +8,7 @@ function Bottom({ dispatch, answer, index, maxQuestions }) {
         <div className="next">
           <button
             className="main-button"
-            onClick={() => dispatch({ type: "results" })}
+            onClick={() => dispatch({ type: "finish" })}
           >
             Finish
           </button>

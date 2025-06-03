@@ -1,7 +1,7 @@
+import { useLocation, Link } from "react-router-dom";
+import { useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 function InfoCurso() {
   const location = useLocation();
   useEffect(
@@ -294,12 +294,14 @@ function InfoCurso() {
               <button className="btn-primary btn-inscribirse">
                 <i className="fas fa-user-plus"></i> Inscribirse ahora
               </button>
-              <a href="unidades.html" className="btn-secondary">
+              <Link to="/learning" className="btn-secondary">
                 <i className="fas fa-list-ul"></i> Ver unidades del programa
-              </a>
-              <button className="btn-tertiary">
-                <i className="far fa-question-circle"></i> ¿Tienes preguntas?
-              </button>
+              </Link>
+              <Link to={"/help"}>
+                <button className="btn-tertiary">
+                  <i className="far fa-question-circle"></i> ¿Tienes preguntas?
+                </button>
+              </Link>
             </div>
           </section>
 

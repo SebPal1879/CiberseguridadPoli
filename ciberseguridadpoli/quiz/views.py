@@ -47,9 +47,10 @@ class AvailableQuizView(APIView):
     quiz_availability = AvailableQuiz.objects.filter(user=user)
     if not quiz_availability.exists():
       return Response({"Error":"Parece que no se ha registrado la disponibilidad de ningún desafío para este usuario."}, status=status.HTTP_404_NOT_FOUND)
-    quiz_availability_serializer = AvailableQuizSerializer(quiz_availability,many=True)
-
-    return Response(quiz_availability_serializer.data,status=status.HTTP_200_OK)
+    #quiz_availability_serializer = AvailableQuizSerializer(quiz_availability,many=True)
+    user_quizzes = Quiz.objects.filter(id__in=Subquery(quiz_availability.values('quiz')))
+    user_quizzes_serializer = QuizSerializer(user_quizzes,many=True)
+    return Response(user_quizzes_serializer.data,status=status.HTTP_200_OK)
 
 class QuizCompletionView(APIView):
   authentication_classes = [TokenAuthentication]
