@@ -18,8 +18,11 @@ function Header() {
           <NavLink to={"/learning"}>
             <i className="fas fa-book"></i> Curso
           </NavLink>
+          <NavLink to={"/history"}>
+            <i className="fas fa-bars"></i> Historial
+          </NavLink>
           <NavLink to={"/challenges"}>
-            <i className="fas fa-bars"></i> Desafíos
+            <i className="fas fa-check"></i> Desafíos
           </NavLink>
           <NavLink to={"/help"}>
             <i className="fas fa-question-circle"></i> Ayuda

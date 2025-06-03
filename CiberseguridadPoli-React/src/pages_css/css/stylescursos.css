@@ -50,7 +50,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 20px;
   height: 80px;
@@ -1413,4 +1413,53 @@ footer {
   .unidad-content {
     padding: 20px;
   }
+}
+
+.quiz-history {
+  padding: 40px 20px;
+  background-color: var(--gris-claro);
+  font-family: var(--fuente-texto);
+}
+
+.quiz-history h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 26px;
+  color: var(--verde-muy-oscuro);
+  font-family: var(--fuente-titulos);
+}
+
+.quiz-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: var(--blanco);
+  box-shadow: var(--sombra);
+  border-radius: var(--borde-radius);
+  overflow: hidden;
+}
+
+.quiz-history-table th,
+.quiz-history-table td {
+  padding: 14px 18px;
+  text-align: center;
+  font-size: 15px;
+  border-bottom: 1px solid var(--gris-medio);
+}
+
+.quiz-history-table th {
+  background-color: var(--verde-claro);
+  color: var(--blanco);
+  font-weight: 600;
+  font-family: var(--fuente-titulos);
+}
+
+.quiz-history-table tr:nth-child(even) {
+  background-color: var(--gris-medio);
+}
+
+.quiz-history-table tr:hover {
+  background-color: var(--amarillo);
+  color: var(--negro);
+  transition: background-color 0.3s ease;
 }

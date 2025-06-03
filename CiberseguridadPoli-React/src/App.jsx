@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Help from "./pages/Help";
 import Account from "./pages/Account";
 import Challenges from "./pages/Challenges";
+import History from "./pages/History";
 function App() {
   return (
     <BrowserRouter>
@@ -31,6 +32,7 @@ function App() {
         />
         <Route path="/challenges" element={<Challenges />} />
         <Route path="/challenges/:id" element={<QuizPage />} />
+        <Route path="/history" element={<History />} />
       </Routes>
     </BrowserRouter>
   );
