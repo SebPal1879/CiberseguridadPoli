@@ -91,11 +91,6 @@ a.text-center:hover {
   text-decoration: underline;
 }
 
-.logo {
-  width: 7rem;
-  height: 7rem;
-}
-
 .button-container {
   width: 100%;
   display: flex;

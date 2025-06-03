@@ -30,7 +30,7 @@ function Timer({ dispatch }) {
         <strong>
           {mins < 0 && "0"}
           {mins}:{seconds < 10 && "0"}
-          {seconds} left
+          {seconds}
         </strong>
       </p>
     </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useAuthFetching from "../api/useAuthFetching";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Header from "../components/Header";
@@ -7,22 +7,18 @@ import LectureContent from "../components/LectureContent";
 import Help from "../components/Help";
 import { Link } from "react-router-dom";
 import { postRequest } from "../api/access.api";
+import { useDynamicImports } from "./useDynamicImports";
 
 const KEY = "ciberpoli_token";
 
 function Lecture() {
   const location = useLocation();
   const navigate = useNavigate();
-  useEffect(
-    function () {
-      if (location.pathname.startsWith("/learning/section/")) {
-        import("../pages_css/css/stylescursos.css");
-
-        import("../pages_css/css/all.min.css");
-      }
-    },
-    [location]
+  useDynamicImports(
+    ["/src/pages_css/css/stylescursos.css", "/src/pages_css/css/all.min.css"],
+    location.pathname
   );
+
   const { ids, idl } = useParams();
   const [response, setResponse] = useState({});
   const BASE_URL = `http://127.0.0.1:8000/learning/section/${ids}/lecture/${idl}/`;
@@ -39,10 +35,10 @@ function Lecture() {
     const token = localStorage.getItem("ciberpoli_token");
     console.log(token);
     console.log(BASE_URL);
-    const response = await postRequest(BASE_URL, token);
+    const response = await postRequest(BASE_URL, {}, token);
     if (response.status === 200) {
       alert("Se ha completado la lección exitosamente");
-      navigate(-1);
+      navigate(`/learning/section/${ids}/`);
     } else {
       alert("Ha ocurrido un error");
     }
@@ -54,7 +50,7 @@ function Lecture() {
       {response.status === 200 && (
         <main className="lesson-content">
           <div className="curso-breadcrumb">
-            <Link to={-1}>
+            <Link to={`/learning/section/${ids}/`}>
               <i className="fas fa-arrow-left"></i> Volver a Unidades
             </Link>
           </div>

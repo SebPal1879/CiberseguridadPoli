@@ -1,9 +1,10 @@
-import { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { submitRegisterForm } from "../api/access.api";
 import InputGroup from "./InputGroup";
+import { useDynamicImports } from "./useDynamicImports";
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@elpoli\.edu\.co$/;
 const djangoPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
@@ -75,7 +76,7 @@ function reducer(state, action) {
           }
           formSubmission();
         } else {
-          alert("No todos los campos son válidos");
+          alert("Faltan campos por diligenciar.");
         }
       }
       return state;
@@ -97,6 +98,12 @@ const initialState = {
   validPassword: "",
   passwordConfirm: "",
 };
+
+const styleRoutes = [
+  "/src/pages_css/css/all.min.css",
+  "/src/pages_css/css/styles.css",
+  "/src/pages_css/css/adminlte.min.css",
+];
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -129,22 +136,14 @@ function RegisterPage() {
     passwordConfirm
   );
   const location = useLocation();
-  useEffect(
-    function () {
-      if (location.pathname.startsWith("/signup")) {
-        import("../pages_css/css/all.min.css");
-        import("../pages_css/css/adminlte.min.css");
-        import("../pages_css/css/styles.css");
-      }
-    },
-    [location]
-  );
+  useDynamicImports(styleRoutes, location.pathname);
+
   return (
     <>
       <div className="register-box">
         <div className="card">
           <div className="card-body register-card-body ">
-            <img src="/logo.png" className="logo" />
+            <img src="/logo.png" />
             <p className="login-box-msg">Registrate en CiberseguridadPoli</p>
             <Form action={(e) => dispatch({ type: "formSubmit", e, navigate })}>
               <div className="form-group position-relative">
@@ -439,7 +438,7 @@ function RegisterPage() {
               Los campos obligatorios están indicados con *
             </p>
 
-            <Link to="/signing" className={"text-center"}>
+            <Link to="/signin" className={"text-center"}>
               Ya estoy registrado
             </Link>
           </div>

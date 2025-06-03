@@ -1,18 +1,14 @@
 import { useLocation, Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useDynamicImports } from "./useDynamicImports";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 function InfoCurso() {
   const location = useLocation();
-  useEffect(
-    function () {
-      if (location.pathname.startsWith("/course")) {
-        import("../pages_css/css/stylescursos.css");
-        import("../pages_css/css/all.min.css");
-      }
-    },
-    [location]
+  useDynamicImports(
+    ["/src/pages_css/css/stylescursos.css", "/src/pages_css/css/all.min.css"],
+    location.pathname
   );
+
   return (
     <>
       <Header />

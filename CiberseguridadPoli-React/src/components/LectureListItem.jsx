@@ -11,15 +11,12 @@ function LectureListItem({ lecture, className = "" }) {
           <p style={{ color: "#009752" }}>Ya has completado esta lección</p>
         )}
       </div>
-      {lecture.available ? (
-        <Link to={`lecture/${lecture.id}`} className="auto-left">
-          <button className="temp-btn">Ver lección</button>
-        </Link>
-      ) : (
-        <Link to={`lecture/${lecture.id}`} className="auto-left">
-          <i className="fas "></i> He completado la lección.
-        </Link>
-      )}
+      <Link
+        to={`lecture/${lecture.id}`}
+        className="auto-left btn btn-ver-lecciones"
+      >
+        <i></i> Ver contenido de la lección
+      </Link>
     </li>
   );
 }

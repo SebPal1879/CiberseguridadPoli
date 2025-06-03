@@ -1,14 +1,24 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { submitLoginForm } from "../api/access.api";
 import Form from "../components/Form";
 import Input from "../components/Input";
+import { useDynamicImports } from "./useDynamicImports";
 
 function LoginPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  useDynamicImports(
+    [
+      "/src/pages_css/css/adminlte.min.css",
+      "/src/pages_css/css/all.min.css",
+      "/src/pages_css/css/styles.css",
+    ],
+    location.pathname
+  );
 
   function submitLogin(e) {
     e.preventDefault();
@@ -34,23 +44,12 @@ function LoginPage() {
     login(username, password);
   }
   console.log(username, password);
-  useEffect(
-    function () {
-      if (location.pathname.startsWith("/signin")) {
-        import("../pages_css/css/all.min.css");
-        import("../pages_css/css/adminlte.min.css");
-        import("../pages_css/css/all.min.css");
-        import("../pages_css/css/styles.css");
-      }
-    },
-    [location]
-  );
 
   return (
     <div className="login-box">
       <div className="card card-outline">
         <div className="card-body">
-          <img src="/logo.png" className="logo" />
+          <img src="/logo.png" />
           <div className="login-div">
             <h2>¡Bienvenido a Ciberseguridad Poli!</h2>
             <p>Inicia sesión con tu cuenta Institucional</p>

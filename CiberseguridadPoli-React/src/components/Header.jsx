@@ -16,10 +16,13 @@ function Header() {
             <i className="fas fa-home"></i> Inicio
           </NavLink>
           <NavLink to={"/learning"}>
-            <i className="fas fa-home"></i> Curso
+            <i className="fas fa-book"></i> Curso
+          </NavLink>
+          <NavLink to={"/challenges"}>
+            <i className="fas fa-bars"></i> Desafíos
           </NavLink>
           <NavLink to={"/help"}>
-            <i className="fas fa-home"></i> Ayuda
+            <i className="fas fa-question-circle"></i> Ayuda
           </NavLink>
         </nav>
         <div className="profile-section">

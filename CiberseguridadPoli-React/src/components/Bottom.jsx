@@ -1,6 +1,6 @@
 import Timer from "./Timer";
 
-function Bottom({ dispatch, answer, index, maxQuestions }) {
+function Bottom({ dispatch, answer, index, maxQuestions, maxPoints, quizId }) {
   return (
     <div className="bottom-row">
       <Timer dispatch={dispatch} />
@@ -8,9 +8,11 @@ function Bottom({ dispatch, answer, index, maxQuestions }) {
         <div className="next">
           <button
             className="main-button"
-            onClick={() => dispatch({ type: "finish" })}
+            onClick={() =>
+              dispatch({ type: "finish", payload: maxPoints, id: quizId })
+            }
           >
-            Finish
+            Terminar
           </button>
         </div>
       ) : (
@@ -20,7 +22,7 @@ function Bottom({ dispatch, answer, index, maxQuestions }) {
             onClick={() => dispatch({ type: "next" })}
             disabled={answer === null}
           >
-            Next
+            Siguiente
           </button>
         </div>
       )}

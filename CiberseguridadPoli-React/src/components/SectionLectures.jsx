@@ -1,10 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import LectureListItem from "./LectureListItem";
+import { useDynamicImports } from "../pages/useDynamicImports";
+
+const styleRoutes = [
+  "/src/pages_css/css/stylescursos.css",
+  "/src/pages_css/css/temp.css",
+  "/src/pages_css/css/all.min.css",
+];
 function SectionLectures({ data }) {
+  const location = useLocation();
+  useDynamicImports(styleRoutes, location.pathname);
+
   return (
     <div className="lecciones-preview">
       <div className="temp">
-        <Link to={-1}>
+        <Link to={"/learning"}>
           <i className="fas fa-arrow-left"></i> Volver a Secciones
         </Link>
         <h4>

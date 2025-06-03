@@ -21,6 +21,10 @@ class AvailableQuizSerializer(serializers.ModelSerializer):
       fields = ('user','quiz','is_available')
 
 class QuizCompletionSerializer(serializers.ModelSerializer):
+   attempt_date = serializers.DateTimeField(format="%Y-%m-%d")
+   quiz = serializers.StringRelatedField()
+
+
    class Meta:
       model = QuizCompletion
-      fields = ('user','quiz','score','attempt_date')
+      fields = ('id','quiz','score','attempt_date')

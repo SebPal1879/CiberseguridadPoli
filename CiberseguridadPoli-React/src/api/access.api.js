@@ -19,12 +19,9 @@ export function getInformation(url, userToken) {
     headers: { Authorization: `Token ${userToken}` },
   });
 }
-export function postRequest(url, userToken) {
-  return axios.post(
-    url,
-    {},
-    {
-      headers: { Authorization: `Token ${userToken}` },
-    }
-  );
+export function postRequest(url, data = {}, userToken) {
+  console.log(data);
+  return axios.post(url, data, {
+    headers: { Authorization: `Token ${userToken}` },
+  });
 }
