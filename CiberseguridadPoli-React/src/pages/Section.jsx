@@ -30,6 +30,7 @@ function Section() {
   return (
     <>
       <Header />
+
       {response.status === 200 && <SectionLectures data={data} />}
     </>
   );

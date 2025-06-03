@@ -10,6 +10,7 @@ import InfoCurso from "./pages/InfoCurso";
 import Home from "./pages/Home";
 import Help from "./pages/Help";
 import Account from "./pages/Account";
+import Challenges from "./pages/Challenges";
 function App() {
   return (
     <BrowserRouter>
@@ -19,12 +20,13 @@ function App() {
         <Route path="/course" element={<InfoCurso />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/signup" element={<RegisterPage />} />
-        <Route path="/signing" element={<LoginPage />} />
+        <Route path="/signin" element={<LoginPage />} />
         <Route path="/learning" element={<Course />}>
           <Route path="test" element={<PruebaNesting />} />
         </Route>
         <Route path="/learning/section/:id" element={<Section />} />
         <Route path="/help" element={<Help />} />
+        <Route path="challenges" element={<Challenges />} />
         <Route
           path="/learning/section/:ids/lecture/:idl"
           element={<Lecture />}

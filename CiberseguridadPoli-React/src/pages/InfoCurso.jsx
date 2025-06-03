@@ -6,7 +6,7 @@ function InfoCurso() {
   const location = useLocation();
   useEffect(
     function () {
-      if (location.pathname.startsWith("/curso")) {
+      if (location.pathname.startsWith("/course")) {
         import("../pages_css/css/stylescursos.css");
         import("../pages_css/css/all.min.css");
       }

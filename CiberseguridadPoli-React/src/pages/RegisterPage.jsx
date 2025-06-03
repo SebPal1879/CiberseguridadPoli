@@ -71,7 +71,7 @@ function reducer(state, action) {
               localStorage.setItem("ciberpoli_token", formResponse.data.token);
             }
             alert("Cuenta creada con éxito");
-            action.navigate("/inicio");
+            action.navigate("/");
           }
           formSubmission();
         } else {
@@ -131,7 +131,7 @@ function RegisterPage() {
   const location = useLocation();
   useEffect(
     function () {
-      if (location.pathname.startsWith("/registro")) {
+      if (location.pathname.startsWith("/signup")) {
         import("../pages_css/css/all.min.css");
         import("../pages_css/css/adminlte.min.css");
         import("../pages_css/css/styles.css");

@@ -24,7 +24,7 @@ function Home() {
                 mejores prácticas de seguridad con nuestros cursos
                 especializados.
               </p>
-              <Link to={"/curso"} className="btn-primary">
+              <Link to={"/course"} className="btn-primary">
                 <i className="fas fa-arrow-right"></i> Explorar cursos
                 disponibles
               </Link>

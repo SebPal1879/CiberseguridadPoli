@@ -18,11 +18,9 @@ function LoginPage() {
       console.log(response);
       switch (response.status) {
         case 202: {
-          const token = "Token " + response.data.token;
-          console.log(token);
-          localStorage.setItem("ciberpoli_token", token);
+          localStorage.setItem("ciberpoli_token", response.data.token);
           alert("Autenticación exitosa.");
-          navigate("/curso");
+          navigate("/course");
           break;
         }
         case 400:
@@ -38,7 +36,7 @@ function LoginPage() {
   console.log(username, password);
   useEffect(
     function () {
-      if (location.pathname.startsWith("/inicio")) {
+      if (location.pathname.startsWith("/signin")) {
         import("../pages_css/css/all.min.css");
         import("../pages_css/css/adminlte.min.css");
         import("../pages_css/css/all.min.css");
@@ -113,7 +111,7 @@ function LoginPage() {
           <div className="login-div">
             <p className="mb-0">
               ¿No tienes cuenta?&nbsp;
-              <Link className="text-center" to="/registro">
+              <Link className="text-center" to="/signup">
                 Regístrate aquí
               </Link>
             </p>

@@ -16,6 +16,15 @@ export function submitLoginForm(formData) {
 
 export function getInformation(url, userToken) {
   return axios.get(url, {
-    headers: { Authorization: userToken },
+    headers: { Authorization: `Token ${userToken}` },
   });
+}
+export function postRequest(url, userToken) {
+  return axios.post(
+    url,
+    {},
+    {
+      headers: { Authorization: `Token ${userToken}` },
+    }
+  );
 }

@@ -5,7 +5,7 @@ function SectionCard({ data }) {
     <div className="unidad-card">
       <div className="unidad-header">
         <div className="unidad-number-container">
-          <div className="unidad-number">1</div>
+          <div className="unidad-number">{data.section_number}</div>
         </div>
         <div className="unidad-title-container">
           <h3>{data.name}</h3>

@@ -6,8 +6,10 @@ import { useEffect } from "react";
 function Help() {
   const location = useLocation();
   useEffect(() => {
-    import("../pages_css/css/stylescursos.css");
-    import("../pages_css/css/all.min.css");
+    if (location.pathname.startsWith("/help")) {
+      import("../pages_css/css/stylescursos.css");
+      import("../pages_css/css/all.min.css");
+    }
   }, [location]);
 
   return (

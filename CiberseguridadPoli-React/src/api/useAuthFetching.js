@@ -8,7 +8,7 @@ function useAuthFetching(key, url, setter) {
       async function getAPIData() {
         try {
           const response = await axios.get(url, {
-            headers: { Authorization: item },
+            headers: { Authorization: `Token ${item}` },
           });
           console.log(response);
           setter(response);

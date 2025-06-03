@@ -56,6 +56,21 @@ body {
   height: 80px;
 }
 
+.fin-leccion {
+  margin-top: 20px;
+}
+
+.fin-leccion:hover {
+  cursor: pointer;
+}
+
+.contenedor {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
 /* Logo y títulos */
 .logo-container {
   display: flex;

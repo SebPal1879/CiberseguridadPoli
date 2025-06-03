@@ -8,7 +8,7 @@ function CourseSectionContents({ sections }) {
     <div>
       <div className="content-wrapper">
         <div className="curso-breadcrumb">
-          <Link to={"/curso"}>
+          <Link to={"/course"}>
             <i className="fas fa-arrow-left"></i> Volver al curso
           </Link>
 

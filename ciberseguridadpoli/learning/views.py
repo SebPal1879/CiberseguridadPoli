@@ -61,6 +61,8 @@ class LectureContentView(APIView):
   permission_classes = [IsAuthenticated]
 
   def get(self,request,section_id,lecture_id):
+    user = User.objects.get(pk=request.user.id)
+    print(user.username)
     try:
       lecture = Lecture.objects.get(pk=lecture_id)
     except ObjectDoesNotExist:
@@ -85,8 +87,10 @@ class LectureContentView(APIView):
     
     lecture_contents_serializer = LectureContentSerializer(lecture_contents,many=True)
     lecture_serializer = LectureSerializer(lecture)
-    return Response([lecture_contents_serializer.data, lecture_serializer.data],status=status.HTTP_200_OK)
+    availability_serializer = AvailabilityCompletionSerializer(availability)
+    return Response([lecture_contents_serializer.data, lecture_serializer.data,availability_serializer.data],status=status.HTTP_200_OK)
   
+
   def post(self,request,section_id,lecture_id):
     user = User.objects.get(pk=request.user.id)
     lecture = Lecture.objects.get(pk=lecture_id)
@@ -120,7 +124,7 @@ class LectureContentView(APIView):
         next_sect_availability.is_available = True
         next_sect_availability.save()
       except ObjectDoesNotExist:
-        print("No se encontró siguiente sección")
+        print("No se encontró una siguiente sección")
 
     return Response({"Mensaje" : "Se completó la lección exitosamente"},status=status.HTTP_200_OK)
 
