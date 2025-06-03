@@ -6,19 +6,58 @@ from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from rest_framework import status
 
 from learning.models import LectureAvailabilityAndCompletion, Section, Lecture, LectureContent
 from learning.serializer import AvailabilityCompletionSerializer, SectionSerializer, LectureSerializer, LectureContentSerializer
-from quiz.models import AvailableQuiz, Quiz
+from quiz.models import AvailableQuiz, Quiz, Question, Answer
 # Create your views here.
 
 # Para trabajar después: al crear un nuevo contenido, no se crea su registro de disponibilidad todavía
 def SyncLectureUserAvailability():
   pass
 
+# class AddSections(APIView):
+
+#   def post(self,request):
+
+#     lectures_contents = request.data
+#     for lecture_content in lectures_contents:
+#         lecture = Lecture.objects.get(pk=lecture_content["lecture"])
+#         xorizo = LectureContent.objects.create(content_in_lecture_number=lecture_content["content_in_lecture_number"],content=lecture_content["content"],lecture=lecture)
+#         xorizo.save()
+
+#     return Response({"a" : "Se subieron a los a"})
+#     # sections = request.data
+#     # for section in sections:
+#     #   new_section = Section.objects.create(section_number=section["section_number"],name=section["name"], description=section["description"])
+#     # return Response({"Mensaje" : "Se subieron todos los contenidos"})
+
+
+class AddSections(APIView):
+
+  def post(self,request):
+    answers = request.data    
+    for answer in answers:
+      question = Question.objects.get(pk=answer["question"])
+      Answer.objects.create(answer=answer["answer"],is_correct=answer["is_correct"],question=question)    
+    # questions = request.data    
+    # for question in questions:
+    #   quiz = Quiz.objects.get(pk=question["quiz"])
+    #   question = Question.objects.create(statement=question["statement"],points=question["points"],quiz=quiz)
+
+    # quizzes = request.data
+    # for quiz in quizzes:
+    #     lecture = Lecture.objects.get(pk=quiz["lecture"])
+    #     Quiz.objects.create(name=quiz["name"],description=quiz["description"],lecture=lecture)
+
+    return Response({"a" : "Se subieron a los a"})
+    # sections = request.data
+    # for section in sections:
+    #   new_section = Section.objects.create(section_number=section["section_number"],name=section["name"], description=section["description"])
+    # return Response({"Mensaje" : "Se subieron todos los contenidos"})
 
 class SectionsView(APIView):
   authentication_classes = [TokenAuthentication]
