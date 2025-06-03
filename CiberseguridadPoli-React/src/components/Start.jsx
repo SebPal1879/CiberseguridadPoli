@@ -1,7 +1,7 @@
-function Start({ dispatch }) {
+function Start({ dispatch, description }) {
   return (
     <div className="start">
-      <p>En este quiz, pondrás tus habilidades a prueba sobre ejemplo</p>
+      <p>{description}</p>
       <button
         className="main-button"
         onClick={() => dispatch({ type: "start" })}

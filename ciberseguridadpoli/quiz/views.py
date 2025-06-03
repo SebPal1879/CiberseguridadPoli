@@ -43,7 +43,7 @@ class FetchQuizAPIView(APIView):
 
     returned_array = array_constructor(question_serializer.data,answer_serializer.data)
     #print(returned_array)
-    return Response(returned_array, status=status.HTTP_200_OK)
+    return Response([returned_array,quiz_serializer.data], status=status.HTTP_200_OK)
   
 class AvailableQuizzesView(APIView):
   authentication_classes = [TokenAuthentication]

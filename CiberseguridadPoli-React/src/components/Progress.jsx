@@ -3,11 +3,11 @@ function Progress({ actual, maxQuestions, currentPoints, maxPoints }) {
     <div className="progress">
       <progress max={maxQuestions} value={actual}></progress>
       <p>
-        Question {actual + 1} of {maxQuestions}
+        Pregunta {actual + 1} de {maxQuestions}
       </p>
       <p>
         <em>
-          <strong>{currentPoints}</strong> points out of {maxPoints}
+          <strong>{currentPoints}</strong> puntos de {maxPoints}
         </em>
       </p>
     </div>

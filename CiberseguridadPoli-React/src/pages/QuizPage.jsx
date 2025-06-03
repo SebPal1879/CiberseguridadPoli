@@ -21,7 +21,9 @@ function reducer(state, action) {
       console.log(action.payload);
       return {
         ...state,
-        questions: action.payload,
+        questions: action.payload[0],
+        quizName: action.payload[1].name,
+        quizDescription: action.payload[1].description,
         status: "ready",
       };
     case "start":
@@ -46,7 +48,6 @@ function reducer(state, action) {
         answer: null,
       };
     case "finish": {
-      console.log(action.id);
       const BASE_SUBMIT_URL = `http://127.0.0.1:8000/quiz/completion/${action.id}/`;
       const token = localStorage.getItem("ciberpoli_token");
       const score = (state.points / action.payload) * 5;
@@ -86,6 +87,8 @@ function reducer(state, action) {
 
 function QuizPage() {
   const initialState = {
+    quizName: "",
+    quizDescription: "",
     questions: [],
     index: 0,
     answer: null,
@@ -94,8 +97,19 @@ function QuizPage() {
     score: 0,
   };
 
-  const [{ questions, index, answer, points, status, score }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    {
+      quizName,
+      quizDescription,
+      questions,
+      index,
+      answer,
+      points,
+      status,
+      score,
+    },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   const { id } = useParams();
   const location = useLocation();
@@ -128,10 +142,12 @@ function QuizPage() {
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0);
   return (
     <>
-      <Header />
+      <Header quizName={quizName} />
       <Container>
         {status === "error" && <>Hubo un error</>}
-        {status === "ready" && <Start dispatch={dispatch} />}
+        {status === "ready" && (
+          <Start dispatch={dispatch} description={quizDescription} />
+        )}
         {status === "active" && (
           <>
             <Progress
