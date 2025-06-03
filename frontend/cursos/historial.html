@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo de Cursos - Ciberseguridad | Politécnico Colombiano</title>
+  <link rel="stylesheet" href="styleslecciones.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo-container">
+        <img src="../img/logo.png" alt="Logo" class="logo" />
+        <div class="titles">
+          <h1>CiberseguridadPoli</h1>
+          <p>Facultad de Ingeniería Informática</p>
+        </div>
+      </div>
+      <nav class="navbar">
+        <a href="../cursos/index.html" class="active"><i class="fas fa-home"></i> Inicio</a>
+        <a href="../cursos/curso.html"><i class="fas fa-book"></i> Curso</a>
+        <a href="../cursos/ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a>
+      </nav>
+      <div class="profile-section">
+        <a href="perfil.html" class="profile-btn">
+          <div class="profile-icon">
+            <i class="fas fa-user"></i>
+          </div>
+          <span>Mi Cuenta</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="content-wrapper">
+    <main class="main-content">
+<section class="quiz-history-section">
+  <div class="container">
+    <h2><i class="fas fa-clipboard-list"></i> Historial de Quizzes</h2>
+    <table class="quiz-history-table">
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Calificación</th>
+          <th>Fecha del intento</th>
+          <th>ID del Quiz</th>
+        </tr>
+      </thead>
+      <tbody id="quiz-history-body">
+        <!-- Se cargan datos dinámicamente desde JavaScript -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section about">
+        <img src="../img/logo-poli.png" alt="Logo Politécnico" class="footer-logo">
+        <h3>Politecnico Colombiano<br>Jaime Isaza Cadavid</h3>
+        <p class="footer-about">Institución de Educación Superior comprometida con la excelencia académica y la formación de profesionales íntegros.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-section links">
+        <h3>Enlaces rápidos</h3>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+          <li><a href="../cursos/curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="ayuda.html"><i class="fas fa-chevron-right"></i> Ayuda</a></li>
+          <li><a href="perfil.html"><i class="fas fa-chevron-right"></i> Mi Perfil</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact">
+        <h3>Contacto</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Cl. 48 #7-151, Medellín, Antioquia</p>
+        <p><i class="fas fa-phone"></i> +57 300 123 4567</p>
+        <p><i class="fas fa-envelope"></i> ciberseguridad@elpoli.edu.co</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Politécnico Colombiano Jaime Isaza Cadavid. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../js/jquerys/lecciones.js"></script>
+</body>
+</html>
