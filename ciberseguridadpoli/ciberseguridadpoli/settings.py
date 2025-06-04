@@ -135,6 +135,16 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173"
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com' 
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'spalacioalzate@gmail.com'
+EMAIL_HOST_PASSWORD = 'fxtblqbgetlugkgy'
+DEFAULT_FROM_EMAIL = 'Equipo de Ciberseguridad Poli'
+
+# URL del front-end
+FRONTEND_URL = 'http://localhost:5173'  # o el dominio de producción
 # REST_FRAMEWORK = {
 #     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
 # }
