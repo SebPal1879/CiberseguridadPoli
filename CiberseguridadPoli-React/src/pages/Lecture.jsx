@@ -11,13 +11,15 @@ import { useDynamicImports } from "./useDynamicImports";
 
 const KEY = "ciberpoli_token";
 
+const styleRoutes = [
+  "/src/pages_css/css/stylescursos.css",
+  "/src/pages_css/css/all.min.css",
+];
+
 function Lecture() {
   const location = useLocation();
   const navigate = useNavigate();
-  useDynamicImports(
-    ["/src/pages_css/css/stylescursos.css", "/src/pages_css/css/all.min.css"],
-    location.pathname
-  );
+  useDynamicImports(styleRoutes, location.pathname);
 
   const { ids, idl } = useParams();
   const [response, setResponse] = useState({});

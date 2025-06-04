@@ -85,6 +85,7 @@ function reducer(state, action) {
   }
 }
 
+const styleRoutes = ["/src/pages_css/css/quizstyle.css"];
 function QuizPage() {
   const initialState = {
     quizName: "",
@@ -115,7 +116,7 @@ function QuizPage() {
   const location = useLocation();
   const BASE_FETCH_URL = `http://127.0.0.1:8000/quiz/${id}`;
   const token = localStorage.getItem("ciberpoli_token");
-  useDynamicImports(["/src/pages_css/css/quizstyle.css"], location.pathname);
+  useDynamicImports(styleRoutes, location.pathname);
 
   useEffect(
     function () {

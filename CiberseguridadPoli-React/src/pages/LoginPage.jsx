@@ -5,20 +5,19 @@ import Form from "../components/Form";
 import Input from "../components/Input";
 import { useDynamicImports } from "./useDynamicImports";
 
+const styleRoutes = [
+  "/src/pages_css/css/adminlte.min.css",
+  "/src/pages_css/css/all.min.css",
+  "/src/pages_css/css/styles.css",
+];
+
 function LoginPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  useDynamicImports(
-    [
-      "/src/pages_css/css/adminlte.min.css",
-      "/src/pages_css/css/all.min.css",
-      "/src/pages_css/css/styles.css",
-    ],
-    location.pathname
-  );
+  useDynamicImports(styleRoutes, location.pathname);
 
   function submitLogin(e) {
     e.preventDefault();

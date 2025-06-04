@@ -2,12 +2,15 @@ import { useLocation, Link } from "react-router-dom";
 import { useDynamicImports } from "./useDynamicImports";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+
+const styleRoutes = [
+  "/src/pages_css/css/stylescursos.css",
+  "/src/pages_css/css/all.min.css",
+];
+
 function InfoCurso() {
   const location = useLocation();
-  useDynamicImports(
-    ["/src/pages_css/css/stylescursos.css", "/src/pages_css/css/all.min.css"],
-    location.pathname
-  );
+  useDynamicImports(styleRoutes, location.pathname);
 
   return (
     <>

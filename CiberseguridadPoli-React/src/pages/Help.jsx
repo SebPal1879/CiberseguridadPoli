@@ -3,12 +3,14 @@ import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import { useDynamicImports } from "./useDynamicImports";
 
+const styleRoutes = [
+  "/src/pages_css/css/stylescursos.css",
+  "/src/pages_css/css/all.min.css",
+];
+
 function Help() {
   const location = useLocation();
-  useDynamicImports(
-    ["/src/pages_css/css/stylescursos.css", "/src/pages_css/css/all.min.css"],
-    location.pathname
-  );
+  useDynamicImports(styleRoutes, location.pathname);
 
   return (
     <>

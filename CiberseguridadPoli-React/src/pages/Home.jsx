@@ -3,12 +3,14 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useDynamicImports } from "./useDynamicImports";
 
+const styleRoutes = [
+  "/src/pages_css/css/stylescursos.css",
+  "/src/pages_css/css/all.min.css",
+];
+
 function Home() {
   const location = useLocation();
-  useDynamicImports(
-    ["/src/pages_css/css/stylescursos.css", "/src/pages_css/css/all.min.css"],
-    location.pathname
-  );
+  useDynamicImports(styleRoutes, location.pathname);
 
   return (
     <>

@@ -8,17 +8,16 @@ import Table from "../components/Table";
 
 const BASE_URL = "http://127.0.0.1:8000/quiz/history";
 const KEY = "ciberpoli_token";
+const styleRoutes = [
+  "/src/pages_css/css/stylescursos.css",
+  "/src/pages_css/css/all.min.css",
+  "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@500&display=swap",
+];
+
 function History() {
   const location = useLocation();
   const [response, setResponse] = useState("");
-  useDynamicImports(
-    [
-      "/src/pages_css/css/stylescursos.css",
-      "/src/pages_css/css/all.min.css",
-      "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@500&display=swap",
-    ],
-    location.pathname
-  );
+  useDynamicImports(styleRoutes, location.pathname);
 
   useAuthFetching(KEY, BASE_URL, setResponse);
   const data = response.status === 200 ? response.data : [];
