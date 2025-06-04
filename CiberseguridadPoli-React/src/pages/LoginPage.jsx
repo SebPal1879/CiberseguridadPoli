@@ -23,21 +23,14 @@ function LoginPage() {
     e.preventDefault();
     async function login(username, password) {
       const formData = { username, password };
-      const response = await submitLoginForm(formData);
-      console.log(response);
-      switch (response.status) {
-        case 202: {
-          localStorage.setItem("ciberpoli_token", response.data.token);
-          alert("Autenticación exitosa.");
-          navigate("/course");
-          break;
-        }
-        case 400:
-          alert("Algo salió mal.");
-          break;
-        default:
-          alert("Respuesta desconocida");
-          break;
+      try {
+        const response = await submitLoginForm(formData);
+        localStorage.setItem("ciberpoli_token", response.data.token);
+        alert("Autenticación exitosa.");
+        navigate("/course");
+      } catch (err) {
+        console.log(err);
+        alert("Algo salió mal.");
       }
     }
     login(username, password);
@@ -88,13 +81,13 @@ function LoginPage() {
             </div>
 
             <div className="mb-3 text-left">
-              <a
-                href="../general/olvide-contrasena.html"
+              <Link
+                to={"/signin/forgot-password"}
                 target="_blank"
                 className="small forgot-password"
               >
                 Olvidé mi contraseña
-              </a>
+              </Link>
             </div>
 
             <div className="button-container">

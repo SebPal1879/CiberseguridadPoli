@@ -140,11 +140,11 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'spalacioalzate@gmail.com'
-EMAIL_HOST_PASSWORD = 'fxtblqbgetlugkgy'
+EMAIL_HOST_PASSWORD = ''
 DEFAULT_FROM_EMAIL = 'Equipo de Ciberseguridad Poli'
 
 # URL del front-end
-FRONTEND_URL = 'http://localhost:5173'  # o el dominio de producción
+FRONTEND_URL = 'http://localhost:5173'
 # REST_FRAMEWORK = {
 #     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
 # }

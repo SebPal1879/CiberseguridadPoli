@@ -5,10 +5,7 @@ export function useDynamicImports(hrefs = [], currentPath) {
   useEffect(
     function () {
       if (!location.pathname.startsWith(currentPath)) return;
-      console.log("condicional");
-      console.log(hrefs);
       const links = hrefs.map((href) => {
-        console.log(href);
         const link = document.createElement("link");
         link.rel = "stylesheet";
         link.href = href;

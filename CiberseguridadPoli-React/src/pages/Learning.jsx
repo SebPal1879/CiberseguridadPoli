@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useAuthFetching from "../api/useAuthFetching";
-import AuthError from "./AuthError";
+import AuthError from "../components/AuthError";
 import Section from "./Section";
 import { Outlet, useLocation } from "react-router-dom";
 import CourseSectionContents from "../components/CourseSectionContents";

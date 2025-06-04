@@ -12,6 +12,8 @@ import Help from "./pages/Help";
 import Account from "./pages/Account";
 import Challenges from "./pages/Challenges";
 import History from "./pages/History";
+import ChangePassword from "./pages/ChangePassword";
+import NewPassword from "./pages/NewPassword";
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +23,11 @@ function App() {
         <Route path="/course" element={<CourserOverview />} />
         <Route path="/signup" element={<RegisterPage />} />
         <Route path="/signin" element={<LoginPage />} />
+        <Route path="/signin/forgot-password" element={<ChangePassword />} />
+        <Route
+          path="/signin/password-reset/:uidb64/:token"
+          element={<NewPassword />}
+        />
         <Route path="/learning" element={<Learning />}>
           <Route path="test" element={<PruebaNesting />} />
         </Route>
