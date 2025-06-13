@@ -19,3 +19,11 @@ class SignUpView(APIView):
       return Response({"mensaje":"Usuario creado exitosamente.", "token": token.key},status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+
+class ImgUploadView(APIView):
+  def post(self,request):
+    usuario = User.objects.get(pk=2)
+    perfil = Profile.objects.get(user=usuario)
+    perfil.profile_picture = request.FILES.get("imagen")
+    perfil.save()
+    return Response({"mensaje": "Mensaje"},status=status.HTTP_200_OK)
