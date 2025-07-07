@@ -1,20 +1,28 @@
 import { useLocation, Link } from "react-router-dom";
 import { useDynamicImports } from "./useDynamicImports";
-import StandardHeader from "../components/StandardHeader";
 import Footer from "../components/Footer";
+import { useState } from "react";
+import useAuthFetching from "../api/useAuthFetching";
+import AuthedUserHeader from "../components/AuthedUserHeader";
+import HeaderValidator from "../components/HeaderValidator";
 
 const styleRoutes = [
   "/src/pages_css/css/stylescursos.css",
   "/src/pages_css/css/all.min.css",
 ];
 
+const BASE_URL = "http://127.0.0.1:8000/signin/authenticated/";
+const KEY = "ciberpoli_token";
+
 function CourseOverview() {
   const location = useLocation();
+  const [response, setResponse] = useState("");
   useDynamicImports(styleRoutes, location.pathname);
-
+  useAuthFetching(KEY, BASE_URL, setResponse);
+  console.log(response);
   return (
     <>
-      <StandardHeader />
+      <HeaderValidator response={response} />
       <div className="content-wrapper">
         <main className="curso-detail-container">
           <section className="detalle-curso">
