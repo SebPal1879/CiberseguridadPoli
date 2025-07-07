@@ -24,16 +24,15 @@ function Account() {
 
   return (
     <>
-      {response.status !== 200 && (
-        <>
-          <StandardHeader />
-          <Error />
-        </>
-      )}
-      {response.status === 200 && (
+      {response.status === 200 ? (
         <>
           <AuthedUserHeader />
           <AccountPanel />
+        </>
+      ) : (
+        <>
+          <StandardHeader />
+          <Error />
         </>
       )}
 

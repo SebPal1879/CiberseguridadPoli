@@ -1,7 +1,7 @@
 import { useLocation, Link } from "react-router-dom";
-import StandardHeader from "../components/StandardHeader";
 import Footer from "../components/Footer";
 import { useDynamicImports } from "./useDynamicImports";
+import HeaderValidator from "../components/HeaderValidator";
 
 const styleRoutes = [
   "/src/pages_css/css/stylescursos.css",
@@ -14,7 +14,8 @@ function Home() {
 
   return (
     <>
-      <StandardHeader />
+      <HeaderValidator />
+
       <div className="content-wrapper">
         <main>
           <section className="hero">
