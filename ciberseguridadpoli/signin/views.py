@@ -19,6 +19,12 @@ from .serializer import SignInSerializer
 from ciberseguridadpoli.settings import FRONTEND_URL
 
 # Create your views here.
+class IsAuthenticated(APIView):
+  authentication_classes = [TokenAuthentication]
+  permission_classes = [IsAuthenticated]
+  def get(self,request):
+    return Response({"mensaje": "Autenticado"},status=status.HTTP_200_OK)
+
 class SignInView(APIView):
   def post(self,request):
     print("SignInView")
