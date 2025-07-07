@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Header from "../components/Header";
+import StandardHeader from "../components/StandardHeader";
 import Footer from "../components/Footer";
 import useAuthFetching from "../api/useAuthFetching";
 import AvailableChallengeInfo from "../components/AvailableChallengeInfo";
@@ -25,7 +25,7 @@ function Challenges() {
 
   return (
     <div>
-      <Header />
+      <StandardHeader />
       <div className="content-wrapper">
         {response.status === 400 && <>Algo salió mal</>}
         {response.status === 200 && (

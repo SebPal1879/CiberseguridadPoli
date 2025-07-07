@@ -4,7 +4,7 @@ import AuthError from "../components/AuthError";
 import Section from "./Section";
 import { Outlet, useLocation } from "react-router-dom";
 import CourseSectionContents from "../components/CourseSectionContents";
-import Header from "../components/Header";
+import StandardHeader from "../components/StandardHeader";
 import { useDynamicImports } from "./useDynamicImports";
 
 const KEY = "ciberpoli_token";
@@ -25,7 +25,7 @@ function Learning() {
   const data = response.status === 401 ? [] : response.data;
   return (
     <div>
-      <Header />
+      <StandardHeader />
 
       {response.code === "ERR_NETWORK" && <>Algo salió mal</>}
       {response.status === 401 && <AuthError />}

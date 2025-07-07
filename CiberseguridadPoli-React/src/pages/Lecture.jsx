@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useAuthFetching from "../api/useAuthFetching";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import Header from "../components/Header";
+import StandardHeader from "../components/StandardHeader";
 import Footer from "../components/Footer";
 import LectureContent from "../components/LectureContent";
 import Help from "../components/Help";
@@ -48,7 +48,7 @@ function Lecture() {
   }
   return (
     <>
-      <Header />
+      <StandardHeader />
       {response.status === 200 && (
         <main className="lesson-content">
           <div className="curso-breadcrumb">

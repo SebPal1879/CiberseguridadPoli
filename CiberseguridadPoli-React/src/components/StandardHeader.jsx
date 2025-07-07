@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-function Header() {
+function StandardHeader() {
   return (
     <header className="main-header">
       <div className="header-container">
@@ -15,25 +15,17 @@ function Header() {
           <NavLink to={"/"}>
             <i className="fas fa-home"></i> Inicio
           </NavLink>
-          <NavLink to={"/learning"}>
-            <i className="fas fa-book"></i> Curso
-          </NavLink>
-          <NavLink to={"/history"}>
-            <i className="fas fa-bars"></i> Historial
-          </NavLink>
-          <NavLink to={"/challenges"}>
-            <i className="fas fa-check"></i> Desafíos
-          </NavLink>
+
           <NavLink to={"/help"}>
             <i className="fas fa-question-circle"></i> Ayuda
           </NavLink>
         </nav>
         <div className="profile-section">
-          <NavLink to={"/account"} className="profile-btn">
+          <NavLink to={"/signin"} className="profile-btn">
             <div className="profile-icon">
               <i className="fas fa-user"></i>
             </div>
-            <span>Mi Cuenta</span>
+            <span>Iniciar sesión</span>
           </NavLink>
         </div>
       </div>
@@ -41,4 +33,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default StandardHeader;

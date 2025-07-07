@@ -1,5 +1,5 @@
 import { useLocation, Link } from "react-router-dom";
-import Header from "../components/Header";
+import StandardHeader from "../components/StandardHeader";
 import Footer from "../components/Footer";
 import { useDynamicImports } from "./useDynamicImports";
 
@@ -14,7 +14,7 @@ function Home() {
 
   return (
     <>
-      <Header />
+      <StandardHeader />
       <div className="content-wrapper">
         <main>
           <section className="hero">

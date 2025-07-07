@@ -2,7 +2,7 @@ import { useLocation, useParams } from "react-router-dom";
 import useAuthFetching from "../api/useAuthFetching";
 import { useState } from "react";
 import SectionLectures from "../components/SectionLectures";
-import Header from "../components/Header";
+import StandardHeader from "../components/StandardHeader";
 import { useDynamicImports } from "./useDynamicImports";
 
 const KEY = "ciberpoli_token";
@@ -24,7 +24,7 @@ function Section() {
   console.log(data);
   return (
     <>
-      <Header />
+      <StandardHeader />
 
       {response.status === 200 && <SectionLectures data={data} />}
     </>

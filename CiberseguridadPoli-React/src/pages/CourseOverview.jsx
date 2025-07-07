@@ -1,6 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 import { useDynamicImports } from "./useDynamicImports";
-import Header from "../components/Header";
+import StandardHeader from "../components/StandardHeader";
 import Footer from "../components/Footer";
 
 const styleRoutes = [
@@ -14,7 +14,7 @@ function InfoCurso() {
 
   return (
     <>
-      <Header />
+      <StandardHeader />
       <div className="content-wrapper">
         <main className="curso-detail-container">
           <section className="detalle-curso">

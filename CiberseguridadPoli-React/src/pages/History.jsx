@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import StandardHeader from "../components/StandardHeader";
 import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import { useDynamicImports } from "./useDynamicImports";
@@ -24,7 +24,7 @@ function History() {
   console.log(data.map((el) => el.quiz));
   return (
     <>
-      <Header />
+      <StandardHeader />
       {response.status === 200 ? <Table data={data} /> : <p>Algo salió mal</p>}
 
       <Footer />

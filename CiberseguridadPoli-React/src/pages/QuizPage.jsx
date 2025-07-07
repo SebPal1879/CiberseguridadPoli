@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import FinishScreen from "../components/FinishScreen";
-import Header from "../components/QuizHeader";
+import StandardHeader from "../components/StandardHeader";
 import Container from "../components/Container";
 import Start from "../components/Start";
 import Progress from "../components/Progress";
@@ -143,7 +143,7 @@ function QuizPage() {
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0);
   return (
     <>
-      <Header quizName={quizName} />
+      <StandardHeader quizName={quizName} />
       <Container>
         {status === "error" && <>Hubo un error</>}
         {status === "ready" && (
