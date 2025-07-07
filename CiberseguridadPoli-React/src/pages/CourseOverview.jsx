@@ -8,7 +8,7 @@ const styleRoutes = [
   "/src/pages_css/css/all.min.css",
 ];
 
-function InfoCurso() {
+function CourseOverview() {
   const location = useLocation();
   useDynamicImports(styleRoutes, location.pathname);
 
@@ -556,4 +556,4 @@ function InfoCurso() {
   );
 }
 
-export default InfoCurso;
+export default CourseOverview;

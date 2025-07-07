@@ -6,7 +6,7 @@ import Learning from "./pages/Learning";
 import Section from "./pages/Section";
 import PruebaNesting from "./components/PruebaNesting";
 import Lecture from "./pages/Lecture";
-import CourserOverview from "./pages/CourseOverview";
+import CourseOverview from "./pages/CourseOverview";
 import Home from "./pages/Home";
 import Help from "./pages/Help";
 import Account from "./pages/Account";
@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/course" element={<CourserOverview />} />
+        <Route path="/course" element={<CourseOverview />} />
         <Route path="/signup" element={<RegisterPage />} />
         <Route path="/signin" element={<LoginPage />} />
         <Route path="/signin/forgot-password" element={<ChangePassword />} />
