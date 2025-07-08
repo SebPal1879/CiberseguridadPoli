@@ -81,14 +81,13 @@ class QuizCompletionView(APIView):
     except ObjectDoesNotExist:
       return Response({"Error": "No se ha encontrado registro de disponibilidad del quiz para el usuario."}, status=status.HTTP_404_NOT_FOUND)
     
-class QuisHistoryView(APIView):
+class QuizHistoryView(APIView):
   authentication_classes = [TokenAuthentication]
   permission_classes = [IsAuthenticated]
   def get(self,request):
     user = User.objects.get(pk=request.user.id)
-    try:
-      completed_quizzes = QuizCompletion.objects.filter(user=user)
-    except ObjectDoesNotExist:
+    completed_quizzes = QuizCompletion.objects.filter(user=user)
+    if not completed_quizzes:
       return Response({"Error": "No se ha encontrado ningún quiz para el usuario"},status=status.HTTP_404_NOT_FOUND)
     completed_quizzes_serializer = QuizCompletionSerializer(completed_quizzes,many=True)
     return Response(completed_quizzes_serializer.data,status=status.HTTP_200_OK)

@@ -10,8 +10,8 @@
   --negro: #222;
   --sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
   --borde-radius: 8px;
-  --fuente-texto: 'Open Sans', sans-serif;
-  --fuente-titulos: 'Roboto', sans-serif;
+  --fuente-texto: "Open Sans", sans-serif;
+  --fuente-titulos: "Roboto", sans-serif;
 }
 
 /* Reset básico */
@@ -26,62 +26,6 @@ body {
   background-color: var(--gris-claro);
   color: var(--negro);
   line-height: 1.6;
-}
-
-/* Header */
-.main-header {
-  background-color: var(--verde-oscuro);
-  color: var(--blanco);
-  padding: 1rem 0;
-  box-shadow: var(--sombra);
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  height: 50px;
-  margin-right: 1rem;
-}
-
-.titles h1 {
-  font-family: var(--fuente-titulos);
-  font-size: 1.5rem;
-  margin-bottom: 0.2rem;
-}
-
-.navbar a {
-  color: var(--blanco);
-  margin-left: 1.5rem;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-.navbar a:hover {
-  color: var(--amarillo);
-}
-
-.profile-section .profile-btn {
-  display: flex;
-  align-items: center;
-  color: var(--blanco);
-  text-decoration: none;
-}
-
-.profile-icon {
-  margin-right: 0.5rem;
 }
 
 /* Lección */

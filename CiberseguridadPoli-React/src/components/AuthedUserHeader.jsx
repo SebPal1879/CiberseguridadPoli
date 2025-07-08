@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function AuthedUserHeader() {
   return (
-    <header className="main-header">
+    <header className="main-header" style={{ marginBottom: "32px" }}>
       <div className="header-container">
         <div className="logo-container">
           <img src="/logo.png" alt="Logo" className="logo" />

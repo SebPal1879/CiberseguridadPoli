@@ -1,5 +1,7 @@
-function Error() {
-  return <div>Algo salió mal</div>;
+function Error({ customErrorMessage }) {
+  return (
+    <div>{customErrorMessage ? customErrorMessage : "Algo salió mal"}</div>
+  );
 }
 
 export default Error;

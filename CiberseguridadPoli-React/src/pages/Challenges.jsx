@@ -6,6 +6,7 @@ import useAuthFetching from "../api/useAuthFetching";
 import AvailableChallengeInfo from "../components/AvailableChallengeInfo";
 import ChallengeOverview from "../components/ChallengeOverview";
 import { useDynamicImports } from "./useDynamicImports";
+import DynamicPagesContent from "../components/DynamicPagesContent";
 
 const KEY = "ciberpoli_token";
 const BASE_URL = "http://127.0.0.1:8000/quiz/";
@@ -25,17 +26,20 @@ function Challenges() {
 
   return (
     <div>
-      <StandardHeader />
-      <div className="content-wrapper">
-        {response.status === 400 && <>Algo salió mal</>}
-        {response.status === 200 && (
-          <AvailableChallengeInfo>
-            {data.map((element) => (
-              <ChallengeOverview data={element} />
-            ))}
-          </AvailableChallengeInfo>
-        )}
-      </div>
+      <DynamicPagesContent
+        response={response.status}
+        component={
+          <div className="content-wrapper">
+            <AvailableChallengeInfo>
+              {data.map((element) => (
+                <ChallengeOverview data={element} />
+              ))}
+            </AvailableChallengeInfo>
+          </div>
+        }
+        customErrorMessage={"Completa lecciones para desbloquear esta sección"}
+      />
+
       <Footer />
     </div>
   );

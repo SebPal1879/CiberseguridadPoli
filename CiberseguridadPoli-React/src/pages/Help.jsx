@@ -1,4 +1,4 @@
-import StandardHeader from "../components/StandardHeader";
+import HeaderValidator from "../components/HeaderValidator";
 import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import { useDynamicImports } from "./useDynamicImports";
@@ -38,7 +38,7 @@ function Help() {
 
   return (
     <>
-      <StandardHeader />
+      <HeaderValidator />
       <div class="content-wrapper">
         <main class="help-container">
           <div class="help-header">

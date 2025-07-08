@@ -1,10 +1,10 @@
-import StandardHeader from "../components/StandardHeader";
 import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import { useDynamicImports } from "./useDynamicImports";
 import useAuthFetching from "../api/useAuthFetching";
 import { useState } from "react";
 import Table from "../components/Table";
+import DynamicPagesContent from "../components/DynamicPagesContent";
 
 const BASE_URL = "http://127.0.0.1:8000/quiz/history";
 const KEY = "ciberpoli_token";
@@ -21,11 +21,13 @@ function History() {
 
   useAuthFetching(KEY, BASE_URL, setResponse);
   const data = response.status === 200 ? response.data : [];
-  console.log(data.map((el) => el.quiz));
   return (
     <>
-      <StandardHeader />
-      {response.status === 200 ? <Table data={data} /> : <p>Algo salió mal</p>}
+      <DynamicPagesContent
+        response={response.status}
+        component={<Table data={data} />}
+        customErrorMessage={"Completa quizzes para ver resultados."}
+      />
 
       <Footer />
     </>
