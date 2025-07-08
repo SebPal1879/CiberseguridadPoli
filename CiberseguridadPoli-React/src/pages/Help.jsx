@@ -2,6 +2,30 @@ import StandardHeader from "../components/StandardHeader";
 import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import { useDynamicImports } from "./useDynamicImports";
+import HelpItem from "../components/HelpItem";
+
+const faq = [
+  {
+    question: "¿Cómo me inscribo a los cursos?",
+    answer: `Puedes inscribirte directamente desde la página del curso
+                      haciendo clic en el botón "Inscribirse". Necesitarás
+                      iniciar sesión con tu cuenta institucional del Politécnico
+                      (@elpoli.edu.co).`,
+  },
+  {
+    question: "¿Los cursos tienen algún costo?",
+    answer: ` Actualmente todos nuestros cursos de ciberseguridad son
+                      completamente gratuitos para estudiantes activos del
+                      Politécnico Colombiano Jaime Isaza Cadavid.`,
+  },
+  {
+    question: "¿Recibiré certificación al completar un curso?",
+    answer: ` Sí, al completar satisfactoriamente cualquier curso (con
+                      un mínimo del 80% de progreso) recibirás un certificado
+                      digital con validación institucional que podrás descargar
+                      desde tu perfil.`,
+  },
+];
 
 const styleRoutes = [
   "/src/pages_css/css/stylescursos.css",
@@ -37,49 +61,12 @@ function Help() {
               </div>
 
               <div class="faq-accordion">
-                <div class="faq-item">
-                  <button class="faq-question">
-                    <i class="fas fa-angle-right"></i>
-                    <span>¿Cómo me inscribo a los cursos?</span>
-                  </button>
-                  <div class="faq-answer">
-                    <p>
-                      Puedes inscribirte directamente desde la página del curso
-                      haciendo clic en el botón "Inscribirse". Necesitarás
-                      iniciar sesión con tu cuenta institucional del Politécnico
-                      (@elpoli.edu.co).
-                    </p>
-                  </div>
-                </div>
-
-                <div class="faq-item">
-                  <button class="faq-question">
-                    <i class="fas fa-angle-right"></i>
-                    <span>¿Los cursos tienen algún costo?</span>
-                  </button>
-                  <div class="faq-answer">
-                    <p>
-                      Actualmente todos nuestros cursos de ciberseguridad son
-                      completamente gratuitos para estudiantes activos del
-                      Politécnico Colombiano Jaime Isaza Cadavid.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="faq-item">
-                  <button class="faq-question">
-                    <i class="fas fa-angle-right"></i>
-                    <span>¿Recibiré certificación al completar un curso?</span>
-                  </button>
-                  <div class="faq-answer">
-                    <p>
-                      Sí, al completar satisfactoriamente cualquier curso (con
-                      un mínimo del 80% de progreso) recibirás un certificado
-                      digital con validación institucional que podrás descargar
-                      desde tu perfil.
-                    </p>
-                  </div>
-                </div>
+                {faq.map((element) => (
+                  <HelpItem
+                    question={element.question}
+                    answer={element.answer}
+                  />
+                ))}
               </div>
             </section>
 
