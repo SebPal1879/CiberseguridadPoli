@@ -1,16 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import QuizPage from "./pages/QuizPage";
-import RegisterPage from "./pages/RegisterPage";
-import LoginPage from "./pages/LoginPage";
-import Learning from "./pages/Learning";
-import Section from "./pages/Section";
+import QuizPage from "./pages/Quiz/QuizPage";
+import Signup from "./pages/Signup";
+import Signin from "./pages/Signin";
+import Learning from "./pages/Learning/Learning";
+import Section from "./pages/Section/Section";
 import PruebaNesting from "./components/PruebaNesting";
-import Lecture from "./pages/Lecture";
+import Lecture from "./pages/Lecture/Lecture";
 import CourseOverview from "./pages/CourseOverview";
 import Home from "./pages/Home";
-import Help from "./pages/Help";
-import Account from "./pages/Account";
-import Challenges from "./pages/Challenges";
+import HelpCenter from "./pages/Help/HelpCenter";
+import Account from "./pages/Account/Account";
+import Challenges from "./pages/Challenges/Challenges";
 import History from "./pages/History";
 import ChangePassword from "./pages/ChangePassword";
 import NewPassword from "./pages/NewPassword";
@@ -21,8 +21,8 @@ function App() {
         <Route path="" element={<Home />} />
         <Route path="/account" element={<Account />} />
         <Route path="/course" element={<CourseOverview />} />
-        <Route path="/signup" element={<RegisterPage />} />
-        <Route path="/signin" element={<LoginPage />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/signin" element={<Signin />} />
         <Route path="/signin/forgot-password" element={<ChangePassword />} />
         <Route
           path="/signin/password-reset/:uidb64/:token"
@@ -32,7 +32,7 @@ function App() {
           <Route path="test" element={<PruebaNesting />} />
         </Route>
         <Route path="/learning/section/:id" element={<Section />} />
-        <Route path="/help" element={<Help />} />
+        <Route path="/help-center" element={<HelpCenter />} />
         <Route
           path="/learning/section/:ids/lecture/:idl"
           element={<Lecture />}

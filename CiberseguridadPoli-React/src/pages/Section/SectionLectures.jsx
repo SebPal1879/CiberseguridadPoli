@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import LectureListItem from "./LectureListItem";
-import { useDynamicImports } from "../pages/useDynamicImports";
+import { useDynamicImports } from "../../pages/useDynamicImports";
 
 const styleRoutes = [
   "/src/pages_css/css/stylescursos.css",

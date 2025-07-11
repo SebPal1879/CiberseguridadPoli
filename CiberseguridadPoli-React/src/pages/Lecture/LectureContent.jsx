@@ -1,5 +1,3 @@
-import("../pages_css/css/styleslecciones.css");
-
 function LectureContent({ content }) {
   return (
     <div className="accordion-item open">

@@ -1,14 +1,14 @@
 import { useEffect, useReducer } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import FinishScreen from "../components/FinishScreen";
-import StandardHeader from "../components/StandardHeader";
-import Container from "../components/Container";
-import Start from "../components/Start";
-import Progress from "../components/Progress";
-import Question from "../components/Question";
-import Bottom from "../components/Bottom";
-import { useDynamicImports } from "./useDynamicImports";
-import { postRequest, getInformation } from "../api/access.api";
+import FinishScreen from "./FinishScreen";
+import Container from "../../components/Container";
+import Start from "./Start";
+import Progress from "./Progress";
+import Question from "./Question";
+import Bottom from "./Bottom";
+import { useDynamicImports } from "../useDynamicImports";
+import { postRequest, getInformation } from "../../api/access.api";
+import QuizHeader from "./QuizHeader";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -143,7 +143,7 @@ function QuizPage() {
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0);
   return (
     <>
-      <StandardHeader quizName={quizName} />
+      <QuizHeader quizName={quizName} />
       <Container>
         {status === "error" && <>Hubo un error</>}
         {status === "ready" && (

@@ -1,4 +1,4 @@
-import Footer from "./Footer";
+import Footer from "../../components/Footer";
 import SectionCard from "./SectionCard";
 import CourseSectionAside from "./CourseSectionAside";
 import { Outlet } from "react-router-dom";

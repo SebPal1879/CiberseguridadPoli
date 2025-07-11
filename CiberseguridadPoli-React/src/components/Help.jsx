@@ -10,7 +10,7 @@ function Help() {
         nuestros instructores.
       </p>
       <Link
-        to={"/help"}
+        to={"/help-center"}
         className="btn-secondary"
         style={{ marginTop: "15px", display: "inline-block" }}
       >

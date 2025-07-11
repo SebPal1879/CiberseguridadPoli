@@ -43,7 +43,7 @@ function Footer() {
               </Link>
             </li>
             <li>
-              <Link to={"/help"}>
+              <Link to={"/help-center"}>
                 <i className="fas fa-chevron-right"></i> Ayuda
               </Link>
             </li>

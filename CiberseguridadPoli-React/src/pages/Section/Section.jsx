@@ -1,9 +1,9 @@
 import { useLocation, useParams } from "react-router-dom";
-import useAuthFetching from "../api/useAuthFetching";
+import useAuthFetching from "../../api/useAuthFetching";
 import { useState } from "react";
-import SectionLectures from "../components/SectionLectures";
-import StandardHeader from "../components/StandardHeader";
-import { useDynamicImports } from "./useDynamicImports";
+import SectionLectures from "./SectionLectures";
+import StandardHeader from "../../components/StandardHeader";
+import { useDynamicImports } from "../useDynamicImports";
 
 const KEY = "ciberpoli_token";
 

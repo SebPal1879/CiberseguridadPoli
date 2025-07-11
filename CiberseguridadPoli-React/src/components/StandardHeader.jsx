@@ -16,7 +16,7 @@ function StandardHeader() {
             <i className="fas fa-home"></i> Inicio
           </NavLink>
 
-          <NavLink to={"/help"}>
+          <NavLink to={"/help-center"}>
             <i className="fas fa-question-circle"></i> Ayuda
           </NavLink>
         </nav>

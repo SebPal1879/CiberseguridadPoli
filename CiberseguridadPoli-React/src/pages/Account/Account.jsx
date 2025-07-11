@@ -1,12 +1,12 @@
-import AuthedUserHeader from "../components/AuthedUserHeader";
-import Footer from "../components/Footer";
-import { useDynamicImports } from "./useDynamicImports";
+import AuthedUserHeader from "../../components/AuthedUserHeader";
+import Footer from "../../components/Footer";
+import { useDynamicImports } from "../useDynamicImports";
 import { useLocation } from "react-router-dom";
-import useAuthFetching from "../api/useAuthFetching";
+import useAuthFetching from "../../api/useAuthFetching";
 import { useState } from "react";
-import StandardHeader from "../components/StandardHeader";
-import Error from "../components/Error";
-import AccountPanel from "../components/AccountPanel";
+import StandardHeader from "../../components/StandardHeader";
+import Error from "../../components/Error";
+import AccountPanel from "./AccountPanel";
 
 const styleRoutes = [
   "/src/pages_css/css/stylescursos.css",

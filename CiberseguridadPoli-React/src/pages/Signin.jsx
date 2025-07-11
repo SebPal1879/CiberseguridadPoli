@@ -11,7 +11,7 @@ const styleRoutes = [
   "/src/pages_css/css/styles.css",
 ];
 
-function LoginPage() {
+function Signin() {
   const location = useLocation();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -113,4 +113,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default Signin;

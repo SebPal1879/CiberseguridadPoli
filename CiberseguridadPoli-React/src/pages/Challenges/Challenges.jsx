@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import StandardHeader from "../components/StandardHeader";
-import Footer from "../components/Footer";
-import useAuthFetching from "../api/useAuthFetching";
-import AvailableChallengeInfo from "../components/AvailableChallengeInfo";
-import ChallengeOverview from "../components/ChallengeOverview";
-import { useDynamicImports } from "./useDynamicImports";
-import DynamicPagesContent from "../components/DynamicPagesContent";
+import Footer from "../../components/Footer";
+import useAuthFetching from "../../api/useAuthFetching";
+import AvailableChallengeInfo from "./AvailableChallengeInfo";
+import ChallengeOverview from "./ChallengeOverview";
+import { useDynamicImports } from "../useDynamicImports";
+import DynamicPagesContent from "../../components/DynamicPagesContent";
 
 const KEY = "ciberpoli_token";
 const BASE_URL = "http://127.0.0.1:8000/quiz/";

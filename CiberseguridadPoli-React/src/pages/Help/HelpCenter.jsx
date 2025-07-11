@@ -1,8 +1,8 @@
-import HeaderValidator from "../components/HeaderValidator";
-import Footer from "../components/Footer";
+import HeaderValidator from "../../components/HeaderValidator";
+import Footer from "../../components/Footer";
 import { useLocation } from "react-router-dom";
-import { useDynamicImports } from "./useDynamicImports";
-import HelpItem from "../components/HelpItem";
+import { useDynamicImports } from "../useDynamicImports";
+import HelpItem from "./HelpItem";
 
 const faq = [
   {
@@ -32,7 +32,7 @@ const styleRoutes = [
   "/src/pages_css/css/all.min.css",
 ];
 
-function Help() {
+function HelpCenter() {
   const location = useLocation();
   useDynamicImports(styleRoutes, location.pathname);
 
@@ -228,4 +228,4 @@ function Help() {
   );
 }
 
-export default Help;
+export default HelpCenter;

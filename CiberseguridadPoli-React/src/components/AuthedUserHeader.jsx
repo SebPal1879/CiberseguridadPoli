@@ -24,7 +24,7 @@ function AuthedUserHeader() {
           <NavLink to={"/challenges"}>
             <i className="fas fa-check"></i> Desafíos
           </NavLink>
-          <NavLink to={"/help"}>
+          <NavLink to={"/help-center"}>
             <i className="fas fa-question-circle"></i> Ayuda
           </NavLink>
         </nav>

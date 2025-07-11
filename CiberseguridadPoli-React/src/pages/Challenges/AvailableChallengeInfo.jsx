@@ -1,6 +1,3 @@
-import { Link } from "react-router-dom";
-import ChallengeOverview from "./ChallengeOverview";
-
 function ChallengeInfo({ children }) {
   return (
     <>

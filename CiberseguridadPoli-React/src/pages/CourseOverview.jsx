@@ -297,7 +297,7 @@ function CourseOverview() {
               <Link to="/learning" className="btn-secondary">
                 <i className="fas fa-list-ul"></i> Ver unidades del programa
               </Link>
-              <Link to={"/help"}>
+              <Link to={"/help-center"}>
                 <button className="btn-tertiary">
                   <i className="far fa-question-circle"></i> ¿Tienes preguntas?
                 </button>

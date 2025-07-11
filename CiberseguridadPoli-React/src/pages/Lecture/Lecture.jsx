@@ -1,13 +1,13 @@
 import { useState } from "react";
-import useAuthFetching from "../api/useAuthFetching";
+import useAuthFetching from "../../api/useAuthFetching";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import StandardHeader from "../components/StandardHeader";
-import Footer from "../components/Footer";
-import LectureContent from "../components/LectureContent";
-import Help from "../components/Help";
+import StandardHeader from "../../components/StandardHeader";
+import Footer from "../../components/Footer";
+import LectureContent from "./LectureContent";
+import Help from "../../components/Help";
 import { Link } from "react-router-dom";
-import { postRequest } from "../api/access.api";
-import { useDynamicImports } from "./useDynamicImports";
+import { postRequest } from "../../api/access.api";
+import { useDynamicImports } from "../useDynamicImports";
 
 const KEY = "ciberpoli_token";
 

@@ -105,7 +105,7 @@ const styleRoutes = [
   "/src/pages_css/css/adminlte.min.css",
 ];
 
-function RegisterPage() {
+function Signup() {
   const navigate = useNavigate();
 
   const toolTipDisplay = {
@@ -448,4 +448,4 @@ function RegisterPage() {
   );
 }
 
-export default RegisterPage;
+export default Signup;
