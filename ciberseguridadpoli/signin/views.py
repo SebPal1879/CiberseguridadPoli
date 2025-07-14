@@ -15,14 +15,25 @@ from django.utils.encoding import smart_str, force_str, force_bytes, DjangoUnico
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 from .utils import Util
-from .serializer import SignInSerializer
+from .serializer import AccountInfoSerializer, ProfileInfoSerializer
+from signup.models import Profile
 from ciberseguridadpoli.settings import FRONTEND_URL
 
-# Create your views here.
+# Método para verificar si el usuario está autenticado y según esto mostrar info en pantalla; retorna información del mismo usuario.
 class IsAuthenticated(APIView):
   authentication_classes = [TokenAuthentication]
   permission_classes = [IsAuthenticated]
   def get(self,request):
+    user = User.objects.get(pk=request.user.id)
+    print(user)
+    profile = Profile.objects.get(user=user)
+    print(profile)
+
+
+    user_data = AccountInfoSerializer(user)
+    profile_data = ProfileInfoSerializer(profile)
+    print(profile_data.data)
+
     return Response({"mensaje": "Autenticado"},status=status.HTTP_200_OK)
 
 class SignInView(APIView):
@@ -36,7 +47,6 @@ class SignInView(APIView):
       token, created = Token.objects.get_or_create(user=user)
       return Response({"mensaje": "Autenticado exitosamente", "token": token.key},status=status.HTTP_202_ACCEPTED)
     return Response({"mensaje": "Autenticación fallida"},status=status.HTTP_400_BAD_REQUEST)
-
 
 @api_view(['GET'])
 @authentication_classes([TokenAuthentication])
@@ -75,7 +85,7 @@ class PasswordTokenCheck(APIView):
       id = smart_str(urlsafe_base64_decode(uidb64))
       user = User.objects.get(pk= id)
       if not PasswordResetTokenGenerator().check_token(user,token):
-        return Response({"Error": "El token no es válido. Por favor, solicita uno nuevo"})
+        return Response({"Error": "El token no es válido. Por favor, solicita uno nuevo"}, status=status.HTTP_400_BAD_REQUEST)
       password = request.data["password"]
       user.set_password(password)
       user.save()

@@ -92,9 +92,6 @@ class QuizHistoryView(APIView):
     completed_quizzes_serializer = QuizCompletionSerializer(completed_quizzes,many=True)
     return Response(completed_quizzes_serializer.data,status=status.HTTP_200_OK)
   
-
-
-
 def Lunerview(request):
   a = Quiz.objects.get(pk=2)
   return HttpResponse(a)

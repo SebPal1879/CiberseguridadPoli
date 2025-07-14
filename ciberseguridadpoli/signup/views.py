@@ -22,8 +22,9 @@ class SignUpView(APIView):
 
 class ImgUploadView(APIView):
   def post(self,request):
-    usuario = User.objects.get(pk=2)
+    usuario = User.objects.get(pk=5)
     perfil = Profile.objects.get(user=usuario)
+
     perfil.profile_picture = request.FILES.get("imagen")
     perfil.save()
     return Response({"mensaje": "Mensaje"},status=status.HTTP_200_OK)
