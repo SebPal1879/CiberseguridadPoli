@@ -1,4 +1,13 @@
-function AccountPanel() {
+function AccountPanel({
+  id,
+  firstName,
+  lastName,
+  email,
+  telephoneNumber,
+  program,
+  level,
+  profilePictureURL,
+}) {
   return (
     <div className="content-wrapper">
       <main className="profile-container">
@@ -20,13 +29,17 @@ function AccountPanel() {
             </div>
           </div>
           <div className="profile-info">
-            <h2>Mi información</h2>
+            <h2>
+              {firstName}
+              {` `}
+              {lastName}{" "}
+            </h2>
             <div className="profile-meta">
               <span className="profile-role">
                 <i className="fas fa-user-tag"></i> Estudiante
               </span>
               <span className="profile-id">
-                <i className="fas fa-id-card"></i> ID: 202510001
+                <i className="fas fa-id-card"></i> ID: {id}
               </span>
             </div>
             <div className="profile-status">
@@ -56,18 +69,13 @@ function AccountPanel() {
                   <label htmlFor="email">
                     <i className="fas fa-envelope"></i> Correo institucional
                   </label>
-                  <input
-                    type="email"
-                    id="email"
-                    value="Mi.Cuenta@elpoli.edu.co"
-                    readOnly
-                  />
+                  <input type="email" id="email" value={email} readOnly />
                 </div>
                 <div className="form-group">
                   <label htmlFor="phone">
                     <i className="fas fa-phone"></i> Teléfono
                   </label>
-                  <input type="tel" id="phone" value="+57 300 123 4567" />
+                  <input type="tel" id="phone" value={telephoneNumber} />
                 </div>
               </div>
 
@@ -76,18 +84,13 @@ function AccountPanel() {
                   <label htmlFor="program">
                     <i className="fas fa-graduation-cap"></i> Programa académico
                   </label>
-                  <input
-                    type="text"
-                    id="program"
-                    value="Ingeniería Informática"
-                    readOnly
-                  />
+                  <input type="text" id="program" value={program} readOnly />
                 </div>
                 <div className="form-group">
                   <label htmlFor="semester">
                     <i className="fas fa-layer-group"></i> Semestre
                   </label>
-                  <input type="text" id="semester" value="6" readOnly />
+                  <input type="text" id="semester" value={level} readOnly />
                 </div>
               </div>
 
