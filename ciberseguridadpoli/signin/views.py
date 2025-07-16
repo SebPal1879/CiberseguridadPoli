@@ -25,16 +25,13 @@ class IsAuthenticated(APIView):
   permission_classes = [IsAuthenticated]
   def get(self,request):
     user = User.objects.get(pk=request.user.id)
-    print(user)
     profile = Profile.objects.get(user=user)
-    print(profile)
-
+    print(profile.profile_picture.url)
 
     user_data = AccountInfoSerializer(user)
     profile_data = ProfileInfoSerializer(profile)
-    print(profile_data.data)
-
-    return Response({"mensaje": "Autenticado"},status=status.HTTP_200_OK)
+    user_profile_data = user_data.data | profile_data.data
+    return Response(user_profile_data,status=status.HTTP_200_OK)
 
 class SignInView(APIView):
   def post(self,request):
