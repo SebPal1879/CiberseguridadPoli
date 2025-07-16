@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-function AuthedUserHeader() {
+function AuthedUserHeader({ firstName = "", profilePictureURL = "" }) {
   return (
     <header className="main-header" style={{ marginBottom: "32px" }}>
       <div className="header-container">
@@ -31,9 +31,18 @@ function AuthedUserHeader() {
         <div className="profile-section">
           <NavLink to={"/account"} className="profile-btn">
             <div className="profile-icon">
-              <i className="fas fa-user"></i>
+              {profilePictureURL ? (
+                <img
+                  src={profilePictureURL}
+                  style={{ width: "32px", borderRadius: "50%" }}
+                  alt=""
+                  srcset=""
+                />
+              ) : (
+                <i className="fas fa-user"></i>
+              )}
             </div>
-            <span>Mi Cuenta</span>
+            <span>{firstName}</span>
           </NavLink>
         </div>
       </div>

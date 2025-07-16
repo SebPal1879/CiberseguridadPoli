@@ -4,6 +4,7 @@ import { useState } from "react";
 import SectionLectures from "./SectionLectures";
 import { useDynamicImports } from "../useDynamicImports";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
+import responseInformation from "../responseInformation";
 
 const KEY = "ciberpoli_token";
 
@@ -21,11 +22,15 @@ function Section() {
   const [response, setResponse] = useState("");
   useAuthFetching(KEY, BASE_URL, setResponse);
   const data = response.status === 401 ? [] : response.data;
-  console.log(data);
+  const { profilePictureURL, firstName } =
+    response.status === 200 ? responseInformation(response.data) : "";
+
   return (
     <>
       <DynamicPagesContent
-        response={response.status}
+        responseStatus={response.status}
+        profilePictureURL={profilePictureURL}
+        firstName={firstName}
         component={<SectionLectures data={data} />}
       />
     </>

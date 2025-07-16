@@ -14,11 +14,15 @@ function AccountPanel({
         <section className="profile-header">
           <div className="profile-avatar-container">
             <div className="profile-avatar">
-              <i className="fas fa-user-graduate"></i>
+              <img
+                src={profilePictureURL}
+                style={{ width: "128px", borderRadius: "50%" }}
+                alt="User profile picture"
+              />
             </div>
             <div className="avatar-actions">
               <button className="btn-avatar-change" onClick={() => {}}>
-                <i className="fas fa-camera"></i> Cambiar icono
+                <i className="fas fa-camera"></i>
               </button>
               <input
                 type="file"

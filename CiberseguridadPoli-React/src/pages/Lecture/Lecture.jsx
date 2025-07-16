@@ -7,6 +7,7 @@ import { postRequest } from "../../api/access.api";
 import { useDynamicImports } from "../useDynamicImports";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 import LecturePanel from "./LecturePanel";
+import responseInformation from "../responseInformation";
 
 const KEY = "ciberpoli_token";
 
@@ -29,8 +30,8 @@ function Lecture() {
   const sectionName = response.status === 200 ? response.data[1].name : "";
   const completed =
     response.status === 200 ? response.data[2].is_completed : "";
-  console.log(completed);
-  console.log(data);
+  const { profilePictureURL, firstName } =
+    response.status === 200 ? responseInformation(response.data) : "";
 
   async function completeSubmission() {
     const token = localStorage.getItem("ciberpoli_token");
@@ -48,7 +49,9 @@ function Lecture() {
   return (
     <>
       <DynamicPagesContent
-        response={response.status}
+        responseStatus={response.status}
+        profilePictureURL={profilePictureURL}
+        firstName={firstName}
         component={
           <LecturePanel
             ids={ids}

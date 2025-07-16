@@ -7,6 +7,7 @@ import { useState } from "react";
 import Error from "../../components/Error";
 import AccountPanel from "./AccountPanel";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
+import responseInformation from "../responseInformation";
 
 const styleRoutes = [
   "/src/pages_css/css/stylescursos.css",
@@ -21,21 +22,24 @@ function Account() {
   const [response, setResponse] = useState("");
   useDynamicImports(styleRoutes, location.pathname);
   useAuthFetching(KEY, BASE_URL, setResponse);
-  const { id, email, program, level } =
-    response.status === 200 ? response.data : "";
-  const firstName = response.status === 200 ? response.data.first_name : "";
-  const lastName = response.status === 200 ? response.data.last_name : "";
-  const telephoneNumber =
-    response.status === 200 ? response.data.telephone_number : "";
-  const profilePictureURL =
-    response.status === 200
-      ? `http://127.0.0.1:8000/${response.data.profile_picture}`
-      : "";
-  console.log(profilePictureURL);
+  const {
+    firstName,
+    userName,
+    lastName,
+    telephoneNumber,
+    profilePictureURL,
+    id,
+    email,
+    program,
+    level,
+  } = response.status === 200 ? responseInformation(response.data) : "";
+
   return (
     <>
       <DynamicPagesContent
-        response={response.status}
+        responseStatus={response.status}
+        profilePictureURL={profilePictureURL}
+        firstName={firstName}
         component={
           <AccountPanel
             id={id}
@@ -46,6 +50,7 @@ function Account() {
             program={program}
             level={level}
             profilePictureURL={profilePictureURL}
+            userName={userName}
           />
         }
       />

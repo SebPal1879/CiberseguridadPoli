@@ -26,7 +26,6 @@ class IsAuthenticated(APIView):
   def get(self,request):
     user = User.objects.get(pk=request.user.id)
     profile = Profile.objects.get(user=user)
-    print(profile.profile_picture.url)
 
     user_data = AccountInfoSerializer(user)
     profile_data = ProfileInfoSerializer(profile)
@@ -35,9 +34,7 @@ class IsAuthenticated(APIView):
 
 class SignInView(APIView):
   def post(self,request):
-    print("SignInView")
-    print(request.data["username"])
-    print(request.data["password"])
+
     user = authenticate(username=request.data["username"], password=request.data["password"])
     if user is not None:
       print("Autenticado con exito")
@@ -59,9 +56,7 @@ class PasswordReset(APIView):
     data_request = request.data
     try:
       user = User.objects.get(email=data_request["email"])
-      print("tin")
       uidb64 = urlsafe_base64_encode(force_bytes(user.id))
-      print("tain")
       
       token = PasswordResetTokenGenerator().make_token(user=user) 
       current_site = get_current_site(request=request).domain

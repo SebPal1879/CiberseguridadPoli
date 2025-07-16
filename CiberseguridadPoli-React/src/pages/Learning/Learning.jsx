@@ -4,6 +4,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import CourseSectionContents from "./CourseSectionContents";
 import { useDynamicImports } from "../useDynamicImports";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
+import responseInformation from "../responseInformation";
 
 const KEY = "ciberpoli_token";
 const BASE_URL = "http://127.0.0.1:8000/learning/";
@@ -21,10 +22,15 @@ function Learning() {
   useAuthFetching(KEY, BASE_URL, setResponse);
 
   const data = response.status === 401 ? [] : response.data;
+  const { profilePictureURL, firstName } =
+    response.status === 200 ? responseInformation(response.data) : "";
+
   return (
     <div>
       <DynamicPagesContent
-        response={response.status}
+        responseStatus={response.status}
+        profilePictureURL={profilePictureURL}
+        firstName={firstName}
         component={<CourseSectionContents sections={data} />}
       />
 

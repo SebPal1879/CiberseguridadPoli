@@ -3,23 +3,34 @@ import AuthedUserHeader from "./AuthedUserHeader";
 import AuthError from "./AuthError";
 import Error from "./Error";
 function DynamicPagesContent({
-  response = null,
+  responseStatus = null,
   component,
   customErrorMessage = "",
+  firstName = "",
+  profilePictureURL = "",
 }) {
   let header;
   let error;
-  console.log(response);
-  switch (response) {
+  switch (responseStatus) {
     case 200:
-      header = <AuthedUserHeader />;
+      header = (
+        <AuthedUserHeader
+          firstName={firstName}
+          profilePictureURL={profilePictureURL}
+        />
+      );
       break;
     case 401:
       header = <StandardHeader />;
       error = <AuthError />;
       break;
     case 404:
-      header = <AuthedUserHeader />;
+      header = (
+        <AuthedUserHeader
+          firstName={firstName}
+          profilePictureURL={profilePictureURL}
+        />
+      );
       error = <Error customErrorMessage={customErrorMessage} />;
       break;
     default:
@@ -29,7 +40,7 @@ function DynamicPagesContent({
     <>
       {header}
 
-      {response === 200 ? component : error}
+      {responseStatus === 200 ? component : error}
     </>
   );
 }
