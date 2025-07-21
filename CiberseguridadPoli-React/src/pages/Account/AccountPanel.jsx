@@ -1,13 +1,16 @@
-function AccountPanel({
-  id,
-  firstName,
-  lastName,
-  email,
-  telephoneNumber,
-  program,
-  level,
-  profilePictureURL,
-}) {
+import { useAccountInfo } from "../../contexts/AccountContext";
+
+function AccountPanel() {
+  const {
+    id,
+    firstName,
+    lastName,
+    email,
+    telephoneNumber,
+    program,
+    level,
+    profilePictureURL,
+  } = useAccountInfo();
   return (
     <div className="content-wrapper">
       <main className="profile-container">

@@ -25,7 +25,6 @@ function CourseSectionContents({ sections }) {
           <CourseSectionAside />
         </main>
       </div>
-      <Footer />
     </div>
   );
 }

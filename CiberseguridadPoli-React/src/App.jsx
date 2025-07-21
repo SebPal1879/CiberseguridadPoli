@@ -14,34 +14,45 @@ import Challenges from "./pages/Challenges/Challenges";
 import History from "./pages/History";
 import ChangePassword from "./pages/ChangePassword";
 import NewPassword from "./pages/NewPassword";
+import { AccountProvider } from "./contexts/AccountContext";
+import HeaderValidator from "./components/HeaderValidator";
+
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="" element={<Home />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/course" element={<CourseOverview />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/signin/forgot-password" element={<ChangePassword />} />
-        <Route
-          path="/signin/password-reset/:uidb64/:token"
-          element={<NewPassword />}
-        />
-        <Route path="/learning" element={<Learning />}>
-          <Route path="test" element={<PruebaNesting />} />
-        </Route>
-        <Route path="/learning/section/:id" element={<Section />} />
-        <Route path="/help-center" element={<HelpCenter />} />
-        <Route
-          path="/learning/section/:ids/lecture/:idl"
-          element={<Lecture />}
-        />
-        <Route path="/challenges" element={<Challenges />} />
-        <Route path="/challenges/:id" element={<QuizPage />} />
-        <Route path="/history" element={<History />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <AccountProvider>
+        <BrowserRouter>
+          <HeaderValidator />
+          <Routes>
+            <Route path="" element={<Home />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/course" element={<CourseOverview />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/signin" element={<Signin />} />
+            <Route
+              path="/signin/forgot-password"
+              element={<ChangePassword />}
+            />
+            <Route
+              path="/signin/password-reset/:uidb64/:token"
+              element={<NewPassword />}
+            />
+            <Route path="/learning" element={<Learning />}>
+              <Route path="test" element={<PruebaNesting />} />
+            </Route>
+            <Route path="/learning/section/:id" element={<Section />} />
+            <Route path="/help-center" element={<HelpCenter />} />
+            <Route
+              path="/learning/section/:ids/lecture/:idl"
+              element={<Lecture />}
+            />
+            <Route path="/challenges" element={<Challenges />} />
+            <Route path="/challenges/:id" element={<QuizPage />} />
+            <Route path="/history" element={<History />} />
+          </Routes>
+        </BrowserRouter>
+      </AccountProvider>
+    </>
   );
 }
 

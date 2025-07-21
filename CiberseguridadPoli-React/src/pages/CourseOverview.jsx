@@ -1,21 +1,16 @@
 import { useLocation, Link } from "react-router-dom";
 import { useDynamicImports } from "./useDynamicImports";
 import Footer from "../components/Footer";
-import HeaderValidator from "../components/HeaderValidator";
 const styleRoutes = [
   "/src/pages_css/css/stylescursos.css",
   "/src/pages_css/css/all.min.css",
 ];
-
-const BASE_URL = "http://127.0.0.1:8000/signin/authenticated/";
-const KEY = "ciberpoli_token";
 
 function CourseOverview() {
   const location = useLocation();
   useDynamicImports(styleRoutes, location.pathname);
   return (
     <>
-      <HeaderValidator />
       <div className="content-wrapper">
         <main className="curso-detail-container">
           <section className="detalle-curso">

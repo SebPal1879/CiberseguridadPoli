@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
+import { useAccountInfo } from "../contexts/AccountContext";
 
-function AuthedUserHeader({ firstName = "", profilePictureURL = "" }) {
+function AuthedUserHeader() {
+  const { firstName, profilePictureURL } = useAccountInfo();
   return (
     <header className="main-header" style={{ marginBottom: "32px" }}>
       <div className="header-container">

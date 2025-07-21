@@ -5,7 +5,6 @@ import useAuthFetching from "../api/useAuthFetching";
 import { useState } from "react";
 import Table from "../components/Table";
 import DynamicPagesContent from "../components/DynamicPagesContent";
-import responseInformation from "./responseInformation";
 
 const BASE_URL = "http://127.0.0.1:8000/quiz/history";
 const KEY = "ciberpoli_token";
@@ -22,16 +21,11 @@ function History() {
 
   useAuthFetching(KEY, BASE_URL, setResponse);
   const data = response.status === 200 ? response.data : [];
-  const { profilePictureURL, firstName } =
-    response.status === 200 ? responseInformation(response.data) : "";
-  console.log(profilePictureURL);
-  console.log(response.data);
+
   return (
     <>
       <DynamicPagesContent
         responseStatus={response.status}
-        profilePictureURL={profilePictureURL}
-        firstName={firstName}
         component={<Table data={data} />}
         customErrorMessage={"Completa quizzes para ver resultados."}
       />
