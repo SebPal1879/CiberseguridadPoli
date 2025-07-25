@@ -1,0 +1,3338 @@
+[
+{
+  "model": "learning.section",
+  "pk": 1,
+  "fields": {
+    "section_number": 1,
+    "name": "Introducción a la Ciberseguridad",
+    "description": "Visión general del curso, qué es la ciberseguridad, su importancia y ámbitos de aplicación."
+  }
+},
+{
+  "model": "learning.section",
+  "pk": 2,
+  "fields": {
+    "section_number": 2,
+    "name": "Principios Básicos de Seguridad",
+    "description": "Confidencialidad, integridad y disponibilidad (CIA); amenazas comunes y buenas prácticas generales."
+  }
+},
+{
+  "model": "learning.section",
+  "pk": 3,
+  "fields": {
+    "section_number": 3,
+    "name": "Tipos de Amenazas y Ataques",
+    "description": "Malware, phishing, ransomware, ingeniería social y otros métodos utilizados por atacantes."
+  }
+},
+{
+  "model": "learning.section",
+  "pk": 4,
+  "fields": {
+    "section_number": 4,
+    "name": "Seguridad en Dispositivos y Redes",
+    "description": "Buenas prácticas para proteger dispositivos personales y redes domésticas o corporativas."
+  }
+},
+{
+  "model": "learning.section",
+  "pk": 5,
+  "fields": {
+    "section_number": 5,
+    "name": "Contraseñas y Autenticación",
+    "description": "Importancia de contraseñas fuertes, gestores de contraseñas y métodos de autenticación multifactor."
+  }
+},
+{
+  "model": "learning.section",
+  "pk": 6,
+  "fields": {
+    "section_number": 6,
+    "name": "Navegación Segura y Privacidad en Línea",
+    "description": "Uso seguro de internet, cookies, VPN, navegación anónima y protección de datos personales."
+  }
+},
+{
+  "model": "learning.section",
+  "pk": 7,
+  "fields": {
+    "section_number": 7,
+    "name": "Seguridad en el Correo Electrónico y Redes Sociales",
+    "description": "Cómo detectar correos sospechosos, evitar fraudes y configurar privacidad en redes sociales."
+  }
+},
+{
+  "model": "learning.section",
+  "pk": 8,
+  "fields": {
+    "section_number": 8,
+    "name": "Actualizaciones, Backups y Software Seguro",
+    "description": "Importancia de mantener sistemas actualizados, realizar copias de seguridad y descargar software confiable."
+  }
+},
+{
+  "model": "learning.section",
+  "pk": 9,
+  "fields": {
+    "section_number": 9,
+    "name": "Legislación y Ética en Ciberseguridad",
+    "description": "Normativas básicas, ética del hacking, leyes sobre protección de datos y ciberdelitos."
+  }
+},
+{
+  "model": "learning.section",
+  "pk": 10,
+  "fields": {
+    "section_number": 10,
+    "name": "Evaluación Final y Recursos Adicionales",
+    "description": "Resumen del curso, evaluación final y recursos para continuar aprendiendo sobre ciberseguridad."
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 1,
+  "fields": {
+    "lecture_in_section_number": 1,
+    "name": "¿Qué es la Ciberseguridad?",
+    "description": "Definición de ciberseguridad y su papel en el mundo moderno.",
+    "section": 1
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 2,
+  "fields": {
+    "lecture_in_section_number": 2,
+    "name": "Ámbitos de Aplicación",
+    "description": "Diferentes áreas donde se aplica la ciberseguridad: personal, empresarial, gubernamental.",
+    "section": 1
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 3,
+  "fields": {
+    "lecture_in_section_number": 1,
+    "name": "Principios de la Seguridad de la Información",
+    "description": "Exploración de la tríada CIA: Confidencialidad, Integridad y Disponibilidad.",
+    "section": 2
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 4,
+  "fields": {
+    "lecture_in_section_number": 2,
+    "name": "Buenas Prácticas Generales",
+    "description": "Buenas prácticas básicas que aplican a todos los usuarios.",
+    "section": 2
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 5,
+  "fields": {
+    "lecture_in_section_number": 1,
+    "name": "Tipos de Malware",
+    "description": "Virus, gusanos, troyanos, spyware y otros tipos de malware.",
+    "section": 3
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 6,
+  "fields": {
+    "lecture_in_section_number": 2,
+    "name": "Ataques Comunes",
+    "description": "Phishing, ransomware, ingeniería social y técnicas comunes de ataque.",
+    "section": 3
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 7,
+  "fields": {
+    "lecture_in_section_number": 1,
+    "name": "Protección de Dispositivos",
+    "description": "Consejos prácticos para mantener seguros tus dispositivos.",
+    "section": 4
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 8,
+  "fields": {
+    "lecture_in_section_number": 2,
+    "name": "Seguridad en Redes",
+    "description": "Medidas para asegurar redes Wi-Fi domésticas y empresariales.",
+    "section": 4
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 9,
+  "fields": {
+    "lecture_in_section_number": 1,
+    "name": "Contraseñas Fuertes",
+    "description": "Cómo crear contraseñas robustas y seguras.",
+    "section": 5
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 10,
+  "fields": {
+    "lecture_in_section_number": 2,
+    "name": "Autenticación Multifactor",
+    "description": "Qué es y cómo usar autenticación en dos o más pasos.",
+    "section": 5
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 11,
+  "fields": {
+    "lecture_in_section_number": 1,
+    "name": "Navegación Segura",
+    "description": "Herramientas y hábitos para navegar de forma segura por internet.",
+    "section": 6
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 12,
+  "fields": {
+    "lecture_in_section_number": 2,
+    "name": "Privacidad Online",
+    "description": "Configuraciones y herramientas para proteger tu privacidad digital.",
+    "section": 6
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 13,
+  "fields": {
+    "lecture_in_section_number": 1,
+    "name": "Correos Electrónicos Sospechosos",
+    "description": "Cómo identificar y evitar correos electrónicos peligrosos.",
+    "section": 7
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 14,
+  "fields": {
+    "lecture_in_section_number": 2,
+    "name": "Seguridad en Redes Sociales",
+    "description": "Configuración segura y reconocimiento de amenazas en redes sociales.",
+    "section": 7
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 15,
+  "fields": {
+    "lecture_in_section_number": 1,
+    "name": "Actualizaciones de Software",
+    "description": "Importancia de mantener el software actualizado.",
+    "section": 8
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 16,
+  "fields": {
+    "lecture_in_section_number": 2,
+    "name": "Backups y Software Seguro",
+    "description": "Copias de seguridad y cómo identificar software confiable.",
+    "section": 8
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 17,
+  "fields": {
+    "lecture_in_section_number": 1,
+    "name": "Leyes de Protección de Datos",
+    "description": "Introducción a leyes como el GDPR y su relevancia.",
+    "section": 9
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 18,
+  "fields": {
+    "lecture_in_section_number": 2,
+    "name": "Ética del Hacking",
+    "description": "White hat vs black hat hackers, y el rol de la ética en la ciberseguridad.",
+    "section": 9
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 19,
+  "fields": {
+    "lecture_in_section_number": 1,
+    "name": "Repaso General del Curso",
+    "description": "Resumen de todos los temas cubiertos.",
+    "section": 10
+  }
+},
+{
+  "model": "learning.lecture",
+  "pk": 20,
+  "fields": {
+    "lecture_in_section_number": 2,
+    "name": "Evaluación y Recursos Adicionales",
+    "description": "Autoevaluación final y bibliografía recomendada para seguir aprendiendo.",
+    "section": 10
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 1,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "La ciberseguridad es la práctica de proteger sistemas y datos frente a ataques digitales.",
+    "image_path": "",
+    "lecture": 1
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 2,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Su objetivo es garantizar la confidencialidad, integridad y disponibilidad de la información.",
+    "image_path": "",
+    "lecture": 1
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 3,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "La ciberseguridad se aplica tanto a nivel personal como empresarial e institucional.",
+    "image_path": "",
+    "lecture": 2
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 4,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Cada contexto presenta amenazas y medidas de protección distintas.",
+    "image_path": "",
+    "lecture": 2
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 5,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "La tríada CIA representa los tres principios fundamentales de la seguridad de la información.",
+    "image_path": "",
+    "lecture": 3
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 6,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Confidencialidad: asegurar que solo personas autorizadas accedan a los datos.",
+    "image_path": "",
+    "lecture": 3
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 7,
+  "fields": {
+    "content_in_lecture_number": 3,
+    "content": "Integridad: garantizar que los datos no sean alterados de forma no autorizada.",
+    "image_path": "",
+    "lecture": 3
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 8,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "Protegerse en línea empieza por una buena higiene digital y hábitos conscientes.",
+    "image_path": "",
+    "lecture": 4
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 9,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "No reutilices contraseñas, desconfía de enlaces y mantén el software actualizado.",
+    "image_path": "",
+    "lecture": 4
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 10,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "Un virus se replica y propaga infectando archivos o programas.",
+    "image_path": "",
+    "lecture": 5
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 11,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Un gusano se propaga automáticamente por redes sin intervención del usuario.",
+    "image_path": "",
+    "lecture": 5
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 12,
+  "fields": {
+    "content_in_lecture_number": 3,
+    "content": "Troyanos se disfrazan de software legítimo pero ejecutan acciones maliciosas.",
+    "image_path": "",
+    "lecture": 5
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 13,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "El phishing busca engañarte para que reveles información personal o financiera.",
+    "image_path": "",
+    "lecture": 6
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 14,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "El ransomware cifra tus archivos y exige un rescate para recuperarlos.",
+    "image_path": "",
+    "lecture": 6
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 15,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "Protege tus dispositivos activando firewalls y utilizando software antivirus confiable.",
+    "image_path": "",
+    "lecture": 7
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 16,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "No instales aplicaciones desde fuentes desconocidas ni uses redes públicas sin precaución.",
+    "image_path": "",
+    "lecture": 7
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 17,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "Una red Wi-Fi segura tiene encriptación WPA2 o superior y una contraseña robusta.",
+    "image_path": "",
+    "lecture": 8
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 18,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Desactiva el WPS, cambia el nombre por defecto del SSID y actualiza el firmware del router.",
+    "image_path": "",
+    "lecture": 8
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 19,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "Las contraseñas fuertes combinan letras, números y símbolos en más de 12 caracteres.",
+    "image_path": "",
+    "lecture": 9
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 20,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Nunca uses información personal (como tu fecha de nacimiento) como contraseña.",
+    "image_path": "",
+    "lecture": 9
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 21,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "La autenticación multifactor (MFA) refuerza la seguridad solicitando dos pruebas de identidad.",
+    "image_path": "",
+    "lecture": 10
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 22,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Ejemplo: contraseña + código enviado al móvil.",
+    "image_path": "",
+    "lecture": 10
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 23,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "Evita hacer clic en enlaces desconocidos o descargar archivos sospechosos.",
+    "image_path": "",
+    "lecture": 11
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 24,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Prefiere siempre sitios con conexión segura (HTTPS).",
+    "image_path": "",
+    "lecture": 11
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 25,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "Las VPN cifran tu conexión y ocultan tu dirección IP.",
+    "image_path": "",
+    "lecture": 12
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 26,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Usa navegadores seguros y bloqueadores de rastreo para proteger tu privacidad.",
+    "image_path": "",
+    "lecture": 12
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 27,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "El phishing puede venir por correo, SMS o redes sociales.",
+    "image_path": "",
+    "lecture": 13
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 28,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Revisa siempre el remitente y los enlaces antes de hacer clic.",
+    "image_path": "",
+    "lecture": 13
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 29,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "Evita publicar tu ubicación, teléfono o información financiera en redes sociales.",
+    "image_path": "",
+    "lecture": 14
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 30,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Ajusta la configuración de privacidad para limitar quién ve tu información.",
+    "image_path": "",
+    "lecture": 14
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 31,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "Las actualizaciones suelen corregir vulnerabilidades críticas descubiertas por desarrolladores o investigadores.",
+    "image_path": "",
+    "lecture": 15
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 32,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "No pospongas las actualizaciones del sistema operativo o del navegador.",
+    "image_path": "",
+    "lecture": 15
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 33,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "Realiza copias de seguridad automáticas y almacénalas en la nube o en discos externos.",
+    "image_path": "",
+    "lecture": 16
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 34,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Descarga software desde sitios oficiales o tiendas confiables como Google Play o App Store.",
+    "image_path": "",
+    "lecture": 16
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 35,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "El RGPD protege los datos personales en la Unión Europea.",
+    "image_path": "",
+    "lecture": 17
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 36,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Las empresas deben informar a los usuarios sobre qué datos recogen y para qué.",
+    "image_path": "",
+    "lecture": 17
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 37,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "Un hacker ético usa sus habilidades para detectar y corregir fallos de seguridad.",
+    "image_path": "",
+    "lecture": 18
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 38,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "El hacking ético debe contar con autorización para realizar pruebas de intrusión.",
+    "image_path": "",
+    "lecture": 18
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 39,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "Este repaso integra conceptos clave como malware, phishing, contraseñas y privacidad.",
+    "image_path": "",
+    "lecture": 19
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 40,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Evalúa tus hábitos digitales y aplica lo aprendido para mantenerte seguro.",
+    "image_path": "",
+    "lecture": 19
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 41,
+  "fields": {
+    "content_in_lecture_number": 1,
+    "content": "Te invitamos a realizar la evaluación final y reforzar conceptos con los recursos propuestos.",
+    "image_path": "",
+    "lecture": 20
+  }
+},
+{
+  "model": "learning.lecturecontent",
+  "pk": 42,
+  "fields": {
+    "content_in_lecture_number": 2,
+    "content": "Consulta libros, canales de YouTube, y cursos gratuitos para seguir aprendiendo.",
+    "image_path": "",
+    "lecture": 20
+  }
+},
+{
+  "model": "quiz.quiz",
+  "pk": 1,
+  "fields": {
+    "name": "Fundamentos de la Ciberseguridad",
+    "description": "Evalúa los conceptos básicos, la tríada CIA y buenas prácticas iniciales.",
+    "lecture": 4
+  }
+},
+{
+  "model": "quiz.quiz",
+  "pk": 2,
+  "fields": {
+    "name": "Tipos de Malware",
+    "description": "Ponte a prueba con los tipos más comunes de software malicioso.",
+    "lecture": 6
+  }
+},
+{
+  "model": "quiz.quiz",
+  "pk": 3,
+  "fields": {
+    "name": "Contraseñas y MFA",
+    "description": "Verifica tus conocimientos sobre buenas prácticas de autenticación.",
+    "lecture": 10
+  }
+},
+{
+  "model": "quiz.quiz",
+  "pk": 4,
+  "fields": {
+    "name": "Navegación y Privacidad",
+    "description": "Revisa los cuidados al navegar, VPNs y configuraciones seguras.",
+    "lecture": 14
+  }
+},
+{
+  "model": "quiz.quiz",
+  "pk": 5,
+  "fields": {
+    "name": "Evaluación Final",
+    "description": "Repaso general del curso para validar tu aprendizaje.",
+    "lecture": 20
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 1,
+  "fields": {
+    "statement": "¿Qué objetivo busca la ciberseguridad?",
+    "points": 10,
+    "quiz": 1
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 2,
+  "fields": {
+    "statement": "¿Qué representa la 'C' en la tríada CIA?",
+    "points": 10,
+    "quiz": 1
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 3,
+  "fields": {
+    "statement": "¿Cuál de las siguientes es una buena práctica básica de seguridad?",
+    "points": 10,
+    "quiz": 1
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 4,
+  "fields": {
+    "statement": "¿Cuál es el enfoque principal de la integridad en la información?",
+    "points": 10,
+    "quiz": 1
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 5,
+  "fields": {
+    "statement": "¿Qué implica la disponibilidad en el contexto de ciberseguridad?",
+    "points": 10,
+    "quiz": 1
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 6,
+  "fields": {
+    "statement": "¿Cuál de los siguientes es un tipo de malware que se propaga sin intervención humana?",
+    "points": 10,
+    "quiz": 2
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 7,
+  "fields": {
+    "statement": "¿Qué característica define a un troyano?",
+    "points": 10,
+    "quiz": 2
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 8,
+  "fields": {
+    "statement": "¿Qué hace el ransomware?",
+    "points": 10,
+    "quiz": 2
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 9,
+  "fields": {
+    "statement": "¿Cuál es una forma común de phishing?",
+    "points": 10,
+    "quiz": 2
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 10,
+  "fields": {
+    "statement": "¿Qué tipo de malware aparenta ser software legítimo?",
+    "points": 10,
+    "quiz": 2
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 11,
+  "fields": {
+    "statement": "¿Cuál es una característica de una contraseña segura?",
+    "points": 10,
+    "quiz": 3
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 12,
+  "fields": {
+    "statement": "¿Qué es la autenticación multifactor (MFA)?",
+    "points": 10,
+    "quiz": 3
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 13,
+  "fields": {
+    "statement": "¿Cuál es una mala práctica relacionada con contraseñas?",
+    "points": 10,
+    "quiz": 3
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 14,
+  "fields": {
+    "statement": "¿Cuál es un buen ejemplo de segundo factor en MFA?",
+    "points": 10,
+    "quiz": 3
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 15,
+  "fields": {
+    "statement": "¿Por qué es importante cambiar tus contraseñas regularmente?",
+    "points": 10,
+    "quiz": 3
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 16,
+  "fields": {
+    "statement": "¿Qué hace una VPN?",
+    "points": 10,
+    "quiz": 4
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 17,
+  "fields": {
+    "statement": "¿Qué indica una conexión HTTPS?",
+    "points": 10,
+    "quiz": 4
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 18,
+  "fields": {
+    "statement": "¿Qué medida ayuda a mantener tu privacidad en línea?",
+    "points": 10,
+    "quiz": 4
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 19,
+  "fields": {
+    "statement": "¿Qué datos es recomendable no compartir en redes sociales?",
+    "points": 10,
+    "quiz": 4
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 20,
+  "fields": {
+    "statement": "¿Qué puede ayudar a prevenir rastreo mientras navegas?",
+    "points": 10,
+    "quiz": 4
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 21,
+  "fields": {
+    "statement": "¿Qué principio de la ciberseguridad busca garantizar que la información esté disponible cuando se necesita?",
+    "points": 10,
+    "quiz": 5
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 22,
+  "fields": {
+    "statement": "¿Qué acción puede ayudarte a proteger tu red Wi-Fi?",
+    "points": 10,
+    "quiz": 5
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 23,
+  "fields": {
+    "statement": "¿Qué legislación europea protege los datos personales?",
+    "points": 10,
+    "quiz": 5
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 24,
+  "fields": {
+    "statement": "¿Cuál de los siguientes es un rol de un hacker ético?",
+    "points": 10,
+    "quiz": 5
+  }
+},
+{
+  "model": "quiz.question",
+  "pk": 25,
+  "fields": {
+    "statement": "¿Por qué es importante hacer copias de seguridad?",
+    "points": 10,
+    "quiz": 5
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 1,
+  "fields": {
+    "answer": "Proteger los sistemas y datos frente a amenazas",
+    "is_correct": false,
+    "question": 1
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 2,
+  "fields": {
+    "answer": "Reducir la velocidad de Internet",
+    "is_correct": true,
+    "question": 1
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 3,
+  "fields": {
+    "answer": "Optimizar el rendimiento del software",
+    "is_correct": false,
+    "question": 1
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 4,
+  "fields": {
+    "answer": "Aumentar el número de usuarios",
+    "is_correct": false,
+    "question": 1
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 5,
+  "fields": {
+    "answer": "Confidencialidad",
+    "is_correct": true,
+    "question": 2
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 6,
+  "fields": {
+    "answer": "Conectividad",
+    "is_correct": false,
+    "question": 2
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 7,
+  "fields": {
+    "answer": "Control",
+    "is_correct": false,
+    "question": 2
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 8,
+  "fields": {
+    "answer": "Capacidad",
+    "is_correct": false,
+    "question": 2
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 9,
+  "fields": {
+    "answer": "Usar contraseñas seguras y únicas",
+    "is_correct": true,
+    "question": 3
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 10,
+  "fields": {
+    "answer": "Desactivar el antivirus",
+    "is_correct": false,
+    "question": 3
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 11,
+  "fields": {
+    "answer": "Compartir tu contraseña con amigos",
+    "is_correct": false,
+    "question": 3
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 12,
+  "fields": {
+    "answer": "Evitar actualizar el sistema operativo",
+    "is_correct": false,
+    "question": 3
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 13,
+  "fields": {
+    "answer": "Evitar modificaciones no autorizadas",
+    "is_correct": true,
+    "question": 4
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 14,
+  "fields": {
+    "answer": "Mantener siempre la conexión a Internet",
+    "is_correct": false,
+    "question": 4
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 15,
+  "fields": {
+    "answer": "Reducir el tamaño de los archivos",
+    "is_correct": false,
+    "question": 4
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 16,
+  "fields": {
+    "answer": "Proteger contra apagones",
+    "is_correct": false,
+    "question": 4
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 17,
+  "fields": {
+    "answer": "Acceso a la información cuando se necesita",
+    "is_correct": true,
+    "question": 5
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 18,
+  "fields": {
+    "answer": "Cifrado de archivos",
+    "is_correct": false,
+    "question": 5
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 19,
+  "fields": {
+    "answer": "Proteger contra virus",
+    "is_correct": false,
+    "question": 5
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 20,
+  "fields": {
+    "answer": "Desconectar redes",
+    "is_correct": false,
+    "question": 5
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 21,
+  "fields": {
+    "answer": "Gusano",
+    "is_correct": true,
+    "question": 6
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 22,
+  "fields": {
+    "answer": "Spyware",
+    "is_correct": false,
+    "question": 6
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 23,
+  "fields": {
+    "answer": "Adware",
+    "is_correct": false,
+    "question": 6
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 24,
+  "fields": {
+    "answer": "Rootkit",
+    "is_correct": false,
+    "question": 6
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 25,
+  "fields": {
+    "answer": "Se oculta como un programa legítimo",
+    "is_correct": true,
+    "question": 7
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 26,
+  "fields": {
+    "answer": "Infecta sin ejecutarse",
+    "is_correct": false,
+    "question": 7
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 27,
+  "fields": {
+    "answer": "Solo afecta hardware",
+    "is_correct": false,
+    "question": 7
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 28,
+  "fields": {
+    "answer": "Se ejecuta desde el navegador",
+    "is_correct": false,
+    "question": 7
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 29,
+  "fields": {
+    "answer": "Cifra archivos y exige un rescate",
+    "is_correct": true,
+    "question": 8
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 30,
+  "fields": {
+    "answer": "Elimina todos los archivos del sistema",
+    "is_correct": false,
+    "question": 8
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 31,
+  "fields": {
+    "answer": "Duplica tus correos electrónicos",
+    "is_correct": false,
+    "question": 8
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 32,
+  "fields": {
+    "answer": "Ocupa mucho espacio en disco",
+    "is_correct": false,
+    "question": 8
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 33,
+  "fields": {
+    "answer": "Correo que solicita información confidencial",
+    "is_correct": true,
+    "question": 9
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 34,
+  "fields": {
+    "answer": "Actualización automática del sistema",
+    "is_correct": false,
+    "question": 9
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 35,
+  "fields": {
+    "answer": "Publicidad legítima",
+    "is_correct": false,
+    "question": 9
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 36,
+  "fields": {
+    "answer": "Correos corporativos internos",
+    "is_correct": false,
+    "question": 9
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 37,
+  "fields": {
+    "answer": "Troyano",
+    "is_correct": true,
+    "question": 10
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 38,
+  "fields": {
+    "answer": "Gusano",
+    "is_correct": false,
+    "question": 10
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 39,
+  "fields": {
+    "answer": "Ransomware",
+    "is_correct": false,
+    "question": 10
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 40,
+  "fields": {
+    "answer": "Spyware",
+    "is_correct": false,
+    "question": 10
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 41,
+  "fields": {
+    "answer": "Al menos 12 caracteres con símbolos",
+    "is_correct": true,
+    "question": 11
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 42,
+  "fields": {
+    "answer": "Tu fecha de cumpleaños",
+    "is_correct": false,
+    "question": 11
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 43,
+  "fields": {
+    "answer": "La misma que en otros sitios",
+    "is_correct": false,
+    "question": 11
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 44,
+  "fields": {
+    "answer": "Solo letras minúsculas",
+    "is_correct": false,
+    "question": 11
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 45,
+  "fields": {
+    "answer": "Uso de múltiples factores para acceder",
+    "is_correct": true,
+    "question": 12
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 46,
+  "fields": {
+    "answer": "Inicio de sesión sin contraseña",
+    "is_correct": false,
+    "question": 12
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 47,
+  "fields": {
+    "answer": "Proteger solo el correo electrónico",
+    "is_correct": false,
+    "question": 12
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 48,
+  "fields": {
+    "answer": "Usar el mismo PIN en todas partes",
+    "is_correct": false,
+    "question": 12
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 49,
+  "fields": {
+    "answer": "Guardar contraseñas en notas visibles",
+    "is_correct": true,
+    "question": 13
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 50,
+  "fields": {
+    "answer": "Cambiar las contraseñas regularmente",
+    "is_correct": false,
+    "question": 13
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 51,
+  "fields": {
+    "answer": "Usar un gestor de contraseñas",
+    "is_correct": false,
+    "question": 13
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 52,
+  "fields": {
+    "answer": "No compartir tus claves",
+    "is_correct": false,
+    "question": 13
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 53,
+  "fields": {
+    "answer": "SMS de un solo uso",
+    "is_correct": true,
+    "question": 14
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 54,
+  "fields": {
+    "answer": "Contraseña",
+    "is_correct": false,
+    "question": 14
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 55,
+  "fields": {
+    "answer": "Nombre de usuario",
+    "is_correct": false,
+    "question": 14
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 56,
+  "fields": {
+    "answer": "Correo electrónico",
+    "is_correct": false,
+    "question": 14
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 57,
+  "fields": {
+    "answer": "Para reducir el riesgo de uso no autorizado",
+    "is_correct": true,
+    "question": 15
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 58,
+  "fields": {
+    "answer": "Para evitar el aburrimiento",
+    "is_correct": false,
+    "question": 15
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 59,
+  "fields": {
+    "answer": "Para que el sistema funcione más rápido",
+    "is_correct": false,
+    "question": 15
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 60,
+  "fields": {
+    "answer": "Para reiniciar el equipo",
+    "is_correct": false,
+    "question": 15
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 61,
+  "fields": {
+    "answer": "Crea un túnel cifrado para tu conexión",
+    "is_correct": true,
+    "question": 16
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 62,
+  "fields": {
+    "answer": "Desactiva el firewall",
+    "is_correct": false,
+    "question": 16
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 63,
+  "fields": {
+    "answer": "Evita el uso de contraseñas",
+    "is_correct": false,
+    "question": 16
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 64,
+  "fields": {
+    "answer": "Permite conexiones no seguras",
+    "is_correct": false,
+    "question": 16
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 65,
+  "fields": {
+    "answer": "Que la comunicación está cifrada",
+    "is_correct": true,
+    "question": 17
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 66,
+  "fields": {
+    "answer": "Que el sitio es antiguo",
+    "is_correct": false,
+    "question": 17
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 67,
+  "fields": {
+    "answer": "Que puedes comprar sin tarjeta",
+    "is_correct": false,
+    "question": 17
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 68,
+  "fields": {
+    "answer": "Que está alojado en Europa",
+    "is_correct": false,
+    "question": 17
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 69,
+  "fields": {
+    "answer": "Usar motores de búsqueda privados",
+    "is_correct": true,
+    "question": 18
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 70,
+  "fields": {
+    "answer": "Desactivar el firewall",
+    "is_correct": false,
+    "question": 18
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 71,
+  "fields": {
+    "answer": "Compartir tu ubicación",
+    "is_correct": false,
+    "question": 18
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 72,
+  "fields": {
+    "answer": "Guardar contraseñas en el navegador",
+    "is_correct": false,
+    "question": 18
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 73,
+  "fields": {
+    "answer": "Tu dirección completa",
+    "is_correct": true,
+    "question": 19
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 74,
+  "fields": {
+    "answer": "Una foto de tu perro",
+    "is_correct": false,
+    "question": 19
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 75,
+  "fields": {
+    "answer": "El color de tus zapatos",
+    "is_correct": false,
+    "question": 19
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 76,
+  "fields": {
+    "answer": "Tus gustos musicales",
+    "is_correct": false,
+    "question": 19
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 77,
+  "fields": {
+    "answer": "Usar bloqueadores de rastreo",
+    "is_correct": true,
+    "question": 20
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 78,
+  "fields": {
+    "answer": "Aceptar todas las cookies",
+    "is_correct": false,
+    "question": 20
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 79,
+  "fields": {
+    "answer": "Permitir anuncios personalizados",
+    "is_correct": false,
+    "question": 20
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 80,
+  "fields": {
+    "answer": "Iniciar sesión en todas las webs",
+    "is_correct": false,
+    "question": 20
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 81,
+  "fields": {
+    "answer": "Disponibilidad",
+    "is_correct": true,
+    "question": 21
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 82,
+  "fields": {
+    "answer": "Confidencialidad",
+    "is_correct": false,
+    "question": 21
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 83,
+  "fields": {
+    "answer": "Integridad",
+    "is_correct": false,
+    "question": 21
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 84,
+  "fields": {
+    "answer": "Privacidad",
+    "is_correct": false,
+    "question": 21
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 85,
+  "fields": {
+    "answer": "Cambiar la contraseña por defecto",
+    "is_correct": true,
+    "question": 22
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 86,
+  "fields": {
+    "answer": "Usar una red abierta",
+    "is_correct": false,
+    "question": 22
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 87,
+  "fields": {
+    "answer": "No cifrar el router",
+    "is_correct": false,
+    "question": 22
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 88,
+  "fields": {
+    "answer": "Evitar actualizaciones",
+    "is_correct": false,
+    "question": 22
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 89,
+  "fields": {
+    "answer": "RGPD (GDPR)",
+    "is_correct": true,
+    "question": 23
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 90,
+  "fields": {
+    "answer": "HTML",
+    "is_correct": false,
+    "question": 23
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 91,
+  "fields": {
+    "answer": "HTTP",
+    "is_correct": false,
+    "question": 23
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 92,
+  "fields": {
+    "answer": "TCP/IP",
+    "is_correct": false,
+    "question": 23
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 93,
+  "fields": {
+    "answer": "Identificar vulnerabilidades de forma ética",
+    "is_correct": true,
+    "question": 24
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 94,
+  "fields": {
+    "answer": "Hackear cuentas bancarias",
+    "is_correct": false,
+    "question": 24
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 95,
+  "fields": {
+    "answer": "Crear malware",
+    "is_correct": false,
+    "question": 24
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 96,
+  "fields": {
+    "answer": "Filtrar información",
+    "is_correct": false,
+    "question": 24
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 97,
+  "fields": {
+    "answer": "Para recuperar información en caso de pérdida",
+    "is_correct": true,
+    "question": 25
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 98,
+  "fields": {
+    "answer": "Para liberar espacio en disco",
+    "is_correct": false,
+    "question": 25
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 99,
+  "fields": {
+    "answer": "Para compartir archivos más rápido",
+    "is_correct": false,
+    "question": 25
+  }
+},
+{
+  "model": "quiz.answer",
+  "pk": 100,
+  "fields": {
+    "answer": "Para evitar que el equipo se sobrecaliente",
+    "is_correct": false,
+    "question": 25
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "learning",
+    "model": "section"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "learning",
+    "model": "lecture"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "learning",
+    "model": "lecturecontent"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "learning",
+    "model": "lectureavailabilityandcompletion"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "quiz",
+    "model": "quiz"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "quiz",
+    "model": "question"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "quiz",
+    "model": "answer"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "quiz",
+    "model": "availablequiz"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "quiz",
+    "model": "quizcompletion"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "signup",
+    "model": "profile"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "authtoken",
+    "model": "token"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "authtoken",
+    "model": "tokenproxy"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "153xmdccw877bi5bprq7o1hui7g4pg8h",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCYAk5duvcMZJgBqZo2Ke3KeHfbpAvdvvf-f6tI61Lj2vIcB1EXZdXplyXiZx53IQ8a75PmaVzmIek90Ydt-jZJfl2P9u-gUqvb2hFBRmE0HrqAjOjYgDcQEpQzFES0wmLJmyS2QFf6wH0gs5FCjtXnC9QON8U:1ubQSZ:z7KtkaTX3UDrVnFG-h3q0LZx1f5kOp12xV4-zZ0rNd4",
+    "expire_date": "2025-07-28T21:11:39.976Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "263dql4q7aao7nxd77vr2bxdpaguz95e",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCYAk5duvcMZJgBqZo2Ke3KeHfbpAvdvvf-f6tI61Lj2vIcB1EXZdXplyXiZx53IQ8a75PmaVzmIek90Ydt-jZJfl2P9u-gUqvb2hFBRmE0HrqAjOjYgDcQEpQzFES0wmLJmyS2QFf6wH0gs5FCjtXnC9QON8U:1ufO85:v_aMms2Z4fJF44ZIk4AZN90Q-Ezl1j1B5FLS6WSEG6Q",
+    "expire_date": "2025-08-08T19:30:53.798Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "2vligle2r7xa7l3623000zt0she7ami1",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCYAk5duvcMZJgBqZo2Ke3KeHfbpAvdvvf-f6tI61Lj2vIcB1EXZdXplyXiZx53IQ8a75PmaVzmIek90Ydt-jZJfl2P9u-gUqvb2hFBRmE0HrqAjOjYgDcQEpQzFES0wmLJmyS2QFf6wH0gs5FCjtXnC9QON8U:1uQUS0:E4G8R53jILNfZRh9ali-UaxNN3sRAI4VSZPgap543DY",
+    "expire_date": "2025-06-28T17:13:52.826Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "nawg2xftieojdagp7jkg0t01cwe68a6m",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCYAk5duvcMZJgBqZo2Ke3KeHfbpAvdvvf-f6tI61Lj2vIcB1EXZdXplyXiZx53IQ8a75PmaVzmIek90Ydt-jZJfl2P9u-gUqvb2hFBRmE0HrqAjOjYgDcQEpQzFES0wmLJmyS2QFf6wH0gs5FCjtXnC9QON8U:1ubQHX:u_7_p001b9-XwmECc9rH6XHNOI8XjraOr02fGbJzQEs",
+    "expire_date": "2025-07-28T21:00:15.844Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ybe4m17104ldtj4tcmpzhgb0f8tgab3d",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCYAk5duvcMZJgBqZo2Ke3KeHfbpAvdvvf-f6tI61Lj2vIcB1EXZdXplyXiZx53IQ8a75PmaVzmIek90Ydt-jZJfl2P9u-gUqvb2hFBRmE0HrqAjOjYgDcQEpQzFES0wmLJmyS2QFf6wH0gs5FCjtXnC9QON8U:1uMa3t:UNdEBJEpvj5EgjRm2z4GrZjj-eRyxuUV1gwt5WhPP4A",
+    "expire_date": "2025-06-17T22:24:49.817Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zn71ttw9b4tbw5myovfi3r56q09fp4e4",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCYAk5duvcMZJgBqZo2Ke3KeHfbpAvdvvf-f6tI61Lj2vIcB1EXZdXplyXiZx53IQ8a75PmaVzmIek90Ydt-jZJfl2P9u-gUqvb2hFBRmE0HrqAjOjYgDcQEpQzFES0wmLJmyS2QFf6wH0gs5FCjtXnC9QON8U:1uYn4T:Vlh4-2jGK5R7eiFd12fRpa2kGOJdcDwuH5MvS8gAbeE",
+    "expire_date": "2025-07-21T14:43:53.560Z"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add section",
+    "content_type": [
+      "learning",
+      "section"
+    ],
+    "codename": "add_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change section",
+    "content_type": [
+      "learning",
+      "section"
+    ],
+    "codename": "change_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete section",
+    "content_type": [
+      "learning",
+      "section"
+    ],
+    "codename": "delete_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view section",
+    "content_type": [
+      "learning",
+      "section"
+    ],
+    "codename": "view_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add lecture",
+    "content_type": [
+      "learning",
+      "lecture"
+    ],
+    "codename": "add_lecture"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change lecture",
+    "content_type": [
+      "learning",
+      "lecture"
+    ],
+    "codename": "change_lecture"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete lecture",
+    "content_type": [
+      "learning",
+      "lecture"
+    ],
+    "codename": "delete_lecture"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view lecture",
+    "content_type": [
+      "learning",
+      "lecture"
+    ],
+    "codename": "view_lecture"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add lecture content",
+    "content_type": [
+      "learning",
+      "lecturecontent"
+    ],
+    "codename": "add_lecturecontent"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change lecture content",
+    "content_type": [
+      "learning",
+      "lecturecontent"
+    ],
+    "codename": "change_lecturecontent"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete lecture content",
+    "content_type": [
+      "learning",
+      "lecturecontent"
+    ],
+    "codename": "delete_lecturecontent"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view lecture content",
+    "content_type": [
+      "learning",
+      "lecturecontent"
+    ],
+    "codename": "view_lecturecontent"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add lecture availability and completion",
+    "content_type": [
+      "learning",
+      "lectureavailabilityandcompletion"
+    ],
+    "codename": "add_lectureavailabilityandcompletion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change lecture availability and completion",
+    "content_type": [
+      "learning",
+      "lectureavailabilityandcompletion"
+    ],
+    "codename": "change_lectureavailabilityandcompletion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete lecture availability and completion",
+    "content_type": [
+      "learning",
+      "lectureavailabilityandcompletion"
+    ],
+    "codename": "delete_lectureavailabilityandcompletion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view lecture availability and completion",
+    "content_type": [
+      "learning",
+      "lectureavailabilityandcompletion"
+    ],
+    "codename": "view_lectureavailabilityandcompletion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add quiz",
+    "content_type": [
+      "quiz",
+      "quiz"
+    ],
+    "codename": "add_quiz"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change quiz",
+    "content_type": [
+      "quiz",
+      "quiz"
+    ],
+    "codename": "change_quiz"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete quiz",
+    "content_type": [
+      "quiz",
+      "quiz"
+    ],
+    "codename": "delete_quiz"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view quiz",
+    "content_type": [
+      "quiz",
+      "quiz"
+    ],
+    "codename": "view_quiz"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add question",
+    "content_type": [
+      "quiz",
+      "question"
+    ],
+    "codename": "add_question"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change question",
+    "content_type": [
+      "quiz",
+      "question"
+    ],
+    "codename": "change_question"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete question",
+    "content_type": [
+      "quiz",
+      "question"
+    ],
+    "codename": "delete_question"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view question",
+    "content_type": [
+      "quiz",
+      "question"
+    ],
+    "codename": "view_question"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add answer",
+    "content_type": [
+      "quiz",
+      "answer"
+    ],
+    "codename": "add_answer"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change answer",
+    "content_type": [
+      "quiz",
+      "answer"
+    ],
+    "codename": "change_answer"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete answer",
+    "content_type": [
+      "quiz",
+      "answer"
+    ],
+    "codename": "delete_answer"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view answer",
+    "content_type": [
+      "quiz",
+      "answer"
+    ],
+    "codename": "view_answer"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add available quiz",
+    "content_type": [
+      "quiz",
+      "availablequiz"
+    ],
+    "codename": "add_availablequiz"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change available quiz",
+    "content_type": [
+      "quiz",
+      "availablequiz"
+    ],
+    "codename": "change_availablequiz"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete available quiz",
+    "content_type": [
+      "quiz",
+      "availablequiz"
+    ],
+    "codename": "delete_availablequiz"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view available quiz",
+    "content_type": [
+      "quiz",
+      "availablequiz"
+    ],
+    "codename": "view_availablequiz"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add quiz completion",
+    "content_type": [
+      "quiz",
+      "quizcompletion"
+    ],
+    "codename": "add_quizcompletion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change quiz completion",
+    "content_type": [
+      "quiz",
+      "quizcompletion"
+    ],
+    "codename": "change_quizcompletion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete quiz completion",
+    "content_type": [
+      "quiz",
+      "quizcompletion"
+    ],
+    "codename": "delete_quizcompletion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view quiz completion",
+    "content_type": [
+      "quiz",
+      "quizcompletion"
+    ],
+    "codename": "view_quizcompletion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add profile",
+    "content_type": [
+      "signup",
+      "profile"
+    ],
+    "codename": "add_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change profile",
+    "content_type": [
+      "signup",
+      "profile"
+    ],
+    "codename": "change_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete profile",
+    "content_type": [
+      "signup",
+      "profile"
+    ],
+    "codename": "delete_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view profile",
+    "content_type": [
+      "signup",
+      "profile"
+    ],
+    "codename": "view_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add Token",
+    "content_type": [
+      "authtoken",
+      "token"
+    ],
+    "codename": "add_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change Token",
+    "content_type": [
+      "authtoken",
+      "token"
+    ],
+    "codename": "change_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete Token",
+    "content_type": [
+      "authtoken",
+      "token"
+    ],
+    "codename": "delete_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view Token",
+    "content_type": [
+      "authtoken",
+      "token"
+    ],
+    "codename": "view_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add Token",
+    "content_type": [
+      "authtoken",
+      "tokenproxy"
+    ],
+    "codename": "add_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change Token",
+    "content_type": [
+      "authtoken",
+      "tokenproxy"
+    ],
+    "codename": "change_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete Token",
+    "content_type": [
+      "authtoken",
+      "tokenproxy"
+    ],
+    "codename": "delete_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view Token",
+    "content_type": [
+      "authtoken",
+      "tokenproxy"
+    ],
+    "codename": "view_tokenproxy"
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$WbEQMfs5Or1KF45WGmNE4F$k5W9T6FD+kWy+KNMg94IUySwYM9RMxKV0AtaR741b+E=",
+    "last_login": "2025-07-25T19:30:53.792Z",
+    "is_superuser": true,
+    "username": "spala",
+    "first_name": "",
+    "last_name": "",
+    "email": "spalacioalzate@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-06-03T22:24:25.941Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$gkfej5dt1RJn2h44RsnEcc$ox4bIMh4RNXrki6kg9CetGDZJP7w94UJnBLrYfO+Cng=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "SebPal",
+    "first_name": "Seb",
+    "last_name": "Pal",
+    "email": "sebastian_palacio82192@elpoli.edu.co",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-07-07T15:06:07.498Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "562bc06ed82b53a0c1deb4f6b0bfe0b5277a967d",
+  "fields": {
+    "user": [
+      "SebPal"
+    ],
+    "created": "2025-07-07T15:06:08.080Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-06-14T17:15:02.583Z",
+    "user": [
+      "spala"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "2",
+    "object_repr": "SebPal1879",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-06-14T17:21:45.693Z",
+    "user": [
+      "spala"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "3",
+    "object_repr": "balatro",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-06-14T17:26:10.895Z",
+    "user": [
+      "spala"
+    ],
+    "content_type": [
+      "quiz",
+      "answer"
+    ],
+    "object_id": "2",
+    "object_repr": "Reducir la velocidad de Internet",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is correct\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-06-14T17:26:15.197Z",
+    "user": [
+      "spala"
+    ],
+    "content_type": [
+      "quiz",
+      "answer"
+    ],
+    "object_id": "1",
+    "object_repr": "Proteger los sistemas y datos frente a amenazas",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is correct\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-07-07T14:44:16.150Z",
+    "user": [
+      "spala"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "4",
+    "object_repr": "SasunaLunaBalatro",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-07-14T21:11:39.955Z",
+    "user": [
+      "spala"
+    ],
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "object_id": "5",
+    "object_repr": "SebPal",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-07-14T21:35:41.068Z",
+    "user": [
+      "spala"
+    ],
+    "content_type": [
+      "signup",
+      "profile"
+    ],
+    "object_id": "4",
+    "object_repr": "Profile object (4)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Telephone number\", \"Program\", \"Level\"]}}]"
+  }
+},
+{
+  "model": "signup.profile",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "SebPal"
+    ],
+    "profile_picture": "profile_pictures/1.png",
+    "telephone_number": "+57 123456789",
+    "program": "Ingeniería Informática",
+    "level": 10
+  }
+},
+{
+  "model": "quiz.quizcompletion",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "SebPal"
+    ],
+    "quiz": 1,
+    "score": 3.0,
+    "attempt_date": "2025-07-11T17:45:14.112Z"
+  }
+},
+{
+  "model": "quiz.availablequiz",
+  "pk": 16,
+  "fields": {
+    "user": [
+      "SebPal"
+    ],
+    "quiz": 1,
+    "is_available": true
+  }
+},
+{
+  "model": "quiz.availablequiz",
+  "pk": 17,
+  "fields": {
+    "user": [
+      "SebPal"
+    ],
+    "quiz": 2,
+    "is_available": false
+  }
+},
+{
+  "model": "quiz.availablequiz",
+  "pk": 18,
+  "fields": {
+    "user": [
+      "SebPal"
+    ],
+    "quiz": 3,
+    "is_available": false
+  }
+},
+{
+  "model": "quiz.availablequiz",
+  "pk": 19,
+  "fields": {
+    "user": [
+      "SebPal"
+    ],
+    "quiz": 4,
+    "is_available": false
+  }
+},
+{
+  "model": "quiz.availablequiz",
+  "pk": 20,
+  "fields": {
+    "user": [
+      "SebPal"
+    ],
+    "quiz": 5,
+    "is_available": false
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 61,
+  "fields": {
+    "is_available": true,
+    "is_completed": true,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 1
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 62,
+  "fields": {
+    "is_available": true,
+    "is_completed": true,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 2
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 63,
+  "fields": {
+    "is_available": true,
+    "is_completed": true,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 3
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 64,
+  "fields": {
+    "is_available": true,
+    "is_completed": true,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 4
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 65,
+  "fields": {
+    "is_available": true,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 5
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 66,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 6
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 67,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 7
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 68,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 8
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 69,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 9
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 70,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 10
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 71,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 11
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 72,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 12
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 73,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 13
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 74,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 14
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 75,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 15
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 76,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 16
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 77,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 17
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 78,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 18
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 79,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 19
+  }
+},
+{
+  "model": "learning.lectureavailabilityandcompletion",
+  "pk": 80,
+  "fields": {
+    "is_available": false,
+    "is_completed": false,
+    "user": [
+      "SebPal"
+    ],
+    "lecture": 20
+  }
+}
+]
