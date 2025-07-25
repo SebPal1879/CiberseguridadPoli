@@ -11,21 +11,24 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 import dj_database_url
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+DEBUG = os.environ.get("DEBUG","False").lower() == "true"
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=d62-c9-an3b)6vfohbe!s&%rpncl1!&3wwtb+yz^_d=+8s&53'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG","False").lower() == "true"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -82,14 +85,11 @@ WSGI_APPLICATION = 'ciberseguridadpoli.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+dj_database_url = os.environ.get("DATABASE_URL")
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+    'default': dj_database_url.parse(dj_database_url)
 
-DATABASES['default'] = dj_database_url.parse("postgresql://postgres_ciberseguridadpoli_render_user:sf6je7LPDPLMfytQ2lTRnInai7oFtsIj@dpg-d21tb9be5dus73932ceg-a.oregon-postgres.render.com/postgres_ciberseguridadpoli_render")
+}
 
 
 # Password validation
