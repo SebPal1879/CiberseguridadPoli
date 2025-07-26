@@ -9,7 +9,11 @@ from .models import LectureAvailabilityAndCompletion, Lecture
 def update_user_lecture_availability(sender,instance,created,**kwargs):
   if created:
     users = User.objects.all()
-    previous_lecture = Lecture.objects.get(section=instance.section,lecture_in_section_number=instance.lecture_in_section_number - 1)
+    try:
+      previous_lecture = Lecture.objects.get(section=instance.section,lecture_in_section_number=instance.lecture_in_section_number - 1)
+    except ObjectDoesNotExist:
+      print("No hay previous lecture en esta sección.")
+      return
     for user in users:
       try:
         prev_lecture_availability = LectureAvailabilityAndCompletion.objects.get(user=user,lecture=previous_lecture)
