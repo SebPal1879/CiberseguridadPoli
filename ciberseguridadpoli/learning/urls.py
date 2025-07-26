@@ -6,5 +6,5 @@ urlpatterns = [
   path('section/<int:section_id>/lecture/<int:lecture_id>/',LectureContentView.as_view()),
   path('add/sections/',AddSections.as_view()),
   path('add/lectures/',AddLectures.as_view()),
-  path('add/contents/',AddLectures.as_view()),
+  path('add/contents/',AddContents.as_view()),
 ]
