@@ -57,8 +57,9 @@ class AddLectures(APIView):
         section = Section.objects.get(pk=lecture["section"])
       except ObjectDoesNotExist:
         return Response({"Error" : "No se encontró una section dada por una lecture."}, status=status.HTTP_400_BAD_REQUEST)
+      print("antes del create")
       Lecture.objects.create(lecture_in_section_number=lecture["lecture_in_section_number"],name=lecture["name"],description=lecture["description"],section=section)    
-
+      print("después del create")
     return Response({"Exitoso" : "Se subieron los datos"},status=status.HTTP_201_CREATED)
 
 class AddContents(APIView):
