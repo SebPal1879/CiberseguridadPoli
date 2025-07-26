@@ -40,16 +40,15 @@ class AddSections(APIView):
   authentication_classes = [TokenAuthentication]
   permission_classes = [IsAuthenticated, IsAdminUser]
   def post(self,request):
-    answers = request.data    
-    for answer in answers:
-      question = Question.objects.get(pk=answer["question"])
-      Answer.objects.create(answer=answer["answer"],is_correct=answer["is_correct"],question=question)    
+    sections = request.data    
+    for section in sections:
+      Section.objects.create(section_number=section["section_number"],name=section["name"],description=section["description"])    
 
     return Response({"a" : "Se subieron a los a"})
 
 class AddLectures(APIView):
   authentication_classes = [TokenAuthentication]
-  permission_classes = [IsAuthenticated]
+  permission_classes = [IsAuthenticated, IsAdminUser]
   def post(self,request):
     lectures = request.data    
     for lecture  in lectures:
@@ -64,7 +63,7 @@ class AddLectures(APIView):
 
 class AddContents(APIView):
   authentication_classes = [TokenAuthentication]
-  permission_classes = [IsAuthenticated]
+  permission_classes = [IsAuthenticated, IsAdminUser]
   def post(self,request):
     contents = request.data    
     for content  in contents:
