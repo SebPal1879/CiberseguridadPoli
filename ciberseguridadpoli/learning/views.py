@@ -37,27 +37,45 @@ def SyncLectureUserAvailability():
 
 
 class AddSections(APIView):
-
+  authentication_classes = [TokenAuthentication]
+  permission_classes = [IsAuthenticated, IsAdminUser]
   def post(self,request):
     answers = request.data    
     for answer in answers:
       question = Question.objects.get(pk=answer["question"])
       Answer.objects.create(answer=answer["answer"],is_correct=answer["is_correct"],question=question)    
-    # questions = request.data    
-    # for question in questions:
-    #   quiz = Quiz.objects.get(pk=question["quiz"])
-    #   question = Question.objects.create(statement=question["statement"],points=question["points"],quiz=quiz)
-
-    # quizzes = request.data
-    # for quiz in quizzes:
-    #     lecture = Lecture.objects.get(pk=quiz["lecture"])
-    #     Quiz.objects.create(name=quiz["name"],description=quiz["description"],lecture=lecture)
 
     return Response({"a" : "Se subieron a los a"})
-    # sections = request.data
-    # for section in sections:
-    #   new_section = Section.objects.create(section_number=section["section_number"],name=section["name"], description=section["description"])
-    # return Response({"Mensaje" : "Se subieron todos los contenidos"})
+
+class AddLectures(APIView):
+  authentication_classes = [TokenAuthentication]
+  permission_classes = [IsAuthenticated]
+  def post(self,request):
+    lectures = request.data    
+    for lecture  in lectures:
+      try:
+        section = Section.objects.get(pk=lecture["section"])
+      except ObjectDoesNotExist:
+        return Response({"Error" : "No se encontró una section dada por una lecture."}, status=status.HTTP_400_BAD_REQUEST)
+      Lecture.objects.create(lecture_in_section_number=lecture["lecture_in_section_number"],name=lecture["name"],description=lecture["description"],section=section)    
+
+    return Response({"Exitoso" : "Se subieron los datos"},status=status.HTTP_201_CREATED)
+
+class AddContents(APIView):
+  authentication_classes = [TokenAuthentication]
+  permission_classes = [IsAuthenticated]
+  def post(self,request):
+    contents = request.data    
+    for content  in contents:
+      try:
+        lecture = Lecture.objects.get(pk=content["lecture"])
+      except ObjectDoesNotExist:
+        return Response({"Error" : "No se encontró una lecture dada por un content."}, status=status.HTTP_400_BAD_REQUEST)
+      LectureContent.objects.create(content_in_lecture_number=content["content_in_lecture_number"],content=content["content"],lecture=lecture)    
+
+    return Response({"Exitoso" : "Se subieron los datos"},status=status.HTTP_201_CREATED)
+
+
 
 class SectionsView(APIView):
   authentication_classes = [TokenAuthentication]
