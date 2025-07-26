@@ -69,7 +69,7 @@ class AddContents(APIView):
     contents = request.data    
     for content  in contents:
       try:
-        lecture = Lecture.objects.get(pk=content["lecture"] + 4)
+        lecture = Lecture.objects.get(pk=content["lecture"])
       except ObjectDoesNotExist:
         return Response({"Error" : "No se encontró una lecture dada por un content."}, status=status.HTTP_400_BAD_REQUEST)
       LectureContent.objects.create(content_in_lecture_number=content["content_in_lecture_number"],content=content["content"],lecture=lecture)    
