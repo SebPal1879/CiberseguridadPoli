@@ -85,11 +85,15 @@ WSGI_APPLICATION = 'ciberseguridadpoli.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-dj_database_url = os.environ.get("DATABASE_URL")
 DATABASES = {
-    'default': dj_database_url.parse(dj_database_url)
-
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+DATABASES['default'] = dj_database_url.parse("postgresql://postgres_ciberseguridadpoli_render_user:sf6je7LPDPLMfytQ2lTRnInai7oFtsIj@dpg-d21tb9be5dus73932ceg-a.oregon-postgres.render.com/postgres_ciberseguridadpoli_render")
+
 
 
 # Password validation
