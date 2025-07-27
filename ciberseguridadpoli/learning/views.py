@@ -19,23 +19,6 @@ from quiz.models import AvailableQuiz, Quiz, Question, Answer
 def SyncLectureUserAvailability():
   pass
 
-# class AddSections(APIView):
-
-#   def post(self,request):
-
-#     lectures_contents = request.data
-#     for lecture_content in lectures_contents:
-#         lecture = Lecture.objects.get(pk=lecture_content["lecture"])
-#         xorizo = LectureContent.objects.create(content_in_lecture_number=lecture_content["content_in_lecture_number"],content=lecture_content["content"],lecture=lecture)
-#         xorizo.save()
-
-#     return Response({"a" : "Se subieron a los a"})
-#     # sections = request.data
-#     # for section in sections:
-#     #   new_section = Section.objects.create(section_number=section["section_number"],name=section["name"], description=section["description"])
-#     # return Response({"Mensaje" : "Se subieron todos los contenidos"})
-
-
 class AddSections(APIView):
   authentication_classes = [TokenAuthentication]
   permission_classes = [IsAuthenticated, IsAdminUser]
@@ -74,8 +57,6 @@ class AddContents(APIView):
       LectureContent.objects.create(content_in_lecture_number=content["content_in_lecture_number"],content=content["content"],lecture=lecture)    
 
     return Response({"Exitoso" : "Se subieron los datos"},status=status.HTTP_201_CREATED)
-
-
 
 class SectionsView(APIView):
   authentication_classes = [TokenAuthentication]
