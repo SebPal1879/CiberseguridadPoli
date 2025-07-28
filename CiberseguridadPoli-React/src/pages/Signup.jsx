@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -136,7 +136,9 @@ function Signup() {
     passwordConfirm
   );
   const location = useLocation();
-  useDynamicImports(styleRoutes, location.pathname);
+  const [loaded, setLoaded] = useState(false);
+  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  if (!loaded) return;
 
   return (
     <>

@@ -45,7 +45,9 @@ function NewPassword() {
     },
     [getRequestURL]
   );
-  console.log(email);
+  const [loaded, setLoaded] = useState(false);
+  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  if (!loaded) return;
   function handlePasswordChange(e) {
     e.preventDefault();
     async function emailPost() {
@@ -61,7 +63,6 @@ function NewPassword() {
     }
     emailPost();
   }
-  useDynamicImports(styleRoutes, location.pathname);
   return (
     <>
       <div className="hold-transition login-page">

@@ -17,9 +17,11 @@ const styleRoutes = [
 function History() {
   const location = useLocation();
   const [response, setResponse] = useState("");
-  useDynamicImports(styleRoutes, location.pathname);
 
   useAuthFetching(KEY, BASE_URL, setResponse);
+  const [loaded, setLoaded] = useState(false);
+  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  if (!loaded) return;
   const data = response.status === 200 ? response.data : [];
 
   return (

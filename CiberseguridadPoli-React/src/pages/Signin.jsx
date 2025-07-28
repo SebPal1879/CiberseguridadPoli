@@ -17,7 +17,9 @@ function Signin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  useDynamicImports(styleRoutes, location.pathname);
+  const [loaded, setLoaded] = useState(false);
+  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  if (!loaded) return;
 
   function submitLogin(e) {
     e.preventDefault();

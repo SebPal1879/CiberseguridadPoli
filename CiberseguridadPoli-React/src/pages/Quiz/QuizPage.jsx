@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import FinishScreen from "./FinishScreen";
 import Container from "../../components/Container";
@@ -116,7 +116,6 @@ function QuizPage() {
   const location = useLocation();
   const BASE_FETCH_URL = `https://ciberseguridadpoli.onrender.com/quiz/${id}`;
   const token = localStorage.getItem("ciberpoli_token");
-  useDynamicImports(styleRoutes, location.pathname);
 
   useEffect(
     function () {
@@ -141,6 +140,9 @@ function QuizPage() {
 
   const maxQuestions = questions.length;
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0);
+  const [loaded, setLoaded] = useState(false);
+  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  if (!loaded) return;
   return (
     <>
       <QuizHeader quizName={quizName} />

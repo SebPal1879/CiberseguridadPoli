@@ -2,12 +2,15 @@ import { useLocation, Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useDynamicImports } from "./useDynamicImports";
 import HeaderValidator from "../components/HeaderValidator";
+import { useState } from "react";
 
-const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
+const styleRoutes = ["/styles/all.min.css"];
 
 function Home() {
   const location = useLocation();
-  useDynamicImports(styleRoutes, location.pathname);
+  const [loaded, setLoaded] = useState(false);
+  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  if (!loaded) return;
 
   return (
     <>

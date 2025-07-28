@@ -9,12 +9,11 @@ import LecturePanel from "./LecturePanel";
 
 const KEY = "ciberpoli_token";
 
-const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
+const styleRoutes = ["/styles/all.min.css"];
 
 function Lecture() {
   const location = useLocation();
   const navigate = useNavigate();
-  useDynamicImports(styleRoutes, location.pathname);
 
   const { ids, idl } = useParams();
   const [response, setResponse] = useState({});
@@ -25,7 +24,9 @@ function Lecture() {
   const sectionName = response.status === 200 ? response.data[1].name : "";
   const completed =
     response.status === 200 ? response.data[2].is_completed : "";
-
+  const [loaded, setLoaded] = useState(false);
+  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  if (!loaded) return;
   async function completeSubmission() {
     const token = localStorage.getItem("ciberpoli_token");
     console.log(token);

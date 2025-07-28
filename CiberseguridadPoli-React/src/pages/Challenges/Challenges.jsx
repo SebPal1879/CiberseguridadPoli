@@ -10,15 +10,16 @@ import DynamicPagesContent from "../../components/DynamicPagesContent";
 const KEY = "ciberpoli_token";
 const BASE_URL = "https://ciberseguridadpoli.onrender.com/quiz/";
 
-const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
+const styleRoutes = ["/styles/all.min.css"];
 
 function Challenges() {
   const location = useLocation();
   const [response, setResponse] = useState("");
-  useDynamicImports(styleRoutes, location.pathname);
   useAuthFetching(KEY, BASE_URL, setResponse);
   const data = response.status === 200 ? response.data : [];
-
+  const [loaded, setLoaded] = useState(false);
+  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  if (!loaded) return;
   return (
     <div>
       <DynamicPagesContent

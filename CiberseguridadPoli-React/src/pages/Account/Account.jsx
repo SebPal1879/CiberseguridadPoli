@@ -4,14 +4,16 @@ import { useLocation } from "react-router-dom";
 import AccountPanel from "./AccountPanel";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 import { useAccountInfo } from "../../contexts/AccountContext";
+import { useState } from "react";
 
-const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
+const styleRoutes = ["/styles/all.min.css"];
 
 function Account() {
   const location = useLocation();
-  useDynamicImports(styleRoutes, location.pathname);
   const { responseStatus } = useAccountInfo();
-
+  const [loaded, setLoaded] = useState(false);
+  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  if (!loaded) return;
   return (
     <>
       <DynamicPagesContent

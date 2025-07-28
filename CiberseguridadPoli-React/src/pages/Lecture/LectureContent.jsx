@@ -1,10 +1,13 @@
 import { useLocation } from "react-router-dom";
 import { useDynamicImports } from "../useDynamicImports";
+import { useState } from "react";
 
 const styleRoutes = ["/styles/styleslecciones.css"];
 function LectureContent({ content }) {
   const location = useLocation();
-  useDynamicImports(styleRoutes, location.pathname);
+  const [loaded, setLoaded] = useState(false);
+  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  if (!loaded) return;
   return (
     <div className="accordion-item open">
       <button className="accordion-header">

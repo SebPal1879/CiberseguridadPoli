@@ -16,6 +16,9 @@ const BASE_URL =
 function ChangePassword() {
   const location = useLocation();
   const [email, setEmail] = useState("");
+  const [loaded, setLoaded] = useState(false);
+  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  if (!loaded) return;
 
   function handlePasswordChange(e) {
     e.preventDefault();
@@ -34,7 +37,6 @@ function ChangePassword() {
     emailPost();
     console.log("acción");
   }
-  useDynamicImports(styleRoutes, location.pathname);
   return (
     <>
       <div className="hold-transition login-page">

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-export function useDynamicImports(hrefs = [], currentPath) {
+export function useDynamicImports(hrefs = [], currentPath, setLoaded) {
   const location = useLocation();
   useEffect(
     function () {
@@ -11,6 +11,7 @@ export function useDynamicImports(hrefs = [], currentPath) {
         link.href = href;
         link.dataset.dynamic = "true";
         document.head.appendChild(link);
+        setLoaded(true);
         return link;
       });
 
@@ -18,6 +19,6 @@ export function useDynamicImports(hrefs = [], currentPath) {
         links.forEach((link) => document.head.removeChild(link));
       };
     },
-    [location, currentPath, hrefs]
+    [location, currentPath, hrefs, setLoaded]
   );
 }
