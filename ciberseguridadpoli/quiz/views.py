@@ -93,7 +93,7 @@ class QuizHistoryView(APIView):
     return Response(completed_quizzes_serializer.data,status=status.HTTP_200_OK)
   
 
-class AddQuiz(APIView):
+class AddQuizView(APIView):
   authentication_classes = [TokenAuthentication]
   permission_classes = [IsAuthenticated,IsAdminUser]
   def post(self,request):
@@ -102,7 +102,7 @@ class AddQuiz(APIView):
       Quiz.objects.create(**quiz)
     return Response({"Exitoso": "Quizzes subidos con exito"},status=status.HTTP_201_CREATED)
 
-class AddQuestion(APIView):
+class AddQuestionView(APIView):
   authentication_classes = [TokenAuthentication]
   permission_classes = [IsAuthenticated,IsAdminUser]
   def post(self,request):
