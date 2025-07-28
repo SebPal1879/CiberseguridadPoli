@@ -9,7 +9,7 @@ from rest_framework import viewsets, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 from .serializer import QuizSerializer,QuestionSerializer,AnswerSerializer, AvailableQuizSerializer, QuizCompletionSerializer
 from .models import Quiz,Question, Answer, AvailableQuiz, QuizCompletion
@@ -92,6 +92,25 @@ class QuizHistoryView(APIView):
     completed_quizzes_serializer = QuizCompletionSerializer(completed_quizzes,many=True)
     return Response(completed_quizzes_serializer.data,status=status.HTTP_200_OK)
   
+class AddQuizView(APIView):
+  authentication_classes = [TokenAuthentication]
+  permission_classes = [IsAuthenticated,IsAdminUser]
+  def post(self,request):
+    quizzes = request.data
+    for quiz in quizzes:
+      Quiz.objects.create(**quiz)
+    return Response({"Exitoso": "Datos subidos con exito"},status=status.HTTP_201_CREATED)
+  
+class AddQuizAnswerView(APIView):
+  authentication_classes = [TokenAuthentication]
+  permission_classes = [IsAdminUser, IsAuthenticated]
+  def post(self, request):
+    answers = request.data
+    for answer in answers:
+      Answer.objects.create(**answer)
+    return Response({"Exitoso": "Datos subidos con exito"},status=status.HTTP_201_CREATED)
+  
+
 def Lunerview(request):
   a = Quiz.objects.get(pk=2)
   return HttpResponse(a)

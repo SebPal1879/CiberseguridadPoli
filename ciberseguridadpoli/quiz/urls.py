@@ -14,6 +14,6 @@ urlpatterns = [
   path("<int:id>/",FetchQuizAPIView.as_view()),
   path("completion/<int:id>/",QuizCompletionView.as_view()),
   path("history",QuizHistoryView.as_view()),
-
+  path("add",)
   #path("docs/", include_docs_urls(title="Quiz API"))
 ]
