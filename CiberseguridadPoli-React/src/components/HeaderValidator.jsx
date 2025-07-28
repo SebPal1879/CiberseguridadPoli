@@ -16,7 +16,8 @@ function HeaderValidator() {
   if (!loaded) return;
   if (
     location.pathname.startsWith("/signin") ||
-    location.pathname.startsWith("/signup")
+    location.pathname.startsWith("/signup") ||
+    location.pathname.startsWith("/challenges")
   )
     return;
 
