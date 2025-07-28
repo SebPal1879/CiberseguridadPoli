@@ -10,8 +10,8 @@ export function useDynamicImports(hrefs = [], currentPath, setLoaded) {
         link.rel = "stylesheet";
         link.href = href;
         link.dataset.dynamic = "true";
+        link.onload = () => setLoaded(true);
         document.head.appendChild(link);
-        setLoaded(true);
         return link;
       });
 
