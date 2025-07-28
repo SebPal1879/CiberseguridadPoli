@@ -1,25 +1,18 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import useAuthFetching from "../../api/useAuthFetching";
 import AvailableChallengeInfo from "./AvailableChallengeInfo";
 import ChallengeOverview from "./ChallengeOverview";
-import { useDynamicImports } from "../useDynamicImports";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 
 const KEY = "ciberpoli_token";
 const BASE_URL = "https://ciberseguridadpoli.onrender.com/quiz/";
 
-const styleRoutes = ["/styles/all.min.css"];
-
 function Challenges() {
-  const location = useLocation();
   const [response, setResponse] = useState("");
   useAuthFetching(KEY, BASE_URL, setResponse);
   const data = response.status === 200 ? response.data : [];
-  const [loaded, setLoaded] = useState(false);
-  useDynamicImports(styleRoutes, location.pathname, setLoaded);
-  if (!loaded) return;
   return (
     <div>
       <DynamicPagesContent

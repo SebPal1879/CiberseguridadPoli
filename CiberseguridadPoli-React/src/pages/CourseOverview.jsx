@@ -1,14 +1,7 @@
-import { useLocation, Link } from "react-router-dom";
-import { useDynamicImports } from "./useDynamicImports";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import { useState } from "react";
-const styleRoutes = ["/styles/all.min.css"];
 
 function CourseOverview() {
-  const location = useLocation();
-  const [loaded, setLoaded] = useState(false);
-  useDynamicImports(styleRoutes, location.pathname, setLoaded);
-  if (!loaded) return;
   return (
     <>
       <div className="content-wrapper">

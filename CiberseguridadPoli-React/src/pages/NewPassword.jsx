@@ -5,11 +5,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Input from "../components/Input";
 
-const styleRoutes = [
-  "/styles/all.min.css",
-  "/styles/adminlte.min.css",
-  "/styles/styles.css",
-];
+const styleRoutes = ["/styles/adminlte.min.css", "/styles/styles.css"];
 
 const BASE_URL =
   "https://ciberseguridadpoli.onrender.com/signin/password-reset/";

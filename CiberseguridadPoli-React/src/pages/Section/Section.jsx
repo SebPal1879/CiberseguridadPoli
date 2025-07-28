@@ -7,7 +7,7 @@ import DynamicPagesContent from "../../components/DynamicPagesContent";
 
 const KEY = "ciberpoli_token";
 
-const styleRoutes = ["/styles/temp.css", "/styles/all.min.css"];
+const styleRoutes = ["/styles/temp.css"];
 
 function Section() {
   const location = useLocation();

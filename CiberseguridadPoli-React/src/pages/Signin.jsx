@@ -5,11 +5,7 @@ import Form from "../components/Form";
 import Input from "../components/Input";
 import { useDynamicImports } from "./useDynamicImports";
 
-const styleRoutes = [
-  "/styles/adminlte.min.css",
-  "/styles/all.min.css",
-  "/styles/styles.css",
-];
+const styleRoutes = ["/styles/adminlte.min.css", "/styles/styles.css"];
 
 function Signin() {
   const location = useLocation();

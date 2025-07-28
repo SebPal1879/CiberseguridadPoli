@@ -1,8 +1,5 @@
 import Footer from "../../components/Footer";
-import { useLocation } from "react-router-dom";
-import { useDynamicImports } from "../useDynamicImports";
 import HelpItem from "./HelpItem";
-import { useState } from "react";
 
 const faq = [
   {
@@ -27,13 +24,7 @@ const faq = [
   },
 ];
 
-const styleRoutes = ["/styles/all.min.css"];
-
 function HelpCenter() {
-  const location = useLocation();
-  const [loaded, setLoaded] = useState(false);
-  useDynamicImports(styleRoutes, location.pathname, setLoaded);
-  if (!loaded) return;
   return (
     <>
       <div class="content-wrapper">

@@ -9,7 +9,6 @@ import DynamicPagesContent from "../components/DynamicPagesContent";
 const BASE_URL = "https://ciberseguridadpoli.onrender.com/quiz/history";
 const KEY = "ciberpoli_token";
 const styleRoutes = [
-  "/styles/all.min.css",
   "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@500&display=swap",
 ];
 

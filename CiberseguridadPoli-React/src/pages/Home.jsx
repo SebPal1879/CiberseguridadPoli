@@ -1,16 +1,7 @@
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import { useDynamicImports } from "./useDynamicImports";
-import { useState } from "react";
-
-const styleRoutes = ["/styles/all.min.css"];
 
 function Home() {
-  const location = useLocation();
-  const [loaded, setLoaded] = useState(false);
-  useDynamicImports(styleRoutes, location.pathname, setLoaded);
-  if (!loaded) return;
-
   return (
     <>
       <div className="content-wrapper">

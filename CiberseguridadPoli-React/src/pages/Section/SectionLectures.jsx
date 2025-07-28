@@ -3,7 +3,7 @@ import LectureListItem from "./LectureListItem";
 import { useDynamicImports } from "../../pages/useDynamicImports";
 import { useState } from "react";
 
-const styleRoutes = ["/styles/temp.css", "/styles/all.min.css"];
+const styleRoutes = ["/styles/temp.css"];
 function SectionLectures({ data }) {
   const location = useLocation();
   const [loaded, setLoaded] = useState(false);

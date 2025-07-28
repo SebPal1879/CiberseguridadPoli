@@ -99,11 +99,7 @@ const initialState = {
   passwordConfirm: "",
 };
 
-const styleRoutes = [
-  "/styles/all.min.css",
-  "/styles/styles.css",
-  "/styles/adminlte.min.css",
-];
+const styleRoutes = ["/styles/styles.css", "/styles/adminlte.min.css"];
 
 function Signup() {
   const navigate = useNavigate();

@@ -4,11 +4,7 @@ import { useDynamicImports } from "./useDynamicImports";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
-const styleRoutes = [
-  "/styles/all.min.css",
-  "/styles/adminlte.min.css",
-  "/styles/styles.css",
-];
+const styleRoutes = ["/styles/adminlte.min.css", "/styles/styles.css"];
 
 const BASE_URL =
   "https://ciberseguridadpoli.onrender.com/signin/request-reset-email/";
