@@ -27,10 +27,7 @@ const faq = [
   },
 ];
 
-const styleRoutes = [
-  "/src/pages_css/css/stylescursos.css",
-  "/src/pages_css/css/all.min.css",
-];
+const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 
 function HelpCenter() {
   const location = useLocation();

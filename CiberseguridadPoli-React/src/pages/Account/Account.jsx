@@ -5,10 +5,7 @@ import AccountPanel from "./AccountPanel";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 import { useAccountInfo } from "../../contexts/AccountContext";
 
-const styleRoutes = [
-  "/src/pages_css/css/stylescursos.css",
-  "/src/pages_css/css/all.min.css",
-];
+const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 
 function Account() {
   const location = useLocation();

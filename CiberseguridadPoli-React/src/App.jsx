@@ -25,30 +25,27 @@ function App() {
           <HeaderValidator />
           <Routes>
             <Route path="" element={<Home />} />
-            <Route path="/account" element={<Account />} />
-            <Route path="/course" element={<CourseOverview />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/signin" element={<Signin />} />
+            <Route path="account" element={<Account />} />
+            <Route path="course" element={<CourseOverview />} />
+            <Route path="signup" element={<Signup />} />
+            <Route path="signin" element={<Signin />} />
+            <Route path="signin/forgot-password" element={<ChangePassword />} />
             <Route
-              path="/signin/forgot-password"
-              element={<ChangePassword />}
-            />
-            <Route
-              path="/signin/password-reset/:uidb64/:token"
+              path="signin/password-reset/:uidb64/:token"
               element={<NewPassword />}
             />
-            <Route path="/learning" element={<Learning />}>
+            <Route path="learning" element={<Learning />}>
               <Route path="test" element={<PruebaNesting />} />
             </Route>
-            <Route path="/learning/section/:id" element={<Section />} />
-            <Route path="/help-center" element={<HelpCenter />} />
+            <Route path="learning/section/:id" element={<Section />} />
+            <Route path="help-center" element={<HelpCenter />} />
             <Route
-              path="/learning/section/:ids/lecture/:idl"
+              path="learning/section/:ids/lecture/:idl"
               element={<Lecture />}
             />
-            <Route path="/challenges" element={<Challenges />} />
-            <Route path="/challenges/:id" element={<QuizPage />} />
-            <Route path="/history" element={<History />} />
+            <Route path="challenges" element={<Challenges />} />
+            <Route path="challenges/:id" element={<QuizPage />} />
+            <Route path="history" element={<History />} />
           </Routes>
         </BrowserRouter>
       </AccountProvider>

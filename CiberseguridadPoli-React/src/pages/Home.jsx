@@ -3,10 +3,7 @@ import Footer from "../components/Footer";
 import { useDynamicImports } from "./useDynamicImports";
 import HeaderValidator from "../components/HeaderValidator";
 
-const styleRoutes = [
-  "/src/pages_css/css/stylescursos.css",
-  "/src/pages_css/css/all.min.css",
-];
+const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 
 function Home() {
   const location = useLocation();

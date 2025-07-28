@@ -3,9 +3,9 @@ import LectureListItem from "./LectureListItem";
 import { useDynamicImports } from "../../pages/useDynamicImports";
 
 const styleRoutes = [
-  "/src/pages_css/css/stylescursos.css",
-  "/src/pages_css/css/temp.css",
-  "/src/pages_css/css/all.min.css",
+  "/styles/stylescursos.css",
+  "/styles/temp.css",
+  "/styles/all.min.css",
 ];
 function SectionLectures({ data }) {
   const location = useLocation();

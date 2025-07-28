@@ -9,10 +9,7 @@ import Footer from "../../components/Footer";
 const KEY = "ciberpoli_token";
 const BASE_URL = "https://ciberseguridadpoli.onrender.com/learning/";
 
-const styleRoutes = [
-  "/src/pages_css/css/stylescursos.css",
-  "/src/pages_css/css/all.min.css",
-];
+const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 
 function Learning() {
   const location = useLocation();

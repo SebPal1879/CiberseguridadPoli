@@ -10,10 +10,7 @@ import DynamicPagesContent from "../../components/DynamicPagesContent";
 const KEY = "ciberpoli_token";
 const BASE_URL = "https://ciberseguridadpoli.onrender.com/quiz/";
 
-const styleRoutes = [
-  "/src/pages_css/css/stylescursos.css",
-  "/src/pages_css/css/all.min.css",
-];
+const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 
 function Challenges() {
   const location = useLocation();

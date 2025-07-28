@@ -100,9 +100,9 @@ const initialState = {
 };
 
 const styleRoutes = [
-  "/src/pages_css/css/all.min.css",
-  "/src/pages_css/css/styles.css",
-  "/src/pages_css/css/adminlte.min.css",
+  "/styles/all.min.css",
+  "/styles/styles.css",
+  "/styles/adminlte.min.css",
 ];
 
 function Signup() {

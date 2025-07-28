@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import Input from "../components/Input";
 
 const styleRoutes = [
-  "/src/pages_css/css/all.min.css",
-  "/src/pages_css/css/adminlte.min.css",
-  "/src/pages_css/css/styles.css",
+  "/styles/all.min.css",
+  "/styles/adminlte.min.css",
+  "/styles/styles.css",
 ];
 
 const BASE_URL =

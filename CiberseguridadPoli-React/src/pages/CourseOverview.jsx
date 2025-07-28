@@ -1,10 +1,7 @@
 import { useLocation, Link } from "react-router-dom";
 import { useDynamicImports } from "./useDynamicImports";
 import Footer from "../components/Footer";
-const styleRoutes = [
-  "/src/pages_css/css/stylescursos.css",
-  "/src/pages_css/css/all.min.css",
-];
+const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 
 function CourseOverview() {
   const location = useLocation();

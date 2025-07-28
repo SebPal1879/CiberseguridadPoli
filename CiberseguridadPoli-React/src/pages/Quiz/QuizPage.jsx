@@ -85,7 +85,7 @@ function reducer(state, action) {
   }
 }
 
-const styleRoutes = ["/src/pages_css/css/quizstyle.css"];
+const styleRoutes = ["/styles/quizstyle.css"];
 function QuizPage() {
   const initialState = {
     quizName: "",

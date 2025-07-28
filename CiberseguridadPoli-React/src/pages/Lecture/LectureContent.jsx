@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useDynamicImports } from "../useDynamicImports";
 
-const styleRoutes = ["/src/pages_css/css/styleslecciones.css"];
+const styleRoutes = ["/styles/styleslecciones.css"];
 function LectureContent({ content }) {
   const location = useLocation();
   useDynamicImports(styleRoutes, location.pathname);
