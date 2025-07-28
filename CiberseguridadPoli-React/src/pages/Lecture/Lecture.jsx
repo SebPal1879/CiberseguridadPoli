@@ -21,7 +21,7 @@ function Lecture() {
 
   const { ids, idl } = useParams();
   const [response, setResponse] = useState({});
-  const BASE_URL = `http://127.0.0.1:8000/learning/section/${ids}/lecture/${idl}/`;
+  const BASE_URL = `https://ciberseguridadpoli.onrender.com/learning/section/${ids}/lecture/${idl}/`;
   useAuthFetching(KEY, BASE_URL, setResponse);
 
   const data = response.status === 200 ? response.data[0] : [];

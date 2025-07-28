@@ -11,7 +11,8 @@ const styleRoutes = [
   "/src/pages_css/css/styles.css",
 ];
 
-const BASE_URL = "http://127.0.0.1:8000/signin/password-reset/";
+const BASE_URL =
+  "https://ciberseguridadpoli.onrender.com/signin/password-reset/";
 
 const djangoPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 function validPassword(password) {

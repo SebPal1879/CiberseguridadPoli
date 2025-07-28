@@ -7,7 +7,7 @@ import DynamicPagesContent from "../../components/DynamicPagesContent";
 import Footer from "../../components/Footer";
 
 const KEY = "ciberpoli_token";
-const BASE_URL = "http://127.0.0.1:8000/learning/";
+const BASE_URL = "https://ciberseguridadpoli.onrender.com/learning/";
 
 const styleRoutes = [
   "/src/pages_css/css/stylescursos.css",

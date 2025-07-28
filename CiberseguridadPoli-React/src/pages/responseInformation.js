@@ -12,7 +12,7 @@ function responseInformation(responseData) {
   const telephoneNumber = responseData.telephone_number;
   const level = responseData.level;
   const profilePictureURL =
-    "http://127.0.0.1:8000/" + responseData.profile_picture;
+    "https://ciberseguridadpoli.onrender.com/" + responseData.profile_picture;
   const program = responseData.program;
   return {
     id,

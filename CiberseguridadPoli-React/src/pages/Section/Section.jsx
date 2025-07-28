@@ -17,7 +17,7 @@ function Section() {
   const location = useLocation();
   useDynamicImports(styleRoutes, location.pathname);
   const { id } = useParams();
-  const BASE_URL = `http://127.0.0.1:8000/learning/section/${id}/`;
+  const BASE_URL = `https://ciberseguridadpoli.onrender.com/learning/section/${id}/`;
   const [response, setResponse] = useState("");
   useAuthFetching(KEY, BASE_URL, setResponse);
   const data = response.status === 401 ? [] : response.data;

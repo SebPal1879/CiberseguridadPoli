@@ -8,7 +8,7 @@ import { useDynamicImports } from "../useDynamicImports";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 
 const KEY = "ciberpoli_token";
-const BASE_URL = "http://127.0.0.1:8000/quiz/";
+const BASE_URL = "https://ciberseguridadpoli.onrender.com/quiz/";
 
 const styleRoutes = [
   "/src/pages_css/css/stylescursos.css",

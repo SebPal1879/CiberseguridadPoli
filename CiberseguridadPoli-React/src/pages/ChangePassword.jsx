@@ -10,7 +10,8 @@ const styleRoutes = [
   "/src/pages_css/css/styles.css",
 ];
 
-const BASE_URL = "http://127.0.0.1:8000/signin/request-reset-email/";
+const BASE_URL =
+  "https://ciberseguridadpoli.onrender.com/signin/request-reset-email/";
 
 function ChangePassword() {
   const location = useLocation();
