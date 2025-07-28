@@ -133,7 +133,7 @@ class AddAnswerView(APIView):
       except ObjectDoesNotExist:
         print("No se encontró la pregunta asociada a la respuesta. Continuando con el siguiente elemento.")
         continue  
-      Answer.objects.create(answer=answer["answer"],points=answer["points"],question=question)
+      Answer.objects.create(answer=answer["answer"],is_correct=answer["is_correct"],question=question)
     return Response({"Exitoso": "Respuestas subidas con exito"},status=status.HTTP_201_CREATED)
   
 
