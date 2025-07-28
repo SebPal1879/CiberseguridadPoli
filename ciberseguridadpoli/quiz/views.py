@@ -105,7 +105,7 @@ class AddQuizView(APIView):
       except ObjectDoesNotExist:
         print("No se encontró la lección asociada al quiz. Continuando con el siguiente elemento.")
         continue
-      Quiz.objects.create(lecture=lecture,**quiz)
+      Quiz.objects.create(name=quiz["name"],description=quiz["description"],lecture=lecture)
     return Response({"Exitoso": "Quizzes subidos"},status=status.HTTP_201_CREATED)
 
 class AddQuestionView(APIView):
@@ -119,7 +119,7 @@ class AddQuestionView(APIView):
       except ObjectDoesNotExist:
         print("No se encontró el quiz asociado al pregunta. Continuando con el siguiente elemento.")
         continue
-      Question.objects.create(quiz=quiz,**question)
+      Question.objects.create(statement=question["statement"],points=question["points"],quiz=quiz)
     return Response({"Exitoso": "Preguntas subidas"},status=status.HTTP_201_CREATED)
   
 class AddAnswerView(APIView):
@@ -133,7 +133,7 @@ class AddAnswerView(APIView):
       except ObjectDoesNotExist:
         print("No se encontró la pregunta asociada a la respuesta. Continuando con el siguiente elemento.")
         continue  
-      Answer.objects.create(question=question,**answer)
+      Answer.objects.create(answer=answer["answer"],points=answer["points"],question=question)
     return Response({"Exitoso": "Respuestas subidas con exito"},status=status.HTTP_201_CREATED)
   
 
