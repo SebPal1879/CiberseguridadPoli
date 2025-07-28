@@ -15,6 +15,7 @@ import History from "./pages/History";
 import ChangePassword from "./pages/ChangePassword";
 import NewPassword from "./pages/NewPassword";
 import { AccountProvider } from "./contexts/AccountContext";
+import StandardHeader from "./components/StandardHeader";
 import HeaderValidator from "./components/HeaderValidator";
 
 function App() {

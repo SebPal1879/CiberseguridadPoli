@@ -16,7 +16,6 @@ export function useDynamicImports(hrefs = [], currentPath, setLoaded) {
       });
 
       return () => {
-        setLoaded(false);
         links.forEach((link) => document.head.removeChild(link));
       };
     },
