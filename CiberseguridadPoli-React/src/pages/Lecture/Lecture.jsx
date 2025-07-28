@@ -13,7 +13,7 @@ function Lecture() {
 
   const { ids, idl } = useParams();
   const [response, setResponse] = useState({});
-  const BASE_URL = `https://ciberseguridadpoli.onrender.com/learning/section/${ids}/lecture/${idl}/`;
+  const BASE_URL = `https://ciberseguridad-poli.vercel.app/learning/section/${ids}/lecture/${idl}/`;
   useAuthFetching(KEY, BASE_URL, setResponse);
 
   const data = response.status === 200 ? response.data[0] : [];
@@ -47,8 +47,6 @@ function Lecture() {
           />
         }
       />
-
-      <Footer />
     </>
   );
 }

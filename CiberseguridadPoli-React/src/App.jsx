@@ -15,6 +15,7 @@ import ChangePassword from "./pages/ChangePassword";
 import NewPassword from "./pages/NewPassword";
 import { AccountProvider } from "./contexts/AccountContext";
 import HeaderValidator from "./components/HeaderValidator";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -23,17 +24,17 @@ function App() {
         <BrowserRouter>
           <HeaderValidator />
           <Routes>
-            <Route path="" element={<Home />} x />
-            <Route path="account" element={<Account />} x />
-            <Route path="course" element={<CourseOverview />} x />
-            <Route path="challenges" element={<Challenges x />} />
-            <Route path="learning" element={<Learning />} x />
-            <Route path="learning/section/:id" element={<Section />} x />
-            <Route path="help-center" element={<HelpCenter />} x />
-            <Route path="history" element={<History />} x />
+            <Route path="" element={<Home />} />
+            <Route path="account" element={<Account />} />
+            <Route path="course" element={<CourseOverview />} />
+            <Route path="challenges" element={<Challenges />} />
+            <Route path="learning" element={<Learning />} />
+            <Route path="learning/section/:id" element={<Section />} />
+            <Route path="help-center" element={<HelpCenter />} />
+            <Route path="history" element={<History />} />
             <Route
               path="learning/section/:ids/lecture/:idl"
-              element={<Lecture x />}
+              element={<Lecture />}
             />
             <Route path="signup" element={<Signup />} />
             <Route path="signin" element={<Signin />} />
@@ -44,6 +45,7 @@ function App() {
             />
             <Route path="challenges/:id" element={<QuizPage />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </AccountProvider>
     </>

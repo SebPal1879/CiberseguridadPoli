@@ -12,7 +12,7 @@ function responseInformation(responseData) {
   const telephoneNumber = responseData.telephone_number;
   const level = responseData.level;
   const profilePictureURL =
-    "https://ciberseguridadpoli.onrender.com/" + responseData.profile_picture;
+    "https://ciberseguridad-poli.vercel.app/" + responseData.profile_picture;
   const program = responseData.program;
   return {
     id,

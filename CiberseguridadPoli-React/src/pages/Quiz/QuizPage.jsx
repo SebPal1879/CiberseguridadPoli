@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import FinishScreen from "./FinishScreen";
 import Container from "../../components/Container";
 import Start from "./Start";
@@ -9,6 +9,7 @@ import Bottom from "./Bottom";
 import { useDynamicImports } from "../useDynamicImports";
 import { postRequest, getInformation } from "../../api/access.api";
 import QuizHeader from "./QuizHeader";
+import Error from "../../components/Error";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -48,7 +49,7 @@ function reducer(state, action) {
         answer: null,
       };
     case "finish": {
-      const BASE_SUBMIT_URL = `https://ciberseguridadpoli.onrender.com/quiz/completion/${action.id}/`;
+      const BASE_SUBMIT_URL = `https://ciberseguridad-poli.vercel.app/quiz/completion/${action.id}/`;
       const token = localStorage.getItem("ciberpoli_token");
       const score = (state.points / action.payload) * 5;
       async function submitResults() {
@@ -114,7 +115,7 @@ function QuizPage() {
 
   const { id } = useParams();
   const location = useLocation();
-  const BASE_FETCH_URL = `https://ciberseguridadpoli.onrender.com/quiz/${id}`;
+  const BASE_FETCH_URL = `https://ciberseguridad-poli.vercel.app/quiz/${id}`;
   const token = localStorage.getItem("ciberpoli_token");
 
   useEffect(
@@ -147,7 +148,14 @@ function QuizPage() {
     <>
       <QuizHeader quizName={quizName} />
       <Container>
-        {status === "error" && <>Hubo un error</>}
+        {status === "error" && (
+          <>
+            <Error />
+            <Link to="/">
+              <>Volver al inicio</>
+            </Link>
+          </>
+        )}
         {status === "ready" && (
           <Start dispatch={dispatch} description={quizDescription} />
         )}

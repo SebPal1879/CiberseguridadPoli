@@ -7,12 +7,13 @@ import ChallengeOverview from "./ChallengeOverview";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 
 const KEY = "ciberpoli_token";
-const BASE_URL = "https://ciberseguridadpoli.onrender.com/quiz/";
+const BASE_URL = "https://ciberseguridad-poli.vercel.app/quiz/";
 
 function Challenges() {
   const [response, setResponse] = useState("");
   useAuthFetching(KEY, BASE_URL, setResponse);
   const data = response.status === 200 ? response.data : [];
+  console.log(response);
   return (
     <div>
       <DynamicPagesContent
@@ -28,8 +29,6 @@ function Challenges() {
         }
         customErrorMessage={"Completa lecciones para desbloquear esta sección"}
       />
-
-      <Footer />
     </div>
   );
 }
