@@ -1,13 +1,16 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LectureListItem from "./LectureListItem";
-import { useDynamicImports } from "../../pages/useDynamicImports";
 import { useState } from "react";
+import useDynamicStyles from "../useDynamicStyles";
 
-const styleRoutes = ["/styles/temp.css"];
+const styleRoutes = [
+  "/styles/temp.css",
+  "/styles/stylescursos.css",
+  "/styles/all.min.css",
+];
 function SectionLectures({ data }) {
-  const location = useLocation();
   const [loaded, setLoaded] = useState(false);
-  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  useDynamicStyles(new Set(styleRoutes), setLoaded);
   if (!loaded) return;
   return (
     <div className="lecciones-preview">

@@ -1,23 +1,29 @@
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { submitLoginForm } from "../api/access.api";
 import Form from "../components/Form";
 import Input from "../components/Input";
-import { useDynamicImports } from "./useDynamicImports";
 import useAccessStyles from "./useAccessStyles";
+import useDynamicStyles from "./useDynamicStyles";
 
-const styleRoutes = ["/styles/adminlte.min.css", "/styles/styles.css"];
+const styleRoutes = [
+  "/styles/adminlte.min.css",
+  "/styles/all.min.css",
+  "/styles/styles.css",
+];
 
 function Signin() {
   useAccessStyles();
-  const location = useLocation();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const [loaded, setLoaded] = useState(false);
-  useDynamicImports(styleRoutes, location.pathname, setLoaded);
-  if (!loaded) return;
+  useDynamicStyles(new Set(styleRoutes), setLoaded);
+
+  for (const styleSheet of document.styleSheets) {
+    console.log(styleSheet); // A CSSStyleSheet object
+  }
 
   function submitLogin(e) {
     e.preventDefault();
@@ -36,9 +42,10 @@ function Signin() {
     login(username, password);
   }
 
+  if (!loaded) return;
+
   return (
     <div className="login-box">
-      <Link to="/">a</Link>
       <div className="card card-outline">
         <div className="card-body">
           <img src="/logo.png" />

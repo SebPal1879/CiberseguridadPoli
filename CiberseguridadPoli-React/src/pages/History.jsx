@@ -1,24 +1,20 @@
 import Footer from "../components/Footer";
-import { useLocation } from "react-router-dom";
-import { useDynamicImports } from "./useDynamicImports";
 import useAuthFetching from "../api/useAuthFetching";
 import { useState } from "react";
 import Table from "../components/Table";
 import DynamicPagesContent from "../components/DynamicPagesContent";
+import useDynamicStyles from "./useDynamicStyles";
 
 const BASE_URL = "https://ciberseguridadpoli.onrender.com/quiz/history";
 const KEY = "ciberpoli_token";
-const styleRoutes = [
-  "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@500&display=swap",
-];
+const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 
 function History() {
-  const location = useLocation();
   const [response, setResponse] = useState("");
 
   useAuthFetching(KEY, BASE_URL, setResponse);
   const [loaded, setLoaded] = useState(false);
-  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  useDynamicStyles(new Set(styleRoutes), setLoaded);
   if (!loaded) return;
   const data = response.status === 200 ? response.data : [];
 

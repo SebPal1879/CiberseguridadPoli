@@ -1,16 +1,16 @@
 import { useEffect, useReducer, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import FinishScreen from "./FinishScreen";
 import Container from "../../components/Container";
 import Start from "./Start";
 import Progress from "./Progress";
 import Question from "./Question";
 import Bottom from "./Bottom";
-import { useDynamicImports } from "../useDynamicImports";
 import { postRequest, getInformation } from "../../api/access.api";
 import QuizHeader from "./QuizHeader";
 import Error from "../../components/Error";
 import useAccessStyles from "../useAccessStyles";
+import useDynamicStyles from "../useDynamicStyles";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -115,7 +115,6 @@ function QuizPage() {
   ] = useReducer(reducer, initialState);
 
   const { id } = useParams();
-  const location = useLocation();
   const BASE_FETCH_URL = `https://ciberseguridadpoli.onrender.com/quiz/${id}`;
   const token = localStorage.getItem("ciberpoli_token");
 
@@ -143,7 +142,7 @@ function QuizPage() {
   const maxQuestions = questions.length;
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0);
   const [loaded, setLoaded] = useState(false);
-  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  useDynamicStyles(new Set(styleRoutes), setLoaded);
   useAccessStyles();
   if (!loaded) return;
   return (

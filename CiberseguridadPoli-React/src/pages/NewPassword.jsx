@@ -1,9 +1,9 @@
 import Form from "../components/Form";
 import axios from "axios";
-import { useDynamicImports } from "./useDynamicImports";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Input from "../components/Input";
+import useDynamicStyles from "./useDynamicStyles";
 
 const styleRoutes = ["/styles/adminlte.min.css", "/styles/styles.css"];
 
@@ -19,7 +19,6 @@ const toolTipDisplay = {
 };
 function NewPassword() {
   const navigate = useNavigate();
-  const location = useLocation();
   const { uidb64, token } = useParams();
   const [password, setPassword] = useState(null);
   const [passwordConfirm, setPasswordConfirm] = useState(null);
@@ -42,7 +41,7 @@ function NewPassword() {
     [getRequestURL]
   );
   const [loaded, setLoaded] = useState(false);
-  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  useDynamicStyles(new Set(styleRoutes), setLoaded);
   if (!loaded) return;
   function handlePasswordChange(e) {
     e.preventDefault();

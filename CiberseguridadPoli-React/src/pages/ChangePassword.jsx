@@ -1,8 +1,7 @@
 import Form from "../components/Form";
 import axios from "axios";
-import { useDynamicImports } from "./useDynamicImports";
-import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import useDynamicStyles from "./useDynamicStyles";
 
 const styleRoutes = ["/styles/adminlte.min.css", "/styles/styles.css"];
 
@@ -10,10 +9,9 @@ const BASE_URL =
   "https://ciberseguridadpoli.onrender.com/signin/request-reset-email/";
 
 function ChangePassword() {
-  const location = useLocation();
   const [email, setEmail] = useState("");
   const [loaded, setLoaded] = useState(false);
-  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  useDynamicStyles(new Set(styleRoutes), setLoaded);
   if (!loaded) return;
 
   function handlePasswordChange(e) {

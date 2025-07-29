@@ -1,11 +1,11 @@
 import { useReducer, useState } from "react";
 import Form from "../components/Form";
 import Input from "../components/Input";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { submitRegisterForm } from "../api/access.api";
 import InputGroup from "./InputGroup";
-import { useDynamicImports } from "./useDynamicImports";
 import useAccessStyles from "./useAccessStyles";
+import useDynamicStyles from "./useDynamicStyles";
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@elpoli\.edu\.co$/;
 const djangoPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
@@ -100,13 +100,16 @@ const initialState = {
   passwordConfirm: "",
 };
 
-const styleRoutes = ["/styles/styles.css", "/styles/adminlte.min.css"];
+const styleRoutes = [
+  "/styles/styles.css",
+  "/styles/adminlte.min.css",
+  "/styles/all.min.css",
+];
 
 function Signup() {
-  const location = useLocation();
   const navigate = useNavigate();
   const [loaded, setLoaded] = useState(false);
-  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  useDynamicStyles(new Set(styleRoutes), setLoaded);
   useAccessStyles();
 
   const toolTipDisplay = {
@@ -128,16 +131,9 @@ function Signup() {
     },
     dispatch,
   ] = useReducer(reducer, initialState);
-  console.log(
-    first_name,
-    last_name,
-    username,
-    email,
-    password,
-    passwordConfirm
-  );
 
   if (!loaded) return;
+
   return (
     <>
       <div className="register-box">
