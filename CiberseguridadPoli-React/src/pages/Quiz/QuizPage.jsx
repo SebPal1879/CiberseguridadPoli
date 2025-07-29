@@ -10,6 +10,7 @@ import { useDynamicImports } from "../useDynamicImports";
 import { postRequest, getInformation } from "../../api/access.api";
 import QuizHeader from "./QuizHeader";
 import Error from "../../components/Error";
+import useAccessStyles from "../useAccessStyles";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -143,6 +144,7 @@ function QuizPage() {
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0);
   const [loaded, setLoaded] = useState(false);
   useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  useAccessStyles();
   if (!loaded) return;
   return (
     <>

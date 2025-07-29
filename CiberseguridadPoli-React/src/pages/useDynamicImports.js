@@ -5,20 +5,20 @@ export function useDynamicImports(hrefs = [], currentPath, setLoaded) {
   useEffect(
     function () {
       if (!location.pathname.startsWith(currentPath)) return;
-      if (location.pathname.startsWith("/challenges")) {
+      if (location.pathname.startsWith("/challenges/")) {
         const stylescursos = document.getElementById("stylescursos");
         document.head.removeChild(stylescursos);
       }
 
       const links = addStyleSheets(hrefs);
 
-      function addStyleSheets(hrefs) {
+      function addStyleSheets(hrefs, id) {
         return hrefs.map((href) => {
           const link = document.createElement("link");
           link.rel = "stylesheet";
           link.href = href;
           link.dataset.dynamic = "true";
-          link.id = href;
+          link.id = id ? id : "";
           link.onload = () => setLoaded(true);
           document.head.appendChild(link);
           return link;
@@ -26,7 +26,7 @@ export function useDynamicImports(hrefs = [], currentPath, setLoaded) {
       }
       return () => {
         if (location.pathname.startsWith("/challenges")) {
-          addStyleSheets(["styles/stylescursos.css"]);
+          addStyleSheets(["styles/stylescursos.css"], "stylescursos");
         }
         links.forEach((link) => document.head.removeChild(link));
       };
