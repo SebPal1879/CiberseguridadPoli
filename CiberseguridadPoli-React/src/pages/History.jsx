@@ -6,7 +6,7 @@ import { useState } from "react";
 import Table from "../components/Table";
 import DynamicPagesContent from "../components/DynamicPagesContent";
 
-const BASE_URL = "https://ciberseguridad-poli.vercel.app/quiz/history";
+const BASE_URL = "https://ciberseguridadpoli.onrender.com/quiz/history";
 const KEY = "ciberpoli_token";
 const styleRoutes = [
   "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@500&display=swap",

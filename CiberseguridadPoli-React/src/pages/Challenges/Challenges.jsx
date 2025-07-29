@@ -7,7 +7,7 @@ import ChallengeOverview from "./ChallengeOverview";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 
 const KEY = "ciberpoli_token";
-const BASE_URL = "https://ciberseguridad-poli.vercel.app/quiz/";
+const BASE_URL = "https://ciberseguridadpoli.onrender.com/quiz/";
 
 function Challenges() {
   const [response, setResponse] = useState("");

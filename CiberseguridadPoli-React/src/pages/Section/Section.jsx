@@ -12,7 +12,7 @@ const styleRoutes = ["/styles/temp.css"];
 function Section() {
   const location = useLocation();
   const { id } = useParams();
-  const BASE_URL = `https://ciberseguridad-poli.vercel.app/learning/section/${id}/`;
+  const BASE_URL = `https://ciberseguridadpoli.onrender.com/learning/section/${id}/`;
   const [response, setResponse] = useState("");
   useAuthFetching(KEY, BASE_URL, setResponse);
   const data = response.status === 401 ? [] : response.data;

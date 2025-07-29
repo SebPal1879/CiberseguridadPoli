@@ -45,7 +45,6 @@ function App() {
             />
             <Route path="challenges/:id" element={<QuizPage />} />
           </Routes>
-          <Footer />
         </BrowserRouter>
       </AccountProvider>
     </>

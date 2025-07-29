@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { submitRegisterForm } from "../api/access.api";
 import InputGroup from "./InputGroup";
 import { useDynamicImports } from "./useDynamicImports";
+import useAccessStyles from "./useAccessStyles";
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@elpoli\.edu\.co$/;
 const djangoPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
@@ -102,7 +103,11 @@ const initialState = {
 const styleRoutes = ["/styles/styles.css", "/styles/adminlte.min.css"];
 
 function Signup() {
+  const location = useLocation();
   const navigate = useNavigate();
+  const [loaded, setLoaded] = useState(false);
+  useDynamicImports(styleRoutes, location.pathname, setLoaded);
+  useAccessStyles();
 
   const toolTipDisplay = {
     display: "block",
@@ -131,11 +136,8 @@ function Signup() {
     password,
     passwordConfirm
   );
-  const location = useLocation();
-  const [loaded, setLoaded] = useState(false);
-  useDynamicImports(styleRoutes, location.pathname, setLoaded);
-  if (!loaded) return;
 
+  if (!loaded) return;
   return (
     <>
       <div className="register-box">

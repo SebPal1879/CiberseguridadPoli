@@ -1,17 +1,23 @@
 import axios from "axios";
 
 export function getAll(id) {
-  return axios.post("https://ciberseguridad-poli.vercel.app/quiz/find-quiz/", {
+  return axios.post("https://ciberseguridadpoli.onrender.com/quiz/find-quiz/", {
     id,
   });
 }
 
 export function submitRegisterForm(formData) {
-  return axios.post("https://ciberseguridad-poli.vercel.app/signup/", formData);
+  return axios.post(
+    "https://ciberseguridadpoli.onrender.com/signup/",
+    formData
+  );
 }
 
 export function submitLoginForm(formData) {
-  return axios.post("https://ciberseguridad-poli.vercel.app/signin/", formData);
+  return axios.post(
+    "https://ciberseguridadpoli.onrender.com/signin/",
+    formData
+  );
 }
 
 export function getInformation(url, userToken) {

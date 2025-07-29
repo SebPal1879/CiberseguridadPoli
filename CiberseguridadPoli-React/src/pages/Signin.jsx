@@ -4,10 +4,12 @@ import { submitLoginForm } from "../api/access.api";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import { useDynamicImports } from "./useDynamicImports";
+import useAccessStyles from "./useAccessStyles";
 
 const styleRoutes = ["/styles/adminlte.min.css", "/styles/styles.css"];
 
 function Signin() {
+  useAccessStyles();
   const location = useLocation();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -33,7 +35,6 @@ function Signin() {
     }
     login(username, password);
   }
-  console.log(username, password);
 
   return (
     <div className="login-box">

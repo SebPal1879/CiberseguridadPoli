@@ -8,7 +8,6 @@ import Loader from "./Loader";
 function HeaderValidator() {
   const { responseStatus } = useAccountInfo();
   const location = useLocation();
-  if (!responseStatus) return <Loader />;
 
   if (
     location.pathname.startsWith("/signin") ||

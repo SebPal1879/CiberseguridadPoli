@@ -49,7 +49,7 @@ function reducer(state, action) {
         answer: null,
       };
     case "finish": {
-      const BASE_SUBMIT_URL = `https://ciberseguridad-poli.vercel.app/quiz/completion/${action.id}/`;
+      const BASE_SUBMIT_URL = `https://ciberseguridadpoli.onrender.com/quiz/completion/${action.id}/`;
       const token = localStorage.getItem("ciberpoli_token");
       const score = (state.points / action.payload) * 5;
       async function submitResults() {
@@ -115,7 +115,7 @@ function QuizPage() {
 
   const { id } = useParams();
   const location = useLocation();
-  const BASE_FETCH_URL = `https://ciberseguridad-poli.vercel.app/quiz/${id}`;
+  const BASE_FETCH_URL = `https://ciberseguridadpoli.onrender.com/quiz/${id}`;
   const token = localStorage.getItem("ciberpoli_token");
 
   useEffect(

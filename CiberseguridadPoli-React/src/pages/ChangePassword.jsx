@@ -7,7 +7,7 @@ import { useState } from "react";
 const styleRoutes = ["/styles/adminlte.min.css", "/styles/styles.css"];
 
 const BASE_URL =
-  "https://ciberseguridad-poli.vercel.app/signin/request-reset-email/";
+  "https://ciberseguridadpoli.onrender.com/signin/request-reset-email/";
 
 function ChangePassword() {
   const location = useLocation();
