@@ -101,9 +101,9 @@ const initialState = {
 };
 
 const styleRoutes = [
-  "/styles/styles.css",
   "/styles/adminlte.min.css",
   "/styles/all.min.css",
+  "/styles/styles.css",
 ];
 
 function Signup() {

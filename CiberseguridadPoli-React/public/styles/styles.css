@@ -12,6 +12,8 @@
   background-color: white;
   border-radius: 8px;
   width: 400px;
+  padding: 30px 20px;
+
   text-align: center;
   min-height: 400px;
 }

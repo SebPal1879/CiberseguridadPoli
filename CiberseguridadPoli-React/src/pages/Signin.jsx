@@ -21,10 +21,6 @@ function Signin() {
   const [loaded, setLoaded] = useState(false);
   useDynamicStyles(new Set(styleRoutes), setLoaded);
 
-  for (const styleSheet of document.styleSheets) {
-    console.log(styleSheet); // A CSSStyleSheet object
-  }
-
   function submitLogin(e) {
     e.preventDefault();
     async function login(username, password) {

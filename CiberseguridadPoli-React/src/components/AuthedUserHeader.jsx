@@ -1,8 +1,15 @@
 import { NavLink } from "react-router-dom";
 import { useAccountInfo } from "../contexts/AccountContext";
 
+import useDynamicStyles from "../pages/useDynamicStyles";
+import { useState } from "react";
+
 function AuthedUserHeader() {
+  const [loaded, setLoaded] = useState(false);
+  const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
   const { firstName, profilePictureURL } = useAccountInfo();
+  useDynamicStyles(new Set(styleRoutes), setLoaded);
+  if (!loaded) return;
   return (
     <header className="main-header" style={{ marginBottom: "32px" }}>
       <div className="header-container">
