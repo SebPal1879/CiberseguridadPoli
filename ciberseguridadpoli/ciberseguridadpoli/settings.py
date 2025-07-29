@@ -141,7 +141,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "https://ciberseguridadpoli.onrender.com/"
+    "https://ciberseguridad-poli.vercel.app/"
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -153,7 +153,7 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = 'Equipo de Ciberseguridad Poli'
 
 # URL del front-end
-FRONTEND_URL = 'https://ciberseguridadpoli.onrender.com/'
+FRONTEND_URL = 'https://ciberseguridad-poli.vercel.app/'
 # REST_FRAMEWORK = {
 #     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
 # }
