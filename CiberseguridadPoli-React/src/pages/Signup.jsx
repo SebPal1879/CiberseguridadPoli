@@ -104,6 +104,7 @@ const styleRoutes = [
   "/styles/adminlte.min.css",
   "/styles/all.min.css",
   "/styles/styles.css",
+  "/styles/register.css",
 ];
 
 function Signup() {
