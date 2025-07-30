@@ -4,7 +4,7 @@ import useDynamicStyles from "../useDynamicStyles";
 const styleRoutes = ["/styles/styleslecciones.css"];
 function LectureContent({ content }) {
   const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(new Set(styleRoutes), setLoaded);
+  useDynamicStyles(styleRoutes, setLoaded);
   if (!loaded) return;
   return (
     <div className="accordion-item open">

@@ -142,7 +142,7 @@ function QuizPage() {
   const maxQuestions = questions.length;
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0);
   const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(new Set(styleRoutes), setLoaded);
+  useDynamicStyles(styleRoutes, setLoaded);
   useAccessStyles();
   if (!loaded) return;
   return (

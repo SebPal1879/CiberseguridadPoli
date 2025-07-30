@@ -20,7 +20,7 @@ function Section() {
   useAuthFetching(KEY, BASE_URL, setResponse);
   const data = response.status === 401 ? [] : response.data;
   const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(new Set(styleRoutes), setLoaded);
+  useDynamicStyles(styleRoutes, setLoaded);
   if (!loaded) return;
   return (
     <>

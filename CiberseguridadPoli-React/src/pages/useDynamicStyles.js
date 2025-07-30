@@ -3,9 +3,11 @@ import { useEffect } from "react";
 const BASE_URL = "http://localhost:5173";
 
 // Función para revisar si en el DOM ya hay hojas de estilos que se necesitan (y no volver a solicitarlñas), y para quitar las que no se necesitan (y evitar afectaciones en la visualización)
-function useDynamicStyles(neededStylePaths, setLoaded) {
+function useDynamicStyles(styleRoutes, setLoaded) {
   useEffect(
     function () {
+      const neededStylePaths = new Set(styleRoutes);
+      console.log("wardiola");
       // 1. Buscar todos los estilos presentes. filter(Boolean) evita nulos
       const presentStylesArray = [...document.styleSheets]
         .map((element) => element.href)
@@ -17,6 +19,8 @@ function useDynamicStyles(neededStylePaths, setLoaded) {
       );
       // 3. Se hace un conjunto a través de diferencia de conjuntos de los estilos solicitados pero no presentes en el DOM
       const missingStyles = neededStylePaths.difference(presentStyles);
+
+      console.log(missingStyles);
 
       // 4. Se hace un conjunto a través de diferencia de conjuntos de los estilos presentes pero no solicitados en el DOM
       const notNeededStyles = presentStyles.difference(neededStylePaths);
@@ -39,7 +43,7 @@ function useDynamicStyles(neededStylePaths, setLoaded) {
       setLoaded(true);
     },
 
-    [neededStylePaths, setLoaded]
+    [styleRoutes, setLoaded]
   );
 }
 

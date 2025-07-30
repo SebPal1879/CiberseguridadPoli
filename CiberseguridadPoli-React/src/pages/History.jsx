@@ -14,7 +14,7 @@ function History() {
 
   useAuthFetching(KEY, BASE_URL, setResponse);
   const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(new Set(styleRoutes), setLoaded);
+  useDynamicStyles(styleRoutes, setLoaded);
   if (!loaded) return;
   const data = response.status === 200 ? response.data : [];
 

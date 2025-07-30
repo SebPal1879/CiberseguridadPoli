@@ -27,11 +27,11 @@ const faq = [
 function HelpCenter() {
   return (
     <>
-      <div class="content-wrapper">
-        <main class="help-container">
-          <div class="help-header">
+      <div className="content-wrapper">
+        <main className="help-container">
+          <div className="help-header">
             <h1>
-              <i class="fas fa-hands-helping"></i> Centro de Ayuda
+              <i className="fas fa-hands-helping"></i> Centro de Ayuda
             </h1>
             <p>
               Encuentra respuestas a tus preguntas o contacta directamente con
@@ -39,16 +39,17 @@ function HelpCenter() {
             </p>
           </div>
 
-          <div class="help-content">
-            <section class="faq-section">
-              <div class="section-header">
+          <div className="help-content">
+            <section className="faq-section">
+              <div className="section-header">
                 <h2>
-                  <i class="fas fa-question-circle"></i> Preguntas Frecuentes
+                  <i className="fas fa-question-circle"></i> Preguntas
+                  Frecuentes
                 </h2>
-                <div class="divider"></div>
+                <div className="divider"></div>
               </div>
 
-              <div class="faq-accordion">
+              <div className="faq-accordion">
                 {faq.map((element) => (
                   <HelpItem
                     question={element.question}
@@ -58,19 +59,19 @@ function HelpCenter() {
               </div>
             </section>
 
-            <section class="contact-section">
-              <div class="section-header">
+            <section className="contact-section">
+              <div className="section-header">
                 <h2>
-                  <i class="fas fa-envelope"></i> Formulario de Contacto
+                  <i className="fas fa-envelope"></i> Formulario de Contacto
                 </h2>
-                <div class="divider"></div>
+                <div className="divider"></div>
               </div>
 
-              <form class="contact-form">
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="name">
-                      <i class="fas fa-user"></i> Nombre completo
+              <form className="contact-form">
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="name">
+                      <i className="fas fa-user"></i> Nombre completo
                     </label>
                     <input
                       type="text"
@@ -80,9 +81,9 @@ function HelpCenter() {
                       required
                     />
                   </div>
-                  <div class="form-group">
-                    <label for="email">
-                      <i class="fas fa-envelope"></i> Correo electrónico
+                  <div className="form-group">
+                    <label htmlFor="email">
+                      <i className="fas fa-envelope"></i> Correo electrónico
                     </label>
                     <input
                       type="email"
@@ -94,10 +95,10 @@ function HelpCenter() {
                   </div>
                 </div>
 
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="subject">
-                      <i class="fas fa-tag"></i> Asunto
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="subject">
+                      <i className="fas fa-tag"></i> Asunto
                     </label>
                     <select id="subject" name="subject" required>
                       <option value="" disabled selected>
@@ -109,9 +110,9 @@ function HelpCenter() {
                       <option value="other">Otro</option>
                     </select>
                   </div>
-                  <div class="form-group">
-                    <label for="phone">
-                      <i class="fas fa-phone"></i> Teléfono (opcional)
+                  <div className="form-group">
+                    <label htmlFor="phone">
+                      <i className="fas fa-phone"></i> Teléfono (opcional)
                     </label>
                     <input
                       type="tel"
@@ -122,9 +123,9 @@ function HelpCenter() {
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="message">
-                    <i class="fas fa-comment"></i> Mensaje
+                <div className="form-group">
+                  <label htmlFor="message">
+                    <i className="fas fa-comment"></i> Mensaje
                   </label>
                   <textarea
                     id="message"
@@ -135,24 +136,24 @@ function HelpCenter() {
                   ></textarea>
                 </div>
 
-                <div class="form-actions">
-                  <button type="submit" class="btn-primary">
-                    <i class="fas fa-paper-plane"></i> Enviar mensaje
+                <div className="form-actions">
+                  <button type="submit" className="btn-primary">
+                    <i className="fas fa-paper-plane"></i> Enviar mensaje
                   </button>
                 </div>
               </form>
             </section>
           </div>
 
-          <aside class="help-sidebar">
-            <div class="support-card">
-              <div class="card-header">
-                <i class="fas fa-headset"></i>
+          <aside className="help-sidebar">
+            <div className="support-card">
+              <div className="card-header">
+                <i className="fas fa-headset"></i>
                 <h3>Soporte Técnico</h3>
               </div>
-              <div class="support-info">
-                <div class="info-item">
-                  <i class="fas fa-clock"></i>
+              <div className="support-info">
+                <div className="info-item">
+                  <i className="fas fa-clock"></i>
                   <div>
                     <h4>Horario de atención</h4>
                     <p>
@@ -162,15 +163,15 @@ function HelpCenter() {
                     </p>
                   </div>
                 </div>
-                <div class="info-item">
-                  <i class="fas fa-phone"></i>
+                <div className="info-item">
+                  <i className="fas fa-phone"></i>
                   <div>
                     <h4>Teléfono</h4>
                     <p>+57 300 123 4567</p>
                   </div>
                 </div>
-                <div class="info-item">
-                  <i class="fas fa-envelope"></i>
+                <div className="info-item">
+                  <i className="fas fa-envelope"></i>
                   <div>
                     <h4>Correo electrónico</h4>
                     <p>soporte.ciberseguridad@elpoli.edu.co</p>
@@ -179,31 +180,31 @@ function HelpCenter() {
               </div>
             </div>
 
-            <div class="resources-card">
-              <div class="card-header">
-                <i class="fas fa-book"></i>
+            <div className="resources-card">
+              <div className="card-header">
+                <i className="fas fa-book"></i>
                 <h3>Recursos Adicionales</h3>
               </div>
-              <ul class="resources-list">
+              <ul className="resources-list">
                 <li>
                   <a href="#">
-                    <i class="fas fa-file-pdf"></i>
+                    <i className="fas fa-file-pdf"></i>
                     <span>Manual del estudiante</span>
-                    <i class="fas fa-download"></i>
+                    <i className="fas fa-download"></i>
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <i class="fas fa-video"></i>
+                    <i className="fas fa-video"></i>
                     <span>Tutoriales en video</span>
-                    <i class="fas fa-external-link-alt"></i>
+                    <i className="fas fa-external-link-alt"></i>
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <i class="fas fa-download"></i>
+                    <i className="fas fa-download"></i>
                     <span>Descargas útiles</span>
-                    <i class="fas fa-arrow-down"></i>
+                    <i className="fas fa-arrow-down"></i>
                   </a>
                 </li>
               </ul>

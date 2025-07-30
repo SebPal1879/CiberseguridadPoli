@@ -41,7 +41,7 @@ function NewPassword() {
     [getRequestURL]
   );
   const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(new Set(styleRoutes), setLoaded);
+  useDynamicStyles(styleRoutes, setLoaded);
   if (!loaded) return;
   function handlePasswordChange(e) {
     e.preventDefault();

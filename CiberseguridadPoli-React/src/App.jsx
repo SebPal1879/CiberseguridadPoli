@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import QuizPage from "./pages/Quiz/QuizPage";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";

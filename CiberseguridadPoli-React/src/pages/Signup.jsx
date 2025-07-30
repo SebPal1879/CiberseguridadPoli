@@ -110,7 +110,7 @@ const styleRoutes = [
 function Signup() {
   const navigate = useNavigate();
   const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(new Set(styleRoutes), setLoaded);
+  useDynamicStyles(styleRoutes, setLoaded);
   useAccessStyles();
 
   const toolTipDisplay = {
@@ -140,6 +140,9 @@ function Signup() {
       <div className="register-box">
         <div className="card">
           <div className="card-body register-card-body ">
+            <div className="return-home">
+              <Link to="/">&larr;&nbsp;Volver a la página principal</Link>
+            </div>
             <img src="/logo.png" />
             <p className="login-box-msg">Registrate en CiberseguridadPoli</p>
             <Form action={(e) => dispatch({ type: "formSubmit", e, navigate })}>

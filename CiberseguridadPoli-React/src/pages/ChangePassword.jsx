@@ -11,7 +11,7 @@ const BASE_URL =
 function ChangePassword() {
   const [email, setEmail] = useState("");
   const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(new Set(styleRoutes), setLoaded);
+  useDynamicStyles(styleRoutes, setLoaded);
   if (!loaded) return;
 
   function handlePasswordChange(e) {

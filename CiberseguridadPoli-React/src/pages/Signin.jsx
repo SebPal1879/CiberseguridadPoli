@@ -13,13 +13,13 @@ const styleRoutes = [
 ];
 
 function Signin() {
-  useAccessStyles();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(new Set(styleRoutes), setLoaded);
+  useDynamicStyles(styleRoutes, setLoaded);
+  useAccessStyles();
 
   function submitLogin(e) {
     e.preventDefault();
@@ -44,10 +44,13 @@ function Signin() {
     <div className="login-box">
       <div className="card card-outline">
         <div className="card-body">
+          <div className="return-home">
+            <Link to="/">&larr;&nbsp;Volver a la página principal</Link>
+          </div>
           <img src="/logo.png" />
           <div className="login-div">
             <h2>¡Bienvenido a Ciberseguridad Poli!</h2>
-            <p>Inicia sesión con tu cuenta Institucional</p>
+            <p>Inicia sesión con tu cuenta institucional</p>
           </div>
 
           <Form action={(e) => submitLogin(e)}>

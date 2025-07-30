@@ -8,7 +8,7 @@ function AuthedUserHeader() {
   const [loaded, setLoaded] = useState(false);
   const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
   const { firstName, profilePictureURL } = useAccountInfo();
-  useDynamicStyles(new Set(styleRoutes), setLoaded);
+  useDynamicStyles(styleRoutes, setLoaded);
   if (!loaded) return;
   return (
     <header className="main-header" style={{ marginBottom: "32px" }}>
