@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import { useEffect } from "react";
+import { useState } from "react";
+import useDynamicStyles from "./useDynamicStyles";
+
+const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 
 function Home() {
+  const [loaded, setLoaded] = useState(false);
+
+  useDynamicStyles(styleRoutes, setLoaded);
+  if (!loaded) return;
   return (
     <>
       <div className="content-wrapper">

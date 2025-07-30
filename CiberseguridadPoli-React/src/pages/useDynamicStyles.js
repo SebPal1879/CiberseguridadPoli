@@ -5,7 +5,7 @@ function useDynamicStyles(styleRoutes, setLoaded) {
   useEffect(
     function () {
       const neededStylePaths = new Set(styleRoutes);
-      console.log("wardiola");
+      let loadedStyles = 0;
       // 1. Buscar todos los estilos presentes. filter(Boolean) evita nulos
       const presentStylesArray = [...document.styleSheets]
         .map((element) => element.href)
@@ -18,8 +18,6 @@ function useDynamicStyles(styleRoutes, setLoaded) {
       // 3. Se hace un conjunto a través de diferencia de conjuntos de los estilos solicitados pero no presentes en el DOM
       const missingStyles = neededStylePaths.difference(presentStyles);
 
-      console.log(missingStyles);
-
       // 4. Se hace un conjunto a través de diferencia de conjuntos de los estilos presentes pero no solicitados en el DOM
       const notNeededStyles = presentStyles.difference(neededStylePaths);
 
@@ -29,16 +27,27 @@ function useDynamicStyles(styleRoutes, setLoaded) {
         document.head.removeChild(itemToRemove);
       });
 
+      // 5.1. Si no hay estilos pendientes por aplicar, significa que la página se puede cargar y por ende lo que sigue no es necesario.
+      if (missingStyles.size === 0) {
+        setLoaded(true);
+        return;
+      }
+
+      const missingStylesArray = Array.from(missingStyles);
+
       // 6. Se insertan los estilos solicitados.
-      Array.from(missingStyles).map((href) => {
+      missingStylesArray.map((href) => {
         const link = document.createElement("link");
         link.rel = "stylesheet";
         link.href = href;
         link.dataset.dynamic = "true";
+        link.onload = () => {
+          loadedStyles++;
+          if (loadedStyles === missingStylesArray.length) setLoaded(true);
+        };
         document.head.appendChild(link);
         return link;
       });
-      setLoaded(true);
     },
 
     [styleRoutes, setLoaded]
