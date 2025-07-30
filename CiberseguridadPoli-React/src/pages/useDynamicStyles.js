@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 
-const BASE_URL = "http://localhost:5173";
-
 // Función para revisar si en el DOM ya hay hojas de estilos que se necesitan (y no volver a solicitarlñas), y para quitar las que no se necesitan (y evitar afectaciones en la visualización)
 function useDynamicStyles(styleRoutes, setLoaded) {
   useEffect(

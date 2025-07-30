@@ -15,7 +15,6 @@ import ChangePassword from "./pages/ChangePassword";
 import NewPassword from "./pages/NewPassword";
 import { AccountProvider } from "./contexts/AccountContext";
 import HeaderValidator from "./components/HeaderValidator";
-import Footer from "./components/Footer";
 
 function App() {
   return (

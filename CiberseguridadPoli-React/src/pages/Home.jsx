@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import { useEffect } from "react";
 
 function Home() {
   return (
