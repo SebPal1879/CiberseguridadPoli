@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 
+const POLI_FB = "https://www.facebook.com/politecnicojic/";
+const POLI_TW = "https://x.com/politecnicojic";
+const POLI_IG = "https://www.instagram.com/politecnicojic/";
+const POLI_LI =
+  "https://linkedin.com/company/polit%C3%A9cnico-colombiano-jaime-isaza-cadavid";
+
 function Footer() {
   return (
     <footer>
@@ -15,16 +21,16 @@ function Footer() {
             académica y la formación de profesionales íntegros.
           </p>
           <div className="social-icons">
-            <a href="#">
+            <a href={POLI_FB} target="_blank">
               <i className="fab fa-facebook-f"></i>
             </a>
-            <a href="#">
+            <a href={POLI_TW} target="_blank">
               <i className="fab fa-twitter"></i>
             </a>
-            <a href="#">
+            <a href={POLI_IG} target="_blank">
               <i className="fab fa-instagram"></i>
             </a>
-            <a href="#">
+            <a href={POLI_LI} target="_blank">
               <i className="fab fa-linkedin-in"></i>
             </a>
           </div>
