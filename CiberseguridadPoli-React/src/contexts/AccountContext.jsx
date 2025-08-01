@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 import useAuthFetching from "../api/useAuthFetching";
 import responseInformation from "../functions/responseInformation";
 import BACKEND_URL from "../functions/urls";
-const BASE_URL = `${BACKEND_URL}signin/authenticated`;
+const BASE_URL = `${BACKEND_URL}/signin/authenticated`;
 const KEY = "ciberpoli_token";
 
 const AccountContext = createContext();

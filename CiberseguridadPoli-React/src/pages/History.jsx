@@ -6,7 +6,7 @@ import DynamicPagesContent from "../components/DynamicPagesContent";
 import useDynamicStyles from "../functions/useDynamicStyles";
 import BACKEND_URL from "../functions/urls";
 
-const BASE_URL = `${BACKEND_URL}quiz/history`;
+const BASE_URL = `${BACKEND_URL}/quiz/history`;
 const KEY = "ciberpoli_token";
 const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 

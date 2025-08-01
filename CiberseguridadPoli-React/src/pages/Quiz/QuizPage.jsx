@@ -51,7 +51,7 @@ function reducer(state, action) {
         answer: null,
       };
     case "finish": {
-      const BASE_SUBMIT_URL = `${BACKEND_URL}quiz/completion/${action.id}/`;
+      const BASE_SUBMIT_URL = `${BACKEND_URL}/quiz/completion/${action.id}/`;
       const token = localStorage.getItem("ciberpoli_token");
       const score = (state.points / action.payload) * 5;
       async function submitResults() {
@@ -116,7 +116,7 @@ function QuizPage() {
   ] = useReducer(reducer, initialState);
 
   const { id } = useParams();
-  const BASE_FETCH_URL = `${BACKEND_URL}quiz/${id}`;
+  const BASE_FETCH_URL = `${BACKEND_URL}/quiz/${id}`;
   const token = localStorage.getItem("ciberpoli_token");
 
   useEffect(

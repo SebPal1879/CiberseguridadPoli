@@ -6,7 +6,7 @@ import DynamicPagesContent from "../../components/DynamicPagesContent";
 import BACKEND_URL from "../../functions/urls";
 
 const KEY = "ciberpoli_token";
-const BASE_URL = `${BACKEND_URL}quiz/`;
+const BASE_URL = `${BACKEND_URL}/quiz/`;
 
 function Challenges() {
   const [response, setResponse] = useState("");

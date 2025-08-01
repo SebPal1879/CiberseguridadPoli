@@ -16,7 +16,7 @@ const styleRoutes = [
 
 function Section() {
   const { id } = useParams();
-  const BASE_URL = `${BACKEND_URL}learning/section/${id}/`;
+  const BASE_URL = `${BACKEND_URL}/learning/section/${id}/`;
   const [response, setResponse] = useState("");
   useAuthFetching(KEY, BASE_URL, setResponse);
   const data = response.status === 401 ? [] : response.data;

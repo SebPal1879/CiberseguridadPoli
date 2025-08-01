@@ -13,7 +13,7 @@ function Lecture() {
 
   const { ids, idl } = useParams();
   const [response, setResponse] = useState({});
-  const BASE_URL = `${BACKEND_URL}learning/section/${ids}/lecture/${idl}/`;
+  const BASE_URL = `${BACKEND_URL}/learning/section/${ids}/lecture/${idl}/`;
   useAuthFetching(KEY, BASE_URL, setResponse);
 
   const data = response.status === 200 ? response.data[0] : [];

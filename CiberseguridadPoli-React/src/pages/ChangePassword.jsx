@@ -5,7 +5,7 @@ import useDynamicStyles from "../functions/useDynamicStyles";
 import BACKEND_URL from "../functions/urls";
 const styleRoutes = ["/styles/adminlte.min.css", "/styles/styles.css"];
 
-const BASE_URL = `${BACKEND_URL}signin/request-reset-email/`;
+const BASE_URL = `${BACKEND_URL}/signin/request-reset-email/`;
 
 function ChangePassword() {
   const [email, setEmail] = useState("");
