@@ -93,7 +93,9 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse("postgresql://postgres_ciberseguridadpoli_render_user:sf6je7LPDPLMfytQ2lTRnInai7oFtsIj@dpg-d21tb9be5dus73932ceg-a.oregon-postgres.render.com/postgres_ciberseguridadpoli_render")
+database_url = os.environ.get("DATABASE_URL")
+
+DATABASES['default'] = dj_database_url.parse(database_url)
 
 
 
@@ -141,19 +143,19 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "https://ciberseguridad-poli.vercel.app/"
+    os.environ.get("CORS_ALLOWED_ORIGINS").split(" ")
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com' 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'spalacioalzate@gmail.com'
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = 'Equipo de Ciberseguridad Poli'
 
 # URL del front-end
-FRONTEND_URL = 'https://ciberseguridad-poli.vercel.app/'
+FRONTEND_URL = 'https://www.sebastianpalacio2024te.online/'
 # REST_FRAMEWORK = {
 #     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
 # }
