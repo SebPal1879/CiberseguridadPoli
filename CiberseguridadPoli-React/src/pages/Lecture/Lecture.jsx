@@ -1,10 +1,10 @@
 import { useState } from "react";
 import useAuthFetching from "../../api/useAuthFetching";
 import { useNavigate, useParams } from "react-router-dom";
-import Footer from "../../components/Footer";
 import { postRequest } from "../../api/access.api";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 import LecturePanel from "./LecturePanel";
+import BACKEND_URL from "../../functions/urls";
 
 const KEY = "ciberpoli_token";
 
@@ -13,7 +13,7 @@ function Lecture() {
 
   const { ids, idl } = useParams();
   const [response, setResponse] = useState({});
-  const BASE_URL = `https://ciberseguridadpoli.onrender.com/learning/section/${ids}/lecture/${idl}/`;
+  const BASE_URL = `${BACKEND_URL}learning/section/${ids}/lecture/${idl}/`;
   useAuthFetching(KEY, BASE_URL, setResponse);
 
   const data = response.status === 200 ? response.data[0] : [];

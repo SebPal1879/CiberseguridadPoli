@@ -2,8 +2,9 @@
 Función para desestructurar la información de una respuesta tipo objeto y retornarla,
 para evitar repetir el mismo procedimiento una y otra vez donde se solicite la información.
 */
+
+import BACKEND_URL from "./urls";
 function responseInformation(responseData) {
-  console.log(responseData);
   const id = responseData.id;
   const email = responseData.email;
   const firstName = responseData.first_name;
@@ -11,8 +12,10 @@ function responseInformation(responseData) {
   const userName = responseData.user;
   const telephoneNumber = responseData.telephone_number;
   const level = responseData.level;
-  const profilePictureURL =
-    "https://ciberseguridadpoli.onrender.com/" + responseData.profile_picture;
+  console.log(responseData.profile_picture);
+  const profilePictureURL = responseData.profile_picture
+    ? BACKEND_URL + responseData.profile_picture
+    : null;
   const program = responseData.program;
   return {
     id,

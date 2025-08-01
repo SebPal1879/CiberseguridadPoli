@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import Footer from "../../components/Footer";
 import useAuthFetching from "../../api/useAuthFetching";
 import AvailableChallengeInfo from "./AvailableChallengeInfo";
 import ChallengeOverview from "./ChallengeOverview";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
+import BACKEND_URL from "../../functions/urls";
 
 const KEY = "ciberpoli_token";
-const BASE_URL = "https://ciberseguridadpoli.onrender.com/quiz/";
+const BASE_URL = `${BACKEND_URL}quiz/`;
 
 function Challenges() {
   const [response, setResponse] = useState("");
@@ -22,7 +21,7 @@ function Challenges() {
           <div className="content-wrapper">
             <AvailableChallengeInfo>
               {data.map((element) => (
-                <ChallengeOverview data={element} />
+                <ChallengeOverview key={element.id} data={element} />
               ))}
             </AvailableChallengeInfo>
           </div>

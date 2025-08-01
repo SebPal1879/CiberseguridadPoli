@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { submitLoginForm } from "../api/access.api";
 import Form from "../components/Form";
 import Input from "../components/Input";
-import useAccessStyles from "./useAccessStyles";
-import useDynamicStyles from "./useDynamicStyles";
+import useAccessStyles from "../functions/useAccessStyles";
+import useDynamicStyles from "../functions/useDynamicStyles";
 
 const styleRoutes = [
   "/styles/adminlte.min.css",

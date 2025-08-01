@@ -3,12 +3,12 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Input from "../components/Input";
-import useDynamicStyles from "./useDynamicStyles";
+import useDynamicStyles from "../functions/useDynamicStyles";
+import BACKEND_URL from "../functions/urls";
 
 const styleRoutes = ["/styles/adminlte.min.css", "/styles/styles.css"];
 
-const BASE_URL =
-  "https://ciberseguridadpoli.onrender.com/signin/password-reset/";
+const BASE_URL = `${BACKEND_URL}signin/password-reset/`;
 
 const djangoPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 function validPassword(password) {

@@ -9,8 +9,9 @@ import Bottom from "./Bottom";
 import { postRequest, getInformation } from "../../api/access.api";
 import QuizHeader from "./QuizHeader";
 import Error from "../../components/Error";
-import useAccessStyles from "../useAccessStyles";
-import useDynamicStyles from "../useDynamicStyles";
+import useAccessStyles from "../../functions/useAccessStyles";
+import useDynamicStyles from "../../functions/useDynamicStyles";
+import BACKEND_URL from "../../functions/urls";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -50,7 +51,7 @@ function reducer(state, action) {
         answer: null,
       };
     case "finish": {
-      const BASE_SUBMIT_URL = `https://ciberseguridadpoli.onrender.com/quiz/completion/${action.id}/`;
+      const BASE_SUBMIT_URL = `${BACKEND_URL}quiz/completion/${action.id}/`;
       const token = localStorage.getItem("ciberpoli_token");
       const score = (state.points / action.payload) * 5;
       async function submitResults() {
@@ -115,7 +116,7 @@ function QuizPage() {
   ] = useReducer(reducer, initialState);
 
   const { id } = useParams();
-  const BASE_FETCH_URL = `https://ciberseguridadpoli.onrender.com/quiz/${id}`;
+  const BASE_FETCH_URL = `${BACKEND_URL}quiz/${id}`;
   const token = localStorage.getItem("ciberpoli_token");
 
   useEffect(

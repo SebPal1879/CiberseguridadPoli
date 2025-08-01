@@ -15,6 +15,7 @@ import ChangePassword from "./pages/ChangePassword";
 import NewPassword from "./pages/NewPassword";
 import { AccountProvider } from "./contexts/AccountContext";
 import HeaderValidator from "./components/HeaderValidator";
+import FooterValidator from "./components/FooterValidator";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             />
             <Route path="challenges/:id" element={<QuizPage />} />
           </Routes>
+          <FooterValidator />
         </BrowserRouter>
       </AccountProvider>
     </>

@@ -3,9 +3,10 @@ import useAuthFetching from "../api/useAuthFetching";
 import { useState } from "react";
 import Table from "../components/Table";
 import DynamicPagesContent from "../components/DynamicPagesContent";
-import useDynamicStyles from "./useDynamicStyles";
+import useDynamicStyles from "../functions/useDynamicStyles";
+import BACKEND_URL from "../functions/urls";
 
-const BASE_URL = "https://ciberseguridadpoli.onrender.com/quiz/history";
+const BASE_URL = `${BACKEND_URL}quiz/history`;
 const KEY = "ciberpoli_token";
 const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 
@@ -25,8 +26,6 @@ function History() {
         component={<Table data={data} />}
         customErrorMessage={"Completa quizzes para ver resultados."}
       />
-
-      <Footer />
     </>
   );
 }

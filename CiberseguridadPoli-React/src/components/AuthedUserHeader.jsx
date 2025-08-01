@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useAccountInfo } from "../contexts/AccountContext";
 
-import useDynamicStyles from "../pages/useDynamicStyles";
+import useDynamicStyles from "../functions/useDynamicStyles";
 import { useState } from "react";
 
 function AuthedUserHeader() {

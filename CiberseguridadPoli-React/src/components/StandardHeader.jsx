@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
-import useDynamicStyles from "../pages/useDynamicStyles";
+import useDynamicStyles from "../functions/useDynamicStyles";
 import { useState } from "react";
+
+const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 
 function StandardHeader() {
   const [loaded, setLoaded] = useState(false);
-  const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
   useDynamicStyles(styleRoutes, setLoaded);
   if (!loaded) return;
   return (

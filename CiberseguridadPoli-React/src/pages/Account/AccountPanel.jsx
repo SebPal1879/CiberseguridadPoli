@@ -17,11 +17,15 @@ function AccountPanel() {
         <section className="profile-header">
           <div className="profile-avatar-container">
             <div className="profile-avatar">
-              <img
-                src={profilePictureURL}
-                style={{ width: "128px", borderRadius: "50%" }}
-                alt="User profile picture"
-              />
+              {profilePictureURL ? (
+                <img
+                  src={profilePictureURL}
+                  style={{ width: "128px", borderRadius: "50%" }}
+                  alt="User profile picture"
+                />
+              ) : (
+                <i className="fas fa-user"></i>
+              )}
             </div>
             <div className="avatar-actions">
               <button className="btn-avatar-change" onClick={() => {}}>
@@ -76,13 +80,18 @@ function AccountPanel() {
                   <label htmlFor="email">
                     <i className="fas fa-envelope"></i> Correo institucional
                   </label>
-                  <input type="email" id="email" value={email} readOnly />
+                  <input
+                    type="email"
+                    id="email"
+                    defaultValue={email}
+                    readOnly
+                  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="phone">
                     <i className="fas fa-phone"></i> Teléfono
                   </label>
-                  <input type="tel" id="phone" value={telephoneNumber} />
+                  <input type="tel" id="phone" defaultValue={telephoneNumber} />
                 </div>
               </div>
 
@@ -91,13 +100,23 @@ function AccountPanel() {
                   <label htmlFor="program">
                     <i className="fas fa-graduation-cap"></i> Programa académico
                   </label>
-                  <input type="text" id="program" value={program} readOnly />
+                  <input
+                    type="text"
+                    id="program"
+                    defaultValue={program}
+                    readOnly
+                  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="semester">
                     <i className="fas fa-layer-group"></i> Semestre
                   </label>
-                  <input type="text" id="semester" value={level} readOnly />
+                  <input
+                    type="text"
+                    id="semester"
+                    defaultValue={level}
+                    readOnly
+                  />
                 </div>
               </div>
 

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useState } from "react";
-import useDynamicStyles from "./useDynamicStyles";
+import useDynamicStyles from "../functions/useDynamicStyles";
 
 const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 
@@ -123,7 +123,6 @@ function Home() {
           </section>
         </main>
       </div>
-      <Footer />
     </>
   );
 }

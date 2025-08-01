@@ -540,7 +540,6 @@ function CourseOverview() {
           </div>
         </section>
       </div>
-      <Footer />
     </>
   );
 }

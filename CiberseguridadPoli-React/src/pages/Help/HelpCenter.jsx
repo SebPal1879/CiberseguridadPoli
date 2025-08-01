@@ -3,6 +3,7 @@ import HelpItem from "./HelpItem";
 
 const faq = [
   {
+    id: 1,
     question: "¿Cómo me inscribo a los cursos?",
     answer: `Puedes inscribirte directamente desde la página del curso
                       haciendo clic en el botón "Inscribirse". Necesitarás
@@ -10,12 +11,14 @@ const faq = [
                       (@elpoli.edu.co).`,
   },
   {
+    id: 2,
     question: "¿Los cursos tienen algún costo?",
     answer: ` Actualmente todos nuestros cursos de ciberseguridad son
                       completamente gratuitos para estudiantes activos del
                       Politécnico Colombiano Jaime Isaza Cadavid.`,
   },
   {
+    id: 3,
     question: "¿Recibiré certificación al completar un curso?",
     answer: ` Sí, al completar satisfactoriamente cualquier curso (con
                       un mínimo del 80% de progreso) recibirás un certificado
@@ -52,6 +55,7 @@ function HelpCenter() {
               <div className="faq-accordion">
                 {faq.map((element) => (
                   <HelpItem
+                    key={element.id}
                     question={element.question}
                     answer={element.answer}
                   />
@@ -100,7 +104,12 @@ function HelpCenter() {
                     <label htmlFor="subject">
                       <i className="fas fa-tag"></i> Asunto
                     </label>
-                    <select id="subject" name="subject" required>
+                    <select
+                      id="subject"
+                      name="subject"
+                      defaultValue="Selecciona un tema"
+                      required
+                    >
                       <option value="" disabled selected>
                         Selecciona un tema
                       </option>
@@ -212,7 +221,6 @@ function HelpCenter() {
           </aside>
         </main>
       </div>
-      <Footer />
     </>
   );
 }

@@ -4,8 +4,8 @@ import Input from "../components/Input";
 import { Link, useNavigate } from "react-router-dom";
 import { submitRegisterForm } from "../api/access.api";
 import InputGroup from "./InputGroup";
-import useAccessStyles from "./useAccessStyles";
-import useDynamicStyles from "./useDynamicStyles";
+import useAccessStyles from "../functions/useAccessStyles";
+import useDynamicStyles from "../functions/useDynamicStyles";
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@elpoli\.edu\.co$/;
 const djangoPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;

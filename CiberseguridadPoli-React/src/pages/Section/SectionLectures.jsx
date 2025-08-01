@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import LectureListItem from "./LectureListItem";
 import { useState } from "react";
-import useDynamicStyles from "../useDynamicStyles";
+import useDynamicStyles from "../../functions/useDynamicStyles";
 
 const styleRoutes = [
   "/styles/temp.css",

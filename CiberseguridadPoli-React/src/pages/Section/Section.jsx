@@ -3,7 +3,8 @@ import useAuthFetching from "../../api/useAuthFetching";
 import { useState } from "react";
 import SectionLectures from "./SectionLectures";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
-import useDynamicStyles from "../useDynamicStyles";
+import useDynamicStyles from "../../functions/useDynamicStyles";
+import BACKEND_URL from "../../functions/urls";
 
 const KEY = "ciberpoli_token";
 
@@ -15,7 +16,7 @@ const styleRoutes = [
 
 function Section() {
   const { id } = useParams();
-  const BASE_URL = `https://ciberseguridadpoli.onrender.com/learning/section/${id}/`;
+  const BASE_URL = `${BACKEND_URL}learning/section/${id}/`;
   const [response, setResponse] = useState("");
   useAuthFetching(KEY, BASE_URL, setResponse);
   const data = response.status === 401 ? [] : response.data;
