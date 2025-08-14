@@ -1,10 +1,12 @@
 import { useReducer } from "react";
 import Form from "../components/Form";
 import Input from "../components/Input";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { submitRegisterForm } from "../api/access.api";
-import InputGroup from "./InputGroup";
-import { useDynamicImports } from "./useDynamicImports";
+import InputGroup from "../components/InputGroup";
+import useAccessStyles from "../functions/useAccessStyles";
+import useStyleUpdate from "../functions/useStyleUpdate";
+import { useStyles } from "../contexts/StylesContext";
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@elpoli\.edu\.co$/;
 const djangoPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
@@ -99,18 +101,27 @@ const initialState = {
   passwordConfirm: "",
 };
 
-const styleRoutes = [
-  "/src/pages_css/css/all.min.css",
-  "/src/pages_css/css/styles.css",
-  "/src/pages_css/css/adminlte.min.css",
-];
+const styleRoutes = {
+  styleRoutes: [
+    "/styles/adminlte.min.css",
+    "/styles/all.min.css",
+    "/styles/styles.css",
+    "/styles/register.css",
+  ],
+  requester: "Signup",
+};
+
+const toolTipDisplay = {
+  display: "block",
+};
 
 function Signup() {
-  const navigate = useNavigate();
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
 
-  const toolTipDisplay = {
-    display: "block",
-  };
+  const navigate = useNavigate();
+  useAccessStyles();
+
   const [
     {
       first_name,
@@ -127,22 +138,17 @@ function Signup() {
     },
     dispatch,
   ] = useReducer(reducer, initialState);
-  console.log(
-    first_name,
-    last_name,
-    username,
-    email,
-    password,
-    passwordConfirm
-  );
-  const location = useLocation();
-  useDynamicImports(styleRoutes, location.pathname);
+
+  if (!hasLoadedStyles) return;
 
   return (
     <>
       <div className="register-box">
         <div className="card">
           <div className="card-body register-card-body ">
+            <div className="return-home">
+              <Link to="/">&larr;&nbsp;Volver a la página principal</Link>
+            </div>
             <img src="/logo.png" />
             <p className="login-box-msg">Registrate en CiberseguridadPoli</p>
             <Form action={(e) => dispatch({ type: "formSubmit", e, navigate })}>

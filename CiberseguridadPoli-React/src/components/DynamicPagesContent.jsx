@@ -5,7 +5,7 @@ function DynamicPagesContent({
   component,
   customErrorMessage = "",
 }) {
-  let error;
+  let error = <Error />;
   switch (responseStatus) {
     case 401:
       error = <AuthError />;

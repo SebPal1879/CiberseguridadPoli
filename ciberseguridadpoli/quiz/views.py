@@ -9,10 +9,11 @@ from rest_framework import viewsets, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 from .serializer import QuizSerializer,QuestionSerializer,AnswerSerializer, AvailableQuizSerializer, QuizCompletionSerializer
-from .models import Quiz,Question, Answer, AvailableQuiz, QuizCompletion
+from .models import Quiz, Question, Answer, AvailableQuiz, QuizCompletion
+from learning.models import Lecture
 #from learning.models import LectureAvailabilityAndCompletion
 
       
@@ -92,6 +93,50 @@ class QuizHistoryView(APIView):
     completed_quizzes_serializer = QuizCompletionSerializer(completed_quizzes,many=True)
     return Response(completed_quizzes_serializer.data,status=status.HTTP_200_OK)
   
+
+class AddQuizView(APIView):
+  authentication_classes = [TokenAuthentication]
+  permission_classes = [IsAuthenticated,IsAdminUser]
+  def post(self,request):
+    quizzes = request.data
+    for quiz in quizzes:
+      try:
+        lecture = Lecture.objects.get(pk=quiz["lecture"])
+      except ObjectDoesNotExist:
+        print("No se encontró la lección asociada al quiz. Continuando con el siguiente elemento.")
+        continue
+      Quiz.objects.create(name=quiz["name"],description=quiz["description"],lecture=lecture)
+    return Response({"Exitoso": "Quizzes subidos"},status=status.HTTP_201_CREATED)
+
+class AddQuestionView(APIView):
+  authentication_classes = [TokenAuthentication]
+  permission_classes = [IsAuthenticated,IsAdminUser]
+  def post(self,request):
+    questions = request.data
+    for question in questions:
+      try:
+        quiz = Quiz.objects.get(pk=question["quiz"])
+      except ObjectDoesNotExist:
+        print("No se encontró el quiz asociado al pregunta. Continuando con el siguiente elemento.")
+        continue
+      Question.objects.create(statement=question["statement"],points=question["points"],quiz=quiz)
+    return Response({"Exitoso": "Preguntas subidas"},status=status.HTTP_201_CREATED)
+  
+class AddAnswerView(APIView):
+  authentication_classes = [TokenAuthentication]
+  permission_classes = [IsAdminUser, IsAuthenticated]
+  def post(self, request):
+    answers = request.data
+    for answer in answers:
+      try:
+        question = Question.objects.get(pk=answer["question"])
+      except ObjectDoesNotExist:
+        print("No se encontró la pregunta asociada a la respuesta. Continuando con el siguiente elemento.")
+        continue  
+      Answer.objects.create(answer=answer["answer"],is_correct=answer["is_correct"],question=question)
+    return Response({"Exitoso": "Respuestas subidas con exito"},status=status.HTTP_201_CREATED)
+  
+
 def Lunerview(request):
   a = Quiz.objects.get(pk=2)
   return HttpResponse(a)

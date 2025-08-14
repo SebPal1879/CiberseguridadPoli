@@ -1,20 +1,21 @@
 import Form from "../components/Form";
 import axios from "axios";
-import { useDynamicImports } from "./useDynamicImports";
-import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import BACKEND_URL from "../functions/urls";
+import useStyleUpdate from "../functions/useStyleUpdate";
+import { useStyles } from "../contexts/StylesContext";
+const styleRoutes = {
+  styleRoutes: ["/styles/adminlte.min.css", "/styles/styles.css"],
+  requester: "ChangePassword",
+};
 
-const styleRoutes = [
-  "/src/pages_css/css/all.min.css",
-  "/src/pages_css/css/adminlte.min.css",
-  "/src/pages_css/css/styles.css",
-];
-
-const BASE_URL = "http://127.0.0.1:8000/signin/request-reset-email/";
+const BASE_URL = `${BACKEND_URL}/signin/request-reset-email/`;
 
 function ChangePassword() {
-  const location = useLocation();
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
   const [email, setEmail] = useState("");
+  if (!hasLoadedStyles) return;
 
   function handlePasswordChange(e) {
     e.preventDefault();
@@ -33,7 +34,6 @@ function ChangePassword() {
     emailPost();
     console.log("acción");
   }
-  useDynamicImports(styleRoutes, location.pathname);
   return (
     <>
       <div className="hold-transition login-page">

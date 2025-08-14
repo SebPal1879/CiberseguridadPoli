@@ -1,14 +1,18 @@
 import { useEffect, useReducer } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import FinishScreen from "./FinishScreen";
 import Container from "../../components/Container";
 import Start from "./Start";
 import Progress from "./Progress";
 import Question from "./Question";
 import Bottom from "./Bottom";
-import { useDynamicImports } from "../useDynamicImports";
 import { postRequest, getInformation } from "../../api/access.api";
 import QuizHeader from "./QuizHeader";
+import Error from "../../components/Error";
+import useAccessStyles from "../../functions/useAccessStyles";
+import BACKEND_URL from "../../functions/urls";
+import useStyleUpdate from "../../functions/useStyleUpdate";
+import { useStyles } from "../../contexts/StylesContext";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -48,7 +52,7 @@ function reducer(state, action) {
         answer: null,
       };
     case "finish": {
-      const BASE_SUBMIT_URL = `http://127.0.0.1:8000/quiz/completion/${action.id}/`;
+      const BASE_SUBMIT_URL = `${BACKEND_URL}/quiz/completion/${action.id}/`;
       const token = localStorage.getItem("ciberpoli_token");
       const score = (state.points / action.payload) * 5;
       async function submitResults() {
@@ -85,7 +89,10 @@ function reducer(state, action) {
   }
 }
 
-const styleRoutes = ["/src/pages_css/css/quizstyle.css"];
+const styleRoutes = {
+  styleRoutes: ["/styles/quizstyle.css"],
+  requester: "QuizPage",
+};
 function QuizPage() {
   const initialState = {
     quizName: "",
@@ -113,10 +120,8 @@ function QuizPage() {
   ] = useReducer(reducer, initialState);
 
   const { id } = useParams();
-  const location = useLocation();
-  const BASE_FETCH_URL = `http://127.0.0.1:8000/quiz/${id}`;
+  const BASE_FETCH_URL = `${BACKEND_URL}/quiz/${id}`;
   const token = localStorage.getItem("ciberpoli_token");
-  useDynamicImports(styleRoutes, location.pathname);
 
   useEffect(
     function () {
@@ -141,11 +146,23 @@ function QuizPage() {
 
   const maxQuestions = questions.length;
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0);
+  useAccessStyles();
+
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
+  if (!hasLoadedStyles) return;
   return (
     <>
       <QuizHeader quizName={quizName} />
       <Container>
-        {status === "error" && <>Hubo un error</>}
+        {status === "error" && (
+          <>
+            <Error />
+            <Link to="/">
+              <>Volver al inicio</>
+            </Link>
+          </>
+        )}
         {status === "ready" && (
           <Start dispatch={dispatch} description={quizDescription} />
         )}

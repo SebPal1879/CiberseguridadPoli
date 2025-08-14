@@ -1,6 +1,14 @@
 import LectureContent from "./LectureContent";
 import { Link } from "react-router-dom";
 import Help from "../../components/Help";
+import useStyleUpdate from "../../functions/useStyleUpdate";
+import { useStyles } from "../../contexts/StylesContext";
+
+const styleRoutes = {
+  styleRoutes: ["/styles/styleslecciones.css", "/styles/all.min.css"],
+  requester: "LecturePanel",
+};
+
 function LecturePanel({
   ids,
   sectionName,
@@ -8,6 +16,11 @@ function LecturePanel({
   completed,
   data,
 }) {
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
+
+  if (!hasLoadedStyles) return;
+
   return (
     <main className="lesson-content">
       <div className="curso-breadcrumb">

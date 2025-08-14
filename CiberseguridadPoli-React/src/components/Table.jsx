@@ -17,7 +17,7 @@ function Table({ data }) {
               </thead>
               <tbody id="quiz-history-body">
                 {data.map((element) => (
-                  <tr>
+                  <tr key={element.id}>
                     <td>{element.quiz}</td>
                     <td>{element.score}</td>
                     <td>{element.attempt_date}</td>

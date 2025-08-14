@@ -1,27 +1,31 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useAuthFetching from "../../api/useAuthFetching";
-import { useState } from "react";
-import SectionLectures from "./SectionLectures";
-import { useDynamicImports } from "../useDynamicImports";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
+import SectionLectures from "./SectionLectures";
+import BACKEND_URL from "../../functions/urls";
+import { useStyles } from "../../contexts/StylesContext";
+import useStyleUpdate from "../../functions/useStyleUpdate";
 
 const KEY = "ciberpoli_token";
 
-const styleRoutes = [
-  "/src/pages_css/css/stylescursos.css",
-  "/src/pages_css/css/temp.css",
-  "/src/pages_css/css/all.min.css",
-];
+const styleRoutes = {
+  styleRoutes: [
+    "/styles/stylescursos.css",
+    "/styles/all.min.css",
+    "/styles/temp.css",
+  ],
+  requester: "Section",
+};
 
 function Section() {
-  const location = useLocation();
-  useDynamicImports(styleRoutes, location.pathname);
   const { id } = useParams();
-  const BASE_URL = `http://127.0.0.1:8000/learning/section/${id}/`;
-  const [response, setResponse] = useState("");
-  useAuthFetching(KEY, BASE_URL, setResponse);
+  const BASE_URL = `${BACKEND_URL}/learning/section/${id}/`;
+  const { response } = useAuthFetching(KEY, BASE_URL);
   const data = response.status === 401 ? [] : response.data;
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
 
+  if (!hasLoadedStyles) return;
   return (
     <>
       <DynamicPagesContent

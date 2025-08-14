@@ -1,25 +1,22 @@
-import Footer from "../components/Footer";
-import { useLocation } from "react-router-dom";
-import { useDynamicImports } from "./useDynamicImports";
 import useAuthFetching from "../api/useAuthFetching";
-import { useState } from "react";
 import Table from "../components/Table";
 import DynamicPagesContent from "../components/DynamicPagesContent";
+import BACKEND_URL from "../functions/urls";
+import useStyleUpdate from "../functions/useStyleUpdate";
+import { useStyles } from "../contexts/StylesContext";
 
-const BASE_URL = "http://127.0.0.1:8000/quiz/history";
+const BASE_URL = `${BACKEND_URL}/quiz/history`;
 const KEY = "ciberpoli_token";
-const styleRoutes = [
-  "/src/pages_css/css/stylescursos.css",
-  "/src/pages_css/css/all.min.css",
-  "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@500&display=swap",
-];
+const styleRoutes = {
+  styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
+  requester: "History",
+};
 
 function History() {
-  const location = useLocation();
-  const [response, setResponse] = useState("");
-  useDynamicImports(styleRoutes, location.pathname);
-
-  useAuthFetching(KEY, BASE_URL, setResponse);
+  const { response } = useAuthFetching(KEY, BASE_URL);
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
+  if (!hasLoadedStyles) return;
   const data = response.status === 200 ? response.data : [];
 
   return (
@@ -29,8 +26,6 @@ function History() {
         component={<Table data={data} />}
         customErrorMessage={"Completa quizzes para ver resultados."}
       />
-
-      <Footer />
     </>
   );
 }

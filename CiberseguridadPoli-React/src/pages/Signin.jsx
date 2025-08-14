@@ -1,23 +1,30 @@
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { submitLoginForm } from "../api/access.api";
 import Form from "../components/Form";
 import Input from "../components/Input";
-import { useDynamicImports } from "./useDynamicImports";
+import useAccessStyles from "../functions/useAccessStyles";
+import useStyleUpdate from "../functions/useStyleUpdate";
+import { useStyles } from "../contexts/StylesContext";
 
-const styleRoutes = [
-  "/src/pages_css/css/adminlte.min.css",
-  "/src/pages_css/css/all.min.css",
-  "/src/pages_css/css/styles.css",
-];
+const styleRoutes = {
+  styleRoutes: [
+    "/styles/adminlte.min.css",
+    "/styles/all.min.css",
+    "/styles/styles.css",
+  ],
+  requester: "Signin",
+};
 
 function Signin() {
-  const location = useLocation();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  useDynamicImports(styleRoutes, location.pathname);
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
+
+  useAccessStyles();
 
   function submitLogin(e) {
     e.preventDefault();
@@ -35,16 +42,20 @@ function Signin() {
     }
     login(username, password);
   }
-  console.log(username, password);
+
+  if (!hasLoadedStyles) return;
 
   return (
     <div className="login-box">
       <div className="card card-outline">
         <div className="card-body">
+          <div className="return-home">
+            <Link to="/">&larr;&nbsp;Volver a la página principal</Link>
+          </div>
           <img src="/logo.png" />
           <div className="login-div">
             <h2>¡Bienvenido a Ciberseguridad Poli!</h2>
-            <p>Inicia sesión con tu cuenta Institucional</p>
+            <p>Inicia sesión con tu cuenta institucional</p>
           </div>
 
           <Form action={(e) => submitLogin(e)}>

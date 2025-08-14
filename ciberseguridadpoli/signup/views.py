@@ -4,6 +4,8 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 from .models import Profile
 from .serializer import SignupSerializer
 
@@ -21,8 +23,10 @@ class SignUpView(APIView):
     
 
 class ImgUploadView(APIView):
+  authentication_classes = [TokenAuthentication]
+  permission_classes = [IsAuthenticated]
   def post(self,request):
-    usuario = User.objects.get(pk=5)
+    usuario = User.objects.get(pk=request.user.id)
     perfil = Profile.objects.get(user=usuario)
 
     perfil.profile_picture = request.FILES.get("imagen")

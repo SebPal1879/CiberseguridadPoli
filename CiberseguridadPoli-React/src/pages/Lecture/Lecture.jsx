@@ -1,28 +1,28 @@
-import { useState } from "react";
 import useAuthFetching from "../../api/useAuthFetching";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import Footer from "../../components/Footer";
+import { useNavigate, useParams } from "react-router-dom";
 import { postRequest } from "../../api/access.api";
-import { useDynamicImports } from "../useDynamicImports";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 import LecturePanel from "./LecturePanel";
+import BACKEND_URL from "../../functions/urls";
+import useStyleUpdate from "../../functions/useStyleUpdate";
+import { useStyles } from "../../contexts/StylesContext";
 
 const KEY = "ciberpoli_token";
 
-const styleRoutes = [
-  "/src/pages_css/css/stylescursos.css",
-  "/src/pages_css/css/all.min.css",
-];
+const styleRoutes = {
+  styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
+  requester: "Lecture",
+};
 
 function Lecture() {
-  const location = useLocation();
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
+
   const navigate = useNavigate();
-  useDynamicImports(styleRoutes, location.pathname);
 
   const { ids, idl } = useParams();
-  const [response, setResponse] = useState({});
-  const BASE_URL = `http://127.0.0.1:8000/learning/section/${ids}/lecture/${idl}/`;
-  useAuthFetching(KEY, BASE_URL, setResponse);
+  const BASE_URL = `${BACKEND_URL}/learning/section/${ids}/lecture/${idl}/`;
+  const { response } = useAuthFetching(KEY, BASE_URL);
 
   const data = response.status === 200 ? response.data[0] : [];
   const sectionName = response.status === 200 ? response.data[1].name : "";
@@ -42,6 +42,9 @@ function Lecture() {
     }
     console.log(response);
   }
+
+  if (!hasLoadedStyles) return;
+
   return (
     <>
       <DynamicPagesContent
@@ -56,8 +59,6 @@ function Lecture() {
           />
         }
       />
-
-      <Footer />
     </>
   );
 }

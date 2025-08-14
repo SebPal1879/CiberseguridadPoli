@@ -1,37 +1,31 @@
-import { useState } from "react";
 import useAuthFetching from "../../api/useAuthFetching";
-import { Outlet, useLocation } from "react-router-dom";
 import CourseSectionContents from "./CourseSectionContents";
-import { useDynamicImports } from "../useDynamicImports";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
-import Footer from "../../components/Footer";
+import BACKEND_URL from "../../functions/urls";
+import Loading from "../../components/Loading";
+import useStyleUpdate from "../../functions/useStyleUpdate";
 
 const KEY = "ciberpoli_token";
-const BASE_URL = "http://127.0.0.1:8000/learning/";
+const BASE_URL = `${BACKEND_URL}/learning/`;
 
-const styleRoutes = [
-  "/src/pages_css/css/stylescursos.css",
-  "/src/pages_css/css/all.min.css",
-];
+const styleRoutes = {
+  styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
+  requester: "Learning",
+};
 
 function Learning() {
-  const location = useLocation();
-  useDynamicImports(styleRoutes, location.pathname);
+  useStyleUpdate(styleRoutes);
+  const { response, loading } = useAuthFetching(KEY, BASE_URL);
 
-  const [response, setResponse] = useState("");
-  useAuthFetching(KEY, BASE_URL, setResponse);
+  if (loading) return <Loading />;
 
   const data = response.status === 401 ? [] : response.data;
-
   return (
     <div>
       <DynamicPagesContent
         responseStatus={response.status}
         component={<CourseSectionContents sections={data} />}
       />
-
-      <Outlet />
-      <Footer />
     </div>
   );
 }

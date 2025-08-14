@@ -1,14 +1,18 @@
-import { useLocation, Link } from "react-router-dom";
-import { useDynamicImports } from "./useDynamicImports";
-import Footer from "../components/Footer";
-const styleRoutes = [
-  "/src/pages_css/css/stylescursos.css",
-  "/src/pages_css/css/all.min.css",
-];
+import { Link } from "react-router-dom";
+import useStyleUpdate from "../functions/useStyleUpdate";
+import { useStyles } from "../contexts/StylesContext";
+
+const styleRoutes = {
+  styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
+  requester: "CourseOverview",
+};
 
 function CourseOverview() {
-  const location = useLocation();
-  useDynamicImports(styleRoutes, location.pathname);
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
+
+  if (!hasLoadedStyles) return;
+
   return (
     <>
       <div className="content-wrapper">
@@ -547,7 +551,6 @@ function CourseOverview() {
           </div>
         </section>
       </div>
-      <Footer />
     </>
   );
 }

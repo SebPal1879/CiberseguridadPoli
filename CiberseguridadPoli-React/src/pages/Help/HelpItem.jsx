@@ -3,15 +3,15 @@ import { useState } from "react";
 function HelpItem({ question, answer }) {
   const [showAnswer, setShowAnswer] = useState(false);
   return (
-    <div class="faq-item">
+    <div className="faq-item">
       <button
-        class={`faq-question ${showAnswer ? "active" : ""}`}
+        className={`faq-question ${showAnswer ? "active" : ""}`}
         onClick={() => setShowAnswer((showAnswer) => !showAnswer)}
       >
-        <i class="fas fa-angle-right"></i>
+        <i className="fas fa-angle-right"></i>
         <span>{question}</span>
       </button>
-      <div class={`faq-answer ${showAnswer ? "active" : ""}`}>
+      <div className={`faq-answer ${showAnswer ? "active" : ""}`}>
         <p>{answer}</p>
       </div>
     </div>

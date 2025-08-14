@@ -1,0 +1,12 @@
+[
+  {
+    "model": "learning.lecture",
+    "pk": 1,
+    "fields": {
+      "lecture_in_section_number": 1,
+      "name": "¿Qué es la Ciberseguridad?",
+      "description": "Definición de ciberseguridad y su papel en el mundo moderno.",
+      "section": 1
+    }
+  }
+]

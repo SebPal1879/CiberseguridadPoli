@@ -1,21 +1,19 @@
-import { useLocation, Link } from "react-router-dom";
-import Footer from "../components/Footer";
-import { useDynamicImports } from "./useDynamicImports";
-import HeaderValidator from "../components/HeaderValidator";
+import { Link } from "react-router-dom";
+import useStyleUpdate from "../functions/useStyleUpdate";
+import { useStyles } from "../contexts/StylesContext";
 
-const styleRoutes = [
-  "/src/pages_css/css/stylescursos.css",
-  "/src/pages_css/css/all.min.css",
-];
+const styleRoutes = {
+  styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
+  requester: "Home",
+};
 
 function Home() {
-  const location = useLocation();
-  useDynamicImports(styleRoutes, location.pathname);
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
 
+  if (!hasLoadedStyles) return;
   return (
     <>
-      <HeaderValidator />
-
       <div className="content-wrapper">
         <main>
           <section className="hero">
@@ -127,7 +125,6 @@ function Home() {
           </section>
         </main>
       </div>
-      <Footer />
     </>
   );
 }

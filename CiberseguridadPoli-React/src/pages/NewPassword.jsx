@@ -1,17 +1,17 @@
 import Form from "../components/Form";
 import axios from "axios";
-import { useDynamicImports } from "./useDynamicImports";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Input from "../components/Input";
+import BACKEND_URL from "../functions/urls";
+import useStyleUpdate from "../functions/useStyleUpdate";
 
-const styleRoutes = [
-  "/src/pages_css/css/all.min.css",
-  "/src/pages_css/css/adminlte.min.css",
-  "/src/pages_css/css/styles.css",
-];
+const styleRoutes = {
+  styleRoutes: ["/styles/adminlte.min.css", "/styles/styles.css"],
+  requester: "NewPassword",
+};
 
-const BASE_URL = "http://127.0.0.1:8000/signin/password-reset/";
+const BASE_URL = `${BACKEND_URL}/signin/password-reset/`;
 
 const djangoPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 function validPassword(password) {
@@ -21,8 +21,9 @@ const toolTipDisplay = {
   display: "block",
 };
 function NewPassword() {
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyleUpdate();
   const navigate = useNavigate();
-  const location = useLocation();
   const { uidb64, token } = useParams();
   const [password, setPassword] = useState(null);
   const [passwordConfirm, setPasswordConfirm] = useState(null);
@@ -44,7 +45,8 @@ function NewPassword() {
     },
     [getRequestURL]
   );
-  console.log(email);
+
+  if (!hasLoadedStyles) return;
   function handlePasswordChange(e) {
     e.preventDefault();
     async function emailPost() {
@@ -60,7 +62,6 @@ function NewPassword() {
     }
     emailPost();
   }
-  useDynamicImports(styleRoutes, location.pathname);
   return (
     <>
       <div className="hold-transition login-page">

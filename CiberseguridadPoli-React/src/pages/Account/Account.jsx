@@ -1,19 +1,20 @@
-import Footer from "../../components/Footer";
-import { useDynamicImports } from "../useDynamicImports";
-import { useLocation } from "react-router-dom";
 import AccountPanel from "./AccountPanel";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 import { useAccountInfo } from "../../contexts/AccountContext";
+import useStyleUpdate from "../../functions/useStyleUpdate";
+import { useStyles } from "../../contexts/StylesContext";
 
-const styleRoutes = [
-  "/src/pages_css/css/stylescursos.css",
-  "/src/pages_css/css/all.min.css",
-];
+const styleRoutes = {
+  styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
+  requester: "Account",
+};
 
 function Account() {
-  const location = useLocation();
-  useDynamicImports(styleRoutes, location.pathname);
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
   const { responseStatus } = useAccountInfo();
+
+  if (!hasLoadedStyles) return;
 
   return (
     <>
@@ -21,8 +22,6 @@ function Account() {
         responseStatus={responseStatus}
         component={<AccountPanel />}
       />
-
-      <Footer />
     </>
   );
 }
