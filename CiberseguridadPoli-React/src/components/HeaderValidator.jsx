@@ -15,7 +15,7 @@ function HeaderValidator() {
     },
     [pathname]
   );
-  const { responseStatus, loading } = useAccountInfo();
+  const { responseStatus } = useAccountInfo();
   const location = useLocation();
 
   if (
@@ -24,8 +24,6 @@ function HeaderValidator() {
     location.pathname.startsWith("/challenges/")
   )
     return;
-
-  if (loading) return;
 
   if (!hasLoadedStyles) return;
   return (
