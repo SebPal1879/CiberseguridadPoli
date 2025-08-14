@@ -1,25 +1,34 @@
-import { useState } from "react";
 import useAuthFetching from "../../api/useAuthFetching";
 import { useNavigate, useParams } from "react-router-dom";
 import { postRequest } from "../../api/access.api";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 import LecturePanel from "./LecturePanel";
 import BACKEND_URL from "../../functions/urls";
+import useStyleUpdate from "../../functions/useStyleUpdate";
+import { useStyles } from "../../contexts/StylesContext";
 
 const KEY = "ciberpoli_token";
 
+const styleRoutes = {
+  styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
+  requester: "Lecture",
+};
+
 function Lecture() {
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
+
   const navigate = useNavigate();
 
   const { ids, idl } = useParams();
-  const [response, setResponse] = useState({});
   const BASE_URL = `${BACKEND_URL}/learning/section/${ids}/lecture/${idl}/`;
-  useAuthFetching(KEY, BASE_URL, setResponse);
+  const { response } = useAuthFetching(KEY, BASE_URL);
 
   const data = response.status === 200 ? response.data[0] : [];
   const sectionName = response.status === 200 ? response.data[1].name : "";
   const completed =
     response.status === 200 ? response.data[2].is_completed : "";
+
   async function completeSubmission() {
     const token = localStorage.getItem("ciberpoli_token");
     console.log(token);
@@ -33,6 +42,9 @@ function Lecture() {
     }
     console.log(response);
   }
+
+  if (!hasLoadedStyles) return;
+
   return (
     <>
       <DynamicPagesContent

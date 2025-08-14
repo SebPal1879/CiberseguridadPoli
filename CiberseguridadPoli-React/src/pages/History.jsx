@@ -1,22 +1,22 @@
-import Footer from "../components/Footer";
 import useAuthFetching from "../api/useAuthFetching";
-import { useState } from "react";
 import Table from "../components/Table";
 import DynamicPagesContent from "../components/DynamicPagesContent";
-import useDynamicStyles from "../functions/useDynamicStyles";
 import BACKEND_URL from "../functions/urls";
+import useStyleUpdate from "../functions/useStyleUpdate";
+import { useStyles } from "../contexts/StylesContext";
 
 const BASE_URL = `${BACKEND_URL}/quiz/history`;
 const KEY = "ciberpoli_token";
-const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
+const styleRoutes = {
+  styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
+  requester: "History",
+};
 
 function History() {
-  const [response, setResponse] = useState("");
-
-  useAuthFetching(KEY, BASE_URL, setResponse);
-  const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(styleRoutes, setLoaded);
-  if (!loaded) return;
+  const { response } = useAuthFetching(KEY, BASE_URL);
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
+  if (!hasLoadedStyles) return;
   const data = response.status === 200 ? response.data : [];
 
   return (

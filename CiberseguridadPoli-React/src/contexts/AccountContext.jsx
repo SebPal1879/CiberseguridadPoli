@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 import useAuthFetching from "../api/useAuthFetching";
 import responseInformation from "../functions/responseInformation";
 import BACKEND_URL from "../functions/urls";
@@ -8,8 +8,8 @@ const KEY = "ciberpoli_token";
 const AccountContext = createContext();
 
 function AccountProvider({ children }) {
-  const [response, setResponse] = useState();
-  useAuthFetching(KEY, BASE_URL, setResponse);
+  const { response, loading } = useAuthFetching(KEY, BASE_URL);
+
   const responseStatus = response?.status;
   const {
     firstName,
@@ -22,7 +22,6 @@ function AccountProvider({ children }) {
     program,
     level,
   } = responseStatus === 200 ? responseInformation(response.data) : "";
-
   return (
     <AccountContext.Provider
       value={{
@@ -36,6 +35,7 @@ function AccountProvider({ children }) {
         program,
         level,
         responseStatus,
+        loading,
       }}
     >
       {children}

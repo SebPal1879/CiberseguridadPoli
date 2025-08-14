@@ -1,18 +1,29 @@
-import { useState } from "react";
 import useAuthFetching from "../../api/useAuthFetching";
 import AvailableChallengeInfo from "./AvailableChallengeInfo";
 import ChallengeOverview from "./ChallengeOverview";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 import BACKEND_URL from "../../functions/urls";
+import Loading from "../../components/Loading";
+import useStyleUpdate from "../../functions/useStyleUpdate";
+import { useStyles } from "../../contexts/StylesContext";
 
 const KEY = "ciberpoli_token";
 const BASE_URL = `${BACKEND_URL}/quiz/`;
 
+const styleRoutes = {
+  styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
+  requester: "Challenges",
+};
+
 function Challenges() {
-  const [response, setResponse] = useState("");
-  useAuthFetching(KEY, BASE_URL, setResponse);
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
+
+  const { response, loading } = useAuthFetching(KEY, BASE_URL);
+
+  if (loading) return <Loading />;
   const data = response.status === 200 ? response.data : [];
-  console.log(response);
+  if (!hasLoadedStyles) return;
   return (
     <div>
       <DynamicPagesContent

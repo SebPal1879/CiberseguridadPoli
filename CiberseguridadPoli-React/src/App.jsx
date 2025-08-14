@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import QuizPage from "./pages/Quiz/QuizPage";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
@@ -16,8 +16,10 @@ import NewPassword from "./pages/NewPassword";
 import { AccountProvider } from "./contexts/AccountContext";
 import HeaderValidator from "./components/HeaderValidator";
 import FooterValidator from "./components/FooterValidator";
-
+import useDynamicStyles from "./functions/useDynamicStyles";
 function App() {
+  // Se pone el hook useDynamicStyles para construir el effect que estará esperando cambios en el state de neededStyles. Con estos cambios, insertará nuevos estilos.
+  useDynamicStyles();
   return (
     <>
       <AccountProvider>
@@ -25,6 +27,7 @@ function App() {
           <HeaderValidator />
           <Routes>
             <Route path="" element={<Home />} />
+            <Route path="help-center" element={<HelpCenter />} />
             <Route path="account" element={<Account />} />
             <Route path="course" element={<CourseOverview />} />
             <Route path="challenges" element={<Challenges />} />

@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import useDynamicStyles from "../functions/useDynamicStyles";
-import { useState } from "react";
 
 const POLI_FB = "https://www.facebook.com/politecnicojic/";
 const POLI_TW = "https://x.com/politecnicojic";
@@ -8,13 +6,9 @@ const POLI_IG = "https://www.instagram.com/politecnicojic/";
 const POLI_LI =
   "https://linkedin.com/company/polit%C3%A9cnico-colombiano-jaime-isaza-cadavid";
 
-const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
+// const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 
 function Footer() {
-  const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(styleRoutes, setLoaded);
-
-  if (!loaded) return;
   return (
     <footer>
       <div className="footer-content">

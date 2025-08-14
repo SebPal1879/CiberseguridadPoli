@@ -1,11 +1,4 @@
-import { useState } from "react";
-import useDynamicStyles from "../../functions/useDynamicStyles";
-
-const styleRoutes = ["/styles/styleslecciones.css"];
 function LectureContent({ content }) {
-  const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(styleRoutes, setLoaded);
-  if (!loaded) return;
   return (
     <div className="accordion-item open">
       <button className="accordion-header">

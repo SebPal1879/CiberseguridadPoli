@@ -1,8 +1,7 @@
-import Footer from "../../components/Footer";
 import SectionCard from "./SectionCard";
 import CourseSectionAside from "./CourseSectionAside";
-import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 function CourseSectionContents({ sections }) {
   return (
     <div>
@@ -21,7 +20,6 @@ function CourseSectionContents({ sections }) {
               <SectionCard data={element} key={element.id} />
             ))}
           </section>
-          <Outlet />
           <CourseSectionAside />
         </main>
       </div>

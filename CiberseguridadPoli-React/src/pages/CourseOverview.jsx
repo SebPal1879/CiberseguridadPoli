@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
-import Footer from "../components/Footer";
+import useStyleUpdate from "../functions/useStyleUpdate";
+import { useStyles } from "../contexts/StylesContext";
+
+const styleRoutes = {
+  styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
+  requester: "CourseOverview",
+};
 
 function CourseOverview() {
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
+
+  if (!hasLoadedStyles) return;
+
   return (
     <>
       <div className="content-wrapper">

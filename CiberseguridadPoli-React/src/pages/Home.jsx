@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
-import Footer from "../components/Footer";
-import { useState } from "react";
-import useDynamicStyles from "../functions/useDynamicStyles";
+import useStyleUpdate from "../functions/useStyleUpdate";
+import { useStyles } from "../contexts/StylesContext";
 
-const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
+const styleRoutes = {
+  styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
+  requester: "Home",
+};
 
 function Home() {
-  const [loaded, setLoaded] = useState(false);
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
 
-  useDynamicStyles(styleRoutes, setLoaded);
-  if (!loaded) return;
+  if (!hasLoadedStyles) return;
   return (
     <>
       <div className="content-wrapper">

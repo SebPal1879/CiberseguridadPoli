@@ -4,21 +4,26 @@ import { submitLoginForm } from "../api/access.api";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import useAccessStyles from "../functions/useAccessStyles";
-import useDynamicStyles from "../functions/useDynamicStyles";
+import useStyleUpdate from "../functions/useStyleUpdate";
+import { useStyles } from "../contexts/StylesContext";
 
-const styleRoutes = [
-  "/styles/adminlte.min.css",
-  "/styles/all.min.css",
-  "/styles/styles.css",
-];
+const styleRoutes = {
+  styleRoutes: [
+    "/styles/adminlte.min.css",
+    "/styles/all.min.css",
+    "/styles/styles.css",
+  ],
+  requester: "Signin",
+};
 
 function Signin() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(styleRoutes, setLoaded);
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
+
   useAccessStyles();
 
   function submitLogin(e) {
@@ -38,7 +43,7 @@ function Signin() {
     login(username, password);
   }
 
-  if (!loaded) return;
+  if (!hasLoadedStyles) return;
 
   return (
     <div className="login-box">

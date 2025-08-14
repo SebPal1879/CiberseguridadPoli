@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 import { Link, useParams } from "react-router-dom";
 import FinishScreen from "./FinishScreen";
 import Container from "../../components/Container";
@@ -10,8 +10,9 @@ import { postRequest, getInformation } from "../../api/access.api";
 import QuizHeader from "./QuizHeader";
 import Error from "../../components/Error";
 import useAccessStyles from "../../functions/useAccessStyles";
-import useDynamicStyles from "../../functions/useDynamicStyles";
 import BACKEND_URL from "../../functions/urls";
+import useStyleUpdate from "../../functions/useStyleUpdate";
+import { useStyles } from "../../contexts/StylesContext";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -88,7 +89,10 @@ function reducer(state, action) {
   }
 }
 
-const styleRoutes = ["/styles/quizstyle.css"];
+const styleRoutes = {
+  styleRoutes: ["/styles/quizstyle.css"],
+  requester: "QuizPage",
+};
 function QuizPage() {
   const initialState = {
     quizName: "",
@@ -142,10 +146,11 @@ function QuizPage() {
 
   const maxQuestions = questions.length;
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0);
-  const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(styleRoutes, setLoaded);
   useAccessStyles();
-  if (!loaded) return;
+
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
+  if (!hasLoadedStyles) return;
   return (
     <>
       <QuizHeader quizName={quizName} />

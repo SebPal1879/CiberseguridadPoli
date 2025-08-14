@@ -1,11 +1,12 @@
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import { Link, useNavigate } from "react-router-dom";
 import { submitRegisterForm } from "../api/access.api";
-import InputGroup from "./InputGroup";
+import InputGroup from "../components/InputGroup";
 import useAccessStyles from "../functions/useAccessStyles";
-import useDynamicStyles from "../functions/useDynamicStyles";
+import useStyleUpdate from "../functions/useStyleUpdate";
+import { useStyles } from "../contexts/StylesContext";
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@elpoli\.edu\.co$/;
 const djangoPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
@@ -100,22 +101,27 @@ const initialState = {
   passwordConfirm: "",
 };
 
-const styleRoutes = [
-  "/styles/adminlte.min.css",
-  "/styles/all.min.css",
-  "/styles/styles.css",
-  "/styles/register.css",
-];
+const styleRoutes = {
+  styleRoutes: [
+    "/styles/adminlte.min.css",
+    "/styles/all.min.css",
+    "/styles/styles.css",
+    "/styles/register.css",
+  ],
+  requester: "Signup",
+};
+
+const toolTipDisplay = {
+  display: "block",
+};
 
 function Signup() {
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
+
   const navigate = useNavigate();
-  const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(styleRoutes, setLoaded);
   useAccessStyles();
 
-  const toolTipDisplay = {
-    display: "block",
-  };
   const [
     {
       first_name,
@@ -133,7 +139,7 @@ function Signup() {
     dispatch,
   ] = useReducer(reducer, initialState);
 
-  if (!loaded) return;
+  if (!hasLoadedStyles) return;
 
   return (
     <>

@@ -1,17 +1,7 @@
 import { Link } from "react-router-dom";
 import LectureListItem from "./LectureListItem";
-import { useState } from "react";
-import useDynamicStyles from "../../functions/useDynamicStyles";
 
-const styleRoutes = [
-  "/styles/temp.css",
-  "/styles/stylescursos.css",
-  "/styles/all.min.css",
-];
 function SectionLectures({ data }) {
-  const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(styleRoutes, setLoaded);
-  if (!loaded) return;
   return (
     <div className="lecciones-preview">
       <div className="temp">

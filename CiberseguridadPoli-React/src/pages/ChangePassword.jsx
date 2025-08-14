@@ -1,17 +1,21 @@
 import Form from "../components/Form";
 import axios from "axios";
 import { useState } from "react";
-import useDynamicStyles from "../functions/useDynamicStyles";
 import BACKEND_URL from "../functions/urls";
-const styleRoutes = ["/styles/adminlte.min.css", "/styles/styles.css"];
+import useStyleUpdate from "../functions/useStyleUpdate";
+import { useStyles } from "../contexts/StylesContext";
+const styleRoutes = {
+  styleRoutes: ["/styles/adminlte.min.css", "/styles/styles.css"],
+  requester: "ChangePassword",
+};
 
 const BASE_URL = `${BACKEND_URL}/signin/request-reset-email/`;
 
 function ChangePassword() {
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
   const [email, setEmail] = useState("");
-  const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(styleRoutes, setLoaded);
-  if (!loaded) return;
+  if (!hasLoadedStyles) return;
 
   function handlePasswordChange(e) {
     e.preventDefault();

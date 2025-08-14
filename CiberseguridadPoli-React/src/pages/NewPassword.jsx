@@ -3,10 +3,13 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Input from "../components/Input";
-import useDynamicStyles from "../functions/useDynamicStyles";
 import BACKEND_URL from "../functions/urls";
+import useStyleUpdate from "../functions/useStyleUpdate";
 
-const styleRoutes = ["/styles/adminlte.min.css", "/styles/styles.css"];
+const styleRoutes = {
+  styleRoutes: ["/styles/adminlte.min.css", "/styles/styles.css"],
+  requester: "NewPassword",
+};
 
 const BASE_URL = `${BACKEND_URL}/signin/password-reset/`;
 
@@ -18,6 +21,8 @@ const toolTipDisplay = {
   display: "block",
 };
 function NewPassword() {
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyleUpdate();
   const navigate = useNavigate();
   const { uidb64, token } = useParams();
   const [password, setPassword] = useState(null);
@@ -40,9 +45,8 @@ function NewPassword() {
     },
     [getRequestURL]
   );
-  const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(styleRoutes, setLoaded);
-  if (!loaded) return;
+
+  if (!hasLoadedStyles) return;
   function handlePasswordChange(e) {
     e.preventDefault();
     async function emailPost() {

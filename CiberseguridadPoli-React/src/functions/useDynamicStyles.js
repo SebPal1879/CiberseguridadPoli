@@ -1,10 +1,18 @@
 import { useEffect } from "react";
+import { useStyles } from "../contexts/StylesContext";
 
 // Función para revisar si en el DOM ya hay hojas de estilos que se necesitan (y no volver a solicitarlñas), y para quitar las que no se necesitan (y evitar afectaciones en la visualización)
-function useDynamicStyles(styleRoutes, setLoaded) {
+function useDynamicStyles() {
+  // Carga el state de neededStyles que será usado por los componentes que usen este hook. Los componentes deberán pasar sus respectivas rutas de estilos a esta variable.
+  const { neededStyles, setHasLoadedStyles } = useStyles();
+
+  // Convierte las rutas en un solo arreglo
+  const stylesArray = neededStyles.map((element) => element.styleRoutes).flat();
   useEffect(
     function () {
-      const neededStylePaths = new Set(styleRoutes);
+      if (!neededStyles.length) return;
+
+      const neededStylePaths = new Set(stylesArray);
       let loadedStyles = 0;
       // 1. Buscar todos los estilos presentes. filter(Boolean) evita nulos
       const presentStylesArray = [...document.styleSheets]
@@ -29,11 +37,15 @@ function useDynamicStyles(styleRoutes, setLoaded) {
 
       // 5.1. Si no hay estilos pendientes por aplicar, significa que la página se puede cargar y por ende lo que sigue no es necesario.
       if (missingStyles.size === 0) {
-        setLoaded(true);
+        setHasLoadedStyles(true);
         return;
       }
 
+      // Si hay un cambio de una página a otra, es posible hasLoadedStyles esté en true. Sin embargo, si hay elementos en missingStyles, significa que se deben cargar y por ended, hasLoadedStyles debe ser false.
+      setHasLoadedStyles(false);
+
       const missingStylesArray = Array.from(missingStyles);
+      console.log(missingStylesArray);
 
       // 6. Se insertan los estilos solicitados.
       missingStylesArray.map((href) => {
@@ -42,15 +54,17 @@ function useDynamicStyles(styleRoutes, setLoaded) {
         link.href = href;
         link.dataset.dynamic = "true";
         link.onload = () => {
+          console.log("cargó");
           loadedStyles++;
-          if (loadedStyles === missingStylesArray.length) setLoaded(true);
+          if (loadedStyles === missingStylesArray.length)
+            setHasLoadedStyles(true);
         };
         document.head.appendChild(link);
         return link;
       });
     },
 
-    [styleRoutes, setLoaded]
+    [neededStyles, stylesArray, setHasLoadedStyles]
   );
 }
 

@@ -1,13 +1,6 @@
 import { NavLink } from "react-router-dom";
-import useDynamicStyles from "../functions/useDynamicStyles";
-import { useState } from "react";
-
-const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 
 function StandardHeader() {
-  const [loaded, setLoaded] = useState(false);
-  useDynamicStyles(styleRoutes, setLoaded);
-  if (!loaded) return;
   return (
     <header className="main-header" style={{ marginBottom: "32px" }}>
       <div className="header-container">

@@ -1,5 +1,6 @@
-import Footer from "../../components/Footer";
 import HelpItem from "./HelpItem";
+import useStyleUpdate from "../../functions/useStyleUpdate";
+import { useStyles } from "../../contexts/StylesContext";
 
 const faq = [
   {
@@ -27,7 +28,16 @@ const faq = [
   },
 ];
 
+const styleRoutes = {
+  styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
+  requester: "HelpCenter",
+};
+
 function HelpCenter() {
+  useStyleUpdate(styleRoutes);
+  const { hasLoadedStyles } = useStyles();
+
+  if (!hasLoadedStyles) return;
   return (
     <>
       <div className="content-wrapper">

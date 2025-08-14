@@ -1,15 +1,27 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 const StyleContext = createContext();
 
-function StyleProvider({ styles, children }) {
+function StyleProvider({ children }) {
+  const [neededStyles, setNeededStyles] = useState([]);
+  const [hasLoadedStyles, setHasLoadedStyles] = useState(false);
+
   return (
-    <StyleContext.Provider value={{ styles }}>{children}</StyleContext.Provider>
+    <StyleContext.Provider
+      value={{
+        neededStyles,
+        setNeededStyles,
+        hasLoadedStyles,
+        setHasLoadedStyles,
+      }}
+    >
+      {children}
+    </StyleContext.Provider>
   );
 }
 
 function useStyles() {
-  const context = useContext();
+  const context = useContext(StyleContext);
   if (context === undefined)
     throw new Error("StyleContext fue usado fuera de StyleProvider");
   return context;
