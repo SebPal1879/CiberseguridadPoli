@@ -10,7 +10,7 @@ import { postRequest, getInformation } from "../../api/access.api";
 import QuizHeader from "./QuizHeader";
 import Error from "../../components/Error";
 import useAccessStyles from "../../functions/useAccessStyles";
-import BACKEND_URL from "../../functions/urls";
+import { BACKEND_URL } from "../../functions/urls";
 import useStyleUpdate from "../../functions/useStyleUpdate";
 import { useStyles } from "../../contexts/StylesContext";
 

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { submitLoginForm } from "../api/access.api";
+import { getInformation, submitLoginForm } from "../api/access.api";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import useAccessStyles from "../functions/useAccessStyles";
 import useStyleUpdate from "../functions/useStyleUpdate";
 import { useStyles } from "../contexts/StylesContext";
+import { AUTH_INFO_URL, KEY } from "../functions/urls";
+import { useAccountInfo } from "../contexts/AccountContext";
 
 const styleRoutes = {
   styleRoutes: [
@@ -21,6 +23,8 @@ function Signin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const { setResponse } = useAccountInfo();
+
   useStyleUpdate(styleRoutes);
   const { hasLoadedStyles } = useStyles();
 
@@ -32,8 +36,13 @@ function Signin() {
       const formData = { username, password };
       try {
         const response = await submitLoginForm(formData);
-        localStorage.setItem("ciberpoli_token", response.data.token);
+        const token = response.data.token;
+        localStorage.setItem("ciberpoli_token", token);
         alert("Autenticación exitosa.");
+        const accountInfo = getInformation(AUTH_INFO_URL, {
+          Authorization: `Token ${token}`,
+        });
+        setResponse(accountInfo);
         navigate("/course");
       } catch (err) {
         console.log(err);

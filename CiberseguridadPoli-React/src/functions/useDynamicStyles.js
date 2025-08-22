@@ -10,7 +10,7 @@ function useDynamicStyles() {
   const stylesArray = neededStyles.map((element) => element.styleRoutes).flat();
   useEffect(
     function () {
-      if (!neededStyles.length) return;
+      if (!stylesArray.length) return;
 
       const neededStylePaths = new Set(stylesArray);
       let loadedStyles = 0;
@@ -19,12 +19,13 @@ function useDynamicStyles() {
         .map((element) => element.href)
         .filter(Boolean);
 
-      // 2. Hacer un conjunto de dichos elementos (solo con el pathname del URLm ya que este es el que se está pasando y el que leerá el DOM luego para insertar/borrar)
+      // 2. Hacer un conjunto de dichos elementos (solo con el pathname del URL ya que este es el que se está pasando y el que leerá el DOM luego para insertar/borrar)
       const presentStyles = new Set(
         presentStylesArray.map((element) => new URL(element).pathname)
       );
       // 3. Se hace un conjunto a través de diferencia de conjuntos de los estilos solicitados pero no presentes en el DOM
       const missingStyles = neededStylePaths.difference(presentStyles);
+      console.log(missingStyles);
 
       // 4. Se hace un conjunto a través de diferencia de conjuntos de los estilos presentes pero no solicitados en el DOM
       const notNeededStyles = presentStyles.difference(neededStylePaths);
@@ -40,9 +41,6 @@ function useDynamicStyles() {
         setHasLoadedStyles(true);
         return;
       }
-
-      // Si hay un cambio de una página a otra, es posible hasLoadedStyles esté en true. Sin embargo, si hay elementos en missingStyles, significa que se deben cargar y por ended, hasLoadedStyles debe ser false.
-      setHasLoadedStyles(false);
 
       const missingStylesArray = Array.from(missingStyles);
       console.log(missingStylesArray);

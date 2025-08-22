@@ -1,7 +1,7 @@
 import useAuthFetching from "../../api/useAuthFetching";
 import CourseSectionContents from "./CourseSectionContents";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
-import BACKEND_URL from "../../functions/urls";
+import { BACKEND_URL } from "../../functions/urls";
 import Loading from "../../components/Loading";
 import useStyleUpdate from "../../functions/useStyleUpdate";
 

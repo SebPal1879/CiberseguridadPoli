@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Input from "../components/Input";
-import BACKEND_URL from "../functions/urls";
+import { BACKEND_URL } from "../functions/urls";
 import useStyleUpdate from "../functions/useStyleUpdate";
 
 const styleRoutes = {

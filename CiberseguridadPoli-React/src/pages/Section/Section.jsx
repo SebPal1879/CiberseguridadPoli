@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import useAuthFetching from "../../api/useAuthFetching";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 import SectionLectures from "./SectionLectures";
-import BACKEND_URL from "../../functions/urls";
+import { BACKEND_URL } from "../../functions/urls";
 import { useStyles } from "../../contexts/StylesContext";
 import useStyleUpdate from "../../functions/useStyleUpdate";
 

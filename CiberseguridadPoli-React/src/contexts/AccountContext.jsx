@@ -1,14 +1,15 @@
 import { createContext, useContext } from "react";
 import useAuthFetching from "../api/useAuthFetching";
 import responseInformation from "../functions/responseInformation";
-import BACKEND_URL from "../functions/urls";
-const BASE_URL = `${BACKEND_URL}/signin/authenticated`;
-const KEY = "ciberpoli_token";
-
+import { AUTH_INFO_URL } from "../functions/urls";
+import { KEY } from "../functions/urls";
 const AccountContext = createContext();
 
 function AccountProvider({ children }) {
-  const { response, loading } = useAuthFetching(KEY, BASE_URL);
+  const { response, setResponse, loading } = useAuthFetching(
+    KEY,
+    AUTH_INFO_URL
+  );
 
   const responseStatus = response?.status;
   const {
@@ -36,6 +37,7 @@ function AccountProvider({ children }) {
         level,
         responseStatus,
         loading,
+        setResponse,
       }}
     >
       {children}

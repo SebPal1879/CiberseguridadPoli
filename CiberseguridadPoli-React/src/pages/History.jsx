@@ -1,7 +1,7 @@
 import useAuthFetching from "../api/useAuthFetching";
 import Table from "../components/Table";
 import DynamicPagesContent from "../components/DynamicPagesContent";
-import BACKEND_URL from "../functions/urls";
+import { BACKEND_URL } from "../functions/urls";
 import useStyleUpdate from "../functions/useStyleUpdate";
 import { useStyles } from "../contexts/StylesContext";
 

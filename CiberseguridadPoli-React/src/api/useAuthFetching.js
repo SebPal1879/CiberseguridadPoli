@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { getInformation } from "./access.api";
 
+// Función para traer información de una API. Recibe una clave para localStorage y una URL.
 function useAuthFetching(key, url) {
   const [response, setResponse] = useState({});
   const [loading, setLoading] = useState(false);
   useEffect(
     function () {
       const item = localStorage.getItem(key);
+      if (!item) return;
       async function getAPIData() {
         setLoading(true);
         try {
-          const response = await axios.get(url, {
-            headers: { Authorization: `Token ${item}` },
+          const response = getInformation(url, {
+            Authorization: `Token ${item}`,
           });
-          console.log(response);
           setResponse(response);
         } catch (error) {
-          console.log(error);
           setResponse(error);
         } finally {
           setLoading(false);
@@ -24,10 +24,10 @@ function useAuthFetching(key, url) {
       }
       getAPIData();
     },
-    [key, url, setResponse, setLoading]
+    [key, url]
   );
 
-  return { response, loading };
+  return { response, loading, setResponse };
 }
 
 export default useAuthFetching;

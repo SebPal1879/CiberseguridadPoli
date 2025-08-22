@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { postRequest } from "../../api/access.api";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 import LecturePanel from "./LecturePanel";
-import BACKEND_URL from "../../functions/urls";
+import { BACKEND_URL } from "../../functions/urls";
 import useStyleUpdate from "../../functions/useStyleUpdate";
 import { useStyles } from "../../contexts/StylesContext";
 
