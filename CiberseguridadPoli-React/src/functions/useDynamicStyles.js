@@ -6,10 +6,13 @@ function useDynamicStyles() {
   // Carga el state de neededStyles que será usado por los componentes que usen este hook. Los componentes deberán pasar sus respectivas rutas de estilos a esta variable.
   const { neededStyles, setHasLoadedStyles } = useStyles();
 
-  // Convierte las rutas en un solo arreglo
-  const stylesArray = neededStyles.map((element) => element.styleRoutes).flat();
   useEffect(
     function () {
+      // Convierte las rutas en un solo arreglo
+      const stylesArray = neededStyles
+        .map((element) => element.styleRoutes)
+        .flat();
+
       if (!stylesArray.length) return;
 
       const neededStylePaths = new Set(stylesArray);
@@ -25,7 +28,11 @@ function useDynamicStyles() {
       );
       // 3. Se hace un conjunto a través de diferencia de conjuntos de los estilos solicitados pero no presentes en el DOM
       const missingStyles = neededStylePaths.difference(presentStyles);
-      console.log(missingStyles);
+
+      if (missingStyles.size > 0) {
+        // Si hay un cambio de una página a otra, es posible hasLoadedStyles esté en true. Sin embargo, si hay elementos en missingStyles, significa que se deben cargar y por ende, hasLoadedStyles debe ser false.
+        setHasLoadedStyles(false);
+      }
 
       // 4. Se hace un conjunto a través de diferencia de conjuntos de los estilos presentes pero no solicitados en el DOM
       const notNeededStyles = presentStyles.difference(neededStylePaths);
@@ -62,7 +69,7 @@ function useDynamicStyles() {
       });
     },
 
-    [neededStyles, stylesArray, setHasLoadedStyles]
+    [neededStyles, setHasLoadedStyles]
   );
 }
 

@@ -12,7 +12,7 @@ function useAuthFetching(key, url) {
       async function getAPIData() {
         setLoading(true);
         try {
-          const response = getInformation(url, {
+          const response = await getInformation(url, {
             Authorization: `Token ${item}`,
           });
           setResponse(response);
