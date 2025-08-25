@@ -8,6 +8,12 @@
   align-items: center;
 }
 
+.back-btn {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
 .login-box {
   background-color: white;
   border-radius: 8px;

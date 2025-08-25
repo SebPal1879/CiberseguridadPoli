@@ -4,10 +4,12 @@ function Input({
   className = "",
   placeholder = "",
   value = "",
-  changeEvent = "",
+  changeEvent = null,
   disabled = false,
   toggle = "",
   title = "",
+  defaultValue = "",
+  readOnly = false,
 }) {
   return (
     <input
@@ -15,11 +17,12 @@ function Input({
       id={id}
       className={className}
       placeholder={placeholder}
-      value={value}
+      value={value || defaultValue}
       onChange={changeEvent}
       data-bs-toggle={toggle}
       disabled={disabled}
       title={title}
+      readOnly={readOnly}
     />
   );
 }

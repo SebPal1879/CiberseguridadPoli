@@ -1,5 +1,9 @@
-function Form({ action, children }) {
-  return <form onSubmit={action}>{children}</form>;
+function Form({ classname = "", action, children }) {
+  return (
+    <form className={classname} onSubmit={action}>
+      {children}
+    </form>
+  );
 }
 
 export default Form;

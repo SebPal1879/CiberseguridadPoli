@@ -16,14 +16,12 @@ export function submitLoginForm(formData) {
 }
 
 export function getInformation(url, headers = {}) {
-  console.log(headers);
   return axios.get(url, {
     headers: headers,
   });
 }
-export function postRequest(url, data = {}, userToken) {
-  console.log(data);
+export function postRequest(url, data = {}, headers = {}) {
   return axios.post(url, data, {
-    headers: { Authorization: `Token ${userToken}` },
+    headers: headers,
   });
 }

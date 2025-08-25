@@ -907,6 +907,7 @@ footer {
   border-radius: var(--borde-radius);
   box-shadow: var(--sombra);
   padding: 25px;
+  margin-bottom: 16px;
 }
 
 .sidebar-card h4 {

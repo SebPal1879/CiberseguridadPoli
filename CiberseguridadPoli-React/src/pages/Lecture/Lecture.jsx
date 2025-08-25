@@ -33,7 +33,11 @@ function Lecture() {
     const token = localStorage.getItem("ciberpoli_token");
     console.log(token);
     console.log(BASE_URL);
-    const response = await postRequest(BASE_URL, {}, token);
+    const response = await postRequest(
+      BASE_URL,
+      {},
+      { Authorization: `Token ${token}` }
+    );
     if (response.status === 200) {
       alert("Se ha completado la lección exitosamente");
       navigate(`/learning/section/${ids}/`);

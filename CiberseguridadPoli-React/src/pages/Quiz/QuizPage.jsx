@@ -61,7 +61,7 @@ function reducer(state, action) {
           {
             score,
           },
-          token
+          { Authorization: `Token ${token}` }
         );
         if (response.status === 201) {
           return {
@@ -133,7 +133,9 @@ function QuizPage() {
         //     throw new Error(error);
         //   });
         try {
-          const response = await getInformation(BASE_FETCH_URL, token);
+          const response = await getInformation(BASE_FETCH_URL, {
+            Authorization: `Token ${token}`,
+          });
           dispatch({ type: "received", payload: response.data });
         } catch {
           dispatch({ type: "error" });

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Input from "../components/Input";
 import { BACKEND_URL } from "../functions/urls";
 import useStyleUpdate from "../functions/useStyleUpdate";
+import { postRequest } from "../api/access.api";
 
 const styleRoutes = {
   styleRoutes: ["/styles/adminlte.min.css", "/styles/styles.css"],
@@ -51,7 +52,7 @@ function NewPassword() {
     e.preventDefault();
     async function emailPost() {
       try {
-        const response = await axios.post(postRequestURL, { password });
+        const response = await postRequest(postRequestURL, { password });
         console.log(response);
         alert("Contraseña cambiada con éxito");
         navigate("/signin");

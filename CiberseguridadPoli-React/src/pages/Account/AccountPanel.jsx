@@ -1,4 +1,12 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useAccountInfo } from "../../contexts/AccountContext";
+import Form from "../../components/Form";
+import Input from "../../components/Input";
+import { BACKEND_URL } from "../../functions/urls";
+import { postRequest } from "../../api/access.api";
+
+const BASE_URL = `${BACKEND_URL}/signup/change/`;
 
 function AccountPanel() {
   const {
@@ -11,6 +19,35 @@ function AccountPanel() {
     level,
     profilePictureURL,
   } = useAccountInfo();
+
+  const [formLevel, setFormLevel] = useState(level);
+  const [formTelephoneNumber, setFormTelephoneNumber] =
+    useState(telephoneNumber);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const token = localStorage.getItem("ciberpoli_token");
+    const newData = { level: formLevel, telephone: formTelephoneNumber };
+    console.log(newData);
+    async function changeAccountInfo() {
+      const response = await postRequest(BASE_URL, newData, {
+        Authorization: `Token ${token}`,
+      });
+      switch (response.status) {
+        case 200:
+          alert("Se ha actualizado la información exitosamente");
+          break;
+        case 400:
+          alert("Hubo un error");
+          break;
+        default:
+          console.log("Respuesta desconocida");
+          break;
+      }
+    }
+    changeAccountInfo();
+  }
+
   return (
     <div className="content-wrapper">
       <main className="profile-container">
@@ -74,61 +111,78 @@ function AccountPanel() {
               <div className="divider"></div>
             </div>
 
-            <form className="profile-form">
+            <Form classname="profile-form" action={(e) => handleSubmit(e)}>
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="email">
                     <i className="fas fa-envelope"></i> Correo institucional
                   </label>
-                  <input
+                  <Input
                     type="email"
                     id="email"
                     defaultValue={email}
+                    disabled
                     readOnly
                   />
                 </div>
+
                 <div className="form-group">
-                  <label htmlFor="phone">
-                    <i className="fas fa-phone"></i> Teléfono
+                  <label htmlFor="program">
+                    <i className="fas fa-graduation-cap"></i> Programa académico
                   </label>
-                  <input type="tel" id="phone" defaultValue={telephoneNumber} />
+                  <Input
+                    type="text"
+                    id="program"
+                    defaultValue={program}
+                    disabled
+                    readOnly
+                  />
                 </div>
               </div>
 
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="program">
-                    <i className="fas fa-graduation-cap"></i> Programa académico
-                  </label>
-                  <input
-                    type="text"
-                    id="program"
-                    defaultValue={program}
-                    readOnly
-                  />
-                </div>
-                <div className="form-group">
                   <label htmlFor="semester">
-                    <i className="fas fa-layer-group"></i> Semestre
+                    <i className="fas fa-layer-group"></i> Nivel académico
                   </label>
-                  <input
-                    type="text"
-                    id="semester"
-                    defaultValue={level}
-                    readOnly
+                  <select
+                    value={formLevel}
+                    onChange={(e) => setFormLevel(e.target.value)}
+                  >
+                    {Array.from({ length: 10 }, (_, i) => i + 1).map(
+                      (number) => (
+                        <option value={number} key={number}>
+                          {number}
+                        </option>
+                      )
+                    )}
+                  </select>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="phone">
+                    <i className="fas fa-phone"></i> Teléfono
+                  </label>
+                  <Input
+                    type="tel"
+                    id="phone"
+                    defaultValue={telephoneNumber}
+                    changeEvent={(e) => setFormTelephoneNumber(e.target.value)}
                   />
                 </div>
               </div>
 
               <div className="form-actions">
-                <button type="button" className="btn-secondary">
-                  <i className="fas fa-lock"></i> Cambiar contraseña
-                </button>
+                <Link to="/signin/forgot-password">
+                  <button type="button" className="btn-secondary">
+                    <i className="fas fa-lock"></i> Cambiar contraseña
+                  </button>
+                </Link>
                 <button type="submit" className="btn-primary">
                   <i className="fas fa-save"></i> Guardar cambios
                 </button>
               </div>
-            </form>
+            </Form>
           </section>
 
           <section className="profile-courses-section">

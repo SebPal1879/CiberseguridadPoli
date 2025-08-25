@@ -4,8 +4,14 @@ import { useState } from "react";
 import { BACKEND_URL } from "../functions/urls";
 import useStyleUpdate from "../functions/useStyleUpdate";
 import { useStyles } from "../contexts/StylesContext";
+import BackButton from "../components/BackButton";
+import { postRequest } from "../api/access.api";
 const styleRoutes = {
-  styleRoutes: ["/styles/adminlte.min.css", "/styles/styles.css"],
+  styleRoutes: [
+    "/styles/adminlte.min.css",
+    "/styles/styles.css",
+    "/styles/all.min.css",
+  ],
   requester: "ChangePassword",
 };
 
@@ -21,7 +27,7 @@ function ChangePassword() {
     e.preventDefault();
     async function emailPost() {
       try {
-        const response = await axios.post(BASE_URL, { email });
+        const response = await postRequest(BASE_URL, { email });
         console.log(response);
         alert(
           "Si existe el correo en nuestra base de datos, recibirás un enlace para cambiar la contraseña"
@@ -71,6 +77,8 @@ function ChangePassword() {
                 </div>
               </div>
             </Form>
+
+            <BackButton />
           </div>
         </div>
       </div>
