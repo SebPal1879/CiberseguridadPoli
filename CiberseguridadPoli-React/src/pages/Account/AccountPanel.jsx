@@ -249,21 +249,21 @@ function AccountPanel() {
               <h3>Seguridad de la Cuenta</h3>
             </div>
             <ul className="security-list">
-              <li className="security-item verified">
+              <div className="security-item verified">
                 <i className="fas fa-check-circle"></i>
-                <span>Correo verificado</span>
-              </li>
-              <li className="security-item warning">
+                <span>&nbsp;Correo verificado</span>
+              </div>
+              <div className="security-item warning">
                 <i className="fas fa-exclamation-circle"></i>
                 <span>
-                  Autenticación de dos factores: <strong>Inactiva</strong>
+                  &nbsp;Autenticación de dos factores: <strong>Inactiva</strong>
                 </span>
-                <button className="btn-enable">Activar</button>
-              </li>
-              <li className="security-item">
+                {/* <button className="btn-enable">Activar</button> */}
+              </div>
+              <div className="security-item">
                 <i className="fas fa-clock"></i>
-                <span>Último acceso: Hoy, 10:45 am</span>
-              </li>
+                <span>&nbsp;Último acceso: Hoy, 10:45 am</span>
+              </div>
             </ul>
           </div>
 
@@ -276,14 +276,14 @@ function AccountPanel() {
               <div className="achievement">
                 <div className="achievement-icon gold">
                   <i className="fas fa-book"></i>
+                  <span>&nbsp;Primer curso completado</span>
                 </div>
-                <p>Primer curso completado</p>
               </div>
               <div className="achievement">
                 <div className="achievement-icon silver">
                   <i className="fas fa-star"></i>
+                  <span>&nbsp;Estudiante destacado</span>
                 </div>
-                <p>Estudiante destacado</p>
               </div>
             </div>
           </div>

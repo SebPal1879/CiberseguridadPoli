@@ -14,7 +14,7 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.encoding import smart_str, force_str, force_bytes, DjangoUnicodeDecodeError
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
-from .utils import Util
+from ciberseguridadpoli.utils import Util
 from .serializer import AccountInfoSerializer, ProfileInfoSerializer
 from signup.models import Profile
 from ciberseguridadpoli.settings import FRONTEND_URL
