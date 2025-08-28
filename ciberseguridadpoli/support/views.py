@@ -44,5 +44,8 @@ class SupportRequest(APIView):
       return Response({"Mensaje" : "La creación del ticket falló"},status=status.HTTP_400_BAD_REQUEST)
 
     email_content = create_email_content(provided_name=data["name"],subject=data["subject"],recipient=data["email"])
-    Util.send_email(email_content)
+    try:
+      Util.send_email(email_content)
+    except:
+      print("No se envió el correo")
     return Response({"Mensaje" : "Se creó exitosamente el ticket"},status=status.HTTP_201_CREATED)

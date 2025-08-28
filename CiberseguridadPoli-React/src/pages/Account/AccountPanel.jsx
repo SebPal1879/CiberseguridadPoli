@@ -111,7 +111,7 @@ function AccountPanel() {
               <div className="divider"></div>
             </div>
 
-            <Form classname="profile-form" action={(e) => handleSubmit(e)}>
+            <Form className="profile-form" action={(e) => handleSubmit(e)}>
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="email">

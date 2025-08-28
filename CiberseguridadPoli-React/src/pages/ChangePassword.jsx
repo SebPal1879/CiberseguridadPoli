@@ -1,5 +1,4 @@
 import Form from "../components/Form";
-import axios from "axios";
 import { useState } from "react";
 import { BACKEND_URL } from "../functions/urls";
 import useStyleUpdate from "../functions/useStyleUpdate";

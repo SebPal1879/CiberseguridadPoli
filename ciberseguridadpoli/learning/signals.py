@@ -20,11 +20,10 @@ def update_user_lecture_availability(sender,instance,created,**kwargs):
       # Por ende, para determinar disponibilidad, se debe buscar la última lección de la sección anterior para determinar si la nueva lección está disponible.
       try:
         previous_section = Section.objects.get(section_number=instance.section - 1)
-        try:
-          previous_lecture = Lecture.objects.filter(section=previous_section).order_by("lecture_in_section_number").last()
-          
+  
+        previous_lecture = Lecture.objects.filter(section=previous_section).order_by("lecture_in_section_number").last()
         # Si hay sección anterior, pero no hay lección, entonces no habrá disponibilidad inmediata para esta lección.
-        except:
+        if not previous_lecture:
           for user in users:
             LectureAvailabilityAndCompletion.objects.create(lecture=instance,user=user)
           return
@@ -45,7 +44,6 @@ def update_user_lecture_availability(sender,instance,created,**kwargs):
         else:
           LectureAvailabilityAndCompletion.objects.create(user=user,lecture=instance)
           print("Lección anterior no completada: nueva lección no disponible")
-        print("user")
       except:
         print("Disponibilidad de lección anterior no registrada; no se guarda disponibilidad de la nueva lección")
         continue

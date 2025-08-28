@@ -1,6 +1,12 @@
+import { useReducer } from "react";
 import HelpItem from "./HelpItem";
 import useStyleUpdate from "../../functions/useStyleUpdate";
+import Form from "../../components/Form";
+import { postRequest } from "../../api/access.api";
 import { useStyles } from "../../contexts/StylesContext";
+import { BACKEND_URL } from "../../functions/urls";
+
+const BASE_URL = `${BACKEND_URL}/support/new/`;
 
 const faq = [
   {
@@ -33,9 +39,71 @@ const styleRoutes = {
   requester: "HelpCenter",
 };
 
+const initialState = {
+  name: "",
+  email: "",
+  subject: "",
+  phone: "",
+  message: "",
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "name":
+      return {
+        ...state,
+        name: action.payload,
+      };
+    case "email":
+      return {
+        ...state,
+        email: action.payload,
+      };
+    case "subject":
+      return {
+        ...state,
+        subject: action.payload,
+      };
+    case "phone":
+      return {
+        ...state,
+        phone: action.payload,
+      };
+    case "message":
+      return {
+        ...state,
+        message: action.payload,
+      };
+
+    case "submit": {
+      action.e.preventDefault();
+      console.log(state);
+      async function submitTicket() {
+        try {
+          const response = await postRequest(BASE_URL, state, {});
+          if (response.status === 201) {
+            alert("Se ha enviado su PQRS exitosamente");
+          }
+        } catch (error) {
+          console.log("Hubo un error" + error.response);
+        }
+      }
+      submitTicket();
+      return state;
+    }
+    default:
+      console.log("unknown action");
+      break;
+  }
+}
+
 function HelpCenter() {
   useStyleUpdate(styleRoutes);
   const { hasLoadedStyles } = useStyles();
+  const [{ name, email, subject, phone, message }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   if (!hasLoadedStyles) return;
   return (
@@ -81,7 +149,10 @@ function HelpCenter() {
                 <div className="divider"></div>
               </div>
 
-              <form className="contact-form">
+              <Form
+                className="contact-form"
+                action={(e) => dispatch({ type: "submit", e })}
+              >
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="name">
@@ -91,6 +162,10 @@ function HelpCenter() {
                       type="text"
                       id="name"
                       name="name"
+                      value={name}
+                      onChange={(e) =>
+                        dispatch({ type: "name", payload: e.target.value })
+                      }
                       placeholder="Ingresa tu nombre completo"
                       required
                     />
@@ -103,6 +178,10 @@ function HelpCenter() {
                       type="email"
                       id="email"
                       name="email"
+                      value={email}
+                      onChange={(e) =>
+                        dispatch({ type: "email", payload: e.target.value })
+                      }
                       placeholder="tu@correo.com"
                       required
                     />
@@ -117,6 +196,10 @@ function HelpCenter() {
                     <select
                       id="subject"
                       name="subject"
+                      value={subject}
+                      onChange={(e) =>
+                        dispatch({ type: "subject", payload: e.target.value })
+                      }
                       defaultValue="Selecciona un tema"
                       required
                     >
@@ -137,6 +220,10 @@ function HelpCenter() {
                       type="tel"
                       id="phone"
                       name="phone"
+                      value={phone}
+                      onChange={(e) =>
+                        dispatch({ type: "phone", payload: e.target.value })
+                      }
                       placeholder="+57 300 123 4567"
                     />
                   </div>
@@ -150,6 +237,10 @@ function HelpCenter() {
                     id="message"
                     name="message"
                     rows="5"
+                    value={message}
+                    onChange={(e) =>
+                      dispatch({ type: "message", payload: e.target.value })
+                    }
                     placeholder="Describe tu consulta o problema en detalle..."
                     required
                   ></textarea>
@@ -160,7 +251,7 @@ function HelpCenter() {
                     <i className="fas fa-paper-plane"></i> Enviar mensaje
                   </button>
                 </div>
-              </form>
+              </Form>
             </section>
           </div>
 

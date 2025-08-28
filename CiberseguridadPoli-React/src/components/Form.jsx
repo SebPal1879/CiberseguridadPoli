@@ -1,6 +1,6 @@
-function Form({ classname = "", action, children }) {
+function Form({ className = "", action, children }) {
   return (
-    <form className={classname} onSubmit={action}>
+    <form className={className} onSubmit={action}>
       {children}
     </form>
   );

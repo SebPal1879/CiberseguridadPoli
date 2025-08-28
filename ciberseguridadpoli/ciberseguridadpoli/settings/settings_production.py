@@ -35,6 +35,7 @@ ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 INSTALLED_APPS = [
     #'coreapi',
+    'support.apps.SupportConfig',
     'signin.apps.SigninConfig',
     'learning.apps.LearningConfig',
     'quiz.apps.QuizConfig',
@@ -94,7 +95,6 @@ DATABASES = {
 }
 
 database_url = os.environ.get("DATABASE_URL")
-
 DATABASES['default'] = dj_database_url.parse(database_url)
 
 
