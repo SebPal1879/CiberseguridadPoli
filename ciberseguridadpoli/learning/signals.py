@@ -23,13 +23,13 @@ def update_user_lecture_availability(sender,instance,created,**kwargs):
         try:
           previous_lecture = Lecture.objects.filter(section=previous_section).order_by("lecture_in_section_number").last()
         # Si hay sección anterior, pero no hay lección, entonces no habrá disponibilidad inmediata para esta lección.
-        except ObjectDoesNotExist:
+        except:
           for user in users:
             LectureAvailabilityAndCompletion.objects.create(section_number=instance.section,user=user)
           return
           
       # Si no hay sección anterior, entonces vuelve la lección disponible para todos los usuarios.
-      except ObjectDoesNotExist:
+      except:
         for user in users:
           LectureAvailabilityAndCompletion.objects.create(section_number=instance.section,user=user,is_available=True)
         return
