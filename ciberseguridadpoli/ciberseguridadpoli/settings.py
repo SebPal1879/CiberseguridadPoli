@@ -35,6 +35,7 @@ ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 INSTALLED_APPS = [
     #'coreapi',
+    'support.apps.SupportConfig',
     'signin.apps.SigninConfig',
     'learning.apps.LearningConfig',
     'quiz.apps.QuizConfig',
