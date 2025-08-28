@@ -5,7 +5,6 @@ import DynamicPagesContent from "../../components/DynamicPagesContent";
 import { BACKEND_URL } from "../../functions/urls";
 import Loading from "../../components/Loading";
 import useStyleUpdate from "../../functions/useStyleUpdate";
-import { useStyles } from "../../contexts/StylesContext";
 
 const KEY = "ciberpoli_token";
 const BASE_URL = `${BACKEND_URL}/quiz/`;
@@ -16,8 +15,7 @@ const styleRoutes = {
 };
 
 function Challenges() {
-  useStyleUpdate(styleRoutes);
-  const { hasLoadedStyles } = useStyles();
+  const hasLoadedStyles = useStyleUpdate(styleRoutes);
 
   const { response, loading } = useAuthFetching(KEY, BASE_URL);
 

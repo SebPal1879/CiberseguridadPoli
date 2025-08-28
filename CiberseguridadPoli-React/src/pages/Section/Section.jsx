@@ -3,7 +3,6 @@ import useAuthFetching from "../../api/useAuthFetching";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 import SectionLectures from "./SectionLectures";
 import { BACKEND_URL } from "../../functions/urls";
-import { useStyles } from "../../contexts/StylesContext";
 import useStyleUpdate from "../../functions/useStyleUpdate";
 
 const KEY = "ciberpoli_token";
@@ -18,14 +17,13 @@ const styleRoutes = {
 };
 
 function Section() {
+  const hasLoadedStyles = useStyleUpdate(styleRoutes);
   const { id } = useParams();
   const BASE_URL = `${BACKEND_URL}/learning/section/${id}/`;
   const { response } = useAuthFetching(KEY, BASE_URL);
-  const data = response.status === 401 ? [] : response.data;
-  useStyleUpdate(styleRoutes);
-  const { hasLoadedStyles } = useStyles();
-
   if (!hasLoadedStyles) return;
+
+  const data = response.status === 401 ? [] : response.data;
   return (
     <>
       <DynamicPagesContent

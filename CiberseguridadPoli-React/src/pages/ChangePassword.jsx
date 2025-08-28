@@ -2,7 +2,6 @@ import Form from "../components/Form";
 import { useState } from "react";
 import { BACKEND_URL } from "../functions/urls";
 import useStyleUpdate from "../functions/useStyleUpdate";
-import { useStyles } from "../contexts/StylesContext";
 import BackButton from "../components/BackButton";
 import { postRequest } from "../api/access.api";
 const styleRoutes = {
@@ -17,8 +16,7 @@ const styleRoutes = {
 const BASE_URL = `${BACKEND_URL}/signin/request-reset-email/`;
 
 function ChangePassword() {
-  useStyleUpdate(styleRoutes);
-  const { hasLoadedStyles } = useStyles();
+  const hasLoadedStyles = useStyleUpdate(styleRoutes);
   const [email, setEmail] = useState("");
   if (!hasLoadedStyles) return;
 

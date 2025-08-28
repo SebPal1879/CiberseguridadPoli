@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Help from "../../components/Help";
 import useStyleUpdate from "../../functions/useStyleUpdate";
 import { useStyles } from "../../contexts/StylesContext";
+import { useEffect } from "react";
 
 const styleRoutes = {
   styleRoutes: ["/styles/styleslecciones.css", "/styles/all.min.css"],
@@ -16,8 +17,7 @@ function LecturePanel({
   completed,
   data,
 }) {
-  useStyleUpdate(styleRoutes);
-  const { hasLoadedStyles } = useStyles();
+  const hasLoadedStyles = useStyleUpdate(styleRoutes);
 
   if (!hasLoadedStyles) return;
 

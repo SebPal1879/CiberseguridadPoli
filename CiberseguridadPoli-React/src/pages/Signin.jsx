@@ -5,7 +5,6 @@ import Form from "../components/Form";
 import Input from "../components/Input";
 import useAccessStyles from "../functions/useAccessStyles";
 import useStyleUpdate from "../functions/useStyleUpdate";
-import { useStyles } from "../contexts/StylesContext";
 import { AUTH_INFO_URL } from "../functions/urls";
 import { useAccountInfo } from "../contexts/AccountContext";
 
@@ -23,11 +22,9 @@ function Signin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  useStyleUpdate(styleRoutes);
+  const hasLoadedStyles = useStyleUpdate(styleRoutes);
   useAccessStyles();
   const { setResponse } = useAccountInfo();
-
-  const { hasLoadedStyles } = useStyles();
 
   function submitLogin(e) {
     e.preventDefault();

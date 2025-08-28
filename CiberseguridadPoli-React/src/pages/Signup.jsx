@@ -6,7 +6,6 @@ import { submitRegisterForm } from "../api/access.api";
 import InputGroup from "../components/InputGroup";
 import useAccessStyles from "../functions/useAccessStyles";
 import useStyleUpdate from "../functions/useStyleUpdate";
-import { useStyles } from "../contexts/StylesContext";
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@elpoli\.edu\.co$/;
 const djangoPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
@@ -116,8 +115,7 @@ const toolTipDisplay = {
 };
 
 function Signup() {
-  useStyleUpdate(styleRoutes);
-  const { hasLoadedStyles } = useStyles();
+  const hasLoadedStyles = useStyleUpdate(styleRoutes);
 
   const navigate = useNavigate();
   useAccessStyles();

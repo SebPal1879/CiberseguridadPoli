@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import useStyleUpdate from "../functions/useStyleUpdate";
-import { useStyles } from "../contexts/StylesContext";
 
 const styleRoutes = {
   styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
@@ -8,8 +7,7 @@ const styleRoutes = {
 };
 
 function CourseOverview() {
-  useStyleUpdate(styleRoutes);
-  const { hasLoadedStyles } = useStyles();
+  const hasLoadedStyles = useStyleUpdate(styleRoutes);
 
   if (!hasLoadedStyles) return;
 

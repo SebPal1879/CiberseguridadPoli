@@ -2,7 +2,6 @@ import AccountPanel from "./AccountPanel";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 import { useAccountInfo } from "../../contexts/AccountContext";
 import useStyleUpdate from "../../functions/useStyleUpdate";
-import { useStyles } from "../../contexts/StylesContext";
 
 const styleRoutes = {
   styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
@@ -10,8 +9,7 @@ const styleRoutes = {
 };
 
 function Account() {
-  useStyleUpdate(styleRoutes);
-  const { hasLoadedStyles } = useStyles();
+  const hasLoadedStyles = useStyleUpdate(styleRoutes);
   const { responseStatus } = useAccountInfo();
 
   if (!hasLoadedStyles) return;

@@ -3,7 +3,6 @@ import Table from "../components/Table";
 import DynamicPagesContent from "../components/DynamicPagesContent";
 import { BACKEND_URL } from "../functions/urls";
 import useStyleUpdate from "../functions/useStyleUpdate";
-import { useStyles } from "../contexts/StylesContext";
 
 const BASE_URL = `${BACKEND_URL}/quiz/history`;
 const KEY = "ciberpoli_token";
@@ -14,9 +13,9 @@ const styleRoutes = {
 
 function History() {
   const { response } = useAuthFetching(KEY, BASE_URL);
-  useStyleUpdate(styleRoutes);
-  const { hasLoadedStyles } = useStyles();
+  const hasLoadedStyles = useStyleUpdate(styleRoutes);
   if (!hasLoadedStyles) return;
+
   const data = response.status === 200 ? response.data : [];
 
   return (

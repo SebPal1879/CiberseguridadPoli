@@ -5,7 +5,6 @@ import DynamicPagesContent from "../../components/DynamicPagesContent";
 import LecturePanel from "./LecturePanel";
 import { BACKEND_URL } from "../../functions/urls";
 import useStyleUpdate from "../../functions/useStyleUpdate";
-import { useStyles } from "../../contexts/StylesContext";
 
 const KEY = "ciberpoli_token";
 
@@ -15,8 +14,7 @@ const styleRoutes = {
 };
 
 function Lecture() {
-  useStyleUpdate(styleRoutes);
-  const { hasLoadedStyles } = useStyles();
+  const hasLoadedStyles = useStyleUpdate(styleRoutes);
 
   const navigate = useNavigate();
 
@@ -31,8 +29,6 @@ function Lecture() {
 
   async function completeSubmission() {
     const token = localStorage.getItem("ciberpoli_token");
-    console.log(token);
-    console.log(BASE_URL);
     const response = await postRequest(
       BASE_URL,
       {},

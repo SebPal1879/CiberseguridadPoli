@@ -3,12 +3,16 @@ import AuthedUserHeader from "../components/AuthedUserHeader";
 import { useAccountInfo } from "../contexts/AccountContext";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { useStyles } from "../contexts/StylesContext";
+import useStyleUpdate from "../functions/useStyleUpdate";
 
+const styleRoutes = {
+  styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],
+  requester: "Header",
+};
 // Valida si el usuario está iniciado para mostrar un header. Solo para usar en páginas estáticas; en páginas dinámicas estaría creando una petición más, cuando ya existen otras peticiones.
 function HeaderValidator() {
   const pathname = useLocation();
-  const { hasLoadedStyles } = useStyles();
+  const hasLoadedStyles = useStyleUpdate(styleRoutes);
   useEffect(
     function () {
       window.scrollTo(0, 0);
@@ -26,6 +30,7 @@ function HeaderValidator() {
     return;
 
   if (!hasLoadedStyles) return;
+
   return (
     <>{responseStatus === 200 ? <AuthedUserHeader /> : <StandardHeader />}</>
   );

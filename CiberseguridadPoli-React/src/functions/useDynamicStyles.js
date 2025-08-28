@@ -1,11 +1,10 @@
-import { useEffect } from "react";
-import { useStyles } from "../contexts/StylesContext";
+import { useEffect, useState } from "react";
 
 // Función para revisar si en el DOM ya hay hojas de estilos que se necesitan (y no volver a solicitarlñas), y para quitar las que no se necesitan (y evitar afectaciones en la visualización)
 function useDynamicStyles() {
   // Carga el state de neededStyles que será usado por los componentes que usen este hook. Los componentes deberán pasar sus respectivas rutas de estilos a esta variable.
-  const { neededStyles, setHasLoadedStyles } = useStyles();
-
+  const [neededStyles, setNeededStyles] = useState([]);
+  const [hasLoadedStyles, setHasLoadedStyles] = useState(false);
   useEffect(
     function () {
       // Convierte las rutas en un solo arreglo
@@ -43,7 +42,7 @@ function useDynamicStyles() {
         document.head.removeChild(itemToRemove);
       });
 
-      // 5.1. Si no hay estilos pendientes por aplicar, significa que la página se puede cargar y por ende lo que sigue no es necesario.
+      // // 5.1. Si no hay estilos pendientes por aplicar, significa que la página se puede cargar y por ende lo que sigue no es necesario.
       if (missingStyles.size === 0) {
         setHasLoadedStyles(true);
         return;
@@ -59,18 +58,20 @@ function useDynamicStyles() {
         link.href = href;
         link.dataset.dynamic = "true";
         link.onload = () => {
-          console.log("cargó");
           loadedStyles++;
-          if (loadedStyles === missingStylesArray.length)
+          if (loadedStyles === missingStylesArray.length) {
+            console.log("Cargó");
             setHasLoadedStyles(true);
+          }
         };
         document.head.appendChild(link);
         return link;
       });
     },
-
-    [neededStyles, setHasLoadedStyles]
+    [neededStyles]
   );
+
+  return { hasLoadedStyles, setNeededStyles };
 }
 
 export default useDynamicStyles;

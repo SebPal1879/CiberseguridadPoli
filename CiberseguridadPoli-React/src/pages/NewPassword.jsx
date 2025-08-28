@@ -22,8 +22,8 @@ const toolTipDisplay = {
   display: "block",
 };
 function NewPassword() {
-  useStyleUpdate(styleRoutes);
-  const { hasLoadedStyles } = useStyleUpdate();
+  const hasLoadedStyles = useStyleUpdate(styleRoutes);
+
   const navigate = useNavigate();
   const { uidb64, token } = useParams();
   const [password, setPassword] = useState(null);

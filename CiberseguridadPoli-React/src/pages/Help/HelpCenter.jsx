@@ -3,7 +3,6 @@ import HelpItem from "./HelpItem";
 import useStyleUpdate from "../../functions/useStyleUpdate";
 import Form from "../../components/Form";
 import { postRequest } from "../../api/access.api";
-import { useStyles } from "../../contexts/StylesContext";
 import { BACKEND_URL } from "../../functions/urls";
 
 const BASE_URL = `${BACKEND_URL}/support/new/`;
@@ -98,8 +97,7 @@ function reducer(state, action) {
 }
 
 function HelpCenter() {
-  useStyleUpdate(styleRoutes);
-  const { hasLoadedStyles } = useStyles();
+  const hasLoadedStyles = useStyleUpdate(styleRoutes);
   const [{ name, email, subject, phone, message }, dispatch] = useReducer(
     reducer,
     initialState

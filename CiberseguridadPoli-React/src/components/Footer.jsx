@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 
 const POLI_FB = "https://www.facebook.com/politecnicojic/";
@@ -8,7 +9,7 @@ const POLI_LI =
 
 // const styleRoutes = ["/styles/stylescursos.css", "/styles/all.min.css"];
 
-function Footer() {
+const Footer = memo(function Footer() {
   return (
     <footer>
       <div className="footer-content">
@@ -84,6 +85,6 @@ function Footer() {
       </div>
     </footer>
   );
-}
+});
 
 export default Footer;

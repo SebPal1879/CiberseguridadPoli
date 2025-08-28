@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { useAccountInfo } from "../contexts/AccountContext";
+import { memo } from "react";
 
-function AuthedUserHeader() {
+const AuthedUserHeader = memo(function AuthedUserHeader() {
   const { firstName, profilePictureURL } = useAccountInfo();
 
   return (
@@ -51,6 +52,6 @@ function AuthedUserHeader() {
       </div>
     </header>
   );
-}
+});
 
 export default AuthedUserHeader;
