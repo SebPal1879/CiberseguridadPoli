@@ -18,10 +18,10 @@ from learning.models import Lecture
 
       
 # Create your views here.
-class QuizView(viewsets.ModelViewSet):
-  serializer_class = QuizSerializer
-  queryset = Quiz.objects.filter(pk=1)
-  print(queryset)
+# class QuizView(viewsets.ModelViewSet):
+#   serializer_class = QuizSerializer
+#   queryset = Quiz.objects.filter(pk=1)
+#   print(queryset)
 
 class FetchQuizAPIView(APIView):
   authentication_classes = [TokenAuthentication]
