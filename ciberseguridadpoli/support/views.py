@@ -46,8 +46,3 @@ class SupportRequest(APIView):
     email_content = create_email_content(provided_name=data["name"],subject=data["subject"],recipient=data["email"])
     Util.send_email(email_content)
     return Response({"Mensaje" : "Se creó exitosamente el ticket"},status=status.HTTP_201_CREATED)
-
-
-
-
-

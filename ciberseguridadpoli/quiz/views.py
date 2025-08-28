@@ -136,11 +136,6 @@ class AddAnswerView(APIView):
       Answer.objects.create(answer=answer["answer"],is_correct=answer["is_correct"],question=question)
     return Response({"Exitoso": "Respuestas subidas con exito"},status=status.HTTP_201_CREATED)
   
-
-def Lunerview(request):
-  a = Quiz.objects.get(pk=2)
-  return HttpResponse(a)
-
 def array_constructor(questions,answers):
   questions_array = []
   answers_by_question = defaultdict(list)
