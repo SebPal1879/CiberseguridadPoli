@@ -2,10 +2,14 @@ import { useReducer } from "react";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import { Link, useNavigate } from "react-router-dom";
-import { submitRegisterForm } from "../api/access.api";
+import { postRequest } from "../api/access.api";
 import InputGroup from "../components/InputGroup";
 import useAccessStyles from "../functions/useAccessStyles";
 import useStyleUpdate from "../functions/useStyleUpdate";
+import { BACKEND_URL } from "../functions/urls";
+import { useAccountInfo } from "../contexts/AccountContext";
+
+const BASE_URL = `${BACKEND_URL}/signup/`;
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@elpoli\.edu\.co$/;
 const djangoPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
@@ -59,7 +63,7 @@ function reducer(state, action) {
       return { ...state, passwordConfirm: action.payload };
     case "formSubmit":
       {
-        action.e.preventDefault();
+        action.payload.e.preventDefault();
         if (
           state.validFirstName &&
           state.validLastName &&
@@ -67,15 +71,21 @@ function reducer(state, action) {
           state.validUserName &&
           state.validPassword
         ) {
-          async function formSubmission() {
-            const formResponse = await submitRegisterForm(state);
-            if (formResponse.status == 201) {
-              localStorage.setItem("ciberpoli_token", formResponse.data.token);
+          async function signup() {
+            try {
+              const response = await postRequest(BASE_URL, state);
+              if (response.status === 201) {
+                localStorage.setItem("ciberpoli_token", response.data.token);
+              }
+              alert("Cuenta creada con éxito");
+              action.payload.setResponse(response);
+              action.payload.navigate("/");
+            } catch (error) {
+              console.log(error);
+              alert("Ha ocurrido un error");
             }
-            alert("Cuenta creada con éxito");
-            action.navigate("/");
           }
-          formSubmission();
+          signup();
         } else {
           alert("Faltan campos por diligenciar.");
         }
@@ -137,6 +147,8 @@ function Signup() {
     dispatch,
   ] = useReducer(reducer, initialState);
 
+  const { setResponse } = useAccountInfo();
+
   if (!hasLoadedStyles) return;
 
   return (
@@ -149,7 +161,18 @@ function Signup() {
             </div>
             <img src="/logo.png" />
             <p className="login-box-msg">Registrate en CiberseguridadPoli</p>
-            <Form action={(e) => dispatch({ type: "formSubmit", e, navigate })}>
+            <Form
+              action={(e) =>
+                dispatch({
+                  type: "formSubmit",
+                  payload: {
+                    e,
+                    navigate,
+                    setResponse,
+                  },
+                })
+              }
+            >
               <div className="form-group position-relative">
                 <div className="input-group">
                   <Input

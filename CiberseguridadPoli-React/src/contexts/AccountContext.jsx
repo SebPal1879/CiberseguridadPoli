@@ -11,6 +11,7 @@ function AccountProvider({ children }) {
     AUTH_INFO_URL
   );
 
+  console.log(response.data?.user_profile_data);
   const responseStatus = response?.status;
   const {
     firstName,
@@ -22,7 +23,11 @@ function AccountProvider({ children }) {
     email,
     program,
     level,
-  } = responseStatus === 200 ? responseInformation(response.data) : "";
+  } =
+    responseStatus >= 200 && responseStatus < 300
+      ? responseInformation(response.data.user_profile_data)
+      : "";
+  console.log(firstName);
   return (
     <AccountContext.Provider
       value={{
@@ -35,8 +40,10 @@ function AccountProvider({ children }) {
         email,
         program,
         level,
-        responseStatus,
+
         loading,
+
+        responseStatus,
         setResponse,
       }}
     >

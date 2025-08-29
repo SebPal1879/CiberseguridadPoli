@@ -8,17 +8,17 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from .models import Profile
 from .serializer import SignupSerializer
-
-
+from signin.views import get_user_data
 
 class SignUpView(APIView):
   def post(self,request):
     serializer = SignupSerializer(data=request.data)
 
     if serializer.is_valid():
-      user = serializer.save()
+      user, profile = serializer.save()
+      user_profile_data = get_user_data(user,profile)
       token, created = Token.objects.get_or_create(user=user)
-      return Response({"mensaje":"Usuario creado exitosamente.", "token": token.key},status=status.HTTP_201_CREATED)
+      return Response({"mensaje":"Usuario creado exitosamente.", "token": token.key, "user_profile_data": user_profile_data},status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 

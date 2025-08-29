@@ -36,7 +36,7 @@ class SignupSerializer(serializers.ModelSerializer):
     user.set_password(validated_data['password'])
     user.save()
 
-    Profile.objects.create(user=user, profile_picture=profile_picture)
+    profile = Profile.objects.create(user=user, profile_picture=profile_picture)
 
     for section in Section.objects.all():
       for lecture in Lecture.objects.filter(section=section):
@@ -56,4 +56,4 @@ class SignupSerializer(serializers.ModelSerializer):
     for quiz in Quiz.objects.all():
       # Se asignan todos los quizzes al usuario (como default=False, estarán bloqueados, y se desbloquearán a medida que avance el curso)
       AvailableQuiz.objects.create(user=user,quiz=quiz)
-    return user
+    return user, profile

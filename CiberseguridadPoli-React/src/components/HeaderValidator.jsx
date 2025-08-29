@@ -29,7 +29,13 @@ function HeaderValidator() {
     return;
   if (!hasLoadedStyles) return;
   return (
-    <>{responseStatus === 200 ? <AuthedUserHeader /> : <StandardHeader />}</>
+    <>
+      {responseStatus >= 200 && responseStatus < 300 ? (
+        <AuthedUserHeader />
+      ) : (
+        <StandardHeader />
+      )}
+    </>
   );
 }
 

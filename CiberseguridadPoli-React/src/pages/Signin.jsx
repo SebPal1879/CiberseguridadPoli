@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getInformation, submitLoginForm } from "../api/access.api";
+import { postRequest } from "../api/access.api";
 import Form from "../components/Form";
 import Input from "../components/Input";
 import useAccessStyles from "../functions/useAccessStyles";
 import useStyleUpdate from "../functions/useStyleUpdate";
-import { AUTH_INFO_URL } from "../functions/urls";
 import { useAccountInfo } from "../contexts/AccountContext";
+import { BACKEND_URL } from "../functions/urls";
+
+const BASE_URL = `${BACKEND_URL}/signin/`;
 
 const styleRoutes = {
   styleRoutes: [
@@ -28,24 +30,22 @@ function Signin() {
 
   function submitLogin(e) {
     e.preventDefault();
-    async function login(username, password) {
+    async function signin(username, password) {
       const formData = { username, password };
       try {
-        const response = await submitLoginForm(formData);
+        const response = await postRequest(BASE_URL, formData);
         const token = response.data.token;
         localStorage.setItem("ciberpoli_token", token);
         alert("Autenticación exitosa.");
-        const accountInfo = await getInformation(AUTH_INFO_URL, {
-          Authorization: `Token ${token}`,
-        });
-        setResponse(accountInfo);
+        console.log(response);
+        setResponse(response);
         navigate("/course");
       } catch (err) {
         console.log(err);
         alert("Algo salió mal.");
       }
     }
-    login(username, password);
+    signin(username, password);
   }
 
   if (!hasLoadedStyles) return;

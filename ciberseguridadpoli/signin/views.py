@@ -20,26 +20,29 @@ from signup.models import Profile
 from ciberseguridadpoli.settings import FRONTEND_URL
 
 # Método para verificar si el usuario está autenticado y según esto mostrar info en pantalla; retorna información del mismo usuario.
+def get_user_data(user,profile):
+  user_data = AccountInfoSerializer(user)
+  profile_data = ProfileInfoSerializer(profile)
+  user_profile_data = user_data.data | profile_data.data
+  return user_profile_data
+
 class IsAuthenticated(APIView):
   authentication_classes = [TokenAuthentication]
   permission_classes = [IsAuthenticated]
   def get(self,request):
     user = User.objects.get(pk=request.user.id)
     profile = Profile.objects.get(user=user)
-
-    user_data = AccountInfoSerializer(user)
-    profile_data = ProfileInfoSerializer(profile)
-    user_profile_data = user_data.data | profile_data.data
-    return Response(user_profile_data,status=status.HTTP_200_OK)
+    user_profile_data = get_user_data(user,profile)
+    return Response({"user_profile_data": user_profile_data},status=status.HTTP_200_OK)
 
 class SignInView(APIView):
   def post(self,request):
-
     user = authenticate(username=request.data["username"], password=request.data["password"])
     if user is not None:
-      print("Autenticado con exito")
+      profile = Profile.objects.get(user=user)
+      user_profile_data = get_user_data(user,profile)
       token, created = Token.objects.get_or_create(user=user)
-      return Response({"mensaje": "Autenticado exitosamente", "token": token.key},status=status.HTTP_202_ACCEPTED)
+      return Response({"mensaje": "Autenticado exitosamente", "token": token.key, "user_profile_data": user_profile_data},status=status.HTTP_202_ACCEPTED)
     return Response({"mensaje": "Autenticación fallida"},status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
