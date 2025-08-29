@@ -9,7 +9,7 @@ function useDynamicStyles() {
     function () {
       // Convierte las rutas en un solo arreglo
       const stylesArray = neededStyles
-        .map((element) => element.styleRoutes)
+        .map((element) => element?.styleRoutes)
         .flat();
 
       if (!stylesArray.length) return;

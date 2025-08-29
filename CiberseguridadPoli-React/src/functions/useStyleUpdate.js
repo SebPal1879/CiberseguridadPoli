@@ -14,8 +14,9 @@ function useStyleUpdate(styleRoutes) {
       // Al desmontar el componente, se asegura de aclarar que dicho componente ya no necesita los estilos que pidió
       return () => {
         setNeededStyles((current) => {
+          console.log(styleRoutes);
           return current.filter(
-            (element) => element.requester !== styleRoutes.requester
+            (element) => element?.requester !== styleRoutes.requester
           );
         });
       };

@@ -2,8 +2,6 @@ import LectureContent from "./LectureContent";
 import { Link } from "react-router-dom";
 import Help from "../../components/Help";
 import useStyleUpdate from "../../functions/useStyleUpdate";
-import { useStyles } from "../../contexts/StylesContext";
-import { useEffect } from "react";
 
 const styleRoutes = {
   styleRoutes: ["/styles/styleslecciones.css", "/styles/all.min.css"],
