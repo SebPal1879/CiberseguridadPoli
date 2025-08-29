@@ -9,14 +9,15 @@ function useStyleUpdate(styleRoutes) {
   useEffect(
     function () {
       // Agrega los estilos solicitados al state existente
+      console.log("montando" + styleRoutes.requester);
       setNeededStyles((current) => [...current, styleRoutes]);
 
       // Al desmontar el componente, se asegura de aclarar que dicho componente ya no necesita los estilos que pidió
       return () => {
+        // Si es un componente hijo que tiene conditional rendering, el unmounting puede causar problemas
         setNeededStyles((current) => {
-          console.log(styleRoutes);
           return current.filter(
-            (element) => element?.requester !== styleRoutes.requester
+            (element) => element.requester !== styleRoutes.requester
           );
         });
       };

@@ -7,7 +7,7 @@ function useDynamicStyles() {
   const [hasLoadedStyles, setHasLoadedStyles] = useState(false);
   useEffect(
     function () {
-      // Convierte las rutas en un solo arreglo
+      console.log(neededStyles);
       const stylesArray = neededStyles
         .map((element) => element?.styleRoutes)
         .flat();
@@ -67,11 +67,12 @@ function useDynamicStyles() {
         document.head.appendChild(link);
         return link;
       });
+      // Convierte las rutas en un solo arreglo
     },
     [neededStyles]
   );
 
-  return { hasLoadedStyles, setNeededStyles };
+  return { hasLoadedStyles, setNeededStyles, setHasLoadedStyles };
 }
 
 export default useDynamicStyles;

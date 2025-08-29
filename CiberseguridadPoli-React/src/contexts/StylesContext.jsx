@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo } from "react";
+import { createContext, useContext } from "react";
 import useDynamicStyles from "../functions/useDynamicStyles";
 
 const StyleContext = createContext();
@@ -6,16 +6,10 @@ const StyleContext = createContext();
 function StyleProvider({ children }) {
   const { hasLoadedStyles, setNeededStyles } = useDynamicStyles();
 
-  const value = useMemo(
-    () => ({
-      hasLoadedStyles,
-      setNeededStyles,
-    }),
-    [hasLoadedStyles, setNeededStyles]
-  );
-
   return (
-    <StyleContext.Provider value={value}>{children}</StyleContext.Provider>
+    <StyleContext.Provider value={{ hasLoadedStyles, setNeededStyles }}>
+      {children}
+    </StyleContext.Provider>
   );
 }
 

@@ -16,6 +16,7 @@ import NewPassword from "./pages/NewPassword";
 import { AccountProvider } from "./contexts/AccountContext";
 import HeaderValidator from "./components/HeaderValidator";
 import FooterValidator from "./components/FooterValidator";
+import LecturePanel from "./pages/Lecture/LecturePanel";
 
 function App() {
   return (
@@ -35,7 +36,11 @@ function App() {
             <Route path="history" element={<History />} />
             <Route
               path="learning/section/:ids/lecture/:idl"
-              element={<Lecture />}
+              element={
+                <Lecture>
+                  <LecturePanel />
+                </Lecture>
+              }
             />
             <Route path="signup" element={<Signup />} />
             <Route path="signin" element={<Signin />} />

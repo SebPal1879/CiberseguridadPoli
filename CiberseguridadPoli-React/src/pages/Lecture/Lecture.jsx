@@ -14,7 +14,7 @@ const styleRoutes = {
 };
 
 function Lecture() {
-  const hasLoadedStyles = useStyleUpdate(styleRoutes);
+  useStyleUpdate(styleRoutes);
 
   const navigate = useNavigate();
 
@@ -43,11 +43,9 @@ function Lecture() {
     console.log(response);
   }
 
-  if (!hasLoadedStyles) return;
-
   return (
     <>
-      <DynamicPagesContent
+      {/* <DynamicPagesContent
         responseStatus={response.status}
         component={
           <LecturePanel
@@ -58,6 +56,13 @@ function Lecture() {
             data={data}
           />
         }
+      /> */}
+      <LecturePanel
+        ids={ids}
+        sectionName={sectionName}
+        completeSubmission={completeSubmission}
+        completed={completed}
+        data={data}
       />
     </>
   );

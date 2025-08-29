@@ -18,7 +18,6 @@ function LecturePanel({
   const hasLoadedStyles = useStyleUpdate(styleRoutes);
 
   if (!hasLoadedStyles) return;
-
   return (
     <main className="lesson-content">
       <div className="curso-breadcrumb">
