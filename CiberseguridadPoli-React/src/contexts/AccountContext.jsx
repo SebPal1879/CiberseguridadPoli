@@ -5,13 +5,13 @@ import { AUTH_INFO_URL } from "../functions/urls";
 import { KEY } from "../functions/urls";
 const AccountContext = createContext();
 
+// Contexto para mirar si el usuario está iniciado. De aquí en adelante, guarda la información y controla el header mostrado.
 function AccountProvider({ children }) {
   const { response, setResponse, loading } = useAuthFetching(
     KEY,
     AUTH_INFO_URL
   );
 
-  console.log(response.data?.user_profile_data);
   const responseStatus = response?.status;
   const {
     firstName,
@@ -27,7 +27,6 @@ function AccountProvider({ children }) {
     responseStatus >= 200 && responseStatus < 300
       ? responseInformation(response.data.user_profile_data)
       : "";
-  console.log(firstName);
   return (
     <AccountContext.Provider
       value={{
