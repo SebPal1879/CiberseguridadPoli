@@ -127,7 +127,7 @@ class LectureContentsView(APIView):
     lecture_contents_serializer = LectureContentSerializer(lecture_contents,many=True)
     lecture_serializer = LectureSerializer(lecture)
     availability_serializer = AvailabilityCompletionSerializer(availability)
-    return Response([lecture_contents_serializer.data, lecture_serializer.data,availability_serializer.data],status=status.HTTP_200_OK)
+    return Response(data=[lecture_contents_serializer.data, lecture_serializer.data,availability_serializer.data],status=status.HTTP_200_OK)
   
 
   def post(self,request,section_id,lecture_id):

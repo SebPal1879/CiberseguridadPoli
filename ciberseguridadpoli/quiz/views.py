@@ -1,6 +1,5 @@
 from collections import defaultdict
 
-from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.db.models import Subquery
 from django.core.exceptions import ObjectDoesNotExist
@@ -32,9 +31,9 @@ class FetchQuizAPIView(APIView):
     try:
       quiz_availability = AvailableQuiz.objects.get(user=user,quiz=quiz)
     except ObjectDoesNotExist:
-      return Response({"Error": "No se ha registrado la disponibilidad del desafío para este usuario"},status=status.HTTP_404_NOT_FOUND)
+      return Response(data={"Error": "No se ha registrado la disponibilidad del desafío para este usuario"},status=status.HTTP_404_NOT_FOUND)
     if not quiz_availability.is_available:
-      return Response({"Error": "El quiz no está disponible para este usuario"},status=status.HTTP_400_BAD_REQUEST)
+      return Response(data={"Error": "El quiz no está disponible para este usuario"},status=status.HTTP_400_BAD_REQUEST)
     questions = Question.objects.filter(quiz=quiz)
     answers = Answer.objects.filter(question__in=Subquery(questions.values('id')))
 
@@ -44,7 +43,7 @@ class FetchQuizAPIView(APIView):
 
     returned_array = array_constructor(question_serializer.data,answer_serializer.data)
     #print(returned_array)
-    return Response([returned_array,quiz_serializer.data], status=status.HTTP_200_OK)
+    return Response(data=[returned_array,quiz_serializer.data], status=status.HTTP_200_OK)
   
 class AvailableQuizzesView(APIView):
   authentication_classes = [TokenAuthentication]
@@ -54,11 +53,11 @@ class AvailableQuizzesView(APIView):
     user = User.objects.get(pk=request.user.id)
     quiz_availability = AvailableQuiz.objects.filter(user=user,is_available=True)
     if not quiz_availability.exists():
-      return Response({"Error":"Parece que no se ha registrado la disponibilidad de ningún desafío para este usuario."}, status=status.HTTP_404_NOT_FOUND)
+      return Response(data={"Error":"Parece que no se ha registrado la disponibilidad de ningún desafío para este usuario."}, status=status.HTTP_404_NOT_FOUND)
     #quiz_availability_serializer = AvailableQuizSerializer(quiz_availability,many=True)
     user_quizzes = Quiz.objects.filter(id__in=Subquery(quiz_availability.values('quiz')))
     user_quizzes_serializer = QuizSerializer(user_quizzes,many=True)
-    return Response(user_quizzes_serializer.data,status=status.HTTP_200_OK)
+    return Response(data=user_quizzes_serializer.data,status=status.HTTP_200_OK)
 
 class QuizCompletionView(APIView):
   authentication_classes = [TokenAuthentication]
@@ -72,7 +71,7 @@ class QuizCompletionView(APIView):
       # Valida si el quiz está disponible para el usuario
       quiz_availability = AvailableQuiz.objects.get(user=user,quiz=quiz)
       if not quiz_availability.is_available:
-        return Response({"Error": "Este quiz no está disponible para el usuario"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(data={"Error": "Este quiz no está disponible para el usuario"}, status=status.HTTP_400_BAD_REQUEST)
       
       quiz_completion = QuizCompletion.objects.create(user=user,quiz=quiz,score=score)
       quiz_completion_serializer = QuizCompletionSerializer(quiz_completion)
@@ -80,7 +79,7 @@ class QuizCompletionView(APIView):
       
     # Retorna error si no hay disponibilidad registrada para el usuario.
     except ObjectDoesNotExist:
-      return Response({"Error": "No se ha encontrado registro de disponibilidad del quiz para el usuario."}, status=status.HTTP_404_NOT_FOUND)
+      return Response(data={"Error": "No se ha encontrado registro de disponibilidad del quiz para el usuario."}, status=status.HTTP_404_NOT_FOUND)
     
 class QuizHistoryView(APIView):
   authentication_classes = [TokenAuthentication]
@@ -89,9 +88,9 @@ class QuizHistoryView(APIView):
     user = User.objects.get(pk=request.user.id)
     completed_quizzes = QuizCompletion.objects.filter(user=user)
     if not completed_quizzes:
-      return Response({"Error": "No se ha encontrado ningún quiz para el usuario"},status=status.HTTP_404_NOT_FOUND)
+      return Response(data={"Error": "No se ha encontrado ningún quiz para el usuario"},status=status.HTTP_404_NOT_FOUND)
     completed_quizzes_serializer = QuizCompletionSerializer(completed_quizzes,many=True)
-    return Response(completed_quizzes_serializer.data,status=status.HTTP_200_OK)
+    return Response(data=completed_quizzes_serializer.data,status=status.HTTP_200_OK)
   
 
 class AddQuizView(APIView):
@@ -106,7 +105,7 @@ class AddQuizView(APIView):
         print("No se encontró la lección asociada al quiz. Continuando con el siguiente elemento.")
         continue
       Quiz.objects.create(name=quiz["name"],description=quiz["description"],lecture=lecture)
-    return Response({"Exitoso": "Quizzes subidos"},status=status.HTTP_201_CREATED)
+    return Response(data={"Exitoso": "Quizzes subidos"},status=status.HTTP_201_CREATED)
 
 class AddQuestionView(APIView):
   authentication_classes = [TokenAuthentication]
@@ -120,7 +119,7 @@ class AddQuestionView(APIView):
         print("No se encontró el quiz asociado al pregunta. Continuando con el siguiente elemento.")
         continue
       Question.objects.create(statement=question["statement"],points=question["points"],quiz=quiz)
-    return Response({"Exitoso": "Preguntas subidas"},status=status.HTTP_201_CREATED)
+    return Response(data={"Exitoso": "Preguntas subidas"},status=status.HTTP_201_CREATED)
   
 class AddAnswerView(APIView):
   authentication_classes = [TokenAuthentication]
@@ -134,7 +133,7 @@ class AddAnswerView(APIView):
         print("No se encontró la pregunta asociada a la respuesta. Continuando con el siguiente elemento.")
         continue  
       Answer.objects.create(answer=answer["answer"],is_correct=answer["is_correct"],question=question)
-    return Response({"Exitoso": "Respuestas subidas con exito"},status=status.HTTP_201_CREATED)
+    return Response(data={"Exitoso": "Respuestas subidas con exito"},status=status.HTTP_201_CREATED)
   
 def array_constructor(questions,answers):
   questions_array = []
