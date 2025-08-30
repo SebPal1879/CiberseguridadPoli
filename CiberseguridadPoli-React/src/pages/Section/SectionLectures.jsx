@@ -12,9 +12,9 @@ function SectionLectures({ data }) {
           <i className="fas fa-list-ol"></i> Lecciones:
         </h4>
         <ul className="lecciones-list">
-          {data.map((el) =>
-            el.available ? <LectureListItem lecture={el} key={el.id} /> : <></>
-          )}
+          {data.map((el) => (
+            <LectureListItem lecture={el} key={el.id} />
+          ))}
         </ul>
       </div>
     </div>

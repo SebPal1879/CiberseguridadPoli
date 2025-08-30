@@ -18,10 +18,10 @@ class SignUpView(APIView):
       user, profile = serializer.save()
       user_profile_data = get_user_data(user,profile)
       token, created = Token.objects.get_or_create(user=user)
-      return Response({"mensaje":"Usuario creado exitosamente.", "token": token.key, "user_profile_data": user_profile_data},status=status.HTTP_201_CREATED)
+      return Response(data={"mensaje":"Usuario creado exitosamente.", "token": token.key, "user_profile_data": user_profile_data},status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-
+# Vista de prueba; actualmente no se pretende usar para la experiencia del usuario final.
 class ImgUploadView(APIView):
   authentication_classes = [TokenAuthentication]
   permission_classes = [IsAuthenticated]
@@ -31,7 +31,7 @@ class ImgUploadView(APIView):
 
     perfil.profile_picture = request.FILES.get("imagen")
     perfil.save()
-    return Response({"mensaje": "Mensaje"},status=status.HTTP_200_OK)
+    return Response(data={"mensaje": "Mensaje"},status=status.HTTP_200_OK)
   
 class ChangeAccountInfoView(APIView):
   authentication_classes = [TokenAuthentication]
@@ -46,8 +46,8 @@ class ChangeAccountInfoView(APIView):
 
       profile.save()
     except:
-      return Response({"Mensaje" : "No se pudo actualizar la información"}, status=status.HTTP_400_BAD_REQUEST)
-    return Response({"Mensaje" : "Actualizado correctamente."}, status=status.HTTP_200_OK)
+      return Response(data={"Mensaje" : "No se pudo actualizar la información"}, status=status.HTTP_400_BAD_REQUEST)
+    return Response(data={"Mensaje" : "Actualizado correctamente."}, status=status.HTTP_200_OK)
 
 
 

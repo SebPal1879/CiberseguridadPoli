@@ -16,7 +16,6 @@ function useAuthFetching(key, url) {
             Authorization: `Token ${item}`,
           });
           setResponse(response);
-          console.log(response);
         } catch (error) {
           setResponse(error);
         } finally {
