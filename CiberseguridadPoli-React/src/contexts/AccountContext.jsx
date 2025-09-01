@@ -1,15 +1,18 @@
 import { createContext, useContext } from "react";
 import useAuthFetching from "../api/useAuthFetching";
 import responseInformation from "../functions/responseInformation";
-import { AUTH_INFO_URL } from "../functions/urls";
-import { KEY } from "../functions/urls";
+
+import { API_URL } from "../../urls";
+import { TOKEN_KEY } from "../../urls";
 const AccountContext = createContext();
+
+const BASE_URL = `${API_URL}/signin/authenticated`;
 
 // Contexto para mirar si el usuario está iniciado. De aquí en adelante, guarda la información y controla el header mostrado.
 function AccountProvider({ children }) {
   const { response, setResponse, loading } = useAuthFetching(
-    KEY,
-    AUTH_INFO_URL
+    TOKEN_KEY,
+    BASE_URL
   );
 
   const responseStatus = response?.status;

@@ -6,10 +6,10 @@ import { postRequest } from "../api/access.api";
 import InputGroup from "../components/InputGroup";
 import useAccessStyles from "../functions/useAccessStyles";
 import useStyleUpdate from "../functions/useStyleUpdate";
-import { BACKEND_URL } from "../functions/urls";
+import { API_URL } from "../../urls.js";
 import { useAccountInfo } from "../contexts/AccountContext";
 
-const BASE_URL = `${BACKEND_URL}/signup/`;
+const BASE_URL = `${API_URL}/signup/`;
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@elpoli\.edu\.co$/;
 const djangoPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;

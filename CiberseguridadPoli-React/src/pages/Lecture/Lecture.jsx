@@ -1,9 +1,8 @@
 import useAuthFetching from "../../api/useAuthFetching";
 import { useNavigate, useParams } from "react-router-dom";
 import { postRequest } from "../../api/access.api";
-import DynamicPagesContent from "../../components/DynamicPagesContent";
 import LecturePanel from "./LecturePanel";
-import { BACKEND_URL } from "../../functions/urls";
+import { API_URL } from "../../../urls.js";
 import useStyleUpdate from "../../functions/useStyleUpdate";
 
 const KEY = "ciberpoli_token";
@@ -19,7 +18,7 @@ function Lecture() {
   const navigate = useNavigate();
 
   const { ids, idl } = useParams();
-  const BASE_URL = `${BACKEND_URL}/learning/section/${ids}/lecture/${idl}/`;
+  const BASE_URL = `${API_URL}/learning/section/${ids}/lecture/${idl}/`;
   const { response } = useAuthFetching(KEY, BASE_URL);
 
   const data = response.status === 200 ? response.data[0] : [];

@@ -3,7 +3,7 @@ Función para desestructurar la información de una respuesta tipo objeto y reto
 para evitar repetir el mismo procedimiento una y otra vez donde se solicite la información.
 */
 
-import { BACKEND_URL } from "./urls";
+import { API_URL } from "../../urls.js";
 function responseInformation(responseData) {
   const id = responseData.id;
   const email = responseData.email;
@@ -14,7 +14,7 @@ function responseInformation(responseData) {
   const level = responseData.level;
   console.log(responseData.profile_picture);
   const profilePictureURL = responseData.profile_picture
-    ? BACKEND_URL + responseData.profile_picture
+    ? API_URL + responseData.profile_picture
     : null;
   const program = responseData.program;
   return {

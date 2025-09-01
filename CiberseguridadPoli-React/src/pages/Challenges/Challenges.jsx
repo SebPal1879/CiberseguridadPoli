@@ -2,12 +2,12 @@ import useAuthFetching from "../../api/useAuthFetching";
 import AvailableChallengeInfo from "./AvailableChallengeInfo";
 import ChallengeOverview from "./ChallengeOverview";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
-import { BACKEND_URL } from "../../functions/urls";
+import { API_URL } from "../../../urls.js";
 import Loading from "../../components/Loading";
 import useStyleUpdate from "../../functions/useStyleUpdate";
 
 const KEY = "ciberpoli_token";
-const BASE_URL = `${BACKEND_URL}/quiz/`;
+const BASE_URL = `${API_URL}/quiz/`;
 
 const styleRoutes = {
   styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],

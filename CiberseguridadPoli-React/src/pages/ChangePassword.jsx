@@ -1,6 +1,6 @@
 import Form from "../components/Form";
 import { useState } from "react";
-import { BACKEND_URL } from "../functions/urls";
+import { API_URL } from "../../urls.js";
 import useStyleUpdate from "../functions/useStyleUpdate";
 import BackButton from "../components/BackButton";
 import { postRequest } from "../api/access.api";
@@ -13,7 +13,7 @@ const styleRoutes = {
   requester: "ChangePassword",
 };
 
-const BASE_URL = `${BACKEND_URL}/signin/request-reset-email/`;
+const BASE_URL = `${API_URL}/signin/request-reset-email/`;
 
 function ChangePassword() {
   const hasLoadedStyles = useStyleUpdate(styleRoutes);

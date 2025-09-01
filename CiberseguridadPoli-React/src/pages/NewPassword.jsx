@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Input from "../components/Input";
-import { BACKEND_URL } from "../functions/urls";
+import { API_URL } from "../../urls.js";
 import useStyleUpdate from "../functions/useStyleUpdate";
 import { postRequest } from "../api/access.api";
 
@@ -12,7 +12,7 @@ const styleRoutes = {
   requester: "NewPassword",
 };
 
-const BASE_URL = `${BACKEND_URL}/signin/password-reset/`;
+const BASE_URL = `${API_URL}/signin/password-reset/`;
 
 const djangoPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 function validPassword(password) {

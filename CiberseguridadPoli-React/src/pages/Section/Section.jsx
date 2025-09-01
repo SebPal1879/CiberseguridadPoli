@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import useAuthFetching from "../../api/useAuthFetching";
 import DynamicPagesContent from "../../components/DynamicPagesContent";
 import SectionLectures from "./SectionLectures";
-import { BACKEND_URL } from "../../functions/urls";
+import { API_URL } from "../../../urls.js";
 import useStyleUpdate from "../../functions/useStyleUpdate";
 
 const KEY = "ciberpoli_token";
@@ -19,7 +19,7 @@ const styleRoutes = {
 function Section() {
   const hasLoadedStyles = useStyleUpdate(styleRoutes);
   const { id } = useParams();
-  const BASE_URL = `${BACKEND_URL}/learning/section/${id}/`;
+  const BASE_URL = `${API_URL}/learning/section/${id}/`;
   const { response } = useAuthFetching(KEY, BASE_URL);
   console.log(response);
   if (!hasLoadedStyles) return;

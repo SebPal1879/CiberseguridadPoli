@@ -6,9 +6,9 @@ import Input from "../components/Input";
 import useAccessStyles from "../functions/useAccessStyles";
 import useStyleUpdate from "../functions/useStyleUpdate";
 import { useAccountInfo } from "../contexts/AccountContext";
-import { BACKEND_URL } from "../functions/urls";
+import { API_URL } from "../../urls.js";
 
-const BASE_URL = `${BACKEND_URL}/signin/`;
+const BASE_URL = `${API_URL}/signin/`;
 
 const styleRoutes = {
   styleRoutes: [

@@ -51,7 +51,7 @@ class PasswordReset(APIView):
       
       token = PasswordResetTokenGenerator().make_token(user=user) 
       relative_link = reverse('password-reset-confirm', kwargs={'uidb64':uidb64,'token':token})
-      absurl = settings.FRONTEND_URL+  relative_link
+      absurl = settings.FRONTEND_URL +  relative_link
 
       email_body = "Hola,\nUsa el enlace abajo para reiniciar tu contraseña.\n" + absurl
       data = {'email_body': email_body, 'to_email': user.email, 'email_subject': 'Reinicia tu contraseña.'}

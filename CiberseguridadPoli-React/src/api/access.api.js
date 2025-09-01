@@ -1,8 +1,8 @@
 import axios from "axios";
-import { BACKEND_URL } from "../functions/urls";
+import { API_URL } from "../../urls.js";
 
 export function getAll(id) {
-  return axios.post(`${BACKEND_URL}/quiz/find-quiz/`, {
+  return axios.post(`${API_URL}/quiz/find-quiz/`, {
     id,
   });
 }

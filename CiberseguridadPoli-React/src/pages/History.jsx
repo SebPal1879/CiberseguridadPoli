@@ -1,10 +1,10 @@
 import useAuthFetching from "../api/useAuthFetching";
 import Table from "../components/Table";
 import DynamicPagesContent from "../components/DynamicPagesContent";
-import { BACKEND_URL } from "../functions/urls";
+import { API_URL } from "../../urls.js";
 import useStyleUpdate from "../functions/useStyleUpdate";
 
-const BASE_URL = `${BACKEND_URL}/quiz/history`;
+const BASE_URL = `${API_URL}/quiz/history`;
 const KEY = "ciberpoli_token";
 const styleRoutes = {
   styleRoutes: ["/styles/stylescursos.css", "/styles/all.min.css"],

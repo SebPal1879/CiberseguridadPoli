@@ -3,9 +3,9 @@ import HelpItem from "./HelpItem";
 import useStyleUpdate from "../../functions/useStyleUpdate";
 import Form from "../../components/Form";
 import { postRequest } from "../../api/access.api";
-import { BACKEND_URL } from "../../functions/urls";
+import { API_URL } from "../../../urls.js";
 
-const BASE_URL = `${BACKEND_URL}/support/new/`;
+const BASE_URL = `${API_URL}/support/new/`;
 
 const faq = [
   {

@@ -14,9 +14,9 @@ function DynamicPagesContent({
       error = <Error customErrorMessage={customErrorMessage} />;
       break;
     default:
-      console.log("Respuesta desconocida");
+      console.log(responseStatus);
   }
-  return <>{responseStatus === 200 ? component : error}</>;
+  return <>{200 <= responseStatus <= 300 ? component : error}</>;
 }
 
 export default DynamicPagesContent;

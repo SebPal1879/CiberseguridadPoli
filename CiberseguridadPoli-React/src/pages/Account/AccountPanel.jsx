@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { useAccountInfo } from "../../contexts/AccountContext";
 import Form from "../../components/Form";
 import Input from "../../components/Input";
-import { BACKEND_URL } from "../../functions/urls";
+import { API_URL } from "../../../urls.js";
 import { postRequest } from "../../api/access.api";
 
-const BASE_URL = `${BACKEND_URL}/signup/change/`;
+const BASE_URL = `${API_URL}/signup/change/`;
 
 function AccountPanel() {
   const {
