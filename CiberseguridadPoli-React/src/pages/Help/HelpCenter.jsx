@@ -76,7 +76,6 @@ function reducer(state, action) {
 
     case "submit": {
       action.e.preventDefault();
-      console.log(state);
       async function submitTicket() {
         try {
           const response = await postRequest(BASE_URL, state, {});

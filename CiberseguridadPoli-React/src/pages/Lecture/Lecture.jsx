@@ -39,7 +39,6 @@ function Lecture() {
     } else {
       alert("Ha ocurrido un error");
     }
-    console.log(response);
   }
 
   return (

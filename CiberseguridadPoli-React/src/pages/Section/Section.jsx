@@ -21,7 +21,7 @@ function Section() {
   const { id } = useParams();
   const BASE_URL = `${API_URL}/learning/section/${id}/`;
   const { response } = useAuthFetching(KEY, BASE_URL);
-  console.log(response);
+
   if (!hasLoadedStyles) return;
 
   const data = response.status === 401 ? [] : response.data;

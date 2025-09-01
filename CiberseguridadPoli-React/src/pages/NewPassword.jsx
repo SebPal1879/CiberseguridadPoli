@@ -36,7 +36,7 @@ function NewPassword() {
       async function validateToken() {
         try {
           const response = await axios.get(getRequestURL);
-          console.log(response.data);
+
           setEmail(response.data.email);
         } catch (err) {
           console.log(err);

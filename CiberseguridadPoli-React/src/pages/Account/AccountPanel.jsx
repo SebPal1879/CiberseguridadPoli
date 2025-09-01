@@ -28,7 +28,7 @@ function AccountPanel() {
     e.preventDefault();
     const token = localStorage.getItem("ciberpoli_token");
     const newData = { level: formLevel, telephone: formTelephoneNumber };
-    console.log(newData);
+
     async function changeAccountInfo() {
       const response = await postRequest(BASE_URL, newData, {
         Authorization: `Token ${token}`,

@@ -22,7 +22,6 @@ function reducer(state, action) {
         status: "loading",
       };
     case "received":
-      console.log(action.payload);
       return {
         ...state,
         questions: action.payload[0],
@@ -38,7 +37,6 @@ function reducer(state, action) {
 
     case "newAnswer": {
       const question = state.questions.at(state.index);
-      console.log(question);
       return {
         ...state,
         answer: action.payload,

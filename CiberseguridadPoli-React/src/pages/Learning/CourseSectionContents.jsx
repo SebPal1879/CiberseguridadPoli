@@ -16,7 +16,7 @@ function CourseSectionContents({ sections }) {
 
         <main className="unidades-container">
           <section className="unidades-list">
-            {sections.map((element) => (
+            {sections?.map((element) => (
               <SectionCard data={element} key={element.id} />
             ))}
           </section>
