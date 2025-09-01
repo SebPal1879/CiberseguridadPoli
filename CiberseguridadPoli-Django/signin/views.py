@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
@@ -15,7 +14,7 @@ from django.urls import reverse
 from ciberseguridadpoli.utils import Util
 from .serializer import AccountInfoSerializer, ProfileInfoSerializer
 from signup.models import Profile
-from ciberseguridadpoli.settings import FRONTEND_URL
+from django.conf import settings
 
 def get_user_data(user,profile):
   user_data = AccountInfoSerializer(user)
@@ -31,7 +30,7 @@ class IsAuthenticated(APIView):
     user = User.objects.get(pk=request.user.id)
     profile = Profile.objects.get(user=user)
     user_profile_data = get_user_data(user,profile)
-    return Response({"user_profile_data": user_profile_data},status=status.HTTP_200_OK)
+    return Response(data={"user_profile_data": user_profile_data},status=status.HTTP_200_OK)
 
 class SignInView(APIView):
   def post(self,request):
@@ -40,8 +39,8 @@ class SignInView(APIView):
       profile = Profile.objects.get(user=user)
       user_profile_data = get_user_data(user,profile)
       token, created = Token.objects.get_or_create(user=user)
-      return Response({"mensaje": "Autenticado exitosamente", "token": token.key, "user_profile_data": user_profile_data},status=status.HTTP_202_ACCEPTED)
-    return Response({"mensaje": "Autenticación fallida"},status=status.HTTP_400_BAD_REQUEST)
+      return Response(data={"mensaje": "Autenticado exitosamente", "token": token.key, "user_profile_data": user_profile_data},status=status.HTTP_202_ACCEPTED)
+    return Response(data={"mensaje": "Autenticación fallida"},status=status.HTTP_400_BAD_REQUEST)
 
 class PasswordReset(APIView):
   def post(self,request):
@@ -52,14 +51,14 @@ class PasswordReset(APIView):
       
       token = PasswordResetTokenGenerator().make_token(user=user) 
       relative_link = reverse('password-reset-confirm', kwargs={'uidb64':uidb64,'token':token})
-      absurl = FRONTEND_URL+  relative_link
+      absurl = settings.FRONTEND_URL+  relative_link
 
       email_body = "Hola,\nUsa el enlace abajo para reiniciar tu contraseña.\n" + absurl
       data = {'email_body': email_body, 'to_email': user.email, 'email_subject': 'Reinicia tu contraseña.'}
       Util.send_email(data)
     except ObjectDoesNotExist:
       print("No existe")
-    return Response({"Mensaje":"Si existe este correo, se ha enviado un enlace de reinicio."},status=status.HTTP_200_OK)
+    return Response(data={"Mensaje":"Si existe este correo, se ha enviado un enlace de reinicio."},status=status.HTTP_200_OK)
 
 class PasswordTokenCheck(APIView):
   def post(self,request,uidb64,token):
@@ -67,21 +66,21 @@ class PasswordTokenCheck(APIView):
       id = smart_str(urlsafe_base64_decode(uidb64))
       user = User.objects.get(pk=id)
       if not PasswordResetTokenGenerator().check_token(user,token):
-        return Response({"Error": "El token no es válido. Por favor, solicita uno nuevo"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(data={"Error": "El token no es válido. Por favor, solicita uno nuevo"}, status=status.HTTP_400_BAD_REQUEST)
       password = request.data["password"]
       user.set_password(password)
       user.save()
-      return Response({"Exitoso": True, "Mensaje": "Credenciales válidas", 'uidb64':uidb64, 'token': token},status=status.HTTP_200_OK)
+      return Response(data={"Exitoso": True, "Mensaje": "Credenciales válidas", 'uidb64':uidb64, 'token': token},status=status.HTTP_200_OK)
 
     except DjangoUnicodeDecodeError:
-      return Response({"Error": "El token no es válido."})
+      return Response(data={"Error": "El token no es válido."})
   
   def get(self,request,uidb64,token):
     try:
       id = smart_str(urlsafe_base64_decode(uidb64))
       user = User.objects.get(pk= id)
       if not PasswordResetTokenGenerator().check_token(user,token):
-        return Response({"Error": "El token no es válido. Por favor, solicita uno nuevo"})
-      return Response({"email": user.email}, status=status.HTTP_200_OK)
+        return Response(data={"Error": "El token no es válido. Por favor, solicita uno nuevo"})
+      return Response(data={"email": user.email}, status=status.HTTP_200_OK)
     except DjangoUnicodeDecodeError:
-      return Response({"Error": "El token no es válido."})
+      return Response(data={"Error": "El token no es válido."})

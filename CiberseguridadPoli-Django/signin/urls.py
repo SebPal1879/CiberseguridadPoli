@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import SignInView, profile, PasswordReset, PasswordTokenCheck,IsAuthenticated
+from .views import SignInView, PasswordReset, PasswordTokenCheck, IsAuthenticated
 
 urlpatterns = [
   path('',SignInView.as_view()),

@@ -41,11 +41,11 @@ class SupportRequest(APIView):
     try:
       Ticket.objects.create(**data)
     except:
-      return Response({"Mensaje" : "La creación del ticket falló"},status=status.HTTP_400_BAD_REQUEST)
+      return Response(data={"Mensaje" : "La creación del ticket falló"},status=status.HTTP_400_BAD_REQUEST)
 
     email_content = create_email_content(provided_name=data["name"],subject=data["subject"],recipient=data["email"])
     try:
       Util.send_email(email_content)
     except:
       print("No se envió el correo")
-    return Response({"Mensaje" : "Se creó exitosamente el ticket"},status=status.HTTP_201_CREATED)
+    return Response(data={"Mensaje" : "Se creó exitosamente el ticket"},status=status.HTTP_201_CREATED)

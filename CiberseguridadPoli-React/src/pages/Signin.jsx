@@ -37,7 +37,6 @@ function Signin() {
         const token = response.data.token;
         localStorage.setItem("ciberpoli_token", token);
         alert("Autenticación exitosa.");
-        console.log(response);
         setResponse(response);
         navigate("/course");
       } catch (err) {

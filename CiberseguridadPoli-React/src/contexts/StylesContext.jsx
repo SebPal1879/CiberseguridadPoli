@@ -4,10 +4,13 @@ import useDynamicStyles from "../functions/useDynamicStyles";
 const StyleContext = createContext();
 
 function StyleProvider({ children }) {
-  const { hasLoadedStyles, setNeededStyles } = useDynamicStyles();
+  const { hasLoadedStyles, setNeededStyles, setHasLoadedStyles } =
+    useDynamicStyles();
 
   return (
-    <StyleContext.Provider value={{ hasLoadedStyles, setNeededStyles }}>
+    <StyleContext.Provider
+      value={{ hasLoadedStyles, setNeededStyles, setHasLoadedStyles }}
+    >
       {children}
     </StyleContext.Provider>
   );

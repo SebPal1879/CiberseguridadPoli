@@ -19,7 +19,7 @@ class SignUpView(APIView):
       user_profile_data = get_user_data(user,profile)
       token, created = Token.objects.get_or_create(user=user)
       return Response(data={"mensaje":"Usuario creado exitosamente.", "token": token.key, "user_profile_data": user_profile_data},status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 # Vista de prueba; actualmente no se pretende usar para la experiencia del usuario final.
 class ImgUploadView(APIView):

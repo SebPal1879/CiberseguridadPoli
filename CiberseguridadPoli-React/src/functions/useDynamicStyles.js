@@ -7,7 +7,6 @@ function useDynamicStyles() {
   const [hasLoadedStyles, setHasLoadedStyles] = useState(false);
   useEffect(
     function () {
-      console.log(neededStyles);
       const stylesArray = neededStyles
         .map((element) => element?.styleRoutes)
         .flat();
@@ -49,7 +48,6 @@ function useDynamicStyles() {
       }
 
       const missingStylesArray = Array.from(missingStyles);
-      console.log(missingStylesArray);
 
       // 6. Se insertan los estilos solicitados.
       missingStylesArray.map((href) => {
@@ -60,7 +58,6 @@ function useDynamicStyles() {
         link.onload = () => {
           loadedStyles++;
           if (loadedStyles === missingStylesArray.length) {
-            console.log("Cargó");
             setHasLoadedStyles(true);
           }
         };

@@ -204,10 +204,14 @@ function HelpCenter() {
                       <option value="" disabled selected>
                         Selecciona un tema
                       </option>
-                      <option value="technical">Problema técnico</option>
-                      <option value="course">Consulta sobre cursos</option>
-                      <option value="account">Problema con mi cuenta</option>
-                      <option value="other">Otro</option>
+                      <option value="Problema técnico">Problema técnico</option>
+                      <option value="Consulta sobre curso">
+                        Consulta sobre cursos
+                      </option>
+                      <option value="Problema con mi cuenta">
+                        Problema con mi cuenta
+                      </option>
+                      <option value="Otro">Otro</option>
                     </select>
                   </div>
                   <div className="form-group">

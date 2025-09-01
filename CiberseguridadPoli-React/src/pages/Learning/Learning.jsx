@@ -14,12 +14,13 @@ const styleRoutes = {
 };
 
 function Learning() {
-  useStyleUpdate(styleRoutes);
+  const hasLoadedStyles = useStyleUpdate(styleRoutes);
   const { response, loading } = useAuthFetching(KEY, BASE_URL);
 
+  const data = response.status === 401 ? [] : response.data;
+  if (!hasLoadedStyles) return;
   if (loading) return <Loading />;
 
-  const data = response.status === 401 ? [] : response.data;
   return (
     <div>
       <DynamicPagesContent
