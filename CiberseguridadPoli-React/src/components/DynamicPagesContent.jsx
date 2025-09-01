@@ -16,7 +16,9 @@ function DynamicPagesContent({
     default:
       console.log(responseStatus);
   }
-  return <>{200 <= responseStatus <= 300 ? component : error}</>;
+  return (
+    <>{responseStatus >= 200 && responseStatus < 300 ? component : error}</>
+  );
 }
 
 export default DynamicPagesContent;
