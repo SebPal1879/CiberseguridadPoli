@@ -20,6 +20,7 @@ Este proyecto usa herramientas libres para el front-end y back-end. Las herramie
 * Django REST framework
 * Django CORS headers
 * Pillow
+* DJ Database URL
 
 Y más herramientas que vienen por defecto.
 ### Front-end
@@ -33,12 +34,12 @@ Y más herramientas que vienen por defecto.
 Teniendo en cuenta que el proyecto no está desplegado en la nube, para usarlo de manera local se requiere tener instalado [Python](https://www.python.org/downloads/) y [Node.js](https://nodejs.org/en/download) en tu computador. Las versiones de Python y Node.js usadas son 3.13 y 22.13, respectivamente. Una vez instaladas estas herramientas, debes clonar el proyecto y acceder a su respectiva carpeta. Dentro de la carpeta del proyecto clonado, debes hacer lo siguiente:
 
 ### Activación del back-end
-En la terminal, introduce los siguientes comandos (sin los comentarios).
+Dentro de la carpeta descargada, abre la terminal e introduce los siguientes comandos (sin los comentarios).
 ```
 python -m venv venv // Crea el entorno virtual para aislar dependencias y evitar conflictos (solo se ejecuta este comando la primera vez).
 .\venv\Scripts\activate // Activa el entorno virtual
+cd .\CiberseguridadPoli-Django\ // Se cambia la ubicación a la raíz del backend.
 pip install -r requirements.txt // Instala todas las bibliotecas de Python usadas para este proyecto.
-cd ./ciberseguridadpoli/ // Cambia a la ruta del proyecto de Django.
 python manage.py runserver // Inicia el servidor de Django (por defecto en el localhost:8000).
 ```
 
@@ -48,7 +49,9 @@ En la terminal, dentro de la carpeta CiberseguridadPoli-React introduce los sigu
 npm install // Instala las dependencias de la plantilla de Vite + React.
 npm run dev // Inicializa el servidor front-end (por defecto en el localhost:5173).
 ```
-¡Y listo! Ya estará activado el proyecto y podrá accederse a los módulos con un correo con dominio del Politécnico Jaime Isaza Cadavid.
+Nota: la aplicación funciona con los puertos por defecto. Si se usan otros, también se debe configurar directamente en la aplicación.
+
+¡Y listo! Ya estará activado el proyecto y podrá accederse a los módulos a través de un correo con dominio del Politécnico Jaime Isaza Cadavid.
 ## ¿Ya está terminado el proyecto?
 No. El proyecto todavía no ha alcanzado su máximo potencial—¡y esto es dicho de manera optimista! Se pretende crear diferentes maneras de evaluar contenidos a través de la ludificación, junto con funcionalidades que hagan más amena la experiencia, como foros, diferentes maneras de instruir con módulos, etc.
 
