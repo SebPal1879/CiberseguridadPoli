@@ -160,7 +160,7 @@ function Signup() {
               <Link to="/">&larr;&nbsp;Volver a la página principal</Link>
             </div>
             <img src="/logo.png" />
-            <p className="login-box-msg">Registrate en CiberseguridadPoli</p>
+            <p className="login-box-msg">Regístrate en CiberseguridadPoli</p>
             <Form
               action={(e) =>
                 dispatch({
@@ -358,7 +358,7 @@ function Signup() {
                     id="passwordRepeat"
                     className="form-control"
                     placeholder="Repita la contraseña*"
-                    disabled={!password.length && true}
+                    disabled={!password.length}
                     value={passwordConfirm}
                     toggle="tooltip"
                     changeEvent={(e) => {
@@ -387,77 +387,14 @@ function Signup() {
                 </div>
               </div>
 
-              <div id="avatar-pick" className="input-group mb-3">
-                <input
-                  type="file"
-                  id="customFile"
-                  className="d-none"
-                  accept="image/*"
-                />
-                <label
-                  htmlFor="customFile"
-                  className="btn btn-outline-secondary"
-                  id="customFileLabel"
-                >
-                  Seleccionar archivo
-                </label>
-                <span id="fileName" className="form-control custom-file-name">
-                  Foto de perfil
-                </span>
-              </div>
-
-              <div
-                id="drop-area"
-                className="custom-drop-area text-center p-4 border rounded"
-              >
-                <p>... o arrastra y suelta una imagen aquí.</p>
-              </div>
-
-              <div
-                id="image-container"
-                style={{
-                  display: "none",
-                  width: "316px",
-                  height: "auto",
-                  marginTop: "10px",
-                }}
-              >
-                <div
-                  id="avatar-text"
-                  style={{ color: "black", padding: "3px 8px" }}
-                >
-                  Avatar
-                </div>
-                <img
-                  id="imagePreview"
-                  src={null}
-                  alt="Vista previa"
-                  style={{
-                    width: "100px",
-                    height: "100px",
-                    borderRadius: "50%",
-                    objectFit: "cover",
-                  }}
-                />
+              <div>
                 <button
-                  id="removeImageButton"
-                  type="button"
-                  className="btn btn-danger btn-sm"
-                  style={{ marginTop: "0.5rem", marginBottom: "1rem" }}
+                  type="submit"
+                  className="btn btn-primary register-btn"
+                  style={{ width: "100%", marginLeft: "auto" }}
                 >
-                  Eliminar imagen
+                  Registrarse
                 </button>
-              </div>
-
-              <div className="row">
-                <div className="col-4 mx-auto text-center">
-                  <button
-                    type="submit"
-                    className="btn btn-primary register-btn"
-                  >
-                    Registrarse
-                  </button>
-                </div>
               </div>
             </Form>
 
