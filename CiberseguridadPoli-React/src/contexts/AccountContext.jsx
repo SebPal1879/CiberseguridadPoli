@@ -10,16 +10,15 @@ const BASE_URL = `${API_URL}/signin/authenticated`;
 
 // Contexto para mirar si el usuario está iniciado. De aquí en adelante, guarda la información y controla el header mostrado.
 function AccountProvider({ children }) {
-  const { response, setResponse, loading } = useAuthFetching(
-    TOKEN_KEY,
-    BASE_URL
-  );
+  const { response, setResponse, responseData, setResponseData, loading } =
+    useAuthFetching(TOKEN_KEY, BASE_URL);
 
+  console.log(responseData);
   const responseStatus = response?.status;
   const {
     firstName,
-    userName,
     lastName,
+    userName,
     telephoneNumber,
     profilePictureURL,
     id,
@@ -28,14 +27,14 @@ function AccountProvider({ children }) {
     level,
   } =
     responseStatus >= 200 && responseStatus < 300
-      ? responseInformation(response.data.user_profile_data)
+      ? responseInformation(responseData)
       : "";
   return (
     <AccountContext.Provider
       value={{
         firstName,
-        userName,
         lastName,
+        userName,
         telephoneNumber,
         profilePictureURL,
         id,
@@ -47,6 +46,7 @@ function AccountProvider({ children }) {
 
         responseStatus,
         setResponse,
+        setResponseData,
       }}
     >
       {children}

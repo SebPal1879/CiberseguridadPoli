@@ -3,22 +3,27 @@ import { Link } from "react-router-dom";
 import { useAccountInfo } from "../../contexts/AccountContext";
 import Form from "../../components/Form";
 import Input from "../../components/Input";
+import AvatarPicker from "../../components/AvatarPicker.jsx";
 import { API_URL } from "../../../urls.js";
 import { postRequest } from "../../api/access.api";
 
 const BASE_URL = `${API_URL}/signup/change/`;
+const PFP_UPLOAD = `${API_URL}/signup/image/`;
 
 function AccountPanel() {
   const {
-    id,
+    level,
+    telephoneNumber,
     firstName,
     lastName,
     email,
-    telephoneNumber,
-    program,
-    level,
     profilePictureURL,
+    id,
+    program,
+    setResponseData,
   } = useAccountInfo();
+
+  const token = localStorage.getItem("ciberpoli_token");
 
   const [formLevel, setFormLevel] = useState(level);
   const [formTelephoneNumber, setFormTelephoneNumber] =
@@ -26,7 +31,6 @@ function AccountPanel() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const token = localStorage.getItem("ciberpoli_token");
     const newData = { level: formLevel, telephone: formTelephoneNumber };
 
     async function changeAccountInfo() {
@@ -48,6 +52,34 @@ function AccountPanel() {
     changeAccountInfo();
   }
 
+  async function changeProfilePicture(blob) {
+    try {
+      const formData = new FormData();
+
+      const picture = new File([blob], "image.jpeg", {
+        type: "image/png",
+      });
+
+      formData.append("picture", picture);
+
+      //formData.append("picture", blob);
+
+      const response = await postRequest(PFP_UPLOAD, formData, {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Token ${token}`,
+      });
+      if (response.status === 200) {
+        setResponseData((current) => ({
+          ...current,
+          profile_picture: response.data.user_profile_data,
+        }));
+        alert("Imagen subida con éxito");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="content-wrapper">
       <main className="profile-container">
@@ -65,15 +97,11 @@ function AccountPanel() {
               )}
             </div>
             <div className="avatar-actions">
-              <button className="btn-avatar-change" onClick={() => {}}>
-                <i className="fas fa-camera"></i>
-              </button>
-              <input
-                type="file"
-                id="avatar-upload"
-                accept="image/*"
-                style={{ display: "none" }}
-              />
+              <AvatarPicker onImageCreationHandler={changeProfilePicture}>
+                <div className="btn-avatar-change">
+                  <i className="fas fa-camera" type="file"></i>
+                </div>
+              </AvatarPicker>
             </div>
           </div>
           <div className="profile-info">

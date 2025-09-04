@@ -29,9 +29,11 @@ class ImgUploadView(APIView):
     usuario = User.objects.get(pk=request.user.id)
     perfil = Profile.objects.get(user=usuario)
 
-    perfil.profile_picture = request.FILES.get("imagen")
+    perfil.profile_picture = request.FILES.get("picture")
+    print(request.FILES.get("picture"))
     perfil.save()
-    return Response(data={"mensaje": "Mensaje"},status=status.HTTP_200_OK)
+    print(perfil.profile_picture.url)
+    return Response(data={"mensaje": "Se actualizó correctamente la foto de perfil", "user_profile_data" : perfil.profile_picture.url},status=status.HTTP_200_OK)
   
 class ChangeAccountInfoView(APIView):
   authentication_classes = [TokenAuthentication]

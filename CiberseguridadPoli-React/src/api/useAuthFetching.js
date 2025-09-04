@@ -4,6 +4,7 @@ import { getInformation } from "./access.api";
 // Función para traer información de una API. Recibe una clave para localStorage y una URL.
 function useAuthFetching(key, url) {
   const [response, setResponse] = useState({});
+  const [responseData, setResponseData] = useState(); // Para separar los datos de la respuesta en una variable propia. Se pretende usar solo temporalmente.
   const [loading, setLoading] = useState(false);
   useEffect(
     function () {
@@ -16,6 +17,7 @@ function useAuthFetching(key, url) {
             Authorization: `Token ${item}`,
           });
           setResponse(response);
+          setResponseData(response.data.user_profile_data);
         } catch (error) {
           setResponse(error);
         } finally {
@@ -27,7 +29,7 @@ function useAuthFetching(key, url) {
     [key, url]
   );
 
-  return { response, loading, setResponse };
+  return { response, setResponse, responseData, setResponseData, loading };
 }
 
 export default useAuthFetching;
