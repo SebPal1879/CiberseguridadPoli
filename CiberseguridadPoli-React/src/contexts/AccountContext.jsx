@@ -1,6 +1,7 @@
 import { createContext, useContext } from "react";
 import useAuthFetching from "../api/useAuthFetching";
 import responseInformation from "../functions/responseInformation";
+import Modal from "react-modal";
 
 import { API_URL } from "../../urls";
 import { TOKEN_KEY } from "../../urls";

@@ -6,11 +6,15 @@ import Input from "../../components/Input";
 import AvatarPicker from "../../components/AvatarPicker.jsx";
 import { API_URL } from "../../../urls.js";
 import { postRequest, getInformation } from "../../api/access.api";
+import useCustomModal from "../../components/CustomModal.jsx";
 
 const BASE_URL = `${API_URL}/signup/change/`;
 const PFP_UPLOAD = `${API_URL}/signup/image/`;
 
 function AccountPanel() {
+  const { setShowModal, CustomModal } = useCustomModal();
+  const [modalText, setModalText] = useState("");
+
   const {
     level,
     telephoneNumber,
@@ -98,7 +102,8 @@ function AccountPanel() {
           ...current,
           profile_picture: response.data.user_profile_data,
         }));
-        alert("Imagen subida con éxito");
+        setShowModal(true);
+        setModalText("Se ha cambiado la foto de perfil exitosamente");
       }
     } catch (error) {
       console.log(error);
@@ -107,6 +112,7 @@ function AccountPanel() {
 
   return (
     <div className="content-wrapper">
+      <CustomModal>{modalText}</CustomModal>
       <main className="profile-container">
         <section className="profile-header">
           <div className="profile-avatar-container">
@@ -299,8 +305,8 @@ function AccountPanel() {
 
         <aside className="profile-sidebar">
           <div className="sidebar-card security-card">
-            <div className="card-header">
-              <i className="fas fa-shield-alt"></i>
+            <div className="card-header" style={{ display: "flex" }}>
+              <i className="fas fa-shield-alt">&nbsp;</i>
               <h3>Seguridad de la Cuenta</h3>
             </div>
             <ul className="security-list">
