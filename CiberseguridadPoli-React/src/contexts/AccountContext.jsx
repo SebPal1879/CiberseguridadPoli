@@ -13,7 +13,6 @@ function AccountProvider({ children }) {
   const { response, setResponse, responseData, setResponseData, loading } =
     useAuthFetching(TOKEN_KEY, BASE_URL);
 
-  console.log(responseData);
   const responseStatus = response?.status;
   const {
     firstName,
@@ -27,7 +26,7 @@ function AccountProvider({ children }) {
     level,
   } =
     responseStatus >= 200 && responseStatus < 300
-      ? responseInformation(responseData)
+      ? responseInformation(responseData || response)
       : "";
   return (
     <AccountContext.Provider
