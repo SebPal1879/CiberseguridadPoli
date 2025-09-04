@@ -35,7 +35,6 @@ function ChangePassword() {
       }
     }
     emailPost();
-    console.log("acción");
   }
   return (
     <>

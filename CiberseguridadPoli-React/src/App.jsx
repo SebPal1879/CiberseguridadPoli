@@ -23,24 +23,25 @@ const invalidHeaderRoutes = ["/signin", "/signup", "/challenges/"];
 
 function App() {
   const location = useLocation();
-  const [showHeader, setShowHeader] = useState(false);
+  const [showHeaderFooter, setShowHeaderFooter] = useState(false);
   useEffect(
+    // Función para montar/desmontar el header según la ruta
     function () {
       for (let route of invalidHeaderRoutes) {
         if (location.pathname.startsWith(route)) {
-          console.log("cumplido");
-          setShowHeader(false);
+          setShowHeaderFooter(false);
           return;
         }
       }
-      setShowHeader(true);
+      setShowHeaderFooter(true);
     },
     [location.pathname]
   );
+
   return (
     <>
       <AccountProvider>
-        {showHeader && <HeaderValidator />}
+        {showHeaderFooter && <HeaderValidator />}
         <Routes>
           <Route path="" element={<Home />} />
           <Route path="help-center" element={<HelpCenter />} />
@@ -68,7 +69,7 @@ function App() {
           />
           <Route path="challenges/:id" element={<QuizPage />} />
         </Routes>
-        <FooterValidator />
+        {showHeaderFooter && <FooterValidator />}
       </AccountProvider>
     </>
   );
