@@ -26,7 +26,7 @@ function AccountProvider({ children }) {
     level,
   } =
     responseStatus >= 200 && responseStatus < 300
-      ? responseInformation(responseData || response)
+      ? responseInformation(responseData || response.data.user_profile_data)
       : "";
   return (
     <AccountContext.Provider

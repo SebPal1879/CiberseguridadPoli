@@ -9,8 +9,6 @@ DEBUG = os.environ.get("DEBUG","False").lower() == "true"
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
-MIDDLEWARE.insert(1,'whitenoise.middleware.WhiteNoiseMiddleware')
-
 
 DATABASES = {}
 database_url = os.environ.get("DATABASE_URL")
