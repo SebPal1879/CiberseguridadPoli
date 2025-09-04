@@ -388,7 +388,10 @@ body {
 .profile-info h2 {
   font-size: 1.8rem;
   color: var(--verde-oscuro);
-  margin-bottom: 10px;
+}
+
+.profile-info h5 {
+  color: var(--gris-oscuro);
 }
 
 .profile-meta {

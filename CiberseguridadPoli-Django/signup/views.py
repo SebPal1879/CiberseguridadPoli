@@ -30,9 +30,8 @@ class ImgUploadView(APIView):
     perfil = Profile.objects.get(user=usuario)
 
     perfil.profile_picture = request.FILES.get("picture")
-    print(request.FILES.get("picture"))
     perfil.save()
-    print(perfil.profile_picture.url)
+
     return Response(data={"mensaje": "Se actualizó correctamente la foto de perfil", "user_profile_data" : perfil.profile_picture.url},status=status.HTTP_200_OK)
   
 class ChangeAccountInfoView(APIView):

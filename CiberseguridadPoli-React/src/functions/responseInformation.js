@@ -9,7 +9,7 @@ function responseInformation(responseData) {
   const email = responseData.email;
   const firstName = responseData.first_name;
   const lastName = responseData.last_name;
-  const userName = responseData.user;
+  const userName = responseData.username;
   const telephoneNumber = responseData.telephone_number;
   const level = responseData.level;
   console.log(responseData.profile_picture);

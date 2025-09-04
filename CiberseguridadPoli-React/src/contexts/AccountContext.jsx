@@ -13,6 +13,7 @@ function AccountProvider({ children }) {
   const { response, setResponse, responseData, setResponseData, loading } =
     useAuthFetching(TOKEN_KEY, BASE_URL);
 
+  console.log(responseData);
   const responseStatus = response?.status;
   const {
     firstName,

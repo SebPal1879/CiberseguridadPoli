@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAccountInfo } from "../../contexts/AccountContext";
 import Form from "../../components/Form";
 import Input from "../../components/Input";
 import AvatarPicker from "../../components/AvatarPicker.jsx";
 import { API_URL } from "../../../urls.js";
-import { postRequest } from "../../api/access.api";
+import { postRequest, getInformation } from "../../api/access.api";
 
 const BASE_URL = `${API_URL}/signup/change/`;
 const PFP_UPLOAD = `${API_URL}/signup/image/`;
@@ -16,6 +16,7 @@ function AccountPanel() {
     telephoneNumber,
     firstName,
     lastName,
+    userName,
     email,
     profilePictureURL,
     id,
@@ -23,7 +24,31 @@ function AccountPanel() {
     setResponseData,
   } = useAccountInfo();
 
+  useEffect(
+    function () {
+      async function getProfilePicture() {
+        // Función para comprobar si la foto de perfil existe. Si no, pone profile_picture como string vacío, para que profilePictureURL no renderice el elemento donde se pone la imagen con su src
+        try {
+          await getInformation(profilePictureURL, {
+            Accept: "image/*",
+          });
+        } catch (error) {
+          console.log("falló request " + error);
+          setResponseData((current) => ({
+            ...current,
+            profile_picture: "",
+          }));
+        }
+      }
+      getProfilePicture();
+    },
+    [profilePictureURL, setResponseData]
+  );
+
   const token = localStorage.getItem("ciberpoli_token");
+  const imageRef = useRef();
+
+  console.log(imageRef.current);
 
   const [formLevel, setFormLevel] = useState(level);
   const [formTelephoneNumber, setFormTelephoneNumber] =
@@ -57,7 +82,7 @@ function AccountPanel() {
       const formData = new FormData();
 
       const picture = new File([blob], "image.jpeg", {
-        type: "image/png",
+        type: "image/jpeg",
       });
 
       formData.append("picture", picture);
@@ -91,6 +116,7 @@ function AccountPanel() {
                   src={profilePictureURL}
                   style={{ width: "128px", borderRadius: "50%" }}
                   alt="User profile picture"
+                  ref={imageRef}
                 />
               ) : (
                 <i className="fas fa-user"></i>
@@ -110,6 +136,7 @@ function AccountPanel() {
               {` `}
               {lastName}{" "}
             </h2>
+            <h5>Usuario: {userName}</h5>
             <div className="profile-meta">
               <span className="profile-role">
                 <i className="fas fa-user-tag"></i> Estudiante
