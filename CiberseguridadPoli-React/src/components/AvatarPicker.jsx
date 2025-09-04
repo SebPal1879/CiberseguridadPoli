@@ -104,8 +104,6 @@ function AvatarPicker({ onImageCreationHandler, children }) {
                 display: "block",
                 marginLeft: "auto",
               }}
-              alt=""
-              srcset=""
               onClick={onCloseModal}
             />
           </div>
@@ -120,6 +118,7 @@ function AvatarPicker({ onImageCreationHandler, children }) {
             onCropChange={setCrop}
             onCropComplete={onCropComplete}
             onZoomChange={setZoom}
+            zoomSpeed={0.05}
           />
         </div>
         <button onClick={() => cropImage(archivo, cropeado)}>Guardar</button>

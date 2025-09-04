@@ -29,12 +29,6 @@ function HeaderValidator() {
 
   const { responseStatus } = useAccountInfo();
 
-  if (
-    location.pathname.startsWith("/signin") ||
-    location.pathname.startsWith("/signup") ||
-    location.pathname.startsWith("/challenges/")
-  )
-    return;
   if (firstRender) return;
   return (
     <>

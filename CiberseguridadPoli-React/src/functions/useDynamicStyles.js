@@ -7,6 +7,7 @@ function useDynamicStyles() {
   const [hasLoadedStyles, setHasLoadedStyles] = useState(false);
   useEffect(
     function () {
+      console.log("useDynamic " + hasLoadedStyles);
       const stylesArray = neededStyles
         .map((element) => element?.styleRoutes)
         .flat();
