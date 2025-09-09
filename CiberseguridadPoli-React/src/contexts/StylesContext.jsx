@@ -1,15 +1,22 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useRef } from "react";
 import useDynamicStyles from "../functions/useDynamicStyles";
 
 const StyleContext = createContext();
 
 function StyleProvider({ children }) {
-  const { hasLoadedStyles, setNeededStyles, setHasLoadedStyles } =
+  const { neededStyles, hasLoadedStyles, setNeededStyles, setHasLoadedStyles } =
     useDynamicStyles();
+  const componentStyleList = useRef([]);
 
   return (
     <StyleContext.Provider
-      value={{ hasLoadedStyles, setNeededStyles, setHasLoadedStyles }}
+      value={{
+        hasLoadedStyles,
+        neededStyles,
+        setNeededStyles,
+        setHasLoadedStyles,
+        componentStyleList,
+      }}
     >
       {children}
     </StyleContext.Provider>

@@ -24,6 +24,7 @@ function useDynamicStyles() {
       const presentStyles = new Set(
         presentStylesArray.map((element) => new URL(element).pathname)
       );
+
       // 3. Se hace un conjunto a través de diferencia de conjuntos de los estilos solicitados pero no presentes en el DOM
       const missingStyles = neededStylePaths.difference(presentStyles);
 
@@ -69,7 +70,7 @@ function useDynamicStyles() {
     [neededStyles]
   );
 
-  return { hasLoadedStyles, setNeededStyles, setHasLoadedStyles };
+  return { hasLoadedStyles, setNeededStyles, setHasLoadedStyles, neededStyles };
 }
 
 export default useDynamicStyles;

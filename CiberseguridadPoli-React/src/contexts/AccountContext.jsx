@@ -1,10 +1,11 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import useAuthFetching from "../api/useAuthFetching";
 import responseInformation from "../functions/responseInformation";
 import Modal from "react-modal";
 
 import { API_URL } from "../../urls";
 import { TOKEN_KEY } from "../../urls";
+import { getInformation } from "../api/access.api";
 const AccountContext = createContext();
 
 const BASE_URL = `${API_URL}/signin/authenticated`;
@@ -28,8 +29,36 @@ function AccountProvider({ children }) {
     level,
   } =
     responseStatus >= 200 && responseStatus < 300
-      ? responseInformation(responseData || response.data.user_profile_data)
+      ? responseInformation(response.data.user_profile_data || responseData)
       : "";
+
+  useEffect(
+    function () {
+      async function getProfilePicture() {
+        // Función para comprobar si la foto de perfil existe. Si no, pone profile_picture como string vacío, para que profilePictureURL no renderice el elemento donde se pone la imagen con su src
+        try {
+          console.log(profilePictureURL);
+          await getInformation(profilePictureURL, {
+            Accept: "image/*",
+          });
+        } catch (error) {
+          console.log("falló request " + error);
+          setResponse((current) => ({
+            ...current,
+            data: {
+              ...current.data,
+              user_profile_data: {
+                ...current.data?.user_profile_data,
+                profile_picture: "",
+              },
+            },
+          }));
+        }
+      }
+      getProfilePicture();
+    },
+    [profilePictureURL, setResponse]
+  );
   return (
     <AccountContext.Provider
       value={{

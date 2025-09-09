@@ -16,6 +16,7 @@ function useAuthFetching(key, url) {
           const response = await getInformation(url, {
             Authorization: `Token ${item}`,
           });
+          console.log(response);
           setResponse(response);
           setResponseData(response.data.user_profile_data);
         } catch (error) {
