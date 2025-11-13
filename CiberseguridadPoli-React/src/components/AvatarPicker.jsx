@@ -18,14 +18,14 @@ const maxSize = 1080;
 function AvatarPicker({ onImageCreationHandler, children }) {
   const [openModal, setOpenModal] = useState(false);
   const [archivo, setArchivo] = useState("");
-  const [cropeado, setCropeado] = useState({});
+  const [cropped, setCropped] = useState({});
   const ref = useRef();
 
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
 
   const onCropComplete = (croppedArea, croppedAreaPixels) => {
-    setCropeado(croppedAreaPixels);
+    setCropped(croppedAreaPixels);
   };
 
   function onCloseModal() {
@@ -121,7 +121,21 @@ function AvatarPicker({ onImageCreationHandler, children }) {
             zoomSpeed={0.05}
           />
         </div>
-        <button onClick={() => cropImage(archivo, cropeado)}>Guardar</button>
+        <div style={{ width: "100%", display: "flex" }}>
+          <button
+            style={{
+              marginLeft: "auto",
+              marginRight: "auto",
+              borderRadius: "19px",
+              width: "80px",
+              marginTop: "10px",
+              height: "30px",
+            }}
+            onClick={() => cropImage(archivo, cropped)}
+          >
+            Guardar
+          </button>
+        </div>
       </Modal>
     </>
   );
