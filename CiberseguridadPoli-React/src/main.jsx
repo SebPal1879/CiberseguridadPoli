@@ -7,9 +7,9 @@ import App from "./App.jsx";
 import "./fonts.css";
 
 createRoot(document.getElementById("root")).render(
-  <StyleProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <StyleProvider>
       <App />
-    </BrowserRouter>
-  </StyleProvider>
+    </StyleProvider>
+  </BrowserRouter>,
 );

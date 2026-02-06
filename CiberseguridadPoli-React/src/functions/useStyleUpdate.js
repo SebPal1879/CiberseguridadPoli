@@ -13,25 +13,18 @@ function useStyleUpdate(styleRoutes) {
 
   useEffect(
     function () {
-      // Si no hay nada, es porque hay que agregar estilos a la lista
-      if (!componentStyleList.current.length) {
-        componentStyleList.current.push(styleRoutes);
-        setHasLoadedStyles(false);
-        setNeededStyles((current) => [...current, styleRoutes]);
-        return;
-      }
-
       // Toma las listas de estilos actuales
       const currentRequestedSheets = new Set(
-        componentStyleList.current.map((el) => el?.styleRoutes).flat()
+        componentStyleList.current.map((el) => el?.styleRoutes).flat(),
       );
 
       // Toma las hojas de estilos solicitadas por el componente que entra
       const componentSheets = new Set(styleRoutes.styleRoutes);
 
       // Hace la diferencia de cuáles hojas de estilos se necesitan
-      const missingStyleSheets =
-        currentRequestedSheets.difference(componentSheets);
+      const missingStyleSheets = componentSheets.difference(
+        currentRequestedSheets,
+      );
 
       // Agrega los estilos solicitados al state existente
       if (missingStyleSheets.size > 0) {
@@ -46,7 +39,7 @@ function useStyleUpdate(styleRoutes) {
 
       // Quita los estilos que están en unmounting del ref
       componentStyleList.current = componentStyleList.current.filter(
-        (element) => !element.unmounting
+        (element) => !element.unmounting,
       );
 
       // Agrega a la lista los estilos ya montados para referencia de otros componentes
@@ -62,7 +55,7 @@ function useStyleUpdate(styleRoutes) {
         }
       };
     },
-    [setNeededStyles, styleRoutes, setHasLoadedStyles, componentStyleList]
+    [setNeededStyles, styleRoutes, setHasLoadedStyles, componentStyleList],
   );
 
   return hasLoadedStyles;
